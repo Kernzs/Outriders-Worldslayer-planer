@@ -22,7 +22,11 @@
   --shadow: 0 4px 18px rgba(0,0,0,.55);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: #3a3f4d transparent; }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2f3441; border-radius: 5px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); background-clip: content-box; }
 html, body { margin: 0; padding: 0; }
 body {
   background:
@@ -356,6 +360,40 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .cl-patch { border-left: 2px solid var(--line); padding-left: 10px; margin-bottom: 8px; }
 .cl-patch-ver { font-size: 10.5px; letter-spacing: .04em; color: var(--accent-2); margin-bottom: 4px; font-weight: 600; }
 .modal .btn { width: 100%; margin-top: 12px; }
+.modal.wide { max-width: 720px; }
+
+/* ---- Build recap ---- */
+.recap-body { max-height: 64vh; overflow: hidden auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; align-items: start; padding-right: 4px; }
+.rc-col { min-width: 0; }
+.rc-sec { margin-bottom: 14px; min-width: 0; }
+.rc-sec h3 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 7px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+.rc-line { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; padding: 2px 0; }
+.rc-line b { color: var(--accent-2); font-variant-numeric: tabular-nums; }
+.rc-empty { font-size: 12px; color: var(--txt-faint); font-style: italic; }
+.rc-grp { margin-bottom: 7px; }
+.rc-grp-h { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--tech); margin-bottom: 3px; }
+.rc-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.rc-chip { font-size: 10.5px; padding: 2px 7px; border-radius: 3px; background: var(--bg-elev); border: 1px solid var(--line); color: var(--txt-dim); }
+.rc-skills { display: flex; flex-direction: column; gap: 5px; }
+.rc-skill { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--txt); }
+.rc-skill img { width: 22px; height: 22px; border-radius: 4px; background: var(--bg-panel); }
+.rc-gear { margin-bottom: 7px; }
+.rc-gear-h { font-size: 12px; color: var(--txt); }
+.rc-slot { font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--txt-faint); margin-right: 4px; }
+.rc-gear-attrs { font-size: 11px; color: var(--tech); margin-top: 1px; }
+.rc-gear-mods { font-size: 11px; color: var(--accent-2); margin-top: 1px; }
+.rc-sec.full { grid-column: 1 / -1; }
+.rc-sub { font-size: 11px; color: var(--tech); font-weight: 600; letter-spacing: 0; text-transform: none; }
+.rc-svg { height: 150px; width: auto; max-width: 100%; display: block; margin: 0 auto; background: #0c0e13; border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 6px; box-sizing: border-box; }
+.rc-edge { stroke: #2b2f3a; }
+.rc-edge.on { stroke: var(--accent); }
+.rc-node { fill: #14161c; stroke: #4a5060; }
+.rc-node.on { fill: var(--accent); stroke: #fff; }
+.rc-node.core { stroke: var(--tech); }
+.rc-node.core.on { fill: var(--tech); stroke: #fff; }
+.recap-actions { display: flex; gap: 10px; margin-top: 14px; }
+.recap-actions .btn { margin-top: 0; }
+@media (max-width: 620px) { .recap-body { grid-template-columns: 1fr; } }
 
 @media (max-width: 940px) {
   .layout { grid-template-columns: 1fr; }

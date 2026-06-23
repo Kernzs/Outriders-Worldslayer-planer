@@ -7,8 +7,16 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.10.1";
+  const APP_VERSION = "1.11.0";
   const CHANGELOG = [
+    {
+      version: "1.11.0", date: "2026-06-23", title: "Build recap",
+      items: [
+        "New 'Build recap' button: a one-screen visual summary of the whole build — no need to click through tabs.",
+        "The class tree and PAX show as mini trees with lit/dim nodes; plus skills, ascension, gear & mods, stats.",
+        "'Copy recap link' shares a link that opens straight into that recap.",
+      ],
+    },
     {
       version: "1.10.0", date: "2026-06-23", title: "Search, filtering & QoL",
       patches: [ // newest first; nested under the minor version
@@ -970,6 +978,103 @@
     document.body.appendChild(back);
   }
 
+  // ===== Build recap (shareable one-screen summary) =====
+  // A compact node+link schematic (no background) cropped to the nodes' bounds.
+  function miniGraphSvg(nodes, edges) {
+    if (!nodes.length) return '<span class="rc-empty">none</span>';
+    const pad = 30;
+    const xs = nodes.map((n) => n.x), ys = nodes.map((n) => n.y);
+    const minx = Math.min(...xs) - pad, miny = Math.min(...ys) - pad;
+    const w = Math.max(...xs) + pad - minx, h = Math.max(...ys) + pad - miny;
+    const rMin = w * 0.011, rBig = w * 0.016, rCore = w * 0.024, sw = w * 0.004;
+    const lines = edges.map((e) => `<line x1="${e.x1}" y1="${e.y1}" x2="${e.x2}" y2="${e.y2}" stroke-width="${(e.on ? sw * 1.5 : sw).toFixed(1)}" class="rc-edge${e.on ? " on" : ""}"/>`).join("");
+    const circ = nodes.map((n) => {
+      const r = n.core ? rCore : n.big ? rBig : rMin;
+      return `<circle cx="${n.x}" cy="${n.y}" r="${r.toFixed(1)}" stroke-width="${(sw * 0.8).toFixed(1)}" class="rc-node${n.on ? " on" : ""}${n.core ? " core" : ""}"><title>${esc(n.name)}</title></circle>`;
+    }).join("");
+    return `<svg class="rc-svg" viewBox="${minx.toFixed(0)} ${miny.toFixed(0)} ${w.toFixed(0)} ${h.toFixed(0)}" preserveAspectRatio="xMidYMid meet">${lines}${circ}</svg>`;
+  }
+  function recapBody() {
+    const chips = (arr) => arr.length ? `<div class="rc-chips">${arr.map((x) => `<span class="rc-chip">${esc(x)}</span>`).join("")}</div>` : `<span class="rc-empty">—</span>`;
+    const usedTree = state.tree.size - 1, ascTotal = Object.values(state.asc).reduce((a, b) => a + b, 0);
+
+    // LEFT column: points first, then the two tree schematics, then short sections
+    const left = [];
+    left.push(`<div class="rc-sec"><h3>Points</h3>
+      <div class="rc-line"><span>Class Tree</span><b>${usedTree}/${CLASS_POINTS}</b></div>
+      <div class="rc-line"><span>PAX</span><b>${state.pax.size}/${PAX_POINTS}</b></div>
+      <div class="rc-line"><span>Ascension</span><b>${ascTotal}/${ASC_TOTAL}</b></div></div>`);
+    const tNodes = TREE.filter((n) => n.x != null).map((n) => { const c = nodeCenter(n); return { x: c.cx, y: c.cy, on: state.tree.has(n.id), core: n.kind === 2, big: n.kind === 1, name: n.name }; });
+    const tEdges = []; const tseen = new Set();
+    for (const n of TREE) {
+      if (n.x == null) continue; const a = nodeCenter(n);
+      for (const p of n.prereqs) { const pr = treeById[p]; if (!pr || pr.x == null) continue; const k = Math.min(n.id, p) + "-" + Math.max(n.id, p); if (tseen.has(k)) continue; tseen.add(k); const b = nodeCenter(pr); tEdges.push({ x1: a.cx, y1: a.cy, x2: b.cx, y2: b.cy, on: state.tree.has(n.id) && state.tree.has(p) }); }
+    }
+    left.push(`<div class="rc-sec"><h3>Class Tree <span class="rc-sub">${usedTree}/${CLASS_POINTS}</span></h3>${miniGraphSvg(tNodes, tEdges)}</div>`);
+
+    const pNodes = [], pEdges = [];
+    for (const br of PAXDATA.branches) {
+      const prMap = paxPrereqMap(br), big = paxBigSet(br), byName = {};
+      br.nodes.forEach((n) => (byName[n.name] = n));
+      br.nodes.filter((n) => n.x != null).forEach((n) => pNodes.push({ x: n.x, y: n.y, on: state.pax.has(br.name + "::" + n.name), big: big.has(n.name), name: n.name }));
+      const seen = new Set();
+      for (const n of br.nodes) {
+        if (n.x == null) continue;
+        for (const pn of (prMap[n.name] || [])) { const p = byName[pn]; if (!p || p.x == null) continue; const k = [n.name, pn].sort().join("|"); if (seen.has(k)) continue; seen.add(k); pEdges.push({ x1: n.x, y1: n.y, x2: p.x, y2: p.y, on: state.pax.has(br.name + "::" + n.name) && state.pax.has(br.name + "::" + pn) }); }
+      }
+    }
+    left.push(`<div class="rc-sec"><h3>PAX <span class="rc-sub">${state.pax.size}/${PAX_POINTS}</span></h3>${miniGraphSvg(pNodes, pEdges)}</div>`);
+
+    // LEFT also gets the short text sections (Skills, Ascension) for balance
+    const sk = [...state.skills].map((n) => { const s = SKILLS.find((x) => x.name === n); const ic = s && skillIcon(s); return `<span class="rc-skill">${ic ? `<img src="${ic}" alt="">` : ""}${esc(n)}</span>`; }).join("");
+    left.push(`<div class="rc-sec"><h3>Active Skills</h3>${state.skills.size ? `<div class="rc-skills">${sk}</div>` : '<span class="rc-empty">none</span>'}</div>`);
+
+    const asc = D.ascension.categories.map((cat) => {
+      const lines = cat.nodes.filter((n) => state.asc[cat.name + "::" + n.name]).map((n) => `${n.name} +${ascValue(n, state.asc[cat.name + "::" + n.name])}${n.unit}`);
+      return lines.length ? `<div class="rc-grp"><div class="rc-grp-h">${esc(cat.name)}</div>${chips(lines)}</div>` : "";
+    }).join("");
+    left.push(`<div class="rc-sec"><h3>Ascension</h3>${asc || '<span class="rc-empty">none</span>'}</div>`);
+
+    // RIGHT column: the longer sections (gear, sets, stats)
+    const right = [];
+    const gearLine = (label, slot) => {
+      const g = state.gear[slot]; if (!g.item) return "";
+      const title = g.item === EPIC ? ("Epic " + [g.type, g.variant].filter(Boolean).join(" ")).trim() : g.item;
+      const attrs = g.item === EPIC ? g.attrs.filter(Boolean) : ((findGearItem(slot, g.item) || {}).specialStats || []);
+      const mods = modsOfSlot(slot);
+      return `<div class="rc-gear"><div class="rc-gear-h"><span class="rc-slot">${esc(label)}</span> ${esc(title)}</div>${attrs.length ? `<div class="rc-gear-attrs">${attrs.map(esc).join(" · ")}</div>` : ""}${mods.length ? `<div class="rc-gear-mods">${mods.map(esc).join(" · ")}</div>` : ""}</div>`;
+    };
+    const gear = WEAPON_SLOTS.map((w) => gearLine(w.label, w.key)).join("") + ARMOR_SLOTS.map((s) => gearLine(s, s)).join("");
+    right.push(`<div class="rc-sec"><h3>Gear</h3>${gear || '<span class="rc-empty">none</span>'}</div>`);
+
+    const sets = equippedSets(), sn = Object.keys(sets);
+    if (sn.length) right.push(`<div class="rc-sec"><h3>Set Bonuses</h3>${sn.map((n) => `<div class="rc-line"><span>${esc(n)}</span><b style="color:${sets[n].count >= 3 ? "var(--good)" : "var(--txt-faint)"}">${sets[n].count} pc${sets[n].count >= 3 ? " ✓" : ""}</b></div>`).join("")}</div>`);
+
+    if (dupMods.size) right.push(`<div class="rc-sec"><h3 style="color:var(--bad)">⚠ Duplicate mods</h3>${chips([...dupMods])}</div>`);
+
+    return `<div class="rc-col">${left.join("")}</div><div class="rc-col">${right.join("")}</div>`;
+  }
+  function openRecap() {
+    const back = el("div", "modal-back");
+    const card = el("div", "modal wide");
+    card.innerHTML = `<div class="modal-head"><h2>Build recap</h2><span class="modal-ver">${esc(state.cls.toUpperCase())}</span></div><div class="recap-body">${recapBody()}</div>`;
+    const actions = el("div", "recap-actions");
+    const copyBtn = el("button", "btn btn-accent", "Copy recap link");
+    copyBtn.onclick = async () => {
+      writeHash();
+      const url = location.origin + location.pathname + "?recap=1" + location.hash;
+      try { await navigator.clipboard.writeText(url); copyBtn.textContent = "Copied!"; setTimeout(() => (copyBtn.textContent = "Copy recap link"), 1200); }
+      catch { toast("Copy failed — link is in the address bar"); }
+    };
+    const closeBtn = el("button", "btn btn-ghost", "Close");
+    closeBtn.onclick = () => back.remove();
+    actions.append(copyBtn, closeBtn);
+    card.appendChild(actions);
+    back.appendChild(card);
+    back.onclick = (e) => { if (e.target === back) back.remove(); };
+    document.body.appendChild(back);
+  }
+
   // ===== Misc =====
   let toastTimer;
   function toast(msg) {
@@ -991,11 +1096,13 @@
       catch { toast("Copy failed — link is in the address bar"); }
     };
     const wn = $("#btn-whatsnew"); if (wn) wn.onclick = () => openChangelog(true);
+    const rc = $("#btn-recap"); if (rc) rc.onclick = openRecap;
     readHash();
     loadClass();
     $(".layout").classList.add("full-tree"); // Class Tree is the default tab
     render();
-    openChangelog(false);
+    if (new URLSearchParams(location.search).get("recap")) openRecap(); // shared recap link
+    else openChangelog(false);
   }
   document.addEventListener("DOMContentLoaded", init);
 })();

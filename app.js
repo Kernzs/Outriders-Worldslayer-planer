@@ -7,8 +7,12 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.7.0";
+  const APP_VERSION = "1.8.0";
   const CHANGELOG = [
+    {
+      version: "1.8.0", date: "2026-06-23", title: "Much shorter share links",
+      items: ["Build links are now ~20× shorter (a full build went from ~2240 to ~100 characters). Old links from before this update no longer load."],
+    },
     {
       version: "1.7.0", date: "2026-06-23", title: "Legendary mod swapping",
       items: [
@@ -749,22 +753,86 @@
     });
   }
 
-  // ===== Share via URL hash =====
+  // ===== Share via URL hash (compact, index-based) =====
+  // Everything is stored as indices into the data arrays instead of full names,
+  // then base64url-encoded — keeps shared links short.
+  const HASH_FMT = 2;
+  const GEAR_ORDER = [...WEAPON_SLOTS.map((w) => w.key), ...ARMOR_SLOTS];
+  const b64e = (s) => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const b64d = (s) => decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))));
+  const isWeaponSlot = (k) => WEAPON_SLOTS.some((w) => w.key === k);
+  const slotItems = (k) => (isWeaponSlot(k) ? D.weapons : D.classes[state.cls].armor);
+  const paxFlatKeys = () => D.classes[state.cls].pax.branches.flatMap((b) => b.nodes.map((n) => b.name + "::" + n.name));
+  const ascFlatKeys = () => D.ascension.categories.flatMap((c) => c.nodes.map((n) => c.name + "::" + n.name));
+  const skillNames = () => D.classes[state.cls].skills.skills.map((s) => s.name);
+  const modIdx = (n) => D.mods.findIndex((m) => m.name === n);
+  const modNm = (i) => D.mods[i]?.name || "";
+
+  function encGear(k) {
+    const g = state.gear[k];
+    if (!g.item) return 0;
+    const w = isWeaponSlot(k);
+    if (g.item === EPIC) {
+      const pool = w ? weaponAttrPool() : armorAttrPool();
+      const ti = w ? ALL_TYPES.indexOf(g.type) : -1;
+      const vi = w && g.type ? (VARIANTS_BY_TYPE[g.type] || []).indexOf(g.variant) : -1;
+      return [1, ti, vi, g.attrs.filter(Boolean).map((a) => pool.indexOf(a)).filter((i) => i >= 0), g.mods.filter(Boolean).map(modIdx).filter((i) => i >= 0)];
+    }
+    return [2, slotItems(k).findIndex((x) => x.name === g.item),
+      g.factory[0] != null ? modIdx(g.factory[0]) : -1,
+      g.factory[1] != null ? modIdx(g.factory[1]) : -1,
+      g.mods[0] ? modIdx(g.mods[0]) : -1];
+  }
+  function decGear(k, e) {
+    const g = blankGear();
+    if (!e || e === 0) return g;
+    const w = isWeaponSlot(k);
+    if (e[0] === 1) {
+      g.item = EPIC;
+      g.type = w && e[1] >= 0 ? ALL_TYPES[e[1]] : "";
+      g.variant = w && g.type && e[2] >= 0 ? (VARIANTS_BY_TYPE[g.type] || [])[e[2]] || "" : "";
+      const pool = w ? weaponAttrPool() : armorAttrPool();
+      g.attrs = (e[3] || []).map((i) => pool[i]).filter(Boolean);
+      g.mods = (e[4] || []).map(modNm).filter(Boolean);
+    } else if (e[0] === 2) {
+      g.item = slotItems(k)[e[1]]?.name || "";
+      if (e[2] >= 0) g.factory[0] = modNm(e[2]);
+      if (e[3] >= 0) g.factory[1] = modNm(e[3]);
+      if (e[4] >= 0) g.mods[0] = modNm(e[4]);
+    }
+    return g;
+  }
+
   function writeHash() {
-    const payload = { c: state.cls, t: [...state.tree], p: [...state.pax], a: state.asc, s: [...state.skills], g: state.gear };
-    history.replaceState(null, "", "#" + btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
+    const pax = paxFlatKeys(), asc = ascFlatKeys(), sk = skillNames();
+    const A = [];
+    asc.forEach((key, i) => { if (state.asc[key]) A.push(i, state.asc[key]); });
+    const payload = [
+      HASH_FMT,
+      CLASS_LIST.indexOf(state.cls),
+      [...state.tree].filter((id) => id !== 0),
+      [...state.pax].map((k) => pax.indexOf(k)).filter((i) => i >= 0),
+      A,
+      [...state.skills].map((n) => sk.indexOf(n)).filter((i) => i >= 0),
+      GEAR_ORDER.map(encGear),
+    ];
+    history.replaceState(null, "", "#" + b64e(JSON.stringify(payload)));
   }
   function readHash() {
     if (!location.hash || location.hash.length < 2) return;
     try {
-      const o = JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))));
-      if (CLASS_LIST.includes(o.c)) state.cls = o.c;
-      state.tree = new Set(o.t || [0]); state.tree.add(0);
-      state.pax = new Set(o.p || []);
-      state.asc = o.a || {};
-      state.skills = new Set(o.s || []);
+      const o = JSON.parse(b64d(location.hash.slice(1)));
+      if (!Array.isArray(o) || o[0] !== HASH_FMT) return; // unknown/old format → ignore
+      if (CLASS_LIST[o[1]]) state.cls = CLASS_LIST[o[1]];
+      loadClass(); // so class-specific lookups (armor, pax, skills) resolve correctly
+      state.tree = new Set([0, ...(o[2] || [])]);
+      const pax = paxFlatKeys(), asc = ascFlatKeys(), sk = skillNames();
+      state.pax = new Set((o[3] || []).map((i) => pax[i]).filter(Boolean));
+      state.asc = {};
+      const A = o[4] || []; for (let i = 0; i < A.length; i += 2) if (asc[A[i]]) state.asc[asc[A[i]]] = A[i + 1];
+      state.skills = new Set((o[5] || []).map((i) => sk[i]).filter(Boolean));
       const g = freshGear();
-      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [], type: o.g[k].type || "", variant: o.g[k].variant || "", factory: o.g[k].factory || [] };
+      (o[6] || []).forEach((e, i) => { g[GEAR_ORDER[i]] = decGear(GEAR_ORDER[i], e); });
       state.gear = g;
     } catch (e) { console.warn("Bad build hash", e); }
   }

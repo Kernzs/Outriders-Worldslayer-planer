@@ -10,14 +10,20 @@ const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const iconFiles = readdirSync("assets/skills").filter((f) => /\.(png|webp)$/.test(f));
 const iconByNorm = Object.fromEntries(iconFiles.map((f) => [norm(f.replace(/\.(png|webp)$/, "")), f]));
 
+// PAX node icons (GamerGuides), mapped by normalized node name.
+let paxIcons = {};
+try { paxIcons = JSON.parse(readFileSync("data/pax-icons.json", "utf8")); } catch {}
+
 const classes = {};
 for (const cls of CLASSES) {
   const skills = read(`classes/${cls}.skills.json`);
   for (const s of skills.skills) s.icon = iconByNorm[norm(s.name)] || null;
+  const pax = read(`classes/${cls}.pax.json`);
+  for (const b of pax.branches) for (const n of b.nodes) n.icon = paxIcons[norm(n.name)] || null;
   classes[cls] = {
     skilltree: read(`classes/${cls}.skilltree.json`),
     skills,
-    pax: read(`classes/${cls}.pax.json`),
+    pax,
     armor: read(`classes/${cls}.armor.json`),
   };
 }

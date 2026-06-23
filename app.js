@@ -7,8 +7,12 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.1.0";
+  const APP_VERSION = "1.2.0";
   const CHANGELOG = [
+    {
+      version: "1.2.0", date: "2026-06-23", title: "PAX icons",
+      items: ["PAX tree nodes now show their in-game icons."],
+    },
     {
       version: "1.1.0", date: "2026-06-23", title: "Visuals, weapons & epics",
       items: [
@@ -293,8 +297,9 @@
         for (const n of nodes) {
           const key = branch.name + "::" + n.name;
           const sel = state.pax.has(key);
-          const btn = el("button", "node" + (sel ? " sel" : ""));
-          btn.innerHTML = `<div class="node-name">${esc(n.name)}</div><div class="node-bonus">${esc(n.desc)}</div>`;
+          const btn = el("button", "node pax-node" + (sel ? " sel" : ""));
+          const icon = n.icon ? `<img class="pax-icon" src="assets/pax/${encodeURIComponent(n.icon)}" alt="">` : `<span class="pax-icon ph"></span>`;
+          btn.innerHTML = `<div class="pax-row">${icon}<div class="pax-text"><div class="node-name">${esc(n.name)}</div><div class="node-bonus">${esc(n.desc)}</div></div></div>`;
           btn.onclick = () => {
             if (sel) state.pax.delete(key);
             else { if (state.pax.size >= PAX_POINTS) return toast(`PAX is capped at ${PAX_POINTS} points`); state.pax.add(key); }

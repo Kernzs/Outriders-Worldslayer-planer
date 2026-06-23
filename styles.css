@@ -244,6 +244,12 @@ body {
 .tip-bonus { color: var(--txt-dim); line-height: 1.5; }
 .tip-bonus b { color: var(--tech); }
 
+/* ---- PAX node icon ---- */
+.pax-row { display: flex; align-items: center; gap: 9px; }
+.pax-icon { width: 34px; height: 34px; flex: 0 0 auto; border-radius: 5px; object-fit: contain; background: var(--bg-panel); }
+.pax-icon.ph { background: var(--bg-elev); border: 1px dashed var(--line); }
+.pax-text { min-width: 0; }
+
 /* ---- Skill card icon ---- */
 .sk-head { display: flex; align-items: center; gap: 8px; }
 .sk-icon { width: 28px; height: 28px; border-radius: 4px; background: var(--bg-panel); flex: 0 0 auto; object-fit: contain; }

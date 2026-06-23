@@ -1,5 +1,29 @@
 [
   {
+    "name": "A Little Bit Of Pain",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Using the skill deals [210% of Anomaly Power] damage over 6 seconds to affected targets.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Abrasion",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Decrease enemy Resistance by 20% for 5 seconds.",
+    "source": "*"
+  },
+  {
+    "name": "Additional Mag",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: The skill is effective for 2 magazines before triggering the Cooldown.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
     "name": "Advanced Rockets",
     "tier": 1,
     "type": "Technomancer",
@@ -8,11 +32,67 @@
     "source": "This mod can be found on gloves."
   },
   {
+    "name": "Anomalic Caliber",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: Receive 30% Resistance Piercing bonus while the skill is active.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Anomaly Cut",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Shots on enemies marked by the knife receive X Anomaly Damage.",
+    "source": null
+  },
+  {
+    "name": "Anomaly Hunger",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Increases the skill's damage by the value of your Skill Leech.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
     "name": "Anomaly Surge",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Critical shots spawn an Anomaly energy blast that deals 431,856 damage in a 2 meter radius. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Apply Shield",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Killing enemies with Temporal Blade grants 10% of Shield.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Armor Boost",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Grants you X points of Armor for each enemy affected by the skill. Effect lasts for 10 seconds. Stacks up to 10 times.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Armor Melting",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: Decreases the target's Armor by 30% for 10 seconds.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Armor of Eons",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: While the skill is active, increase your Armor by 30%.",
     "source": null
   },
   {
@@ -24,12 +104,60 @@
     "source": null
   },
   {
+    "name": "Ash Armor Down",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Decreases enemy Armor by 50% for 5 seconds.",
+    "source": "This mod can be found on"
+  },
+  {
+    "name": "Ash Grasp",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Inflict Ash on enemies within a 7.5 meter radius of an enemy that is about to explode from Thermal Bomb.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Ash Increase Range",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Increases the skill's range by 66%.",
+    "source": "This mod can be found on -tbd-"
+  },
+  {
     "name": "Ashen Bullets",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots inflict Ash on enemies. (Cooldown: 8s)",
     "source": null
+  },
+  {
+    "name": "Atomization",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Enemies entering the sphere are afflicted with Vulnerable.",
+    "source": null
+  },
+  {
+    "name": "Auto Reflect",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: You can now fight while the skill is active, but you cannot manually deactivate the skill. It only negates 50% of the damage.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Backstabber",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Using the skill deals 2,334,360 damage to the enemy you teleported behind.",
+    "source": "This mod can be found on gloves."
   },
   {
     "name": "Bang for your Buck",
@@ -48,12 +176,92 @@
     "source": null
   },
   {
+    "name": "Big Boom",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Increases explosion radius by 20%.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Big Range",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Increases the sphere's range by 2 meters.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Blacksmith",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Each status condition consumed by the skill grants 130,011 Armor bonus for 8 seconds. Stacks up to 5 times,",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Bleed Them All",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Inflicts Bleed on all the enemies pulled by the skill.",
+    "source": "This mod can be found on footgear."
+  },
+  {
     "name": "Bleeding Bullets",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots inflict Bleed on an enemy. (Cooldown: 8s)",
     "source": null
+  },
+  {
+    "name": "Bleeding Impulse",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: When the skill is active, spawn radial impulses that inflict bleed on nearby enemies within a 10 meter radius. Frequency of 2 seconds.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Blood Primer",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: All the reflected bullets apply Bleed status.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Blood Shock",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Inflicts Bleed on enemies affected by the skill.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Bloody Crush",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Gravity Leap: Inflicts Bleed on enemies damaged by the skill.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Blue Blood",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: Receive 10% Skill Leech bonus while the skill is active.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Bone Crusher",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Increases the skill's damage by X.",
+    "source": "This mod can be found on lower armor."
   },
   {
     "name": "Bonus Duration",
@@ -64,12 +272,52 @@
     "source": "This mod can be found on footgear."
   },
   {
+    "name": "Bullet Absorption",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Replenishes 40% of ammo in your magazine for every enemy affected by the skill.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Bullet Acceleration",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: Increases the damage of reflected bullets by 3,501,540.",
+    "source": "This mod can be found on gloves."
+  },
+  {
     "name": "Burning Bullets",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots inflict Burn on enemies. (Cooldown: 8s)",
     "source": null
+  },
+  {
+    "name": "Burning Ground",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Exploding targets leave behind a patch of burning ground. All enemies within this area are afflicted with Burn and will receive [60% of Anomaly Power] damage over 5 seconds.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Burnt-out",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Damaged enemies take 25% more damage for 8 seconds.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Cinders",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: The skill consumes Ash instead of Burn.",
+    "source": "This mod can be found on lower armor."
   },
   {
     "name": "Cleansing Wind",
@@ -120,12 +368,44 @@
     "source": null
   },
   {
+    "name": "Crush Sequence",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Receive 2 additional explosions.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Cut Loose",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Reduces the skill's Cooldown by 20%.",
+    "source": "This mod can be found on gloves."
+  },
+  {
     "name": "Damage Absorber",
     "tier": 1,
     "type": "Armor",
     "scope": "armor",
     "description": "Increases your Armor by 52 659 and Resistance by 10%.",
     "source": null
+  },
+  {
+    "name": "Dance of Death",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Decreases the skill's Cooldown by 20%.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Debris",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Throws damaging debris at enemies dealing an additional [30% of Anomaly Power] damage.",
+    "source": "-"
   },
   {
     "name": "Demolition Man",
@@ -136,12 +416,108 @@
     "source": "This mod can be found on gloves."
   },
   {
+    "name": "Double Stop",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Affected enemies are afflicted with Slow when paralysis ends.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Double Time",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Enemies are suspended in the air 2 times longer.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Duration",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Adds 5 seconds to the skill's duration.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Eager Edges",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Adds two more bounces during the ricochet path.",
+    "source": "-"
+  },
+  {
+    "name": "Earth's Legacy",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Increases the skill's range by 60%.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Earth’s Legacy",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Increases the skills range by 60%.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Ember Shield",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Each status consumed by the skill increases your Resistance by 4% for 10 seconds. Stacks up to 5 times.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Empowerment",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Skill deals additional 875,385 damage.",
+    "source": "This mod can be found on"
+  },
+  {
     "name": "Essence Thief",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots regenerate your Health. (Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Extinguisher",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Apply [30% of Anomaly Power] damage to an enemy afflicted with Burn and consume the status.",
+    "source": "*"
+  },
+  {
+    "name": "Extra Mag",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: The skill is effective for one additional magazine before triggering the cooldown.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Extra Quake",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: The skill can be activated 1 more time before triggering the cooldown.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Extra Time",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: Increases the skill's duration by 20%.",
+    "source": "This mod can be found on footgear."
   },
   {
     "name": "Feedback",
@@ -152,11 +528,35 @@
     "source": null
   },
   {
+    "name": "Final Breath",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Reduces the skill's Cooldown by 50%.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
     "name": "Fine-Tuned",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Scrapnel: Increases the detection and explosion radius by 33%.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Fire Eater",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Increases Health drain efficiency against targets afflicted with Burn by 150%.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Fire Frenzy",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: The skill can be activated 1 more time before triggering the Cooldown.",
     "source": "This mod can be found on gloves."
   },
   {
@@ -208,6 +608,14 @@
     "source": null
   },
   {
+    "name": "Frequent F.A.S.E.R",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Reduces the skill's Cooldown by 30%.",
+    "source": "This mod can be found on Helmet of the Lava Lich."
+  },
+  {
     "name": "Frostbite",
     "tier": 1,
     "type": "Technomancer",
@@ -224,6 +632,62 @@
     "source": null
   },
   {
+    "name": "Geiger's Wave",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Every enemy affected by the wave receives Vulnerable status.",
+    "source": null
+  },
+  {
+    "name": "Giga-blast",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Increases the skill's radius by 100%.",
+    "source": "This mod can be found on"
+  },
+  {
+    "name": "Give Me More",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Receive 1 additional explosion.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Golem Of Death",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: When the skill is active, extend it's duration by 2 seconds for each enemy killed.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Grand Bastion",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Using the skill reduces incoming Weapon Damage and Anomaly Damage by 30%.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Ground Crush",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Increases the skill's base damage by [X] Damage.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Gunshield",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Receive a 15% Firepower bonus while the skill is active.",
+    "source": "This mod can be found on ???."
+  },
+  {
     "name": "Hail Shot",
     "tier": 1,
     "type": "Technomancer",
@@ -232,12 +696,76 @@
     "source": "This mod can be found on upper armor."
   },
   {
+    "name": "Heal Per Kill",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Each enemy killed with the skill restores 10% of Health to all allies in a 20 meter radius around you.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Healing Slice",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Receive X Health for each enemy killed with the skill.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Healthy Lifestyle",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Boosts your Health Regeneration by 5% for the skill duration and for 3 seconds after the skill ends.",
+    "source": "*"
+  },
+  {
+    "name": "Heat Leech",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Increase Skill Leech by 10% for 10 seconds after using this skill.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Hellfire",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: If the skill damages 2 enemies, all subsequent enemies will receive additional [25% of Anomaly Power] damage.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Hollow Point",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: All the reflected bullets apply Vulnerable status.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
     "name": "Hot Blood",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots pass through enemies whose Health is below 50%, ricocheting to 3 enemies within a 8 meter radius and inflicting Burn.(Cooldown: 0.3s)",
     "source": null
+  },
+  {
+    "name": "Human Comet",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Gravity Leap: Increase the skill's damage by X.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Human Fortress",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Receive X Health Regeneration and X Armor while the skill is active.",
+    "source": "This mod can be found on gloves."
   },
   {
     "name": "Ice Component",
@@ -264,12 +792,28 @@
     "source": "This mod can be found on footgear."
   },
   {
+    "name": "Impaler",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: The skill can be activated 1 more time before triggering the cooldown.",
+    "source": "This mod can be found on footgear."
+  },
+  {
     "name": "Increase Damage",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Cryo Turret: Every turret's shot deals extra X damage.",
     "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Increased Duration",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Increases the skill’s duration by 50%.",
+    "source": null
   },
   {
     "name": "Increased Range",
@@ -280,12 +824,28 @@
     "source": null
   },
   {
+    "name": "Inferno Wave",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Increase by 38 770 damage dealt to enemies from Heatwave.",
+    "source": "This mod can be found on headgear."
+  },
+  {
     "name": "Initial Blast",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Pain Launcher: Causes a small explosion, dealing X damage in a 5 meter radius when the skill is activated.",
     "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Irradiation Wave",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Inflicts Weakness on enemies affected by the skill.",
+    "source": "This mod can be found on gloves."
   },
   {
     "name": "Killer Medic",
@@ -304,12 +864,44 @@
     "source": null
   },
   {
+    "name": "Lasting Fire",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Increases the time in which killing an affected enemy will cause an explosion by 3 seconds.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Lava Shots",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: Increase your Firepower by 25% while the skill is active.",
+    "source": "*"
+  },
+  {
+    "name": "Life Absorption",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Gravity Leap: Heal for 5% of the damage dealt. If your target dies, heal for 10% damage dealt.",
+    "source": "This mod can be found on footgear."
+  },
+  {
     "name": "Life Stock",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Reloading restores 10 650 points of Health for each enemy killed since your last reload without changing your weapon. (Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Long Range",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Triples the skill's range.",
+    "source": "This mod can be found on gloves."
   },
   {
     "name": "Long Winter",
@@ -320,12 +912,28 @@
     "source": "This mod can be found on armor."
   },
   {
+    "name": "Magma Coat",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Increase the lava's damage over time by 32 308.",
+    "source": "This mod can be found on This mod is also found on the Legendary Headgear Helmet of the Lava Lich for the Pyromancer."
+  },
+  {
     "name": "Massacre",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Tool of Destruction: Each enemy killed with the Minigun gives X Anomaly Power bonus for 10 seconds. Stacks up to 6 times.",
     "source": null
+  },
+  {
+    "name": "Misery",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Increases the skill's mark duration by 100%.",
+    "source": "This mod can be found on ???."
   },
   {
     "name": "More Damage",
@@ -344,11 +952,27 @@
     "source": "This mod can be found on headgear."
   },
   {
+    "name": "Mosh Pit",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Inflicts Vulnerable on all the enemies pulled by the skill.",
+    "source": "This mod can be found on headgear."
+  },
+  {
     "name": "Mr. Fixit",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Fixing Wave: Activating the skill grants you and your allies 50% armor and 20% resistance bonuses for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "No Escape",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Increases the skill’s effective range between targets by 25%.",
     "source": null
   },
   {
@@ -360,12 +984,60 @@
     "source": "This mod can be found on upper armor."
   },
   {
+    "name": "Nova",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Increases the skill’s range by 100%.",
+    "source": "This mod can be found on footgear."
+  },
+  {
     "name": "Painful Chill",
     "tier": 1,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Cold Snap: Applies extra X damage to all enemies affected by the skill.",
     "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Pants On Fire",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Increase by 48 462 the damage to enemies who were damaged by the skill, but did not have their status consumed.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Panzer Drain",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Damaging enemies with the skill steals 33% of their Armor. Effect lasts for 5 seconds.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Perseverance",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: Increases the skills duration by 50%.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Phoenix Force",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Earn additional 6 418 Anomaly Power per status consumed by the skill for 8 seconds. Stacks up to 10 times.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Pompeii",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: The skill can be activated 1 more time before triggering the Cooldown.",
+    "source": "This mod can be found on"
   },
   {
     "name": "Portable Armory",
@@ -376,12 +1048,84 @@
     "source": "This mod can be found on lower armor."
   },
   {
+    "name": "Primal Armor",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Double your Armor when the skill ends for X seconds.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Primal Chain",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Every enemy damaged by the skill increases its damage by 15% for 5 seconds. Stacks up to 5 times.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Primal Constitution",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Each enemy you damage increases your Max Health by X for 5 seconds. Stacks up to 5 times.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Primal Gutting",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Inflicts Bleed on all damaged enemies.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Primal Knuckle Duster",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Increases the skill's damage by X.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Primal Rage",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Reduces the skill’s Cooldown by 50%.",
+    "source": "This mod can be found on footgear."
+  },
+  {
     "name": "Proliferation",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots on enemies afflicted by a status condition inflict that status to the nearest enemy.(Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Pure Power",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Increases the skill's damage by 48 462.",
+    "source": "This mod can be found on"
+  },
+  {
+    "name": "Radiation Flames",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: Enemies damaged with the skill are afflicted with Weakness.",
+    "source": null
+  },
+  {
+    "name": "Radiation Jump",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Inflict Vulnerable to the enemy you teleport behind.",
+    "source": "This mod can be found on upper armor."
   },
   {
     "name": "Rain of Pain",
@@ -400,12 +1144,52 @@
     "source": null
   },
   {
+    "name": "Reload Boost",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: A powerful, 50% Anomaly Damage bonus is granted after the skill ends for 15 seconds.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Resistance",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: When the skill is active, increase your Resistance by 33%.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Restoration",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Increases the Health Regeneration bonus for players near impaled enemies.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
     "name": "Ricochet",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots ricochet to another enemy within a 5 meter radius of the initial target. (Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Ride The Wave",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: The skill can be activated 1 more time before triggering the Cooldown.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Rivers of Blood",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Increases the skill damage by 30% to enemies afflicted with Bleed.",
+    "source": "This mod can be found on lower armor."
   },
   {
     "name": "Ruler of Leeches",
@@ -416,12 +1200,68 @@
     "source": "-"
   },
   {
+    "name": "Sharpened Spike",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: The skill deals X more damage.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Sharpening",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Increases the skill’s damage by 350,154.",
+    "source": null
+  },
+  {
+    "name": "Shattered Armor",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Increases Weapon Damage against affected enemies by 10% for 10 seconds.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Shield Evoker",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Killing enemies with the skill grants 10% Shield.",
+    "source": "This mod can be found on headgear."
+  },
+  {
     "name": "Shield Maiden",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots generate Shield. (Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Short-Term Loan",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Reduces the skill's Cooldown by 25%.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Size Matters",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Increases the beam's radius by 100%.",
+    "source": "This mod can be found on Lower Robe of the Lava Lich."
+  },
+  {
+    "name": "Slasher",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: The skill can be activated 1 more time before triggering the Cooldown.",
+    "source": "This mod can be found on lower armor."
   },
   {
     "name": "Soul Devourer",
@@ -440,12 +1280,76 @@
     "source": "This mod can be found on lower armor."
   },
   {
+    "name": "Speed Boost",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Allies within the sphere receive 2% movement speed bonus and a 75% reduction to revival time.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Speed Up",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Allows 50% faster movement while the skill is active.",
+    "source": null
+  },
+  {
+    "name": "Spike Forest",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: The skill can strike 1 additional target.",
+    "source": "This mod can be found on headgear."
+  },
+  {
     "name": "Stiffening",
     "tier": 1,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots inflict Slow on an enemy. (Cooldown: 8s)",
     "source": null
+  },
+  {
+    "name": "Stolen Life",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Increases the percentage healed per affected enemy by 6%",
+    "source": "This mod can be found on Footgear."
+  },
+  {
+    "name": "Stretched Time",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Increases the skill's duration by 100%.",
+    "source": "This mod can be found on ???."
+  },
+  {
+    "name": "Strong Slice",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Increases the skill's damage by 1,750,770.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Strong Twist",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: While the skill is active, increases the weapon’s Firepower by an additional [20% of Anomaly Power].",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Sunburnt",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Increase by 48 462 the damage to enemies that have their statuses consumed by the skill.",
+    "source": "This mod can be found on"
   },
   {
     "name": "Supplies",
@@ -464,6 +1368,62 @@
     "source": "This mod can be found on gloves."
   },
   {
+    "name": "The Strongest First",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: The enemy with the most health takes 75% more damage.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Third Degree",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Increase Weapon Damage against enemies damaged by the skill by 25% for 3 seconds.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Thunder Dome",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Receive 100% Shield when the skill ends.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Tidal Wave",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: The skill can be activated 1 more time before triggering the Cooldown.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Time Crack",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Enemies affected by the skill have both their Armor and Resistance decreased by 20% for 6 seconds.",
+    "source": null
+  },
+  {
+    "name": "Time-Space Protection",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Receive X Armor and 15% Resistance bonus while the skill is active.",
+    "source": null
+  },
+  {
+    "name": "Timeblast",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Apply Slow in 5 meter radius around the enemy you teleport behind.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
     "name": "Toxic Bullets",
     "tier": 1,
     "type": "Weapon",
@@ -478,6 +1438,30 @@
     "scope": "technomancer",
     "description": "Blighted Rounds: While the skill is active, killing shots grant you 30% extra bullets in your mag.",
     "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "True Blast",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Increases explosion damage by 2,509,440.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Twisted Fate",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: Receive 10% Critical Damage bonus while the skill is active.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Ultimate Big Range",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Increases the sphere range by 2 meters.",
+    "source": "This mod can be found on upper armor."
   },
   {
     "name": "Untouchable",
@@ -504,6 +1488,30 @@
     "source": null
   },
   {
+    "name": "Vlad's Grasp",
+    "tier": 1,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Increases the skill's range by 100%.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Volcanic Armor",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Reduces incoming Anomaly Damage by 20% and Weapon Damage by 20% when the skill is active and for 2 seconds after the skill ends.",
+    "source": "This mod can be found on Footgear."
+  },
+  {
+    "name": "Volcanic Dust",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Inflict Ash on enemies within a 5 meter radius of the targeted enemy.",
+    "source": "-"
+  },
+  {
     "name": "Vulnerability Bullets",
     "tier": 1,
     "type": "Weapon",
@@ -518,6 +1526,54 @@
     "scope": "weapon",
     "description": "Shots inflict Weakness on enemies. (Cooldown: 8s)",
     "source": null
+  },
+  {
+    "name": "Weakening the Prey",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Interrupt and inflict Weakness to the enemy you teleport behind.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Weakening Zone",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Enemies entering the sphere are afflicted with Weakness.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Weaklings",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Inflicts Weakness on enemies hit by the skill.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Wide Grip",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Enables absorption of one additional target.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Wildfire",
+    "tier": 1,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: The skill inflicts Burn on every enemy damaged by the explosion.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Wind Slash",
+    "tier": 1,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Increase the skill's damage by 373,333.",
+    "source": "This mod can be found on upper armor."
   },
   {
     "name": "Achilles' Heel",
@@ -1224,12 +2280,36 @@
     "source": null
   },
   {
+    "name": "Aggressive Teleportation",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Reverting time creates an explosion around you that inflicts 5,544,100 damage to all enemies in a range of 6 meters.",
+    "source": "* Chronosuit Mask."
+  },
+  {
     "name": "Alchemical Therapy",
     "tier": 3,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Blighted Rounds: When the skill is active receive a Weapon Damage or Anomaly Power bonus equal to 15% of your status power, based on whichever is higher.",
     "source": "* Veil of the Flame Leper"
+  },
+  {
+    "name": "Ammo Bargain",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: While the skill is active, killing shots replenish 30% of ammo in your magazine.",
+    "source": "This mod can be found on Lower Chronosuit."
+  },
+  {
+    "name": "And Another One",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: Shots on enemies affected by the skill do not consume ammo.",
+    "source": "This mod can be found on Trespasser's Britches."
   },
   {
     "name": "Anomaly Echo",
@@ -1256,6 +2336,38 @@
     "source": "*Ronin's Amigasa"
   },
   {
+    "name": "Ashen Bloom",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Enemies affected by the skill explode, dealing X damage and inflicting Ash to targets within a 3 meter radius.",
+    "source": "*Scorched Zealot's Crown."
+  },
+  {
+    "name": "Ashen Champion",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "F.A.S.E.R Beam: Inflicts Ash on enemies instead of Burn. Each enemy hit boosts your Anomaly Power by 20% for 10 seconds. Stacks up to 5 times.",
+    "source": "This mod can be found on the Legendary Headgear Helmet of the Lava Lich for the Pyromancer."
+  },
+  {
+    "name": "Ashes and Leeches",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Using the skill increases your Weapon Leech bonus by 20% for 5 seconds.",
+    "source": "This mod can be found on the Torturer's Waistcloth Legendary Pants."
+  },
+  {
+    "name": "Asunder",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: Using the skill permanently reduces the Resistance of affected enemies by 30%.",
+    "source": "This mod can be found on: * Seismic Commander's Gloves"
+  },
+  {
     "name": "Bad Medicine",
     "tier": 3,
     "type": "Technomancer",
@@ -1280,6 +2392,14 @@
     "source": "* Body Snatcher (legendary weapon)"
   },
   {
+    "name": "Bodycount",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: When the skill ends, the next Twisted Rounds Cooldown is reduced by 10% for each enemy killed during it's activation, up to 90%.",
+    "source": "This mod can be found on Shieldbeast's Helmet."
+  },
+  {
     "name": "Bomb's Ahead",
     "tier": 3,
     "type": "Weapon",
@@ -1288,12 +2408,36 @@
     "source": "This mod can be found on The Migraine."
   },
   {
+    "name": "Boomerang Blades",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: After the initial ricochet, the knife will repeat its path and damage enemies a second time.",
+    "source": "* Ugake Otarah's Waistcloth"
+  },
+  {
+    "name": "Branded",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Enemies affected by the skill receive 30% more damage.",
+    "source": "* Armor of the Reforged"
+  },
+  {
     "name": "Breathe In",
     "tier": 3,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Fixing Wave: Reduces the skill’s Cooldown by 20% and applies Weakness to enemies in a 10 meter radius.",
     "source": null
+  },
+  {
+    "name": "Burning Passion",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: There is a 30% chance to reapply every status the skill consumed on an affected enemy.",
+    "source": "*Heat Seeker's Boots"
   },
   {
     "name": "Burst of Decay",
@@ -1320,12 +2464,28 @@
     "source": "This mod can be found on Gauntlets of the Cannonball."
   },
   {
+    "name": "Cauterizing Flames",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Every percent of Overheal gained through the skill increases your bonus Firepower by 1% for 5 seconds, up to 50%.",
+    "source": "*Scorched Zealot's Waistcloth"
+  },
+  {
     "name": "Charged Up",
     "tier": 3,
     "type": "Armor",
     "scope": "armor",
     "description": "Aiming down sights charges your weapon with kinetic energy over time up to 2 seconds. Firing releases the stored energy, increasing the damage of that shot by up to 3,769,990 damage. Bonus is lost when you stop aiming down sights.",
     "source": "* Deadeye's Skull"
+  },
+  {
+    "name": "Chip Off The Old Block",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: While the skill is active, using your Melee skill while sprinting creates a Golem clone that jumps towards the nearest enemy and deals 300% damage of the Melee skill damage within a 3 meter radius. (Cooldown: 5s)",
+    "source": "Concussioner's Boots"
   },
   {
     "name": "Circle of Power",
@@ -1392,6 +2552,22 @@
     "source": "* Waistcloth of the Borealis Monarch"
   },
   {
+    "name": "Cut Them Deep",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Elites marked by the knife receive 30% more damage.",
+    "source": "This mod can be found on Shieldbeast's Gloves."
+  },
+  {
+    "name": "Damage Mitigation",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Allies within the sphere receive 40% less damage.",
+    "source": null
+  },
+  {
     "name": "Danger Close",
     "tier": 3,
     "type": "Armor",
@@ -1432,6 +2608,22 @@
     "source": "* Charred Lance"
   },
   {
+    "name": "Death Sentence",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Ash Blast: Your Weapon Damage and Anomaly Damage against enemies affected by the skill are increased respectively by 40% and 30% for 5 seconds.",
+    "source": "This mod can be found on the Torturer's Mask Legendary Helmet."
+  },
+  {
+    "name": "Death Shell",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Killing enemies while Borrowed Time is active reduces incoming Weapon Damage by 10% and Anomaly Damage by 10% for 10 seconds. Buff is removed at the end of the skill. Stacks up to 4 times.",
+    "source": "*"
+  },
+  {
     "name": "Death's Door",
     "tier": 3,
     "type": "Armor",
@@ -1448,6 +2640,38 @@
     "source": "* Eveningstar"
   },
   {
+    "name": "Decontamination",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Using the skill removes 1 of your random status effects.",
+    "source": "*Cuirass of Terminal Velocity."
+  },
+  {
+    "name": "Delivery on Time",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Slow Trap: Activating the skill replenishes ammo for every allies' current weapon in the sphere's range.",
+    "source": "This mod can be found on Trespasser's Cowl."
+  },
+  {
+    "name": "Despair",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Gravity Leap: Enemies within the damage radius of Gravity Leap will receive 30% times more Anomaly damage for 5 seconds.",
+    "source": "This mod can be found on Marshal's Footgear."
+  },
+  {
+    "name": "Detonator",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Decrease the skill’s cooldown by 50%.",
+    "source": "*Armor of the Acari"
+  },
+  {
     "name": "Dimensional Rockets",
     "tier": 3,
     "type": "Weapon",
@@ -1462,6 +2686,30 @@
     "scope": "weapon",
     "description": "Successful shots summon a bullet-stopping dome for 4 seconds. (Cooldown: 8s)",
     "source": "*Master Tool"
+  },
+  {
+    "name": "Double Fun",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: The skill can affect two targets.",
+    "source": "This mod can be found on the Legendary Headgear Cowl of the Reforged for the Pyromancer."
+  },
+  {
+    "name": "Double Jump",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Gravity Leap: Skill can be used twice before triggering the cooldown.",
+    "source": "* Marshal's Gauntlets"
+  },
+  {
+    "name": "Double Slice",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Damaged enemies are additionally cut with an Anomalic slice dealing 50% damage.",
+    "source": "* Goggles of the Edge of Time"
   },
   {
     "name": "Double Trouble",
@@ -1488,12 +2736,28 @@
     "source": null
   },
   {
+    "name": "Equator",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: Damage blocked by the skill is released as a damaging Anomaly disc that rotates around the player. The damage dealt is increased dependent on amount of damage blocked by the skill.",
+    "source": "Concussioner's Legplates"
+  },
+  {
     "name": "Essence Extractor",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Successful shots on enemies afflicted by any status restore 5% of your Max Health. Each active status applied to the target multiplies amount of healing received. (Cooldown: 3s)",
     "source": "* Lumberjack"
+  },
+  {
+    "name": "ETNA",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: The skill can be activated 1 more time before triggering the cooldown. The skill now also inflicts Burn to damaged enemies.",
+    "source": "This mod can be found on the Charms of the Lava Lich Legendary Gloves."
   },
   {
     "name": "Euthaniser",
@@ -1504,12 +2768,44 @@
     "source": "* Plague Sower's Hands"
   },
   {
+    "name": "Extermination Protocol",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: Receive a 6% damage bonus against Elites every 3 seconds while the skill is active. Bonus stacks uo to 30% and is removed when the skill ends.",
+    "source": "*Cowl of Terminal Velocity."
+  },
+  {
+    "name": "Fire Tsunami",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Increase the width of the fire wall.",
+    "source": "This mod can be found on the Legendary Headgear Helmet of the Acari for the Pyromancer."
+  },
+  {
     "name": "Firestorm",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Successful shots summon a homing firestorm that deals 8,968,640 damage and inflicts Burn to enemies within its radius over 8 seconds. Radius of the firestorm increases with each successful shot on the afflicted target. (Cooldown: 10s)",
     "source": "*Sunfall"
+  },
+  {
+    "name": "Firetrap",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Using the skill on a target Marked or afflicted with Burn creates an explosion dealing X damage in a 4 meter radius.",
+    "source": "* Heat Seeker's Chestplate"
+  },
+  {
+    "name": "Flame Grasper",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Enables absorption of two additional targets.",
+    "source": "*Waistcloth of the Reforged"
   },
   {
     "name": "Fleshrender",
@@ -1528,6 +2824,14 @@
     "source": "Techmonger's Boots"
   },
   {
+    "name": "Force Feedback",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: Upon contact, the barrier inflicts X damage that is increased for every enemy in Close Range, up to 10 times.",
+    "source": "Concussioner's Chestplate"
+  },
+  {
     "name": "Fortress",
     "tier": 3,
     "type": "Weapon",
@@ -1542,6 +2846,22 @@
     "scope": "weapon",
     "description": "Killing shots grant you a protective Golem effect for 3 seconds. (Cooldown: 6s)",
     "source": "* Golem's Limb Legendary weapon"
+  },
+  {
+    "name": "Golem Squad",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: Increases the skill’s duration by 20% and casts a 25% shorter version of Golem on your allies",
+    "source": "Statue’s Legs – Lower Armor"
+  },
+  {
+    "name": "Grand Blast",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Increases the radius of each explosion by [X]%.",
+    "source": "This mod can be found on Statue's Head."
   },
   {
     "name": "Grand Opening",
@@ -1568,12 +2888,52 @@
     "source": "* Deadeye's Cloak"
   },
   {
+    "name": "Heat Grenade",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: Consuming statuses loads your weapon with an Anomaly projectile that will be launched with the next shot. The projectile explodes within a 4 meter radius, dealing X damage which is increased by 5% with each status consumed. Stacks up to 10 times.",
+    "source": "*Heat Seeker's Legplates"
+  },
+  {
+    "name": "High Intensity",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Anomaly Damage against affected targets is increased by 30% for 6 seconds.",
+    "source": "* Marshal's Armor"
+  },
+  {
     "name": "High Stakes",
     "tier": 3,
     "type": "Armor",
     "scope": "armor",
     "description": "Rolling after 4 successful shots with your sidearm grants a 100% Critical Chance bonus for 3 seconds.",
     "source": "* Trigger Twitch's Mask"
+  },
+  {
+    "name": "Hit and Run",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: If your targeted enemy dies within 3 seconds after the activation of the skill, you are returned to the spot where you activated it.",
+    "source": "*Arm Wraps of Terminal Velocity."
+  },
+  {
+    "name": "Hive Cut",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Damaging an enemy marked by the skill also activates the effect on other marked targets within a 6 meter radius, dealing 50% of the initial damage.",
+    "source": "This mod can be found on Shieldbeast's Footgear."
+  },
+  {
+    "name": "Hyperloop",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: The skill can be activated 1 more time before triggering the Cooldown.",
+    "source": "*Footwear of Terminal Velocity."
   },
   {
     "name": "Icicle Storm",
@@ -1590,6 +2950,30 @@
     "scope": "technomancer",
     "description": "Cryo Turret: Doubles the fire rate of the deployed turret.",
     "source": "Techmonger's Leg Armor"
+  },
+  {
+    "name": "Improved Damage",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Eruption: Increases explosion damage by 54 924.",
+    "source": "This mod can be found on the Legendary Lower Armor Lower Robe of the Lava Lich for the Pyromancer."
+  },
+  {
+    "name": "Increase Duration",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Reflect Bullets: Increases the skill’s duration by 40%.",
+    "source": null
+  },
+  {
+    "name": "Instant Reload",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Hunt the Prey: Teleporting instantly replenishes magazine in your current weapon.",
+    "source": "- Ugake Otarah's Cowl"
   },
   {
     "name": "Introvert",
@@ -1656,12 +3040,28 @@
     "source": "Gauntlets of the Flame Leper"
   },
   {
+    "name": "Life Drain",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: While the skill is active, killing shots heal you by 5% of your target's health.",
+    "source": "This mod can be found on Chronosuit Gloves."
+  },
+  {
     "name": "Life of the Party",
     "tier": 3,
     "type": "Armor",
     "scope": "armor",
     "description": "Incoming damage is reduced by 6% for each enemy in Close Range. Stacks up to 4 times.",
     "source": "*Fighters' Mask *Gloves of the Edge of Time"
+  },
+  {
+    "name": "Made of Marble",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: When the skill is active, incoming bullets have a 33% chance to ricochet back at the enemy dealing X damage.",
+    "source": "-"
   },
   {
     "name": "Mage's Rage",
@@ -1680,6 +3080,14 @@
     "source": "* Helmet of Maxwell's Demon"
   },
   {
+    "name": "Master Consumer",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: The skill consumes either Burn or Ash status to deal damage. Consuming both at once increases the damage by 150%.",
+    "source": "This mod can be found on the Legendary Footgear Boots of the Acari for the Pyromancer."
+  },
+  {
     "name": "Med Burst",
     "tier": 3,
     "type": "Technomancer",
@@ -1696,12 +3104,28 @@
     "source": "*The Anemoi"
   },
   {
+    "name": "Molten Lead",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: The wave leaves an Anomaly aura behind for 10 seconds that increases Weapon Damage by 40% when standing in it. Bonus does not stack.",
+    "source": "*Scorched Zealot's Cuirass"
+  },
+  {
     "name": "Nikola's Revenge",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots link up to 5 enemies within a 8 meter radius around the initial target, dealing 3,501,540 damage over 2 seconds to each of them as long as the initial target is alive.",
     "source": "* Thunderclap"
+  },
+  {
+    "name": "No Time To Cool Down",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Borrowed Time: While the skill is active, all skill Cooldowns are reduced by 30%.",
+    "source": "*Trousers of Terminal Velocity."
   },
   {
     "name": "Not Impressed",
@@ -1728,12 +3152,28 @@
     "source": "* Mythos"
   },
   {
+    "name": "Pain Transfer",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Time Rift: 20% of Weapon Damage and 20% of Anomaly Damage dealt to one affected enemy will be transferred to another affected enemy.",
+    "source": "*"
+  },
+  {
     "name": "Painshare",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "30% of Critical Damage dealt is spread to enemies within a 6 meter radius as an Anomaly blast.(Cooldown: 4s)",
     "source": "*Inheritance"
+  },
+  {
+    "name": "Palisade",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: The skill can strike 2 additional targets.",
+    "source": null
   },
   {
     "name": "Party Starter",
@@ -1752,12 +3192,44 @@
     "source": "*Lucky"
   },
   {
+    "name": "Post Mortem",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Enemies killed by the skill generate up to 3 additional spikes, impaling enemies within a 5 meter radius from the killed enemy.",
+    "source": "Bannerlord's Gauntlets"
+  },
+  {
     "name": "Power Assimilation",
     "tier": 3,
     "type": "Armor",
     "scope": "armor",
     "description": "Boosts your Anomaly Power by 254,508 for each Elite present on the battlefield.",
     "source": "* Boots of the Reforged * Cranium of a Lost Creature * Marshal's Waistcloth"
+  },
+  {
+    "name": "Power of the Stones",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: When the skill is active, all party members are given a 30% Weapon Damage bonus for 8 seconds",
+    "source": "Statue's Torso"
+  },
+  {
+    "name": "Primal Chaingun",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Every enemy damaged by the skill increased your Weapon Damage by 20% for 5 seconds. Stacks up to 5 times.",
+    "source": null
+  },
+  {
+    "name": "Primal Weakness",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Boulderdash: Permanently reduces Resistance of all damaged enemies by 30%.",
+    "source": "* Deathproof Mask"
   },
   {
     "name": "Purity",
@@ -1808,12 +3280,36 @@
     "source": null
   },
   {
+    "name": "Rebound",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: While the skill is active, reflect 75% of incoming bullets back at the enemy.",
+    "source": "* Armor of the Edge of Time"
+  },
+  {
     "name": "Rocket Man",
     "tier": 3,
     "type": "Technomancer",
     "scope": "technomancer",
     "description": "Tool of Destruction: You can shoot 3 additional rockets.",
     "source": null
+  },
+  {
+    "name": "Rockfall",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Golem: The skill throws a debris bomb in the direction of a random enemy every 1.5 seconds that deals X damage. Every enemy that is hit by a rock fragment from the debris bomb receives 30% more Melee damage for 3 seconds. Effect doesn't stack.",
+    "source": "Concussioner's Helmet"
+  },
+  {
+    "name": "Sacrificial Altar",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Enemies killed by the skill create a protective sphere around them. While inside the sphere, you receive a 20% bonus to either Firepower or Anomaly Power depending on which is higher, that lasts 3 seconds after leaving the sphere. This bonus is reduced to 10% for your allies.",
+    "source": "Bannerlord's Armor"
   },
   {
     "name": "Sanctuary",
@@ -1832,12 +3328,28 @@
     "source": "*Heir to the Desert"
   },
   {
+    "name": "Scorched Earth",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: After the skill ends the wave returns dealing X damage and inflicting Burn to enemies in its path.",
+    "source": "*Scorched Zealot's Feet"
+  },
+  {
     "name": "Scrap Grenade",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "First shot after reload becomes an Anomaly projectile, dealing 264 281 damage in a 5 meter radius. (Cooldown: 3s)",
     "source": "*The Juggler"
+  },
+  {
+    "name": "Second Quake",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Earthquake: The skill can be activated 1 more time before triggering the cooldown.",
+    "source": "This mod can be found on: * Seismic Commander's Footgear"
   },
   {
     "name": "Self-Medication",
@@ -1872,6 +3384,14 @@
     "source": "Gloves of the Borealis Monarch"
   },
   {
+    "name": "Shield of the Fallen",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: When the skill ends, add 10% of your Max Health as Shield for each enemy killed by the skill.",
+    "source": "This mod can be found on Chronosuit Footgear."
+  },
+  {
     "name": "Shock and Awe",
     "tier": 3,
     "type": "Armor",
@@ -1880,12 +3400,44 @@
     "source": "* Tundra Stalker"
   },
   {
+    "name": "Shock Therapy",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: Each explosion removes a status from every ally in range of the skill.",
+    "source": "Bannerlord's Footgear"
+  },
+  {
+    "name": "Shredder",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: Enemies not killed by the skill are hit with a second spike after a 0.5 second delay, dealing 50% damage dealt by the first spike.",
+    "source": "Bannerlord's Greathelm"
+  },
+  {
     "name": "Singularity",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Killing shots create an Anomaly singularity. When destroyed, the singularity explodes dealing 7,575,580 damage to enemies within a 6.5 meter radius. (Cooldown: 6s)",
     "source": "This mod can be found on Grim Marrow."
+  },
+  {
+    "name": "Skullpiercer",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Twisted Rounds: While the skill is active, Critical Damage is increased with every critical shot, up to 20%. Bonus resets when the skill ends.",
+    "source": "This mod can be found on Shieldbeast's Vest."
+  },
+  {
+    "name": "Sniper Blades",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Increases the skill's range by 50%.",
+    "source": "This mod can be found on Ugake Otarah's Talisman."
   },
   {
     "name": "Special Delivery",
@@ -1920,6 +3472,14 @@
     "source": "* Deathscape"
   },
   {
+    "name": "Strength from Fire",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Heatwave: Using the skill grants 8% Weapon Damage bonus per each affected enemy for 5 seconds.",
+    "source": "This mod can be found on the Legendary Gloves Gauntlets of the Acari for the Pyromancer."
+  },
+  {
     "name": "Strings of Gauss",
     "tier": 3,
     "type": "Weapon",
@@ -1928,12 +3488,28 @@
     "source": "*Bolt & Thunder *Disintegrator"
   },
   {
+    "name": "Stronghold",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Tremor: All allies in range of explosions receive a 20% Resistance bonus and a 20% Armor bonus for 5 seconds. Bonus does not stack.",
+    "source": "Bannerlord's Leg Armor"
+  },
+  {
     "name": "Supercollider",
     "tier": 3,
     "type": "Armor",
     "scope": "armor",
     "description": "Entering cover creates a forcefield that increases the damage of your and your allies' bullets that pass through it by 25%.",
     "source": "* Legplates of Maxwell's Demon"
+  },
+  {
+    "name": "Susceptibility",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Volcanic Rounds: Decreases the Resistance of enemies damaged by the skill by 30%.",
+    "source": "* Torturer's Vest"
   },
   {
     "name": "Tactical Retreat",
@@ -1968,6 +3544,22 @@
     "source": "Spiritbreaker"
   },
   {
+    "name": "Temporal Armor",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Temporal Blade: Boosts Armor by 8% for each affected enemy. Lasts 6 seconds. Stacks up to 4 times.",
+    "source": "* Footwear of the Edge of Time"
+  },
+  {
+    "name": "Thermal Reaction",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Thermal Bomb: Your next successful shot after using the skill deals X damage in a 1.5 meter radius. Killing an enemy with the skill grants a 30% Anomaly Power bonus for 3 seconds.",
+    "source": "* Heat Seeker's Helmet"
+  },
+  {
     "name": "Thunder's Legacy",
     "tier": 3,
     "type": "Armor",
@@ -1998,6 +3590,22 @@
     "scope": "technomancer",
     "description": "Scrapnel: Doubles the number of mines that can be thrown before triggering the cooldown.",
     "source": null
+  },
+  {
+    "name": "Trophy",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Venator's Knife: Successful shots on enemies marked by the knife make them drop energy orbs that grant Shield.",
+    "source": "This mod can be found on Shieldbeast's Trousers."
+  },
+  {
+    "name": "Turn Up The Heat",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Overheat: The skill can be activated 2 more times before triggering the Cooldown.",
+    "source": "*Heat Seeker's Gloves"
   },
   {
     "name": "Turrets With Benefits",
@@ -2064,12 +3672,28 @@
     "source": "This mod can be found on Voodoo Matchmaker."
   },
   {
+    "name": "Ultimate Duration",
+    "tier": 3,
+    "type": "Trickster",
+    "scope": "trickster",
+    "description": "Cyclone Slice: Adds 10 seconds to the skill's duration.",
+    "source": "* Pants of the Edge of Time"
+  },
+  {
     "name": "Ultimate Freezing Bullets",
     "tier": 3,
     "type": "Weapon",
     "scope": "weapon",
     "description": "Shots inflict Freeze on enemies. (Cooldown: 1s)",
     "source": "This mod can be found on: * Absolute Zero"
+  },
+  {
+    "name": "Ultimate Impaler",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Impale: The skill can be activated 2 more times before triggering the cooldown.",
+    "source": null
   },
   {
     "name": "Ultimate Stiffening",
@@ -2144,6 +3768,14 @@
     "source": "* Waistcloth of the Flame Leper"
   },
   {
+    "name": "Voracious Flames",
+    "tier": 3,
+    "type": "Pyromancer",
+    "scope": "pyromancer",
+    "description": "Feed the Flames: Enemies below 50% health receive 50% more damage from the skill.",
+    "source": "*Scorched Zealot's Hands"
+  },
+  {
     "name": "Weakness Trap",
     "tier": 3,
     "type": "Weapon",
@@ -2158,6 +3790,14 @@
     "scope": "weapon",
     "description": "Shots inflict Time Rift on enemies. Time Rift raises the enemy into the air for 5 seconds. (Cooldown: 1s)",
     "source": null
+  },
+  {
+    "name": "Wide Horizons",
+    "tier": 3,
+    "type": "Devastator",
+    "scope": "devastator",
+    "description": "Endless Mass: Increases the skill’s radius by 25%.",
+    "source": "* Marshal's Helmet"
   },
   {
     "name": "Winter Blast",

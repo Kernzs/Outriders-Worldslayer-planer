@@ -7,8 +7,15 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.5.0";
+  const APP_VERSION = "1.6.0";
   const CHANGELOG = [
+    {
+      version: "1.6.0", date: "2026-06-23", title: "Class mods + all weapon types",
+      items: [
+        "Armor mod slots now include every class skill mod (all 4 classes) alongside the universal armor mods.",
+        "Any weapon type can be picked in any weapon slot (Submachine Guns etc. are no longer hidden).",
+      ],
+    },
     {
       version: "1.5.0", date: "2026-06-23", title: "Clickable PAX trees",
       items: [
@@ -55,14 +62,12 @@
   const CLASS_POINTS = 20, PAX_POINTS = 5, ASC_TOTAL = D.ascension._meta.totalPoints, MAX_SKILLS = 3;
   const TREE_W = 1850, TREE_H = 880;
   const ARMOR_SLOTS = ["Headgear", "Upper Armor", "Lower Armor", "Gloves", "Footgear"];
-  const SIDEARM_TYPES = ["Pistol", "Revolver", "Submachine Gun"];
   const WEAPON_SLOTS = [
-    { key: "primary1", label: "Primary Weapon I", sidearm: false },
-    { key: "primary2", label: "Primary Weapon II", sidearm: false },
-    { key: "secondary", label: "Secondary (Sidearm)", sidearm: true },
+    { key: "primary1", label: "Primary Weapon I" },
+    { key: "primary2", label: "Primary Weapon II" },
+    { key: "secondary", label: "Secondary Weapon" },
   ];
   const ALL_TYPES = [...new Set(D.weapons.map((w) => w.type).filter(Boolean))].sort();
-  const typesFor = (sidearm) => ALL_TYPES.filter((t) => sidearm ? SIDEARM_TYPES.includes(t) : !SIDEARM_TYPES.includes(t));
   // Variants are tied to the weapon type, so filter the variant list by the chosen type.
   const VARIANTS_BY_TYPE = {};
   D.weapons.forEach((w) => {
@@ -542,8 +547,7 @@
     panel.appendChild(el("div", "section-head", `<div style="margin-top:18px"><h2>Weapons</h2><div class="hint">2 primary + 1 secondary. Equip a legendary or build a custom Epic.</div></div>`));
     const wGrid = el("div", "loadout-grid");
     for (const w of WEAPON_SLOTS) {
-      const opts = D.weapons.filter((x) => w.sidearm ? SIDEARM_TYPES.includes(x.type) : !SIDEARM_TYPES.includes(x.type));
-      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", opts, w));
+      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", D.weapons, w)); // any weapon in any slot
     }
     panel.appendChild(wGrid);
 
@@ -586,7 +590,7 @@
       box.appendChild(el("div", "epic-label", "Weapon"));
       const typeSel = el("select", "gear-select sm");
       typeSel.appendChild(new Option("— type —", ""));
-      for (const t of typesFor(weaponSlot ? weaponSlot.sidearm : false)) { const o = new Option(t, t); if (g.type === t) o.selected = true; typeSel.appendChild(o); }
+      for (const t of ALL_TYPES) { const o = new Option(t, t); if (g.type === t) o.selected = true; typeSel.appendChild(o); }
       typeSel.onchange = () => {
         g.type = typeSel.value;
         if (!(VARIANTS_BY_TYPE[g.type] || []).includes(g.variant)) g.variant = ""; // variant must match the type
@@ -618,7 +622,18 @@
   function modSelect(g, i, scope, placeholder) {
     const s = el("select", "gear-select sm");
     s.appendChild(new Option(placeholder, ""));
-    for (const m of modsForScope(scope)) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (g.mods[i] === m.name) o.selected = true; s.appendChild(o); }
+    const addInto = (mods, container) => {
+      for (const m of mods) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (g.mods[i] === m.name) o.selected = true; container.appendChild(o); }
+    };
+    if (scope === "armor") {
+      // armor carries universal armor mods + the class's skill mods
+      const og1 = document.createElement("optgroup"); og1.label = "Class skill mods";
+      addInto(D.mods.filter((m) => m.scope === state.cls), og1); s.appendChild(og1);
+      const og2 = document.createElement("optgroup"); og2.label = "Armor mods";
+      addInto(D.mods.filter((m) => m.scope === "armor"), og2); s.appendChild(og2);
+    } else {
+      addInto(modsForScope(scope), s);
+    }
     s.onchange = () => { g.mods[i] = s.value; render(); };
     return s;
   }

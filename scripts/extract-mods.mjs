@@ -7,6 +7,9 @@ const UA = "Mozilla/5.0 BuildPlannerBot (personal build-planner project)";
 
 const CATEGORIES = [
   { cat: "Technomancer_Mods", scope: "technomancer" },
+  { cat: "Pyromancer_Mods", scope: "pyromancer" },
+  { cat: "Trickster_Mods", scope: "trickster" },
+  { cat: "Devastator_Mods", scope: "devastator" },
   { cat: "Weapon_Mods", scope: "weapon" },
   { cat: "Armor_Mods", scope: "armor" },
 ];

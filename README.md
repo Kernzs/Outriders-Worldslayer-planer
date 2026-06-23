@@ -81,8 +81,8 @@ The app is fully static — no build step beyond `bundle-data.mjs`. If you chang
 rerun it and commit the updated `data.js`.
 
 ## Notes / limitations
-- Ascension intermediate values are a linear estimate to each node's documented max
-  (the real per-level scaling is non-linear and undocumented); 0 and 10/10 are exact.
+- Ascension values are exact at every point level (the real non-linear per-point curve,
+  read from the Outriders Outpost builder).
 - A few base-game weapons have blank `dmg` on the wiki (level-scaled stat, not needed for planning).
 - One armor (`Torrential Downpour's Armor`) has no slot on the wiki, so it's not selectable.
 - Two Technomancer PAX nodes (Necrotic Tissue, Twin Reaper) have no icon on the source and

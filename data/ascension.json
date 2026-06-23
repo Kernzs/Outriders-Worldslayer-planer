@@ -1,54 +1,53 @@
 {
   "_meta": {
-    "description": "Outriders Worldslayer Ascension system. Universal (not class-specific). 4 categories x 5 nodes. Each node can hold up to 10 points; 200 points total fills everything (level 200). Unlocks at character level 30.",
+    "description": "Outriders Worldslayer Ascension system. Universal (not class-specific). 4 categories x 5 nodes. Each node holds up to 10 points; 200 total (level 200). Unlocks at character level 30.",
     "pointsPerNode": 10,
     "totalNodes": 20,
     "totalPoints": 200,
     "sources": [
-      "https://sirusgaming.com/outriders-worldslayer-ascension-system/",
-      "https://www.gamerguides.com/outriders-worldslayer/guide/gameplay/information/what-is-the-ascension-system-in-outriders-worldslayer"
+      "Exact per-point cumulative values read from the Outriders Outpost builder (outriders.app, via web.archive.org)"
     ],
-    "notes": "Source lists 'Anomaly Damage' as increasing Status Power, which is a known copy-paste error in guides; corrected here to increase Anomaly Damage."
+    "notes": "curve[i] = cumulative bonus at i+1 points (exact, non-linear). max = curve[9]. There are 3 distinct curves across the 20 nodes."
   },
   "categories": [
     {
       "name": "Anomaly",
       "nodes": [
-        { "name": "Anomaly Power",    "stat": "Anomaly Power",    "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Resistance Pierce", "stat": "Resistance Piercing", "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Skill Leech",       "stat": "Skill Leech",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Status Power",      "stat": "Status Power",     "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Anomaly Damage",    "stat": "Anomaly Damage",   "perPoint": 0.5, "unit": "%", "max": 10.0 }
+        { "name": "Anomaly Power",    "stat": "Anomaly Power",       "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Resistance Pierce", "stat": "Resistance Piercing", "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Skill Leech",       "stat": "Skill Leech",         "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 },
+        { "name": "Status Power",      "stat": "Status Power",        "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Anomaly Damage",    "stat": "Anomaly Damage",      "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 }
       ]
     },
     {
       "name": "Brutality",
       "nodes": [
-        { "name": "Armor Pierce",       "stat": "Armor Pierce",       "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Close Range Damage", "stat": "Close Range Damage", "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Long Range Damage",  "stat": "Long Range Damage",  "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Weapon Damage",      "stat": "Weapon Damage",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Weapon Leech",       "stat": "Weapon Leech",       "perPoint": 0.5, "unit": "%", "max": 5.5 }
+        { "name": "Armor Pierce",       "stat": "Armor Pierce",       "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Close Range Damage", "stat": "Close Range Damage", "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Long Range Damage",  "stat": "Long Range Damage",  "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Weapon Damage",      "stat": "Weapon Damage",      "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Weapon Leech",       "stat": "Weapon Leech",       "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 }
       ]
     },
     {
       "name": "Endurance",
       "nodes": [
-        { "name": "Health",                 "stat": "Max Health",            "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Armor",                  "stat": "Armor",                 "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Healing Received",       "stat": "Healing Received",      "perPoint": 0.1, "unit": "%", "max": 5.5 },
-        { "name": "Elite Damage Mitigation","stat": "Elite Damage Mitigation","perPoint": 0.5, "unit": "%", "max": 5.5 },
-        { "name": "Resistance",             "stat": "Resistance",            "perPoint": 0.5, "unit": "%", "max": 10.0 }
+        { "name": "Health",                 "stat": "Max Health",             "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Armor",                  "stat": "Armor",                  "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Healing Received",       "stat": "Healing Received",       "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 },
+        { "name": "Elite Damage Mitigation","stat": "Elite Damage Mitigation","unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Resistance",             "stat": "Resistance",             "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 }
       ]
     },
     {
       "name": "Prowess",
       "nodes": [
-        { "name": "Cooldown Reduction",   "stat": "Cooldown Reduction",   "perPoint": 0.1, "unit": "%", "max": 5.5 },
-        { "name": "Critical Chance",      "stat": "Critical Chance",      "perPoint": 0.1, "unit": "%", "max": 5.5 },
-        { "name": "Critical Damage",      "stat": "Critical Damage",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
-        { "name": "Damage Against Elites","stat": "Elite Bonus Damage",   "perPoint": 0.1, "unit": "%", "max": 5.5 },
-        { "name": "Magazine Size",        "stat": "Magazine Size",        "perPoint": 1.0, "unit": "%", "max": 25.0 }
+        { "name": "Cooldown Reduction",   "stat": "Cooldown Reduction", "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 },
+        { "name": "Critical Chance",      "stat": "Critical Chance",    "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 },
+        { "name": "Critical Damage",      "stat": "Critical Damage",    "unit": "%", "curve": [0.5, 1, 1.6, 2.3, 3.1, 4, 5.1, 6.4, 8, 10], "max": 10 },
+        { "name": "Damage Against Elites","stat": "Elite Bonus Damage", "unit": "%", "curve": [0.1, 0.3, 0.6, 1, 1.5, 2.1, 2.8, 3.6, 4.5, 5.5], "max": 5.5 },
+        { "name": "Magazine Size",        "stat": "Magazine Size",      "unit": "%", "curve": [1, 2, 3.2, 4.7, 6.7, 9.2, 12.2, 16, 20, 25], "max": 25 }
       ]
     }
   ]

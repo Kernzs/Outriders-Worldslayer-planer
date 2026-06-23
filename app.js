@@ -7,10 +7,13 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.11.0";
+  const APP_VERSION = "1.11.1";
   const CHANGELOG = [
     {
       version: "1.11.0", date: "2026-06-23", title: "Build recap",
+      patches: [
+        { version: "1.11.1", date: "2026-06-23", items: ["Ascension values are now exact at every point level (the real non-linear curve, read from the Outriders Outpost builder) — no more linear estimate. Fixed maxes: Skill Leech 5.5%, Elite Damage Mitigation 10%."] },
+      ],
       items: [
         "New 'Build recap' button: a one-screen visual summary of the whole build — no need to click through tabs.",
         "The class tree and PAX show as mini trees with lit/dim nodes; plus skills, ascension, gear & mods, stats.",
@@ -207,9 +210,13 @@
   }
   const modsForScope = (scope) => D.mods.filter((m) => m.scope === scope);
 
-  // Ascension nodes fill to their max over 10 points (the per-point figures in
-  // the source are unreliable), so value scales linearly to max at 10/10.
-  const ascValue = (node, pts) => +((pts / 10) * node.max).toFixed(2);
+  // Exact (non-linear) cumulative value at `pts` points, from the node's curve.
+  const ascValue = (node, pts) => {
+    if (pts <= 0) return 0;
+    const c = node.curve;
+    if (c) return c[Math.min(pts, c.length) - 1];
+    return +((pts / 10) * node.max).toFixed(2); // fallback
+  };
 
   // ===== Aggregation =====
   function aggregateStats() {

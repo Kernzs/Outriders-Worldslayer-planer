@@ -7,10 +7,13 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.10.0";
+  const APP_VERSION = "1.10.1";
   const CHANGELOG = [
     {
       version: "1.10.0", date: "2026-06-23", title: "Search, filtering & QoL",
+      patches: [ // newest first; nested under the minor version
+        { version: "1.10.1", date: "2026-06-23", items: ["Smarter duplicate-mod check: only across your 5 armor pieces (worn together) and within a single weapon — not between weapons, since only one is active at a time."] },
+      ],
       items: [
         "All long dropdowns are now searchable — mods, weapons, armor, weapon types/attributes. Type to filter instead of scrolling.",
         "Primary slots show primary weapons; the secondary slot shows only sidearms (Pistols & Revolvers), per the game.",
@@ -242,27 +245,29 @@
     }
     return out;
   }
-  // Every mod currently on the build (legendary factory mods incl. swaps,
-  // apocalypse slots, epic mods) — used to flag duplicates (mods don't stack).
-  function equippedMods() {
-    const out = [];
-    for (const slot of Object.keys(state.gear)) {
-      const g = state.gear[slot];
-      if (!g.item) continue;
-      if (g.item === EPIC) { g.mods.filter(Boolean).forEach((m) => out.push(m)); }
-      else {
-        const it = findGearItem(slot, g.item);
-        const defaults = ((it && it.factoryMods) || []).slice(0, 2);
-        defaults.forEach((d, i) => { const m = g.factory[i] != null ? g.factory[i] : d; if (m) out.push(m); });
-        g.mods.filter(Boolean).forEach((m) => out.push(m));
-      }
+  // Effective mods on a single gear slot (legendary factory incl. swaps +
+  // apocalypse, or epic mods).
+  function modsOfSlot(slot) {
+    const g = state.gear[slot]; const out = [];
+    if (!g.item) return out;
+    if (g.item === EPIC) { g.mods.filter(Boolean).forEach((m) => out.push(m)); }
+    else {
+      const it = findGearItem(slot, g.item);
+      const defaults = ((it && it.factoryMods) || []).slice(0, 2);
+      defaults.forEach((d, i) => { const m = g.factory[i] != null ? g.factory[i] : d; if (m) out.push(m); });
+      g.mods.filter(Boolean).forEach((m) => out.push(m));
     }
     return out;
   }
+  // Duplicates flagged per "conflict scope": all 5 armor pieces are worn at once,
+  // so armor mods share one pool; only one weapon is active at a time, so each
+  // weapon is its own pool (the same mod on two different weapons is fine).
   function duplicateModSet() {
-    const counts = {};
-    equippedMods().forEach((m) => (counts[m] = (counts[m] || 0) + 1));
-    return new Set(Object.keys(counts).filter((m) => counts[m] > 1));
+    const dup = new Set();
+    const tally = (arr) => { const c = {}; arr.forEach((m) => (c[m] = (c[m] || 0) + 1)); Object.keys(c).forEach((m) => { if (c[m] > 1) dup.add(m); }); };
+    tally(ARMOR_SLOTS.flatMap(modsOfSlot));
+    WEAPON_SLOTS.forEach((w) => tally(modsOfSlot(w.key)));
+    return dup;
   }
 
   function equippedSets() {
@@ -942,6 +947,13 @@
       const head = el("button", "cl-head", `<span class="cl-ver">v${entry.version} · ${entry.date} — ${esc(entry.title)}</span><span class="cl-caret">▾</span>`);
       head.onclick = () => sec.classList.toggle("open");
       const bodyEl = el("div", "cl-body");
+      for (const p of entry.patches || []) { // patches first (newer than the minor release)
+        const pb = el("div", "cl-patch");
+        pb.innerHTML = `<div class="cl-patch-ver">v${p.version} · ${p.date}</div>`;
+        const pul = el("ul", "cl-list");
+        for (const it of p.items) pul.appendChild(el("li", null, esc(it)));
+        pb.appendChild(pul); bodyEl.appendChild(pb);
+      }
       const ul = el("ul", "cl-list");
       for (const it of entry.items) ul.appendChild(el("li", null, esc(it)));
       bodyEl.appendChild(ul);

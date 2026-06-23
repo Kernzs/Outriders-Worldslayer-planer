@@ -7,8 +7,18 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.9.0";
+  const APP_VERSION = "1.10.0";
   const CHANGELOG = [
+    {
+      version: "1.10.0", date: "2026-06-23", title: "Search, filtering & QoL",
+      items: [
+        "All long dropdowns are now searchable — mods, weapons, armor, weapon types/attributes. Type to filter instead of scrolling.",
+        "Primary slots show primary weapons; the secondary slot shows only sidearms (Pistols & Revolvers), per the game.",
+        "Equipping the same mod twice now flags a warning (mods don't stack): the slots turn red and the Build Summary lists the duplicates.",
+        "This What's-new list is collapsible — only the latest version is expanded.",
+        "Added links to the GitHub repo and to every data source (header & footer).",
+      ],
+    },
     {
       version: "1.9.0", date: "2026-06-23", title: "Data fixes (sets, slots, mods)",
       items: [
@@ -80,12 +90,15 @@
   const CLASS_POINTS = 20, PAX_POINTS = 5, ASC_TOTAL = D.ascension._meta.totalPoints, MAX_SKILLS = 3;
   const TREE_W = 1850, TREE_H = 880;
   const ARMOR_SLOTS = ["Headgear", "Upper Armor", "Lower Armor", "Gloves", "Footgear"];
+  // Per the wiki: 2 primary weapons + 1 sidearm; sidearms are only Pistols & Revolvers.
+  const SIDEARM_TYPES = ["Pistol", "Revolver"];
   const WEAPON_SLOTS = [
-    { key: "primary1", label: "Primary Weapon I" },
-    { key: "primary2", label: "Primary Weapon II" },
-    { key: "secondary", label: "Secondary Weapon" },
+    { key: "primary1", label: "Primary Weapon I", sidearm: false },
+    { key: "primary2", label: "Primary Weapon II", sidearm: false },
+    { key: "secondary", label: "Secondary (Sidearm)", sidearm: true },
   ];
   const ALL_TYPES = [...new Set(D.weapons.map((w) => w.type).filter(Boolean))].sort();
+  const typesFor = (sidearm) => ALL_TYPES.filter((t) => sidearm ? SIDEARM_TYPES.includes(t) : !SIDEARM_TYPES.includes(t));
   // Variants are tied to the weapon type, so filter the variant list by the chosen type.
   const VARIANTS_BY_TYPE = {};
   D.weapons.forEach((w) => {
@@ -120,6 +133,7 @@
   // ---- UI flags ----
   let showTreeStats = false; // Breadbuilder-style stats overlay on the tree tab
   let showPaxLayout = true;  // in-game PAX tree reference image on the PAX tab
+  let dupMods = new Set();   // mod names equipped more than once (recomputed each render)
 
   // ---- Class-specific data ----
   let TREE = [], treeById = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
@@ -228,6 +242,29 @@
     }
     return out;
   }
+  // Every mod currently on the build (legendary factory mods incl. swaps,
+  // apocalypse slots, epic mods) — used to flag duplicates (mods don't stack).
+  function equippedMods() {
+    const out = [];
+    for (const slot of Object.keys(state.gear)) {
+      const g = state.gear[slot];
+      if (!g.item) continue;
+      if (g.item === EPIC) { g.mods.filter(Boolean).forEach((m) => out.push(m)); }
+      else {
+        const it = findGearItem(slot, g.item);
+        const defaults = ((it && it.factoryMods) || []).slice(0, 2);
+        defaults.forEach((d, i) => { const m = g.factory[i] != null ? g.factory[i] : d; if (m) out.push(m); });
+        g.mods.filter(Boolean).forEach((m) => out.push(m));
+      }
+    }
+    return out;
+  }
+  function duplicateModSet() {
+    const counts = {};
+    equippedMods().forEach((m) => (counts[m] = (counts[m] || 0) + 1));
+    return new Set(Object.keys(counts).filter((m) => counts[m] > 1));
+  }
+
   function equippedSets() {
     const counts = {};
     for (const slot of ARMOR_SLOTS) {
@@ -245,6 +282,7 @@
 
   // ===== Render =====
   function render() {
+    dupMods = duplicateModSet();
     renderClassSwitch();
     renderTree();
     renderPax();
@@ -566,7 +604,8 @@
     panel.appendChild(el("div", "section-head", `<div style="margin-top:18px"><h2>Weapons</h2><div class="hint">2 primary + 1 secondary. Equip a legendary or build a custom Epic.</div></div>`));
     const wGrid = el("div", "loadout-grid");
     for (const w of WEAPON_SLOTS) {
-      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", D.weapons, w)); // any weapon in any slot
+      const opts = D.weapons.filter((x) => w.sidearm ? SIDEARM_TYPES.includes(x.type) : !SIDEARM_TYPES.includes(x.type));
+      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", opts, w));
     }
     panel.appendChild(wGrid);
 
@@ -584,12 +623,14 @@
     const slot = el("div", "gear-slot");
     slot.appendChild(el("div", "gear-slot-head", `<span class="gear-slot-label">${esc(label)}</span>`));
 
-    const sel = el("select", "gear-select");
-    sel.appendChild(new Option("— empty —", ""));
-    const epicOpt = new Option("✦ Epic (custom)", EPIC); if (g.item === EPIC) epicOpt.selected = true; sel.appendChild(epicOpt);
-    for (const o of options) { const opt = new Option(o.name, o.name); if (o.name === g.item) opt.selected = true; sel.appendChild(opt); }
-    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; g.type = ""; g.variant = ""; g.factory = []; render(); };
-    slot.appendChild(sel);
+    const itemGroups = [{ label: null, options: [
+      { value: "", label: "— empty —", cls: " mp-none" },
+      { value: EPIC, label: "✦ Epic (custom)" },
+      ...options.map((o) => ({ value: o.name, label: o.name })),
+    ] }];
+    slot.appendChild(searchPicker(itemGroups, g.item,
+      (v) => { g.item = v; g.mods = []; g.attrs = []; g.type = ""; g.variant = ""; g.factory = []; render(); },
+      { placeholder: "— empty —", searchPlaceholder: scope === "weapon" ? "Search weapons…" : "Search armor…" }));
 
     if (g.item === EPIC) {
       slot.appendChild(epicEditor(g, scope, weaponSlot));
@@ -626,54 +667,86 @@
     const box = el("div", "epic-editor");
     if (scope === "weapon") {
       box.appendChild(el("div", "epic-label", "Weapon"));
-      const typeSel = el("select", "gear-select sm");
-      typeSel.appendChild(new Option("— type —", ""));
-      for (const t of ALL_TYPES) { const o = new Option(t, t); if (g.type === t) o.selected = true; typeSel.appendChild(o); }
-      typeSel.onchange = () => {
-        g.type = typeSel.value;
-        if (!(VARIANTS_BY_TYPE[g.type] || []).includes(g.variant)) g.variant = ""; // variant must match the type
-        render();
-      };
-      box.appendChild(typeSel);
+      const typeOpts = [{ value: "", label: "— type —", cls: " mp-none" }, ...typesFor(weaponSlot ? weaponSlot.sidearm : false).map((t) => ({ value: t, label: t }))];
+      box.appendChild(searchPicker([{ label: null, options: typeOpts }], g.type,
+        (v) => { g.type = v; if (!(VARIANTS_BY_TYPE[g.type] || []).includes(g.variant)) g.variant = ""; render(); },
+        { placeholder: "— type —", searchPlaceholder: "Search types…" }));
       const varList = g.type ? (VARIANTS_BY_TYPE[g.type] || []) : [];
-      const varSel = el("select", "gear-select sm");
-      varSel.appendChild(new Option(g.type ? "— variant —" : "— pick a type first —", ""));
-      varSel.disabled = !g.type;
-      for (const v of varList) { const o = new Option(v, v); if (g.variant === v) o.selected = true; varSel.appendChild(o); }
-      varSel.onchange = () => { g.variant = varSel.value; render(); };
-      box.appendChild(varSel);
+      const varOpts = [{ value: "", label: g.type ? "— variant —" : "— pick a type first —", cls: " mp-none" }, ...varList.map((v) => ({ value: v, label: v }))];
+      box.appendChild(searchPicker([{ label: null, options: varOpts }], g.variant,
+        (v) => { g.variant = v; render(); },
+        { placeholder: g.type ? "— variant —" : "— pick a type first —", disabled: !g.type }));
     }
     const pool = scope === "weapon" ? weaponAttrPool() : armorAttrPool();
     box.appendChild(el("div", "epic-label", "Attributes"));
     for (let i = 0; i < EPIC_ATTRS; i++) {
-      const s = el("select", "gear-select sm");
-      s.appendChild(new Option("— attribute —", ""));
-      for (const a of pool) { const o = new Option(a, a); if (g.attrs[i] === a) o.selected = true; s.appendChild(o); }
-      s.onchange = () => { g.attrs[i] = s.value; render(); };
-      box.appendChild(s);
+      const attrOpts = [{ value: "", label: "— attribute —", cls: " mp-none" }, ...pool.map((a) => ({ value: a, label: a }))];
+      box.appendChild(searchPicker([{ label: null, options: attrOpts }], g.attrs[i] || "",
+        (v) => { g.attrs[i] = v; render(); }, { placeholder: "— attribute —", searchPlaceholder: "Search attributes…" }));
     }
     box.appendChild(el("div", "epic-label", "Mods"));
     for (let i = 0; i < EPIC_MODS; i++) box.appendChild(modSelect(g, i, scope, "— mod —"));
     return box;
   }
 
-  // A mod <select> for the given scope (armor groups class + armor mods).
-  // current = selected mod name; if it isn't in the pool (a legendary's signature
-  // factory mod), it's prepended so it stays selectable.
-  function modOptionsSelect(scope, current, disabled, placeholder, onChange) {
-    const s = el("select", "gear-select sm");
-    s.disabled = !!disabled;
-    s.appendChild(new Option(placeholder, ""));
-    const addInto = (mods, c) => { for (const m of mods) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (current === m.name) o.selected = true; c.appendChild(o); } };
-    if (scope === "armor") {
-      const og1 = document.createElement("optgroup"); og1.label = "Class skill mods"; addInto(D.mods.filter((m) => m.scope === state.cls), og1); s.appendChild(og1);
-      const og2 = document.createElement("optgroup"); og2.label = "Armor mods"; addInto(D.mods.filter((m) => m.scope === "armor"), og2); s.appendChild(og2);
-    } else addInto(modsForScope(scope), s);
-    if (current && ![...s.querySelectorAll("option")].some((o) => o.value === current)) {
-      const o = new Option(current, current); o.selected = true; s.insertBefore(o, s.children[1] || null);
+  // Generic searchable dropdown. groups: [{label|null, options:[{value,label,cls?}]}].
+  // A search box appears only when there are enough options to warrant it.
+  function searchPicker(groups, current, onChange, opts = {}) {
+    let curLabel = opts.placeholder || "— select —";
+    for (const g of groups) for (const o of g.options) if (o.value === current) curLabel = o.label;
+    const wrap = el("div", "mod-picker" + (opts.disabled ? " disabled" : "") + (opts.dup ? " dup" : "") + (opts.swapped ? " swapped" : ""));
+    const trigger = el("button", "mp-trigger", `<span>${esc(curLabel)}</span><span class="mp-caret">▾</span>`);
+    trigger.disabled = !!opts.disabled;
+    if (opts.dup) trigger.title = "This mod is equipped more than once — it doesn't stack.";
+    const pop = el("div", "mp-pop hidden");
+    const list = el("div", "mp-list");
+    for (const g of groups) {
+      if (g.label) { const h = el("div", "mp-group", g.label); h.dataset.group = "1"; list.appendChild(h); }
+      for (const o of g.options) {
+        const b = el("button", "mp-opt" + (o.cls || ""), esc(o.label));
+        if (o.value === current) b.classList.add("sel");
+        b.onclick = () => onChange(o.value);
+        list.appendChild(b);
+      }
     }
-    s.onchange = () => onChange(s.value);
-    return s;
+    let search = null;
+    if (opts.searchable !== false && groups.reduce((n, g) => n + g.options.length, 0) > 8) {
+      search = el("input", "mp-search"); search.type = "text"; search.placeholder = opts.searchPlaceholder || "Search…";
+      search.onclick = (e) => e.stopPropagation();
+      search.oninput = () => {
+        const q = search.value.toLowerCase(); let group = null;
+        for (const ch of list.children) {
+          if (ch.dataset.group) { group = ch; group.style.display = "none"; continue; }
+          const show = !q || ch.textContent.toLowerCase().includes(q);
+          ch.style.display = show ? "" : "none";
+          if (show && group) group.style.display = "";
+        }
+      };
+      pop.appendChild(search);
+    }
+    pop.appendChild(list);
+    trigger.onclick = (e) => {
+      e.stopPropagation();
+      document.querySelectorAll(".mp-pop").forEach((p) => { if (p !== pop) p.classList.add("hidden"); });
+      pop.classList.toggle("hidden");
+      if (!pop.classList.contains("hidden") && search) { search.value = ""; search.dispatchEvent(new Event("input")); search.focus(); }
+    };
+    wrap.append(trigger, pop);
+    return wrap;
+  }
+
+  // Mod picker built on searchPicker (armor groups class + armor mods; keeps a
+  // signature factory mod selectable even if it's outside the pool).
+  function modOptionsSelect(scope, current, disabled, placeholder, onChange) {
+    const mk = (mods) => mods.map((m) => ({ value: m.name, label: `[T${m.tier}] ${m.name}` }));
+    const groups = scope === "armor"
+      ? [{ label: "Class skill mods", options: mk(D.mods.filter((m) => m.scope === state.cls)) }, { label: "Armor mods", options: mk(D.mods.filter((m) => m.scope === "armor")) }]
+      : [{ label: null, options: mk(modsForScope(scope)) }];
+    const known = new Set(groups.flatMap((g) => g.options.map((o) => o.value)));
+    const lead = [{ value: "", label: placeholder, cls: " mp-none" }];
+    if (current && !known.has(current)) lead.push({ value: current, label: current });
+    groups.unshift({ label: null, options: lead });
+    return searchPicker(groups, current, onChange, { placeholder, disabled, dup: current && dupMods.has(current), searchPlaceholder: "Search mods…" });
   }
   const modSelect = (g, i, scope, placeholder) =>
     modOptionsSelect(scope, g.mods[i], false, placeholder, (v) => { g.mods[i] = v; render(); });
@@ -748,6 +821,16 @@
         cl.appendChild(chip);
       }
       ef.appendChild(cl); body.appendChild(ef);
+    }
+
+    if (dupMods.size) {
+      const w = el("div", "sum-section warn");
+      w.innerHTML = `<h3>⚠ Duplicate mods</h3>`;
+      const cl = el("div", "chip-list");
+      for (const m of dupMods) cl.appendChild(el("span", "chip dup", esc(m)));
+      w.appendChild(cl);
+      w.appendChild(el("div", "warn-note", "Equipped more than once — mods don't stack."));
+      body.appendChild(w);
     }
   }
 
@@ -853,13 +936,19 @@
     const back = el("div", "modal-back");
     const card = el("div", "modal");
     card.innerHTML = `<div class="modal-head"><h2>What's new</h2><span class="modal-ver">v${APP_VERSION}</span></div>`;
-    for (const entry of CHANGELOG.slice(0, force ? CHANGELOG.length : 1)) {
-      const sec = el("div", "cl-entry");
-      sec.innerHTML = `<div class="cl-ver">v${entry.version} · ${entry.date} — ${esc(entry.title)}</div>`;
+    const log = el("div", "cl-log");
+    CHANGELOG.forEach((entry, idx) => {
+      const sec = el("div", "cl-entry" + (idx === 0 ? " open" : "")); // latest expanded, rest collapsed
+      const head = el("button", "cl-head", `<span class="cl-ver">v${entry.version} · ${entry.date} — ${esc(entry.title)}</span><span class="cl-caret">▾</span>`);
+      head.onclick = () => sec.classList.toggle("open");
+      const bodyEl = el("div", "cl-body");
       const ul = el("ul", "cl-list");
       for (const it of entry.items) ul.appendChild(el("li", null, esc(it)));
-      sec.appendChild(ul); card.appendChild(sec);
-    }
+      bodyEl.appendChild(ul);
+      sec.append(head, bodyEl);
+      log.appendChild(sec);
+    });
+    card.appendChild(log);
     const btn = el("button", "btn btn-accent", "Got it");
     const close = () => { try { localStorage.setItem(SEEN_KEY, APP_VERSION); } catch {} back.remove(); };
     btn.onclick = close;
@@ -879,6 +968,7 @@
 
   function init() {
     initTabs();
+    document.addEventListener("click", () => document.querySelectorAll(".mp-pop:not(.hidden)").forEach((p) => p.classList.add("hidden")));
     $("#btn-reset").onclick = () => {
       state.tree = new Set([0]); state.pax = new Set(); state.asc = {}; state.skills = new Set(); state.gear = freshGear();
       render(); toast("Build reset");

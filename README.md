@@ -28,16 +28,21 @@ All data is bundled into a single JS file so it runs from a plain file or any st
 - **Ascension** — 4 categories × 5 nodes, 0–10 points each (Shift+click to fill/clear a node),
   200 total. Values reach each node's stated max at 10/10 (intermediate values are a linear
   estimate — the game's per-level curve isn't documented).
-- **Gear** — 2 primary weapons + 1 secondary, 5 armor slots. Each slot takes a **legendary**
-  (keep its 2 factory mods, swap one, plus a free Apocalypse 3rd-mod slot) **or a custom Epic**
-  (choose weapon type + variant, attributes, and mods). Armor mod pools include the class
-  skill mods. Set-bonus piece counting.
+- **Gear** — 2 primary weapons + 1 secondary (sidearms are Pistols/Revolvers), 5 armor slots.
+  Each slot takes a **legendary** (keep its 2 factory mods, swap one, plus a free Apocalypse
+  3rd-mod slot) **or a custom Epic** (choose weapon type + variant, attributes, and mods).
+  Armor mod pools include the class skill mods. Set-bonus piece counting.
+- **Searchable pickers** — weapons, armor, mods, types and attributes are all searchable
+  (type to filter long lists). Equipping the same mod twice flags a "duplicate" warning
+  (mods don't stack).
 - **Active skills** — pick up to 3.
 - **Build Summary** — live aggregated stats (tree + ascension) and every active effect
   (hover an effect to read exactly what it does).
-- **Share** — the whole build is encoded in the URL hash; "Copy build link" copies it.
-- **What's new** popup — shows the latest changes once per version (driven by the in-app
-  `CHANGELOG` in `app.js`).
+- **Share** — the whole build is encoded compactly in the URL hash (~100 chars);
+  "Copy build link" copies it.
+- **What's new** popup — collapsible changelog, latest version expanded; shown once per
+  version (driven by the in-app `CHANGELOG` in `app.js`).
+- **Links** — GitHub repo and every data source are linked from the header/footer.
 
 ## Data pipeline
 

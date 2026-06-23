@@ -7,8 +7,12 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.11.1";
+  const APP_VERSION = "1.12.0";
   const CHANGELOG = [
+    {
+      version: "1.12.0", date: "2026-06-23", title: "Auto-shortened share links",
+      items: ["'Copy build link' and 'Copy recap link' now copy a short link (via da.gd) instead of the long URL, so builds are easy to paste anywhere."],
+    },
     {
       version: "1.11.0", date: "2026-06-23", title: "Build recap",
       patches: [
@@ -864,6 +868,24 @@
     });
   }
 
+  // Shorten a share URL via da.gd (fallback tinyurl). Both preserve the #hash
+  // (where the build is encoded) and hide "github" (some Discords filter it).
+  // Falls back to the full URL if the services are unreachable.
+  async function shortenUrl(url) {
+    for (const api of ["https://da.gd/s?url=", "https://tinyurl.com/api-create.php?url="]) {
+      try {
+        const r = await fetch(api + encodeURIComponent(url));
+        if (r.ok) { const s = (await r.text()).trim(); if (/^https?:\/\/\S+$/.test(s) && !/error/i.test(s)) return s; }
+      } catch {}
+    }
+    return url;
+  }
+  async function copyLink(url) {
+    const short = await shortenUrl(url);
+    try { await navigator.clipboard.writeText(short); } catch {}
+    return short;
+  }
+
   // ===== Share via URL hash (compact, index-based) =====
   // Everything is stored as indices into the data arrays instead of full names,
   // then base64url-encoded — keeps shared links short.
@@ -1070,8 +1092,10 @@
     copyBtn.onclick = async () => {
       writeHash();
       const url = location.origin + location.pathname + "?recap=1" + location.hash;
-      try { await navigator.clipboard.writeText(url); copyBtn.textContent = "Copied!"; setTimeout(() => (copyBtn.textContent = "Copy recap link"), 1200); }
-      catch { toast("Copy failed — link is in the address bar"); }
+      copyBtn.disabled = true; copyBtn.textContent = "Shortening…";
+      await copyLink(url);
+      copyBtn.disabled = false; copyBtn.textContent = "Copied!";
+      setTimeout(() => (copyBtn.textContent = "Copy recap link"), 1400);
     };
     const closeBtn = el("button", "btn btn-ghost", "Close");
     closeBtn.onclick = () => back.remove();
@@ -1099,8 +1123,11 @@
     };
     $("#btn-share").onclick = async () => {
       writeHash();
-      try { await navigator.clipboard.writeText(location.href); toast("Build link copied to clipboard"); }
-      catch { toast("Copy failed — link is in the address bar"); }
+      const btn = $("#btn-share"); const label = btn.textContent;
+      btn.disabled = true; btn.textContent = "Shortening…";
+      const short = await copyLink(location.href);
+      btn.disabled = false; btn.textContent = label;
+      toast(short !== location.href ? "Short build link copied" : "Build link copied");
     };
     const wn = $("#btn-whatsnew"); if (wn) wn.onclick = () => openChangelog(true);
     const rc = $("#btn-recap"); if (rc) rc.onclick = openRecap;

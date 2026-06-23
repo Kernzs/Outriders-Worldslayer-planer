@@ -7,10 +7,17 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.12.0";
+  const APP_VERSION = "1.12.1";
   const CHANGELOG = [
     {
       version: "1.12.0", date: "2026-06-23", title: "Auto-shortened share links",
+      patches: [
+        { version: "1.12.1", date: "2026-06-23", items: [
+          "Recovered ~26 legendary armor pieces that were missing (e.g. Sergio's Beret) — gear is now sourced from every infobox page, not just the wiki's legendary category.",
+          "Fixed legendary weapons showing only 1 base mod instead of 2 (e.g. Inferno Seed was missing Brain-Eater) — a parser bug dropped the second factory mod.",
+          "Fixed a phantom line in the PAX recap mini-tree between the converge node and the middle path. Thanks to Vryyce on Reddit for the report.",
+        ] },
+      ],
       items: ["'Copy build link' and 'Copy recap link' now copy a short link (via da.gd) instead of the long URL, so builds are easy to paste anywhere."],
     },
     {
@@ -465,6 +472,21 @@
     set(M[0], [U[3], T[0], B[0]]); set(M[1], [M[0]]); // middle opens from the converge node or either path start
 
     return m;
+  }
+  // Edges actually DRAWN in the recap mini-tree. Same lattice as the prereq map
+  // EXCEPT the converge->middle shortcut: middle is reached through the
+  // top/bottom diamond, so a converge->middle line would be a phantom edge.
+  // (Gating keeps that shortcut so the middle path stays clickable from converge.)
+  function paxVisualEdges(branch) {
+    const g = { universal: [], top: [], middle: [], bottom: [] };
+    for (const n of branch.nodes) (g[n.path] || (g[n.path] = [])).push(n.name);
+    const { universal: U, top: T = [], middle: M = [], bottom: B = [] } = g;
+    const pairs = [
+      [U[0], U[1]], [U[0], U[2]], [U[1], U[3]], [U[2], U[3]],
+      [U[3], T[0]], [U[3], B[0]], [T[0], T[1]], [B[0], B[1]],
+      [T[0], M[0]], [B[0], M[0]], [M[0], M[1]],
+    ];
+    return pairs.filter(([a, b]) => a && b);
   }
   const paxKey = (branch, name) => branch.name + "::" + name;
   function paxAvailable(branch, name, prMap) {
@@ -1043,13 +1065,13 @@
 
     const pNodes = [], pEdges = [];
     for (const br of PAXDATA.branches) {
-      const prMap = paxPrereqMap(br), big = paxBigSet(br), byName = {};
+      const big = paxBigSet(br), byName = {};
       br.nodes.forEach((n) => (byName[n.name] = n));
       br.nodes.filter((n) => n.x != null).forEach((n) => pNodes.push({ x: n.x, y: n.y, on: state.pax.has(br.name + "::" + n.name), big: big.has(n.name), name: n.name }));
-      const seen = new Set();
-      for (const n of br.nodes) {
-        if (n.x == null) continue;
-        for (const pn of (prMap[n.name] || [])) { const p = byName[pn]; if (!p || p.x == null) continue; const k = [n.name, pn].sort().join("|"); if (seen.has(k)) continue; seen.add(k); pEdges.push({ x1: n.x, y1: n.y, x2: p.x, y2: p.y, on: state.pax.has(br.name + "::" + n.name) && state.pax.has(br.name + "::" + pn) }); }
+      for (const [a, b] of paxVisualEdges(br)) {
+        const na = byName[a], nb = byName[b];
+        if (!na || !nb || na.x == null || nb.x == null) continue;
+        pEdges.push({ x1: na.x, y1: na.y, x2: nb.x, y2: nb.y, on: state.pax.has(br.name + "::" + a) && state.pax.has(br.name + "::" + b) });
       }
     }
     left.push(`<div class="rc-sec"><h3>PAX <span class="rc-sub">${state.pax.size}/${PAX_POINTS}</span></h3>${miniGraphSvg(pNodes, pEdges)}</div>`);

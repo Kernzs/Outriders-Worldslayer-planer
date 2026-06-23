@@ -29,6 +29,24 @@ async function categoryMembers(cat) {
   return titles;
 }
 
+// Every page that transcludes a template, regardless of category. Used so we
+// catch Legendary items that aren't filed under Category:Legendary_* on the
+// wiki (e.g. Sergio's Beret, tagged class=Universal and miscategorised).
+async function embeddedin(template) {
+  const titles = [];
+  let cont;
+  do {
+    const data = await api({
+      action: "query", list: "embeddedin",
+      eititle: template, einamespace: "0", eilimit: "500",
+      ...(cont ? { eicontinue: cont } : {}),
+    });
+    for (const m of data.query.embeddedin) titles.push(m.title);
+    cont = data.continue?.eicontinue;
+  } while (cont);
+  return titles;
+}
+
 async function fetchContents(titles) {
   const out = {};
   for (let i = 0; i < titles.length; i += 50) {
@@ -42,9 +60,11 @@ async function fetchContents(titles) {
 }
 
 function field(wt, name) {
-  // Capture a single-line infobox field value (stops at newline, next |, or })
-  // [ \t]* after '=' so a blank field doesn't swallow the next line's value
-  const m = wt.match(new RegExp(`\\|[ \\t]*${name}[ \\t]*=[ \\t]*([^\\n}]*?)[ \\t]*(?=\\n\\s*\\||\\n\\}\\}|$)`, "i"));
+  // Capture a single-line infobox field value. Stops at the next field, the
+  // infobox close `}}` (even on the SAME line, e.g. a last field `|mod2=X}}`),
+  // or end of text. The same-line `}}` case is why some last fields (mod2) were
+  // silently dropped before.
+  const m = wt.match(new RegExp(`\\|[ \\t]*${name}[ \\t]*=[ \\t]*([^\\n}]*?)[ \\t]*(?=\\n|\\}\\}|$)`, "i"));
   return m ? clean(m[1]) : null;
 }
 
@@ -85,6 +105,7 @@ function parseWeapon(name, wt) {
   wt = wt.replace(/<!--[\s\S]*?-->/g, ""); // comments between fields break field lookahead
   return {
     name,
+    rarity: field(wt, "rarity"),
     type: field(wt, "type"),
     variant: field(wt, "variant"),
     fireMode: field(wt, "mode"),
@@ -105,29 +126,40 @@ function parseArmor(name, wt) {
   wt = wt.replace(/<!--[\s\S]*?-->/g, "");
   return {
     name,
+    rarity: field(wt, "rarity"),
     slot: SLOT_OVERRIDES[name] || field(wt, "type"),
-    class: field(wt, "class"), // null = universal
+    class: field(wt, "class"), // null/"Universal" = not class-locked
     specialStats: [field(wt, "stat1"), field(wt, "stat2"), field(wt, "stat3")].filter(Boolean).map(normStat),
     factoryMods: [field(wt, "mod1"), field(wt, "mod2")].filter(Boolean),
     setBonus: setField(wt),
   };
 }
 
+const isLegendary = (x) => (x.rarity || "").toLowerCase() === "legendary";
+const isUniversal = (cls) => !cls || ["universal", "all"].includes(cls.toLowerCase());
+const stripRarity = ({ rarity, ...rest }) => rest;
+
 async function main() {
+  // Source every page that uses the infobox (not just Category:Legendary_*,
+  // which misses miscategorised items) and keep only the Legendary ones.
   // --- Weapons (universal) ---
-  const wTitles = await categoryMembers("Legendary_Weapons");
+  const wTitles = await embeddedin("Template:Infobox weapon");
   const wContent = await fetchContents(wTitles);
   const weapons = wTitles
     .filter((t) => /\{\{Infobox weapon/i.test(wContent[t] || ""))
     .map((t) => parseWeapon(t, wContent[t]))
+    .filter(isLegendary)
+    .map(stripRarity)
     .sort((a, b) => a.name.localeCompare(b.name));
 
   // --- Armor (per class: class-specific + universal pieces) ---
-  const aTitles = await categoryMembers("Legendary_Armor");
+  const aTitles = await embeddedin("Template:Infobox armor");
   const aContent = await fetchContents(aTitles);
   const allArmor = aTitles
     .filter((t) => /\{\{Infobox armor/i.test(aContent[t] || ""))
-    .map((t) => parseArmor(t, aContent[t]));
+    .map((t) => parseArmor(t, aContent[t]))
+    .filter(isLegendary)
+    .map(stripRarity);
 
   mkdirSync("data", { recursive: true });
   mkdirSync("data/classes", { recursive: true });
@@ -137,7 +169,7 @@ async function main() {
 
   for (const cls of ["technomancer", "pyromancer", "trickster", "devastator"]) {
     const armor = allArmor
-      .filter((a) => !a.class || a.class.toLowerCase() === cls)
+      .filter((a) => isUniversal(a.class) || a.class.toLowerCase() === cls)
       .sort((a, b) => a.name.localeCompare(b.name));
     writeFileSync(`data/classes/${cls}.armor.json`, JSON.stringify(armor, null, 2));
     const slots = armor.reduce((a, x) => ((a[x.slot] = (a[x.slot] || 0) + 1), a), {});

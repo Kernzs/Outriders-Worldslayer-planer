@@ -1,5 +1,35 @@
 [
   {
+    "name": "Anomaly's Visage",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Echo",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Armor of Maxwell's Demon",
+    "slot": "Upper Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Tactical Retreat",
+      "Personal Space"
+    ],
+    "setBonus": "Maxwell's Demon: Each successful Assault Weapons shot grants a Firepower bonus that stacks up to 50%. To reach the bonus, a half of weapon magazine ammo must be spent as successful shots. On achieving maximum stacks the Firepower bonus is raised to 100% and Burn is applied to both the player and enemies within a 15 meter radius. The bonus is active for up to half of weapon magazine ammo capacity. Bonus is lost upon reloading or swapping weapons."
+  },
+  {
     "name": "Boots of the Borealis Monarch",
     "slot": "Footgear",
     "class": "Technomancer",
@@ -30,6 +60,81 @@
     "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
   },
   {
+    "name": "Chestplate of the Martyr",
+    "slot": "Upper Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Self-Medication",
+      "What Goes Around"
+    ],
+    "setBonus": "Martyr: All damage received by the player becomes a damage over time effect that cannot be removed."
+  },
+  {
+    "name": "Cranium of a Lost Creature",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Power Assimilation",
+      "Stand Tall"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Deadeye's Cloak",
+    "slot": "Upper Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Headbanger",
+      "High Velocity Bullets"
+    ],
+    "setBonus": "Deadeye: Long Range Weapon Damage bonus is now active regardless of range, but you can no longer benefit from Close Range Weapon Damage bonus."
+  },
+  {
+    "name": "Deadeye's Skull",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Charged Up",
+      "Plate Piercer"
+    ],
+    "setBonus": "Deadeye: Long Range Weapon Damage bonus is now active regardless of range, but you can no longer benefit from Close Range Weapon Damage bonus."
+  },
+  {
+    "name": "Deadeye's Waistcloth",
+    "slot": "Lower Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Collateral Damage",
+      "Hidden And Dangerous"
+    ],
+    "setBonus": "Deadeye: Long Range Weapon Damage bonus is now active regardless of range, but you can no longer benefit from Close Range Weapon Damage bonus."
+  },
+  {
     "name": "Defiled Visage",
     "slot": "Headgear",
     "class": null,
@@ -41,6 +146,36 @@
     "factoryMods": [
       "Dead Clock",
       "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Descendant",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Thunder's Legacy",
+      "Even Odds"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Explosive Temper",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Last One Standing",
+      "Rejuvenation"
     ],
     "setBonus": null
   },
@@ -58,6 +193,34 @@
       "Untamed Power"
     ],
     "setBonus": null
+  },
+  {
+    "name": "Footgear of the Cannonball",
+    "slot": "Footgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Recudtion"
+    ],
+    "factoryMods": [
+      "Ready For Anything",
+      "Phantom Dash"
+    ],
+    "setBonus": "Cannonball: Killing an enemy with melee skill replenishes ammunition in your current magazine."
+  },
+  {
+    "name": "Gauntlets of the Cannonball",
+    "slot": "Gloves",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Captain Hunter",
+      "Personal Space"
+    ],
+    "setBonus": "Cannonball: Killing an enemy with melee skill replenishes ammunition in your current magazine."
   },
   {
     "name": "Gauntlets of the Flame Leper",
@@ -165,6 +328,96 @@
     "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
   },
   {
+    "name": "Helm of the Martyr",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Under Pressure",
+      "Untamed Power"
+    ],
+    "setBonus": "Martyr: All damage received by the player becomes a damage over time effect that cannot be removed."
+  },
+  {
+    "name": "Helmet of Maxwell's Demon",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Magma Shelter",
+      "Dum-Dum Bullets"
+    ],
+    "setBonus": "Maxwell's Demon: Each successful Assault Weapons shot grants a Firepower bonus that stacks up to 50%. To reach the bonus, a half of weapon magazine ammo must be spent as successful shots. On achieving maximum stacks the Firepower bonus is raised to 100% and Burn is applied to both the player and enemies within a 15 meter radius. The bonus is active for up to half of weapon magazine ammo capacity. Bonus is lost upon reloading or swapping weapons."
+  },
+  {
+    "name": "Ivory and Bone",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "King Slayer",
+      "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Leg Armor of the Cannonball",
+    "slot": "Lower Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Circle of Power",
+      "Move Groove"
+    ],
+    "setBonus": "Cannonball: Killing an enemy with melee skill replenishes ammunition in your current magazine."
+  },
+  {
+    "name": "Legplates of Maxwell's Demon",
+    "slot": "Lower Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Supercollider",
+      "Bloodlust"
+    ],
+    "setBonus": "Maxwell's Demon: Each successful Assault Weapons shot grants a Firepower bonus that stacks up to 50%. To reach the bonus, a half of weapon magazine ammo must be spent as successful shots. On achieving maximum stacks the Firepower bonus is raised to 100% and Burn is applied to both the player and enemies within a 15 meter radius. The bonus is active for up to half of weapon magazine ammo capacity. Bonus is lost upon reloading or swapping weapons."
+  },
+  {
+    "name": "Legplates of the Martyr",
+    "slot": "Lower Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Max Health",
+      "Healing Received",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Vaccinated",
+      "Even Odds"
+    ],
+    "setBonus": "Martyr: All damage received by the player becomes a damage over time effect that cannot be removed."
+  },
+  {
     "name": "Lucky Ushanka",
     "slot": "Headgear",
     "class": null,
@@ -176,6 +429,32 @@
     "factoryMods": [
       "Death's Door",
       "Emergency Stance"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Mask of the Cannonball",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [],
+    "factoryMods": [
+      "Purity",
+      "Bloodlust"
+    ],
+    "setBonus": "Cannonball: Killing an enemy with melee skill replenishes ammunition in your current magazine."
+  },
+  {
+    "name": "Ol' Reliable",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Introvert",
+      "Dum-Dum Bullets"
     ],
     "setBonus": null
   },
@@ -285,10 +564,44 @@
     "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
   },
   {
+    "name": "Ronin's Amigasa",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Arms and Anomaly",
+      "Aura of Force"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Sergio's Beret",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Sharp Eye",
+      "Bloodlust"
+    ],
+    "setBonus": null
+  },
+  {
     "name": "Tanner's Hat",
     "slot": "Headgear",
     "class": null,
-    "specialStats": [],
+    "specialStats": [
+      "Bonus Firepower|stat2=Close Range Damage|stat3=Cooldown Reduction",
+      "Close Range Damage|stat3=Cooldown Reduction",
+      "Cooldown Reduction"
+    ],
     "factoryMods": [
       "Stare Into the Barrel",
       "Buckshot Shells"
@@ -459,6 +772,66 @@
     "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
   },
   {
+    "name": "Trigger Twitch's Coat",
+    "slot": "Upper Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Crazed Gunman",
+      "Critstack"
+    ],
+    "setBonus": "Trigger Twitch: Spending 50% of total ammo in your current sidearm magazine as critical shots allows you to perform a special attack activated through your Melee skill. The attack deals {{texttip|X|280% of Firepower"
+  },
+  {
+    "name": "Trigger Twitch's Mask",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "High Stakes",
+      "Sidearms Specialist"
+    ],
+    "setBonus": "Trigger Twitch: Spending 50% of total ammo in your current sidearm magazine as critical shots allows you to perform a special attack activated through your Melee skill. The attack deals {{texttip|X|280% of Firepower"
+  },
+  {
+    "name": "Trigger Twitch's Trousers",
+    "slot": "Lower Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Quick Iron",
+      "Plate Piercer"
+    ],
+    "setBonus": "Trigger Twitch: Spending 50% of total ammo in your current sidearm magazine as critical shots allows you to perform a special attack activated through your Melee skill. The attack deals {{texttip|X|280% of Firepower"
+  },
+  {
+    "name": "Tundra Stalker",
+    "slot": "Headgear",
+    "class": "Universal",
+    "specialStats": [
+      "Bonus Firepower",
+      "Long Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Shock and Awe",
+      "Ice Trap"
+    ],
+    "setBonus": null
+  },
+  {
     "name": "Veil of the Flame Leper",
     "slot": "Headgear",
     "class": "Technomancer",
@@ -472,6 +845,21 @@
       "Radical Therapy"
     ],
     "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  },
+  {
+    "name": "Vest of the Cannonball",
+    "slot": "Upper Armor",
+    "class": "Universal",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Not Impressed",
+      "Buckshot Shells"
+    ],
+    "setBonus": "Cannonball: Killing an enemy with melee skill replenishes ammunition in your current magazine."
   },
   {
     "name": "Waistcloth of the Borealis Monarch",

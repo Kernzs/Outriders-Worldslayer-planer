@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "class": "devastator",
+    "description": "Active class skills. [X]/[Y]/[Z] and ~% are level-scaled placeholders from the source.",
+    "source": "Breadbuilder main.js"
+  },
+  "skills": [
+    {
+      "name": "Gravity Leap",
+      "desc": "Leap into the air and strike your targets from above, dealing ~80% damage and Interrupting enemies within a small radius of the area you land in."
+    },
+    {
+      "name": "Boulderdash",
+      "desc": "Charge forward to Interrupt all enemies in your path and deal [Z] damage. At the end of the charge, you will smash the ground and deal [Z] damage to all enemies within a small radius around you."
+    },
+    {
+      "name": "Endless Mass",
+      "desc": "Select a target to encase in stone, inflicting Bleed and pulling enemies within a small radius towards the initial target. The stone will then explode, dealing [Z] damage to all enemies within a small radius around the target."
+    },
+    {
+      "name": "Golem",
+      "desc": "Fortify yourself against 65% of incoming damage for 8 seconds."
+    },
+    {
+      "name": "Earthquake",
+      "desc": "Release a shockwave to deal ~40% damage and Interrupt all enemies in front of you."
+    },
+    {
+      "name": "Reflect Bullets",
+      "desc": "Create a barrier that captures all enemy projectiles and accumulates damage. After 10 seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you. The barrier also protects against melee attacks by reflecting some damage back."
+    },
+    {
+      "name": "Impale",
+      "desc": "Select a target to Interrupt their skills, inflict Bleed, and deal [Z] damage. If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health Regeneration to all allies for 9 seconds."
+    },
+    {
+      "name": "Tremor",
+      "desc": "Create a series of explosions around you, each dealing [Z] damage and draining [X] Health from enemies within a medium radius around you."
+    }
+  ]
+}

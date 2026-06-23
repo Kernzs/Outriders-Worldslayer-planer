@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "class": "trickster",
+    "description": "PAX trees for the trickster. Two branches; each path shares a universal trunk.",
+    "source": "GamerGuides PAX skill lists"
+  },
+  "branches": [
+    {
+      "name": "Spectre",
+      "theme": "Weapon damage & mobility",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Damaged",
+          "desc": "Damaging enemies with DAMAGE Skills increases your damage by 10% for 5 seconds."
+        },
+        {
+          "path": "universal",
+          "name": "Adaptation",
+          "desc": "Activating Skills grants your 15% Anomaly Power or Firepower for 5 seconds depending which of them is higher."
+        },
+        {
+          "path": "universal",
+          "name": "Reactive Shielding",
+          "desc": "Activating skills increases your Damage Mitigation by 5% for 6 seconds. Stacks up to 3 times."
+        },
+        {
+          "path": "universal",
+          "name": "Phasing",
+          "desc": "Activating skills grants you 15% Shield and 10% Shield to allies."
+        },
+        {
+          "path": "top",
+          "name": "Great Expanse",
+          "desc": "Extend the distance considered as Close Range."
+        },
+        {
+          "path": "top",
+          "name": "Quantum Entanglement",
+          "desc": "All enemies in Close Range share 20% of your Weapon Damage."
+        },
+        {
+          "path": "middle",
+          "name": "Harrowing",
+          "desc": "Increase your Reistance Piercing by 10%. Each enemy in Clsoe Range increases the bonus by 2% up to additional 10%."
+        },
+        {
+          "path": "middle",
+          "name": "Spectral Spike",
+          "desc": "Damaging skills have a 100% chance to deal additional damage equal to 15% of your Anomaly Power. Consecutive triggers on the same enemy stack dealing more damage up to 750%."
+        },
+        {
+          "path": "bottom",
+          "name": "Superposition",
+          "desc": "Increase your Damage Mitigation against Elites by 20% during and for 3 seconds after using a MOVEMENT Skill."
+        },
+        {
+          "path": "bottom",
+          "name": "Special Tactics",
+          "desc": "Damaging Elites increases your damage against Elites by 3% for 3 seconds. Effect can occur once per second and stacks up to 10 times."
+        }
+      ]
+    },
+    {
+      "name": "Exploiter",
+      "theme": "Anomaly & status",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Triggerman",
+          "desc": "Your damage is increased by 15% for each skill on cooldown."
+        },
+        {
+          "path": "universal",
+          "name": "Cheap Shot",
+          "desc": "Your Class Melee skill lowers damaged enemy's Armor and Resistance by 30% for 5 seconds."
+        },
+        {
+          "path": "universal",
+          "name": "Lies, Deception",
+          "desc": "Activating DECEPTION skills grants you 15% Shield every 1 second for 4 seconds."
+        },
+        {
+          "path": "universal",
+          "name": "Fail-Safe Protocols",
+          "desc": "When your Health drops below 30% get 50% Shield and 20% Damage mitigation for 3 seconds. Fail-Safe Protocols can be triggered every 10 seconds."
+        },
+        {
+          "path": "top",
+          "name": "Rigged Game",
+          "desc": "Activating skills increases your Critical Damage by 10% for 5 seconds. Stacks up to 2 times."
+        },
+        {
+          "path": "top",
+          "name": "Infinity Slinger",
+          "desc": "Sidearm Weapons do not consume ammo during and for 4 seconds after using a MOVEMENT Skill."
+        },
+        {
+          "path": "middle",
+          "name": "Power Overwhelming",
+          "desc": "Increase your Firepower by 40% of your Anomaly Power when using an Assault Weapon."
+        },
+        {
+          "path": "middle",
+          "name": "Perpetuum Trickery",
+          "desc": "Critical shots increase your Anomaly Power by 10% stacking up to 5 times. The stacks are consumed by the next DAMAGE skill you use. Activating a damage skill increases your Assault Weapon Daamge by 50% for 7 seconds."
+        },
+        {
+          "path": "bottom",
+          "name": "Goals Beyond Understanding",
+          "desc": "Damage done to Elites tagged with Deception skills has a 25% chance to be increased by 200%"
+        },
+        {
+          "path": "bottom",
+          "name": "Meticulous Schemer",
+          "desc": "200% of killing damage on enemies tagged with DECEPTION skills is divided amongst other tagged enemies."
+        }
+      ]
+    }
+  ]
+}

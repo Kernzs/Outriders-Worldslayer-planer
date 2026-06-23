@@ -1,0 +1,1192 @@
+{
+  "_meta": {
+    "class": "trickster",
+    "description": "Main class skill tree (3 branches). Node 0 is the central class passive. Branch names resolved by node-overlap match against the Fandom subclass pages.",
+    "source": "Breadbuilder main.js + Fandom wiki",
+    "branchRoots": [
+      1,
+      30,
+      55
+    ],
+    "branches": [
+      "Assassin",
+      "Harbinger",
+      "Reaver"
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "name": "(class node)",
+      "prereqs": [],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.05
+        },
+        {
+          "stat": "Damage Mitigation while Shield is active",
+          "value": 0.05
+        },
+        {
+          "stat": "[HM] Every Close Range kill Heals you for 20% of your Maximum Health and grants you 12% Shield",
+          "value": null
+        }
+      ],
+      "branch": "core"
+    },
+    {
+      "id": 1,
+      "name": "Arms Trick",
+      "prereqs": [
+        0,
+        2,
+        3
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 2,
+      "name": "Bulletstorm",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Reload Time",
+          "value": -0.2
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 3,
+      "name": "Ace of Trumps",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 4,
+      "name": "Death Probability",
+      "prereqs": [
+        2,
+        3,
+        6,
+        7,
+        25
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 5,
+      "name": "Shotgun Master",
+      "prereqs": [
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Shotgun)",
+          "value": 0.15
+        },
+        {
+          "stat": "Drop Rate (Shotgun)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 6,
+      "name": "Equlibrium",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Movement)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 7,
+      "name": "Deadly Shadow",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Crit Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 8,
+      "name": "Arms Trick",
+      "prereqs": [
+        6,
+        7,
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 9,
+      "name": "Distruptive Firepower",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Deception Skill increases Weapon Damage by 35% for 8s",
+          "value": null
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 10,
+      "name": "Singularity",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Deception)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 11,
+      "name": "Ace of Trumps",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 12,
+      "name": "Unforseen End",
+      "prereqs": [
+        10,
+        11
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (From Behind)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 13,
+      "name": "Scion of the Power",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Damage Skill ends, increase Weapon Damage by 35% for 8s",
+          "value": null
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 14,
+      "name": "Death Probability",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 15,
+      "name": "Arms Trick",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 16,
+      "name": "Death Probability",
+      "prereqs": [
+        14,
+        15
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 17,
+      "name": "Equlibrium",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Movement)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 18,
+      "name": "Transfusion",
+      "prereqs": [
+        17
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 19,
+      "name": "Unforseen End",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (From Behind)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 20,
+      "name": "Bounty Hunter",
+      "prereqs": [
+        19
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Against Elites)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 21,
+      "name": "Oddity Summation",
+      "prereqs": [
+        19
+      ],
+      "bonuses": [
+        {
+          "stat": "Magazine Size",
+          "value": 0.5
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 22,
+      "name": "Assault Adept",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 23,
+      "name": "Shotgun Adept",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Shotgun)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 24,
+      "name": "Cold Calculation",
+      "prereqs": [
+        22,
+        23
+      ],
+      "bonuses": [
+        {
+          "stat": "For each Enemy in Close Range, your Weapon Damage is increased by 8%",
+          "value": null
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 25,
+      "name": "Arms Trick",
+      "prereqs": [
+        4,
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 26,
+      "name": "Leap of Quietus",
+      "prereqs": [
+        25,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Movement Skill increases Armor Piercing by 25% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 27,
+      "name": "Cycle of Life and Death",
+      "prereqs": [
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "[HM] Health for each enemy that died in Close Range",
+          "value": 0.1
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 28,
+      "name": "Outrider Executioner",
+      "prereqs": [
+        8,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Movement Skill increases Weapon Damage by 35% for 8s",
+          "value": null
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 29,
+      "name": "Ace of Trumps",
+      "prereqs": [
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Assassin"
+    },
+    {
+      "id": 30,
+      "name": "Anomaly Presistence",
+      "prereqs": [
+        0,
+        31,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 31,
+      "name": "Immunity",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.15
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 32,
+      "name": "Oddity Resistance",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage Taken (From Elites)",
+          "value": -0.2
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 33,
+      "name": "Anomaly Presistence",
+      "prereqs": [
+        26,
+        31,
+        32,
+        34,
+        35,
+        50
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 34,
+      "name": "Shield's Timeline",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Shield Degradation",
+          "value": -0.3
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 35,
+      "name": "Atrophy",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Weakness Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 36,
+      "name": "Anomaly Presistence",
+      "prereqs": [
+        28,
+        34,
+        35,
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 37,
+      "name": "Immunity",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.15
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 38,
+      "name": "Shield's Timeline",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Shield Degradation",
+          "value": -0.3
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 39,
+      "name": "Singularity",
+      "prereqs": [
+        37,
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Deception)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 40,
+      "name": "Mitigation in Motion",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Damage Skill ends, increase Damage Mitigation by 10% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 41,
+      "name": "Anomaly Cloak",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 42,
+      "name": "Shield's Increment",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Shield Gain",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 43,
+      "name": "Shield's Timeline",
+      "prereqs": [
+        41,
+        42
+      ],
+      "bonuses": [
+        {
+          "stat": "Shield Degradation",
+          "value": -0.3
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 44,
+      "name": "Long Odds",
+      "prereqs": [
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "For each Enemy in Close Range, your Armor is increased by 15%",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 45,
+      "name": "Anomaly Presistence",
+      "prereqs": [
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 46,
+      "name": "Profit Squared",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "Every ammo pickup Heals you for 5% of your Maximum Health",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 47,
+      "name": "Dualshield",
+      "prereqs": [
+        46
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage Mitigation while Shield is active",
+          "value": 0.06
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 48,
+      "name": "Anomaly Cloak",
+      "prereqs": [
+        46
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 49,
+      "name": "Distruption Shield",
+      "prereqs": [
+        47,
+        48
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Deception Skill grants you 20% Shield",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 50,
+      "name": "Against the Odds",
+      "prereqs": [
+        33,
+        52
+      ],
+      "bonuses": [
+        {
+          "stat": "When surrounded by Enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 51,
+      "name": "Cycle of Life and Death",
+      "prereqs": [
+        50
+      ],
+      "bonuses": [
+        {
+          "stat": "[HM] Health for each enemy that died in Close Range",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 52,
+      "name": "Anomaly Scything",
+      "prereqs": [
+        50,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating Melee Skill increases Anomaly Power by 30% for 5s",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 53,
+      "name": "Wither Scything",
+      "prereqs": [
+        36,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Melee Skill applies Weakness",
+          "value": null
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 54,
+      "name": "Shield's Increment",
+      "prereqs": [
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "Shield Gain",
+          "value": 0.1
+        }
+      ],
+      "branch": "Harbinger"
+    },
+    {
+      "id": 55,
+      "name": "Concentration",
+      "prereqs": [
+        0,
+        56,
+        57
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 56,
+      "name": "Life Transfer",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 57,
+      "name": "Disturbance Coating",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 58,
+      "name": "Concentration",
+      "prereqs": [
+        52,
+        56,
+        57,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 59,
+      "name": "Assault Master",
+      "prereqs": [
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Assault Damage by 3.5% for each unlocked Concentration node",
+          "value": null
+        },
+        {
+          "stat": "Drop Rate (Assault)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 60,
+      "name": "Concentration",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 61,
+      "name": "Continuum",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Damage)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 62,
+      "name": "Concentration",
+      "prereqs": [
+        53,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 63,
+      "name": "Countershield",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Deception Skill increases Anomaly Power by 50% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 64,
+      "name": "Athropy",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Weakness Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 65,
+      "name": "Disturbance Coating",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 66,
+      "name": "Concentration",
+      "prereqs": [
+        64,
+        65
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 67,
+      "name": "Combat Shield Timeline",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Movement Skill increases Anomaly Power by 50% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 68,
+      "name": "Life Transfer",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 69,
+      "name": "Concentration",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 70,
+      "name": "Concentration",
+      "prereqs": [
+        68,
+        69
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 71,
+      "name": "Continuum",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Damage)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 72,
+      "name": "Anomalic Acceleration",
+      "prereqs": [
+        71
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Damage Skill ends, increase Anomaly Power by 50% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 73,
+      "name": "Life Transfer",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 74,
+      "name": "Leap of Clincher",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Movement Skill increases Resistance Piercing by 25% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 75,
+      "name": "Scion of the Void",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Damage Skill ends, increase Armor Piercing by 30% and Resistance Piercing by 25% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 76,
+      "name": "Shadow's Embrace",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Firepower by 15% of your Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 77,
+      "name": "Shielded Readiness",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "[HM] You will not be Healed for each enemy that dies in Close Range, instead your Shield Gain will be increased by 20%",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    },
+    {
+      "id": 78,
+      "name": "Altered Executioner",
+      "prereqs": [
+        76,
+        77
+      ],
+      "bonuses": [
+        {
+          "stat": "For each Enemy in Close Range, your Anomaly Power is increased by 10%",
+          "value": null
+        }
+      ],
+      "branch": "Reaver"
+    }
+  ]
+}

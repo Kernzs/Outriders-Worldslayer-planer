@@ -1,0 +1,1226 @@
+{
+  "_meta": {
+    "class": "pyromancer",
+    "description": "Main class skill tree (3 branches). Node 0 is the central class passive. Branch names resolved by node-overlap match against the Fandom subclass pages.",
+    "source": "Breadbuilder main.js + Fandom wiki",
+    "branchRoots": [
+      1,
+      30,
+      56
+    ],
+    "branches": [
+      "Ash Breaker",
+      "Fire Storm",
+      "Tempest"
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "name": "(class node)",
+      "prereqs": [],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.1
+        },
+        {
+          "stat": "[HM] Skills mark Enemies for 15s. Killing a Marked Enemy Heals you for 24% of your Maximum Health",
+          "value": null
+        }
+      ],
+      "branch": "core"
+    },
+    {
+      "id": 1,
+      "name": "Inferno Weapon",
+      "prereqs": [
+        0,
+        2,
+        3
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 2,
+      "name": "Moths to the Flame",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 3,
+      "name": "Marble Orchard",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Immobilize)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 4,
+      "name": "Mark of the Anomaly",
+      "prereqs": [
+        2,
+        3,
+        6,
+        7,
+        25
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Against Marked)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 5,
+      "name": "Assault Master",
+      "prereqs": [
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.2
+        },
+        {
+          "stat": "Drop Rate (Assault)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 6,
+      "name": "Blood Boil",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 7,
+      "name": "Trial of the Ashes",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Ashed)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 8,
+      "name": "Mark of the Anomaly",
+      "prereqs": [
+        6,
+        7,
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Against Marked)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 9,
+      "name": "Hot Situation",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Immobilize Skill increases Anomaly Power by 45% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 10,
+      "name": "Conflagration",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 11,
+      "name": "Curse of the Pompeii",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Ash Duration",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 12,
+      "name": "Mark of the Anomaly",
+      "prereqs": [
+        10,
+        11
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Against Marked)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 13,
+      "name": "Sniper Master",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Sniper)",
+          "value": 0.2
+        },
+        {
+          "stat": "Drop Rate (Sniper)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 14,
+      "name": "Blood Boil",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 15,
+      "name": "Inferno Weapon",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 16,
+      "name": "Mark of the Anomaly",
+      "prereqs": [
+        14,
+        15
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Against Marked)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 17,
+      "name": "Moths to the Flame",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 18,
+      "name": "Leeching Force",
+      "prereqs": [
+        17
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Immobilize Skill doubles Weapon Leech for 4s",
+          "value": null
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 19,
+      "name": "Ashes to Ashes",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Ash applies Vulnerable",
+          "value": null
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 20,
+      "name": "Nimble as a Flame",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Reload Time",
+          "value": -0.2
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 21,
+      "name": "...Hurt Twice as Long",
+      "prereqs": [
+        20
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Elites)",
+          "value": 0.1
+        },
+        {
+          "stat": "Damage Taken (From Elites)",
+          "value": -0.1
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 22,
+      "name": "Trial of the Ashes",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Ashed)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 23,
+      "name": "Marble Orchard",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Immobilize)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 24,
+      "name": "Burning Situation",
+      "prereqs": [
+        22,
+        23
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Immobilize Skill increases Weapon Damage by 45% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 25,
+      "name": "Sidearm Adept",
+      "prereqs": [
+        4,
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Sidearm)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 26,
+      "name": "Armor Melting",
+      "prereqs": [
+        25,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing (Against Marked)",
+          "value": 0.3
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 27,
+      "name": "Steady Fire",
+      "prereqs": [
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Recoil",
+          "value": -0.3
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 28,
+      "name": "Incinerate",
+      "prereqs": [
+        8,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "The moment Burn ends on an enemy, inflict Ash",
+          "value": null
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 29,
+      "name": "Curse of the Pompeii",
+      "prereqs": [
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Ash Duration",
+          "value": 0.15
+        }
+      ],
+      "branch": "Ash Breaker"
+    },
+    {
+      "id": 30,
+      "name": "Magma Golem",
+      "prereqs": [
+        0,
+        31,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 31,
+      "name": "Unquenchable",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 32,
+      "name": "Warm Up",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Ignite)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 33,
+      "name": "Magma Golem",
+      "prereqs": [
+        26,
+        31,
+        32,
+        34,
+        35,
+        51
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 34,
+      "name": "Master of the Armor",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 35,
+      "name": "Meltdown",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Burn Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 36,
+      "name": "Magma Golem",
+      "prereqs": [
+        28,
+        34,
+        35,
+        54
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 37,
+      "name": "Gifted",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.05
+        },
+        {
+          "stat": "Anomaly Power",
+          "value": 0.05
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 38,
+      "name": "Master of the Resistance",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 39,
+      "name": "Magma Golem",
+      "prereqs": [
+        37,
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 40,
+      "name": "Distant Flame",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Anomaly Power by 2.5% for each unlocked Magma Golem node",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 41,
+      "name": "All Guns Blazing",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating Any Skill increases Weapon Damage by 20% for 7s",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 42,
+      "name": "Unquenchable",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 43,
+      "name": "Let Them Burn",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Burn Duration",
+          "value": 0.2
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 44,
+      "name": "Magma Golem",
+      "prereqs": [
+        42,
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 45,
+      "name": "Unquenchable",
+      "prereqs": [
+        44
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 46,
+      "name": "Anomalous Lava",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ignite Skill increases Armor by 45% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 47,
+      "name": "Fuel for the Embers",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech is doubled when below 30% Health",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 48,
+      "name": "Trail by Fire",
+      "prereqs": [
+        47
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Burning)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 49,
+      "name": "Warm Up",
+      "prereqs": [
+        47
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Ignite)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 50,
+      "name": "Magma Elemental",
+      "prereqs": [
+        48,
+        49
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ignite Skill increases Armor and Resistance Piercing by 45% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 51,
+      "name": "Wildfire",
+      "prereqs": [
+        33,
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Explosive)",
+          "value": 0.1
+        },
+        {
+          "stat": "Skill Cooldown (Ignite)",
+          "value": 0.1
+        },
+        {
+          "stat": "Skill Cooldown (Immobilize)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 52,
+      "name": "Trail by Fire",
+      "prereqs": [
+        51
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Burning)",
+          "value": 0.05
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 53,
+      "name": "Gifted",
+      "prereqs": [
+        51,
+        59
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.05
+        },
+        {
+          "stat": "Anomaly Power",
+          "value": 0.05
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 54,
+      "name": "Extinction",
+      "prereqs": [
+        36,
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Damage by 20% against Enemies below 30% Health",
+          "value": null
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 55,
+      "name": "Let Them Burn",
+      "prereqs": [
+        54
+      ],
+      "bonuses": [
+        {
+          "stat": "Burn Duration",
+          "value": 0.2
+        }
+      ],
+      "branch": "Fire Storm"
+    },
+    {
+      "id": 56,
+      "name": "Archmage",
+      "prereqs": [
+        0,
+        57,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 57,
+      "name": "Mark's Cumulation",
+      "prereqs": [
+        56,
+        59
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Damage (Against Marked)",
+          "value": 0.08
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 58,
+      "name": "World Ablaze",
+      "prereqs": [
+        56,
+        59
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Explosive)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 59,
+      "name": "Archmage",
+      "prereqs": [
+        53,
+        57,
+        58,
+        61,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 60,
+      "name": "With Fire and Rifle",
+      "prereqs": [
+        59
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Explosive Skill increases Weapon Damage by 35% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 61,
+      "name": "Mark's Cumulation",
+      "prereqs": [
+        59,
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Damage (Against Marked)",
+          "value": 0.08
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 62,
+      "name": "Strength of the Flame",
+      "prereqs": [
+        59,
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage Taken (From Elites)",
+          "value": -0.1
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 63,
+      "name": "Archmage",
+      "prereqs": [
+        54,
+        61,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 64,
+      "name": "Inferno Bullets",
+      "prereqs": [
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Firepower by 15% of your Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 65,
+      "name": "Meltdown",
+      "prereqs": [
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Burn Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 66,
+      "name": "Gifted",
+      "prereqs": [
+        63
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.05
+        },
+        {
+          "stat": "Anomaly Power",
+          "value": 0.05
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 67,
+      "name": "Archmage",
+      "prereqs": [
+        65,
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 68,
+      "name": "With Fire and Anomaly",
+      "prereqs": [
+        67
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Explosive Skill increases Anomaly Power by 12% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 69,
+      "name": "Unquenchable",
+      "prereqs": [
+        67
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 70,
+      "name": "Master of the Resistance",
+      "prereqs": [
+        67
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 71,
+      "name": "Archmage",
+      "prereqs": [
+        69,
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 72,
+      "name": "Phoenix Nestling",
+      "prereqs": [
+        71
+      ],
+      "bonuses": [
+        {
+          "stat": "[Phoenix] Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health (180s cooldown)",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 73,
+      "name": "Phoenix",
+      "prereqs": [
+        72
+      ],
+      "bonuses": [
+        {
+          "stat": "[Phoenix] Revive with 100% Maximum Health (135s cooldown)",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 74,
+      "name": "Conflagration",
+      "prereqs": [
+        71
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 75,
+      "name": "Chasing the Chill Away",
+      "prereqs": [
+        74
+      ],
+      "bonuses": [
+        {
+          "stat": "[HM] Killing a Marked Enemy Heals you for an additional 12% of your Maximum Health",
+          "value": null
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 76,
+      "name": "Flames that Burn Twice...",
+      "prereqs": [
+        74
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Elites)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 77,
+      "name": "Mark's Cumulation",
+      "prereqs": [
+        76
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Damage (Against Marked)",
+          "value": 0.08
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 78,
+      "name": "World Ablaze",
+      "prereqs": [
+        76
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Explosive)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Tempest"
+    },
+    {
+      "id": 79,
+      "name": "Grave Ablaze",
+      "prereqs": [
+        77,
+        78
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Damage (Explosive)",
+          "value": 0.3
+        }
+      ],
+      "branch": "Tempest"
+    }
+  ]
+}

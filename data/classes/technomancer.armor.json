@@ -1,0 +1,506 @@
+[
+  {
+    "name": "Boots of the Borealis Monarch",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Sharp Eye",
+      "Cold Purification"
+    ],
+    "setBonus": "Borealis Monarch: Increase damage on Frozen enemies by 50%. Also, Critical Hit Damage is increased by 10% for all party members for 8 seconds after Cold Snap usage."
+  },
+  {
+    "name": "Boots of the Flame Leper",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Bad Medicine",
+      "Toxic Piercer"
+    ],
+    "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  },
+  {
+    "name": "Defiled Visage",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Dead Clock",
+      "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Fighters' Mask",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Gauntlets of the Flame Leper",
+    "slot": "Gloves",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "License To Heal",
+      "Rapid Reaction"
+    ],
+    "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  },
+  {
+    "name": "Gloves of the Borealis Monarch",
+    "slot": "Gloves",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Shatter",
+      "Surprise"
+    ],
+    "setBonus": "Borealis Monarch: Increase damage on Frozen enemies by 50%. Also, Critical Hit Damage is increased by 10% for all party members for 8 seconds after Cold Snap usage."
+  },
+  {
+    "name": "Grim Inventor's Boots",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Bigger Sector",
+      "Rain of Pain"
+    ],
+    "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
+  },
+  {
+    "name": "Grim Inventor's Coat",
+    "slot": "Upper Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Cannonade",
+      "Fortify"
+    ],
+    "setBonus": "<u>Grim Inventor</u>: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
+  },
+  {
+    "name": "Grim Inventor's Gloves",
+    "slot": "Gloves",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Not Impressed",
+      "Advanced Rockets"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Grim Inventor's Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Special Delivery",
+      "Portable Armory"
+    ],
+    "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
+  },
+  {
+    "name": "Grim Inventor's Mask",
+    "slot": "Headgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Rocket Man",
+      "Upgraded Gun"
+    ],
+    "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
+  },
+  {
+    "name": "Lucky Ushanka",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death's Door",
+      "Emergency Stance"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Plague Sower's Boots",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Enriched Anthrax",
+      "Better Parts"
+    ],
+    "setBonus": "Plague Sower: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+  },
+  {
+    "name": "Plague Sower's Coat",
+    "slot": "Upper Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "To the Bone",
+      "Rapid Reaction"
+    ],
+    "setBonus": "<u>Plague Sower</u>: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+  },
+  {
+    "name": "Plague Sower's Hands",
+    "slot": "Gloves",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Euthaniser",
+      "Trick Up the Sleeve"
+    ],
+    "setBonus": "Plague Sower: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+  },
+  {
+    "name": "Plague Sower's Skull",
+    "slot": "Headgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Splash Boost",
+      "Radical Therapy"
+    ],
+    "setBonus": "Plague Sower: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+  },
+  {
+    "name": "Plague Sower's Trousers",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Med Burst",
+      "Spare Mag"
+    ],
+    "setBonus": "Plague Sower: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+  },
+  {
+    "name": "Robe of the Borealis Monarch",
+    "slot": "Upper Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Icicle Storm",
+      "Frostbite"
+    ],
+    "setBonus": "Borealis Monarch: Increase damage on Frozen enemies by 50%. Also, Critical Hit Damage is increased by 10% for all party members for 8 seconds after Cold Snap usage."
+  },
+  {
+    "name": "Robes of the Flame Leper",
+    "slot": "Upper Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Party Starter",
+      "Spare Mag"
+    ],
+    "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  },
+  {
+    "name": "Tanner's Hat",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [],
+    "factoryMods": [
+      "Stare Into the Barrel",
+      "Buckshot Shells"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Techmonger's Boots",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Focused Discharge",
+      "Hail Shot"
+    ],
+    "setBonus": "Techmonger: Using Turret skills increases turret damage by 10%. Bonus lasts 10 seconds and stacks up to 5 times."
+  },
+  {
+    "name": "Techmonger's Gloves",
+    "slot": "Gloves",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Turrets With Benefits",
+      "Radical Therapy"
+    ],
+    "setBonus": "Techmonger: Using Turret skills increases turret damage by 10%. Bonus lasts 10 seconds and stacks up to 5 times."
+  },
+  {
+    "name": "Techmonger's Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Improved Coolant",
+      "Freezing Boost"
+    ],
+    "setBonus": "Techmonger: Using Turret skills increases turret damage by 10%. Bonus lasts 10 seconds and stacks up to 5 times."
+  },
+  {
+    "name": "Techmonger's Mask",
+    "slot": "Headgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Double Trouble",
+      "Knockwave"
+    ],
+    "setBonus": "Techmonger: Using Turret skills increases turret damage by 10%. Bonus lasts 10 seconds and stacks up to 5 times."
+  },
+  {
+    "name": "Techmonger's Vest",
+    "slot": "Upper Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Hazardous Modifications",
+      "Increase Damage"
+    ],
+    "setBonus": "Techmonger: Using Turret skills increases turret damage by 10%. Bonus lasts 10 seconds and stacks up to 5 times."
+  },
+  {
+    "name": "The Shackled",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Danger Close",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Torrential Downpour's Armor",
+    "slot": null,
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Trap Cluster",
+      "Cleansing Wind"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Torrential Downpour's Footgear",
+    "slot": "Footgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Colldown Reduction"
+    ],
+    "factoryMods": [
+      "Quartermaster",
+      "Supplies"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Torrential Downpour's Gloves",
+    "slot": "Gloves",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Echo"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Torrential Downpour's Goggles",
+    "slot": "Headgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Breathe In",
+      "More Traps"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Torrential Downpour's Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Circle of Power",
+      "More Damage"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Veil of the Flame Leper",
+    "slot": "Headgear",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Alchemical Therapy",
+      "Radical Therapy"
+    ],
+    "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  },
+  {
+    "name": "Waistcloth of the Borealis Monarch",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Cryodown",
+      "Freezing Boost"
+    ],
+    "setBonus": "Borealis Monarch: Increase damage on Frozen enemies by 50%. Also, Critical Hit Damage is increased by 10% for all party members for 8 seconds after Cold Snap usage."
+  },
+  {
+    "name": "Waistcloth of the Flame Leper",
+    "slot": "Lower Armor",
+    "class": "Technomancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Virulent Compound",
+      "Cleansing Wind"
+    ],
+    "setBonus": "Flame Leper: Inflicting Toxic on an enemy 3 times transforms the status into Blightfire which deals more damage over time."
+  }
+]

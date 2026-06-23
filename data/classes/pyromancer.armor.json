@@ -1,0 +1,522 @@
+[
+  {
+    "name": "Armor of the Acari",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Detonator",
+      "Tidal Wave"
+    ],
+    "setBonus": "Acari: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+  },
+  {
+    "name": "Armor of the Reforged",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [],
+    "factoryMods": [
+      "Branded",
+      "Ash Grasp"
+    ],
+    "setBonus": "Reforged: Using Thermal Bomb increases the next damage of Feed the Flames by 200%. Using Feed the Flames increases damage of next Thermal Bomb by 200%."
+  },
+  {
+    "name": "Boots of the Acari",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Skill Life Leech"
+    ],
+    "factoryMods": [
+      "Master Consumer",
+      "Hellfire"
+    ],
+    "setBonus": "Acari: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+  },
+  {
+    "name": "Boots of the Lava Lich",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Circle of Power",
+      "Volcanic Armor"
+    ],
+    "setBonus": "Lava Lich: Increase damage of Eruption by 100% and decrease its Cooldown by 30%."
+  },
+  {
+    "name": "Boots of the Reforged",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Power Assimilation",
+      "Anomaly Hunger"
+    ],
+    "setBonus": "Reforged: Using Thermal Bomb increases the next damage of Feed the Flames by 200%. Using Feed the Flames increases damage of next Thermal Bomb by 200%."
+  },
+  {
+    "name": "Charms of the Lava Lich",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "ETNA",
+      "Pure Power"
+    ],
+    "setBonus": "Lava Lich: Increase damage of Eruption by 100% and decrease its Cooldown by 30%."
+  },
+  {
+    "name": "Cowl of the Reforged",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Double Fun",
+      "Final Breath"
+    ],
+    "setBonus": "Reforged: Using Thermal Bomb increases the next damage of Feed the Flames by 200%. Using Feed the Flames increases damage of the next Thermal Bomb by 200%."
+  },
+  {
+    "name": "Defiled Visage",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Dead Clock",
+      "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Fighters' Mask",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Gauntlets of the Acari",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Strength from Fire",
+      "Blacksmith"
+    ],
+    "setBonus": "Acari: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+  },
+  {
+    "name": "Hands of the Reforged",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Unstoppable Force"
+    ],
+    "setBonus": "Reforged: Using Thermal Bomb increases the next damage of Feed the Flames by 200%. Using Feed the Flames increases damage of next Thermal Bomb by 200%."
+  },
+  {
+    "name": "Heat Seeker's Boots",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Burning Passion",
+      "Bullet Kindling"
+    ],
+    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+  },
+  {
+    "name": "Heat Seeker's Chestplate",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Firetrap",
+      "Sunburnt"
+    ],
+    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+  },
+  {
+    "name": "Heat Seeker's Gloves",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Turn Up The Heat",
+      "True Blast"
+    ],
+    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+  },
+  {
+    "name": "Heat Seeker's Helmet",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Thermal Reaction",
+      "Phoenix Force"
+    ],
+    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+  },
+  {
+    "name": "Heat Seeker's Legplates",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Heat Grenade",
+      "Fire Frenzy"
+    ],
+    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+  },
+  {
+    "name": "Helmet of the Acari",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skill Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Fire Tsunami",
+      "Ember Shield"
+    ],
+    "setBonus": "<u>Acari</u>: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+  },
+  {
+    "name": "Helmet of the Lava Lich",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Skill Life Leech"
+    ],
+    "factoryMods": [
+      "Ashen Champion",
+      "Magma Coat"
+    ],
+    "setBonus": "Lava Lich: Increase damage of Eruption by 100% and decrease its Cooldown by 30%."
+  },
+  {
+    "name": "Lower Robe of the Lava Lich",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Improved Damage",
+      "Size Matters"
+    ],
+    "setBonus": "Lava Lich: Increase damage of Eruption by 100% and decrease its Cooldown by 30%."
+  },
+  {
+    "name": "Lucky Ushanka",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death's Door",
+      "Emergency Stance"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Scorched Zealot's Crown",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Ashen Bloom",
+      "Ride The Wave"
+    ],
+    "setBonus": "Scorched Zealot: The Pyromancer Melee skill fires a projectile that explodes upon impact, dealing X damage and inflicting Ash to enemies within a 5 meter radius. Damage of the projectile increases by 25% for each enemy hit with Feed the Flames, up to 100%. Bonus is spent on the next Melee skill use."
+  },
+  {
+    "name": "Scorched Zealot's Cuirass",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Molten Lead",
+      "Ashen Boost"
+    ],
+    "setBonus": "Scorched Zealot: The Pyromancer Melee skill fires a projectile that explodes upon impact, dealing X damage and inflicting Ash to enemies within a 5 meter radius. Damage of the projectile increases by 25% for each enemy hit with Feed the Flames, up to 100%. Bonus is spent on the next Melee skill use."
+  },
+  {
+    "name": "Scorched Zealot's Feet",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Status Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Scorched Earth",
+      "Bullet Absorption"
+    ],
+    "setBonus": "Scorched Zealot: The Pyromancer Melee skill fires a projectile that explodes upon impact, dealing X damage and inflicting Ash to enemies within a 5 meter radius. Damage of the projectile increases by 25% for each enemy hit with Feed the Flames, up to 100%. Bonus is spent on the next Melee skill use."
+  },
+  {
+    "name": "Scorched Zealot's Hands",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Voracious Flames",
+      "Ash Cleaner"
+    ],
+    "setBonus": "Scorched Zealot: The Pyromancer Melee skill fires a projectile that explodes upon impact, dealing X damage and inflicting Ash to enemies within a 5 meter radius. Damage of the projectile increases by 25% for each enemy hit with Feed the Flames, up to 100%. Bonus is spent on the next Melee skill use."
+  },
+  {
+    "name": "Scorched Zealot's Waistcloth",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Cauterizing Flames",
+      "Burnt-Out"
+    ],
+    "setBonus": "Scorched Zealot: The Pyromancer Melee skill fires a projectile that explodes upon impact, dealing X damage and inflicting Ash to enemies within a 5 meter radius. Damage of the projectile increases by 25% for each enemy hit with Feed the Flames, up to 100%. Bonus is spent on the next Melee skill use."
+  },
+  {
+    "name": "Tanner's Hat",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [],
+    "factoryMods": [
+      "Stare Into the Barrel",
+      "Buckshot Shells"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "The Shackled",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Danger Close",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Torrential Downpour's Gloves",
+    "slot": "Gloves",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Echo"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Torturer's Footgear",
+    "slot": "Footgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Max Health",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Anomaly Echo",
+      "Empowerment"
+    ],
+    "setBonus": "Torturer: Triples the range of Volcanic Rounds' damaging aura that surrounds each bullet. Enemies affected by the aura share 50% Anomaly Damage dealt to the target successfully hit with Volcanic Rounds."
+  },
+  {
+    "name": "Torturer's Gloves",
+    "slot": "Gloves",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Introvert",
+      "Extinguisher"
+    ],
+    "setBonus": "Torturer: Triples the range of Volcanic Rounds' damaging aura that surrounds each bullet. Enemies affected by the aura share 50% Anomaly Damage dealt to the target successfully hit with Volcanic Rounds."
+  },
+  {
+    "name": "Torturer's Mask",
+    "slot": "Headgear",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Death Sentence",
+      "Armor Melting"
+    ],
+    "setBonus": "Torturer: Triples the range of Volcanic Rounds' damaging aura that surrounds each bullet. Enemies affected by the aura share 50% Anomaly Damage dealt to the target successfully hit with Volcanic Rounds."
+  },
+  {
+    "name": "Torturer's Vest",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Susceptibility",
+      "Radiation Flames"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Torturer's Waistcloth",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Ashes and Leeches",
+      "Extra Mag"
+    ],
+    "setBonus": "Torturer: Triples the range of Volcanic Rounds' damaging aura that surrounds each bullet. Enemies affected by the aura share 50% Anomaly Damage dealt to the target successfully hit with Volcanic Rounds."
+  },
+  {
+    "name": "Upper Robe of the Lava Lich",
+    "slot": "Upper Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Not Impressed",
+      "Giga-Blast"
+    ],
+    "setBonus": "Lava Lich: Increase damage of Eruption by 100% and decrease its Cooldown by 30%."
+  },
+  {
+    "name": "Waistcloth of the Acari",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skill Life Leech",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Anomaly Echo",
+      "Irradiation Wave"
+    ],
+    "setBonus": "Acari: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+  },
+  {
+    "name": "Waistcloth of the Reforged",
+    "slot": "Lower Armor",
+    "class": "Pyromancer",
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Flame Grasper",
+      "Fire Frenzy"
+    ],
+    "setBonus": "Reforged: Using Thermal Bomb increases the next damage of Feed the Flames by 200%. Using Feed the Flames increases damage of next Thermal Bomb by 200%."
+  }
+]

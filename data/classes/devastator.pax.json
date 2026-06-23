@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "class": "devastator",
+    "description": "PAX trees for the devastator. Two branches; each path shares a universal trunk.",
+    "source": "GamerGuides PAX skill lists"
+  },
+  "branches": [
+    {
+      "name": "Wrecker",
+      "theme": "Weapon & bleed damage",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Hunting Season",
+          "desc": "Increase your Weapon Damage by 30% and your magazine size by 50%."
+        },
+        {
+          "path": "universal",
+          "name": "Harvester",
+          "desc": "Increase your Weapon Leech by 10%. Additionally increase Weapon Leech by 2% for every enemy in Close Range up to 10%."
+        },
+        {
+          "path": "universal",
+          "name": "Hardened",
+          "desc": "Increase your Damage Mitigation by 5%. Additionally increase Damage Mitigation by 2% for every enemy in Close Range up to 10%."
+        },
+        {
+          "path": "universal",
+          "name": "Finishing Touch",
+          "desc": "Increase your Weapon Damage by the percentage of ammo missing from your magazine. Killing shots replenish 35% of your magazine."
+        },
+        {
+          "path": "top",
+          "name": "Armored Division",
+          "desc": "Increase your Armor Piercing by 20%. Reduce your KINETIC skills Cooldown by 50% of your Armor Piercing value."
+        },
+        {
+          "path": "top",
+          "name": "Against Devastating Odds",
+          "desc": "Damaging at least 3 enemies with a KINETIC skill grants you 30% Armor Piercing for 4 seconds. Damaging less enemies makes your shots Critical Shots for 4 seconds."
+        },
+        {
+          "path": "middle",
+          "name": "Come One, Come All",
+          "desc": "Your KINETIC skills remove Effect Resistance from hit Elites. 7 seconds cooldown."
+        },
+        {
+          "path": "middle",
+          "name": "Elitism",
+          "desc": "Shots on Elites reduce incoming damage from Elites by 15% and increase damage against Elites by 30% for 5 seconds. 5 seconds cooldown."
+        },
+        {
+          "path": "bottom",
+          "name": "Strange Surgeon",
+          "desc": "Your shots inflict Bleed. Killing an enemy afflicted with Bleed in Close Range reduces ongoing Cooldown of PROTECTION skills by 1.5 seconds."
+        },
+        {
+          "path": "bottom",
+          "name": "Overwhelming Force",
+          "desc": "While a PROTECTION skill is active, you release seismic impulses every 2 seconds that deal damage equal to 40% of your Armor."
+        }
+      ]
+    },
+    {
+      "name": "Tectonic Shifter",
+      "theme": "Anomaly & survivability",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Impact Point",
+          "desc": "Your SEISMIC and KINETIC skill damage is increased by an additional 30% of your Anomaly Power. Bonus damage is split among all damaged enemies."
+        },
+        {
+          "path": "universal",
+          "name": "Puncture",
+          "desc": "Your SEISMIC skill inflicts Bleed. Anomaly Damage to enemies afflicted with Bleed is increased by 10%."
+        },
+        {
+          "path": "universal",
+          "name": "Obliteration",
+          "desc": "Increase your Anomaly power and Resistance Piercing by 6%. Each damaged enemy increases the bonus by 3%, up to additional 9% for 3 seconds."
+        },
+        {
+          "path": "universal",
+          "name": "Earthen Shell",
+          "desc": "Damage Dealt with skills is converted to Shield"
+        },
+        {
+          "path": "top",
+          "name": "Upheaval",
+          "desc": "Enemies damaged by SEISMIC skill become Upheaved for 2 seconds , storing 10% of damage received during the time and releasing it once the effect ends."
+        },
+        {
+          "path": "top",
+          "name": "Multistrike",
+          "desc": "30% of damage dealt by SEISMIC skill is stored and added to your next SEISMIC skill. The effect resets every time you release your stored damage."
+        },
+        {
+          "path": "middle",
+          "name": "Richter Rising",
+          "desc": "Enemies damaged by both SEISMIC and KINETIC skills within 4 seconds, receive 15% more damage for 4 seconds."
+        },
+        {
+          "path": "middle",
+          "name": "Energy Transmission",
+          "desc": "Each enemy damaged by your KINETIC skill increases the damage of your next SEISMIC skill by 15%."
+        },
+        {
+          "path": "bottom",
+          "name": "Terms of Engagement",
+          "desc": "60% of damage dealt by KINETIC skill is stored and added to your next KINETIC skill. The effect resets every time you release your stored damage."
+        },
+        {
+          "path": "bottom",
+          "name": "Momentum",
+          "desc": "Each enemy damaged by your KINETIC skill reduces the ongoing cooldowns of other  KINETIC skills by 1 second, up to 4 seconds."
+        }
+      ]
+    }
+  ]
+}

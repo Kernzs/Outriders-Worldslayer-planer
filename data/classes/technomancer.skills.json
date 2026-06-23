@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "class": "technomancer",
+    "description": "Active class skills. [X]/[Y]/[Z] and ~% are level-scaled placeholders from the source.",
+    "source": "Breadbuilder main.js"
+  },
+  "skills": [
+    {
+      "name": "Blighted Rounds",
+      "desc": "Fill your current weapon's magazine with decay-infused bullets that inflict Toxic onto enemies. Enemies within a small radius of the main target also receive Toxic and 50% of damage. The skill lasts until you reload or switch weapons."
+    },
+    {
+      "name": "Blighted Turret",
+      "desc": "Place an automated turret that deals [Z] damage and inflicts Toxic onto enemies. The turret's health depletes slowly over time and when it takes damage."
+    },
+    {
+      "name": "Cryo Turret",
+      "desc": "Place an automated turret that deals ~2% damage and inflicts Freeze onto enemies. The turret's health depletes slowly over time and when it takes damage."
+    },
+    {
+      "name": "Fixing Wave",
+      "desc": "Release your energy to restore [X]% of Health to all players and [Y]% of Health to your turrets, regardless of distance."
+    },
+    {
+      "name": "Cold Snap",
+      "desc": "Drop a gadget to inflict Freeze onto all enemies within a large radius around you."
+    },
+    {
+      "name": "Scrapnel",
+      "desc": "Throw a proximity mine. The explosion deals ~77% damage and Interrupts the skills of enemies caught within the blast radius."
+    },
+    {
+      "name": "Pain Launcher",
+      "desc": "Place a missile launcher and bomb the area in front of you. Each missile deals ~13% damage per hit and Interrupts enemy skills."
+    },
+    {
+      "name": "Tool Of Destruction",
+      "desc": "Press the skill button to equip a Rocket Launcher that can Interrupt enemies and deals [X] damage. Hold the skill button for a Minigun that deals [Z] damage per shot. The skill will remain active until all ammo is depleted or until you switch weapons."
+    }
+  ]
+}

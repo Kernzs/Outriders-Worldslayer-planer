@@ -1,0 +1,1200 @@
+{
+  "_meta": {
+    "class": "technomancer",
+    "description": "Main class skill tree (3 branches). Node 0 is the central class passive. Branch names resolved by node-overlap match against the Fandom subclass pages.",
+    "source": "Breadbuilder main.js + Fandom wiki",
+    "branchRoots": [
+      1,
+      29,
+      55
+    ],
+    "branches": [
+      "Pestilence",
+      "Tech Shaman",
+      "Demolisher"
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "name": "(class node)",
+      "prereqs": [],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Long Range)",
+          "value": 0.15
+        },
+        {
+          "stat": "Skill Leech",
+          "value": 0.15
+        },
+        {
+          "stat": "Weapon Leech",
+          "value": 0.15
+        }
+      ],
+      "branch": "core"
+    },
+    {
+      "id": 1,
+      "name": "Br/8 Impact Amplifier",
+      "prereqs": [
+        0,
+        2,
+        3
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 2,
+      "name": "Suction Module",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 3,
+      "name": "Sower of Decay",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Decay)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 4,
+      "name": "Drill Coating",
+      "prereqs": [
+        2,
+        3,
+        6,
+        7,
+        24
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 5,
+      "name": "Sniper Master",
+      "prereqs": [
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Sniper)",
+          "value": 0.2
+        },
+        {
+          "stat": "Drop Rate (Sniper)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 6,
+      "name": "Nitrogen Capsules",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Decrease the distance considered to be Long Range by 3m [1]",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 7,
+      "name": "Toxicologist",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Toxic Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 8,
+      "name": "Br/8 Impact Amplifier",
+      "prereqs": [
+        6,
+        7,
+        27
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 9,
+      "name": "Cannonade",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ordinance Skill increases Weapon Damage for you and your allies by 30% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 10,
+      "name": "Nitrogen Capsules",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Decrease the distance considered to be Long Range by 3m [2]",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 11,
+      "name": "Purge",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Toxic'ed)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 12,
+      "name": "Br/8 Impact Amplifier",
+      "prereqs": [
+        10,
+        11
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 13,
+      "name": "Assault Master",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.2
+        },
+        {
+          "stat": "Drop Rate (Assault)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 14,
+      "name": "Assault Adept",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 15,
+      "name": "Sniper Adept",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Sniper)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 16,
+      "name": "Drill Coating",
+      "prereqs": [
+        14,
+        15
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 17,
+      "name": "Two Sides of the Power",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage Taken",
+          "value": 0.15
+        },
+        {
+          "stat": "Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 18,
+      "name": "Sharpshooter",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Long Range)",
+          "value": 0.3
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 19,
+      "name": "Grand Amplification",
+      "prereqs": [
+        18
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Anomaly Power by 4% for each unlocked Br/8 Impact Amplifier node",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 20,
+      "name": "UT-14 Clips",
+      "prereqs": [
+        18
+      ],
+      "bonuses": [
+        {
+          "stat": "Magazine Size",
+          "value": 0.5
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 21,
+      "name": "Charged Gunshot",
+      "prereqs": [
+        20
+      ],
+      "bonuses": [
+        {
+          "stat": "First shot after reloading deals +200% damage (5s cooldown)",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 22,
+      "name": "Purge",
+      "prereqs": [
+        20
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Toxic'ed)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 23,
+      "name": "Empowering Antena",
+      "prereqs": [
+        21,
+        22
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Decay Skill increases Weapon Damage for you and your allies by 40% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 24,
+      "name": "BL-STM Havoc Nexus",
+      "prereqs": [
+        4,
+        25
+      ],
+      "bonuses": [
+        {
+          "stat": "Crit Damage",
+          "value": 0.15
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 25,
+      "name": "Exposing Toxin",
+      "prereqs": [
+        24,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Toxic applies Vulnerable",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 26,
+      "name": "Marked for Execution",
+      "prereqs": [
+        25
+      ],
+      "bonuses": [
+        {
+          "stat": "Vulnerability Effectiveness",
+          "value": 0.4
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 27,
+      "name": "Blurscreen",
+      "prereqs": [
+        8,
+        35
+      ],
+      "bonuses": [
+        {
+          "stat": "Health Regen threshold is increased by 20% of Maximum Health",
+          "value": null
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 28,
+      "name": "Engineer",
+      "prereqs": [
+        27
+      ],
+      "bonuses": [
+        {
+          "stat": "Turrets' Health Decay",
+          "value": -0.3
+        }
+      ],
+      "branch": "Pestilence"
+    },
+    {
+      "id": 29,
+      "name": "Anomalus Body",
+      "prereqs": [
+        0,
+        30,
+        31
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 30,
+      "name": "A.N.E.T.A. Plates",
+      "prereqs": [
+        29,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 31,
+      "name": "Gadgeteer",
+      "prereqs": [
+        29,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Gadget)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 32,
+      "name": "Anomalus Body",
+      "prereqs": [
+        25,
+        30,
+        31,
+        33,
+        34,
+        51
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 33,
+      "name": "Armor Plates",
+      "prereqs": [
+        32,
+        35
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 34,
+      "name": "Fracture",
+      "prereqs": [
+        32,
+        35
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Frozen)",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 35,
+      "name": "Anomalus Body",
+      "prereqs": [
+        27,
+        33,
+        34,
+        54
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 36,
+      "name": "Vitality Magnet",
+      "prereqs": [
+        35
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 37,
+      "name": "Gadgeteer",
+      "prereqs": [
+        35
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Gadget)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 38,
+      "name": "Anomalus Body",
+      "prereqs": [
+        36,
+        37
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 39,
+      "name": "Senior Engineer",
+      "prereqs": [
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Turrets Health by 100%",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 40,
+      "name": "Exposing Frost",
+      "prereqs": [
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Freeze applies Vulnerable",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 41,
+      "name": "Marked for Execution",
+      "prereqs": [
+        40
+      ],
+      "bonuses": [
+        {
+          "stat": "Vulnerability Effectiveness",
+          "value": 0.4
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 42,
+      "name": "Armor Plates",
+      "prereqs": [
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 43,
+      "name": "Sols-56 Freezing Tanks",
+      "prereqs": [
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Freeze Duration",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 44,
+      "name": "Suction Module",
+      "prereqs": [
+        42,
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 45,
+      "name": "Armor Plates",
+      "prereqs": [
+        44
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 46,
+      "name": "Medical Unit",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Gadget Skill increases all Healing received for you and your allies by 30% for 7s",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 47,
+      "name": "Doctor of Medicine",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase all Healing done by you and your allies by 20%",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 48,
+      "name": "Vitality Magnet",
+      "prereqs": [
+        47
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 49,
+      "name": "Fracture",
+      "prereqs": [
+        47
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Frozen)",
+          "value": 0.3
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 50,
+      "name": "Overclocked",
+      "prereqs": [
+        48,
+        49
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Gadget Skill increases Weapon Damage and Anomaly Power by 40% for 10s",
+          "value": null
+        },
+        {
+          "stat": "Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health for 10s (180s cooldown)",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 51,
+      "name": "Winter's Barrier",
+      "prereqs": [
+        32,
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "After using your Melee Skill, gain 40% Damage Mitigation for 3s",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 52,
+      "name": "Sols-56 Freezing Tanks",
+      "prereqs": [
+        51
+      ],
+      "bonuses": [
+        {
+          "stat": "Freeze Duration",
+          "value": 0.2
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 53,
+      "name": "Sidearm Adept",
+      "prereqs": [
+        51,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Sidearm)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 54,
+      "name": "Wipe Out",
+      "prereqs": [
+        35,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Damage by 20% against Enemies below 30% Health",
+          "value": null
+        }
+      ],
+      "branch": "Tech Shaman"
+    },
+    {
+      "id": 55,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        0,
+        56,
+        57
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 56,
+      "name": "Ordanance Technician",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Ordinance)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 57,
+      "name": "Disturbance Coating",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 58,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        53,
+        56,
+        57,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 59,
+      "name": "Brain Freeze",
+      "prereqs": [
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Melee Skill applies Toxic",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 60,
+      "name": "A.N.E.T.A. Plates",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 61,
+      "name": "Welcome Shot",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "First shot after reloading deals damage with Firepower increased by 15% of Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 62,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        54,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 63,
+      "name": "Adrenalizing Antena",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Decay Skill increases Anomaly Power for you and your allies by 30% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 64,
+      "name": "Ordanance Technician",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Ordinance)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 65,
+      "name": "Toxicologist",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Toxic Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 66,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        64,
+        65
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 67,
+      "name": "Heavy Absorbtion",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ordinance Skill increases Skill Leech by 15% for 7s",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 68,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 69,
+      "name": "D-Kay Toxin",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Toxic Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 70,
+      "name": "Disturbance Coating",
+      "prereqs": [
+        68,
+        69
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 71,
+      "name": "Vitality Magnet",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 72,
+      "name": "Emergency Transfusion",
+      "prereqs": [
+        71
+      ],
+      "bonuses": [
+        {
+          "stat": "Doubles Skill Leech when Health drops below 30%",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 73,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 74,
+      "name": "Armored Unit",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ordinance Skill increases Armor by 50% for 15s",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 75,
+      "name": "Team Player",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "Decreases Elite's damage against you and your allies by 10%",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 76,
+      "name": "Anomally Fueled",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 77,
+      "name": "D-Kay Toxin",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "Toxic Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Demolisher"
+    },
+    {
+      "id": 78,
+      "name": "Techbond",
+      "prereqs": [
+        76,
+        77
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating an Ordinance Skill increases Anomaly Power by 50% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Demolisher"
+    }
+  ]
+}

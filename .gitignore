@@ -1,0 +1,5 @@
+# transient scraped HTML used by the extract scripts
+.cache/
+# local editor / harness config
+.claude/
+node_modules/

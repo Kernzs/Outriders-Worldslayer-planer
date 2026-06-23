@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "class": "pyromancer",
+    "description": "PAX trees for the pyromancer. Two branches; each path shares a universal trunk.",
+    "source": "GamerGuides PAX skill lists"
+  },
+  "branches": [
+    {
+      "name": "Gunblazer",
+      "theme": "Weapon damage & firepower",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Coming in Hot",
+          "desc": "Deals 15% more damage to enemies above 80% health and 30% more damage to enemies below 30% health."
+        },
+        {
+          "path": "universal",
+          "name": "Ashen Regalia",
+          "desc": "Killing MARKED enemies increases your damage mitigation by 7% for 6 seconds. Stack up to 3 times."
+        },
+        {
+          "path": "universal",
+          "name": "Ashen Wake",
+          "desc": "Your shots damage all enemies afflicted with Ash within a 4 meter radius of the target, dealing 30% of the damage dealt."
+        },
+        {
+          "path": "universal",
+          "name": "Hot Streak",
+          "desc": "Critical Shots increase Weapon Damage by 6%. Bonus lasts 4 seconds and stack up to 5 times."
+        },
+        {
+          "path": "top",
+          "name": "Carbonization",
+          "desc": "Enemies hit by your IMMOBILIZE skills receive 20% more Anomaly Damage for 4 seconds."
+        },
+        {
+          "path": "top",
+          "name": "Carbon Footprint",
+          "desc": "Each enemy hit by your IMMOBILIZE skills reduce the cooldown of the other Immobilize skill by 0.5 second."
+        },
+        {
+          "path": "middle",
+          "name": "Carbon Ammo",
+          "desc": "Increases your magazine size by 200%"
+        },
+        {
+          "path": "middle",
+          "name": "Bullet Frenzy",
+          "desc": "Shots with Assault Weapons increase your weapon damage by 3%. The effect s tacks until you stop shooting."
+        },
+        {
+          "path": "bottom",
+          "name": "Solar Flare",
+          "desc": "Activating skills increases your critical damage by 10% for 6 seconds. Stacking up to 2 times."
+        },
+        {
+          "path": "bottom",
+          "name": "Critical Mass",
+          "desc": "Critical Shots on Marked enemies turn all shots to critical shots"
+        }
+      ]
+    },
+    {
+      "name": "Pyromaniac",
+      "theme": "Anomaly & status damage",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Melting point",
+          "desc": "Increase your resistance Piercing by 15% when above 80% HEALTH and by 30% when below 40% health."
+        },
+        {
+          "path": "universal",
+          "name": "Scorched Flesh",
+          "desc": "Activating ignite skills increases your status power by 10% for 5 seconds. Stacks up to 3 times."
+        },
+        {
+          "path": "universal",
+          "name": "Master Exploder",
+          "desc": "Explosive Skill damage is increased by 100% of your resistance piercing.."
+        },
+        {
+          "path": "universal",
+          "name": "Convection",
+          "desc": "Reduce all skills cooldown by 4 seconds when all skills are on cooldown  - 3 seconds cooldown."
+        },
+        {
+          "path": "top",
+          "name": "Furnace",
+          "desc": "Increase your Status Power by 15% for every enemy afflicted with Burn. Stacks up to 5 times."
+        },
+        {
+          "path": "top",
+          "name": "Burnt Offerings",
+          "desc": "Increase your burn duration by 500% and each consecutive Burn tick on an enemy deals 10% more damage."
+        },
+        {
+          "path": "middle",
+          "name": "Conduction",
+          "desc": "Reduce your skill cooldown by 15%."
+        },
+        {
+          "path": "middle",
+          "name": "Arsonist",
+          "desc": "Activating skills has a 30% chance to reset all skill cooldowns. 5 seconds cooldown."
+        },
+        {
+          "path": "bottom",
+          "name": "Backdraft",
+          "desc": "Your anomaly Power is increased by 30% for every skill on cooldown."
+        },
+        {
+          "path": "bottom",
+          "name": "Trigger Sequence",
+          "desc": "Activating explosive skills increase the damage of the next explosive skill by 25%. The buff stacks up to 3 times after which it starts anew."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "description": "Outriders Worldslayer Ascension system. Universal (not class-specific). 4 categories x 5 nodes. Each node can hold up to 10 points; 200 points total fills everything (level 200). Unlocks at character level 30.",
+    "pointsPerNode": 10,
+    "totalNodes": 20,
+    "totalPoints": 200,
+    "sources": [
+      "https://sirusgaming.com/outriders-worldslayer-ascension-system/",
+      "https://www.gamerguides.com/outriders-worldslayer/guide/gameplay/information/what-is-the-ascension-system-in-outriders-worldslayer"
+    ],
+    "notes": "Source lists 'Anomaly Damage' as increasing Status Power, which is a known copy-paste error in guides; corrected here to increase Anomaly Damage."
+  },
+  "categories": [
+    {
+      "name": "Anomaly",
+      "nodes": [
+        { "name": "Anomaly Power",    "stat": "Anomaly Power",    "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Resistance Pierce", "stat": "Resistance Piercing", "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Skill Leech",       "stat": "Skill Leech",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Status Power",      "stat": "Status Power",     "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Anomaly Damage",    "stat": "Anomaly Damage",   "perPoint": 0.5, "unit": "%", "max": 10.0 }
+      ]
+    },
+    {
+      "name": "Brutality",
+      "nodes": [
+        { "name": "Armor Pierce",       "stat": "Armor Pierce",       "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Close Range Damage", "stat": "Close Range Damage", "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Long Range Damage",  "stat": "Long Range Damage",  "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Weapon Damage",      "stat": "Weapon Damage",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Weapon Leech",       "stat": "Weapon Leech",       "perPoint": 0.5, "unit": "%", "max": 5.5 }
+      ]
+    },
+    {
+      "name": "Endurance",
+      "nodes": [
+        { "name": "Health",                 "stat": "Max Health",            "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Armor",                  "stat": "Armor",                 "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Healing Received",       "stat": "Healing Received",      "perPoint": 0.1, "unit": "%", "max": 5.5 },
+        { "name": "Elite Damage Mitigation","stat": "Elite Damage Mitigation","perPoint": 0.5, "unit": "%", "max": 5.5 },
+        { "name": "Resistance",             "stat": "Resistance",            "perPoint": 0.5, "unit": "%", "max": 10.0 }
+      ]
+    },
+    {
+      "name": "Prowess",
+      "nodes": [
+        { "name": "Cooldown Reduction",   "stat": "Cooldown Reduction",   "perPoint": 0.1, "unit": "%", "max": 5.5 },
+        { "name": "Critical Chance",      "stat": "Critical Chance",      "perPoint": 0.1, "unit": "%", "max": 5.5 },
+        { "name": "Critical Damage",      "stat": "Critical Damage",      "perPoint": 0.5, "unit": "%", "max": 10.0 },
+        { "name": "Damage Against Elites","stat": "Elite Bonus Damage",   "perPoint": 0.1, "unit": "%", "max": 5.5 },
+        { "name": "Magazine Size",        "stat": "Magazine Size",        "perPoint": 1.0, "unit": "%", "max": 25.0 }
+      ]
+    }
+  ]
+}

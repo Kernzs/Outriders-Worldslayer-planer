@@ -1,0 +1,1200 @@
+{
+  "_meta": {
+    "class": "devastator",
+    "description": "Main class skill tree (3 branches). Node 0 is the central class passive. Branch names resolved by node-overlap match against the Fandom subclass pages.",
+    "source": "Breadbuilder main.js + Fandom wiki",
+    "branchRoots": [
+      1,
+      30,
+      55
+    ],
+    "branches": [
+      "Vanquisher",
+      "Warden",
+      "Seismic Shifter"
+    ]
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "name": "(class node)",
+      "prereqs": [],
+      "bonuses": [
+        {
+          "stat": "[HM] Every Close Range kill Heals you for 24% of your Maximum Health",
+          "value": null
+        },
+        {
+          "stat": "Health",
+          "value": 0.15
+        },
+        {
+          "stat": "Armor",
+          "value": 0.3
+        }
+      ],
+      "branch": "core"
+    },
+    {
+      "id": 1,
+      "name": "Havoc",
+      "prereqs": [
+        0,
+        2,
+        3
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 2,
+      "name": "Shotgun Adept",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Shotgun)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 3,
+      "name": "Armorbreaker",
+      "prereqs": [
+        1,
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 4,
+      "name": "Brawler",
+      "prereqs": [
+        2,
+        3,
+        6,
+        7,
+        25
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 5,
+      "name": "Shotgun Master",
+      "prereqs": [
+        4
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Shotgun)",
+          "value": 0.15
+        },
+        {
+          "stat": "Drop Rate (Shotgun)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 6,
+      "name": "Assault Adept",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.12
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 7,
+      "name": "Armorbreaker",
+      "prereqs": [
+        4,
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 8,
+      "name": "Havoc",
+      "prereqs": [
+        6,
+        7,
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 9,
+      "name": "Champion",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Protection Skill increases Weapon Damage by 45% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 10,
+      "name": "Bull's Eye",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Crit Damage",
+          "value": 0.2
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 11,
+      "name": "Steady Hands",
+      "prereqs": [
+        8
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Recoil",
+          "value": -0.3
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 12,
+      "name": "Havoc",
+      "prereqs": [
+        10,
+        11
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 13,
+      "name": "Assault Master",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Assault)",
+          "value": 0.2
+        },
+        {
+          "stat": "Drop Rate (Assault)",
+          "value": 0.2
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 14,
+      "name": "Perpetual Motion",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Kinetic)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 15,
+      "name": "Brawler",
+      "prereqs": [
+        12
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage (Close Range)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 16,
+      "name": "Havoc",
+      "prereqs": [
+        14,
+        15
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Damage",
+          "value": 0.08
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 17,
+      "name": "Dry Them Out",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 18,
+      "name": "Bounty Hunter",
+      "prereqs": [
+        17
+      ],
+      "bonuses": [
+        {
+          "stat": "Damage (Against Elites)",
+          "value": 0.15
+        },
+        {
+          "stat": "Damage Taken (From Elites)",
+          "value": -0.15
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 19,
+      "name": "Bulletstorm",
+      "prereqs": [
+        16
+      ],
+      "bonuses": [
+        {
+          "stat": "Reload Time",
+          "value": -0.2
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 20,
+      "name": "Ammo Stockpile",
+      "prereqs": [
+        19
+      ],
+      "bonuses": [
+        {
+          "stat": "Magazine Size",
+          "value": 0.5
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 21,
+      "name": "Confrontation",
+      "prereqs": [
+        19
+      ],
+      "bonuses": [
+        {
+          "stat": "Enemies who damage you will have their Physical Damage reduced by 10% for 5s. This effect is doubled if you damage that Enemy",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 22,
+      "name": "Dry Them Out",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Weapon Leech",
+          "value": 0.05
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 23,
+      "name": "Armorbreaker",
+      "prereqs": [
+        21
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor Piercing",
+          "value": 0.1
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 24,
+      "name": "Altered Charge",
+      "prereqs": [
+        22,
+        23
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Kinetic Skill ends, increase Weapon Damage by 70% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 25,
+      "name": "Perpetual Motion",
+      "prereqs": [
+        4,
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Kinetic)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 26,
+      "name": "Into the Fray",
+      "prereqs": [
+        25,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "When your Kinetic Skill ends, increase Damage Mitigation by 15% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 27,
+      "name": "Vim and Vigor",
+      "prereqs": [
+        26
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Weapon Damage by 10% for each unlocked Anomaly in Veins node",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 28,
+      "name": "Hierloom Armor",
+      "prereqs": [
+        8,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "When an Enemy dies in Close Range, gain 20% of their Armor for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 29,
+      "name": "Profit Squared",
+      "prereqs": [
+        28
+      ],
+      "bonuses": [
+        {
+          "stat": "Every ammo pickup Heals you for 5% of your Maximum Health",
+          "value": null
+        }
+      ],
+      "branch": "Vanquisher"
+    },
+    {
+      "id": 30,
+      "name": "Colossus",
+      "prereqs": [
+        0,
+        31,
+        32
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 31,
+      "name": "Tank",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 32,
+      "name": "Anomaly in Veins",
+      "prereqs": [
+        30,
+        33
+      ],
+      "bonuses": [
+        {
+          "stat": "Health Regen every second",
+          "value": 0.01
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 33,
+      "name": "Colossus",
+      "prereqs": [
+        26,
+        31,
+        32,
+        34,
+        35,
+        50
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 34,
+      "name": "Resistance Paragon",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 35,
+      "name": "Anomaly in Veins",
+      "prereqs": [
+        33,
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Health Regen every second",
+          "value": 0.01
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 36,
+      "name": "Colossus",
+      "prereqs": [
+        28,
+        34,
+        35,
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 37,
+      "name": "Anomaly in Veins",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Health Regen every second",
+          "value": 0.01
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 38,
+      "name": "Tank",
+      "prereqs": [
+        36
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 39,
+      "name": "Colossus",
+      "prereqs": [
+        37,
+        38
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 40,
+      "name": "Outrider Commander",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase all Healing and Shields by 20% for you and your allies",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 41,
+      "name": "Colossus",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 42,
+      "name": "Unending Watch",
+      "prereqs": [
+        39
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Protection)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 43,
+      "name": "Resist the Mob",
+      "prereqs": [
+        41,
+        42
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Resistance by 7.5% for each Enemy in Close Range",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 44,
+      "name": "Unbroken Vow",
+      "prereqs": [
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "You have 100% chance to ignore damage that would kill you and instantly Heal you for 50% of your Maximum Health (180s cooldown)",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 45,
+      "name": "Tank",
+      "prereqs": [
+        43
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 46,
+      "name": "Overlord of the Battleground",
+      "prereqs": [
+        45
+      ],
+      "bonuses": [
+        {
+          "stat": "[HM] Gain an additional 10% Health when an Enemy dies in Close Range",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 47,
+      "name": "Resistance Paragon",
+      "prereqs": [
+        46
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 48,
+      "name": "Tank",
+      "prereqs": [
+        46
+      ],
+      "bonuses": [
+        {
+          "stat": "Armor",
+          "value": 0.2
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 49,
+      "name": "Mighty Tank",
+      "prereqs": [
+        47,
+        48
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Firepower by 5% of your Armor (Bonus capped at 40% of total Firepower)",
+          "value": null
+        },
+        {
+          "stat": "Increase Anomaly Power by 5% of your Armor (Bonus capped at 40% of total Anomaly Power)",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 50,
+      "name": "Strong Arm of the Anomaly",
+      "prereqs": [
+        33,
+        52
+      ],
+      "bonuses": [
+        {
+          "stat": "After using Melee Skill, increase Resistance Piercing by 15% for each hit enemy for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 51,
+      "name": "Colossus",
+      "prereqs": [
+        50
+      ],
+      "bonuses": [
+        {
+          "stat": "Health",
+          "value": 0.1
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 52,
+      "name": "Unending Watch",
+      "prereqs": [
+        50,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Protection)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 53,
+      "name": "Stone Circle",
+      "prereqs": [
+        36,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase the distance considered to be Close Range by 4m",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 54,
+      "name": "Through the Mob",
+      "prereqs": [
+        53
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Armor by 7% for each Enemy in Close Range",
+          "value": null
+        }
+      ],
+      "branch": "Warden"
+    },
+    {
+      "id": 55,
+      "name": "Anomaly Resevoir",
+      "prereqs": [
+        0,
+        56,
+        57
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 56,
+      "name": "Endless Tremors",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Seismic)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 57,
+      "name": "Rejuvenation",
+      "prereqs": [
+        55,
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 58,
+      "name": "Anomaly Resevoir",
+      "prereqs": [
+        52,
+        56,
+        57,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 59,
+      "name": "Paladin",
+      "prereqs": [
+        58
+      ],
+      "bonuses": [
+        {
+          "stat": "Activating a Protection Skill increases Anomaly Power by 45% for 5s",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 60,
+      "name": "Pure Anomaly",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 61,
+      "name": "Perpetual Motion",
+      "prereqs": [
+        58,
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Kinetic)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 62,
+      "name": "Anomaly Resevoir",
+      "prereqs": [
+        53,
+        60,
+        61
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 63,
+      "name": "Anomaly Bullets",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Firepower by 15% of your Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 64,
+      "name": "Red Rivers",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Bleed Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 65,
+      "name": "Endless Tremors",
+      "prereqs": [
+        62
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Cooldown (Seismic)",
+          "value": 0.15
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 66,
+      "name": "Anomaly Resevoir",
+      "prereqs": [
+        64,
+        65
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 67,
+      "name": "Strong Arm of the Law",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Melee Skill deals double Damage",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 68,
+      "name": "Executioner",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Damage by 20% against Enemies below 30% Health",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 69,
+      "name": "Red Rivers",
+      "prereqs": [
+        66
+      ],
+      "bonuses": [
+        {
+          "stat": "Bleed Duration",
+          "value": 0.3
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 70,
+      "name": "Anomaly Resevoir",
+      "prereqs": [
+        68,
+        69
+      ],
+      "bonuses": [
+        {
+          "stat": "Anomaly Power",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 71,
+      "name": "Bloodbath",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Bleed Damage",
+          "value": 0.3
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 72,
+      "name": "Blood Donation",
+      "prereqs": [
+        71
+      ],
+      "bonuses": [
+        {
+          "stat": "You are Healed for 25% of the Damage caused by Bleed",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 73,
+      "name": "Rejuvenation",
+      "prereqs": [
+        70
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Leech",
+          "value": 0.06
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 74,
+      "name": "Protected by the Anomaly",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "Increase Armor by 40% of your Anomaly Power",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 75,
+      "name": "Skilled Sentry",
+      "prereqs": [
+        73
+      ],
+      "bonuses": [
+        {
+          "stat": "When Any Skill ends, increase Armor and Resistance by 20% for 10s",
+          "value": null
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 76,
+      "name": "Pure Anomaly",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "Resistance Piercing",
+          "value": 0.15
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 77,
+      "name": "Bloodbath",
+      "prereqs": [
+        75
+      ],
+      "bonuses": [
+        {
+          "stat": "Bleed Damage",
+          "value": 0.3
+        }
+      ],
+      "branch": "Seismic Shifter"
+    },
+    {
+      "id": 78,
+      "name": "Earth's Heritage",
+      "prereqs": [
+        76,
+        77
+      ],
+      "bonuses": [
+        {
+          "stat": "Skill Damage (Seismic)",
+          "value": 0.5
+        }
+      ],
+      "branch": "Seismic Shifter"
+    }
+  ]
+}

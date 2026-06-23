@@ -1,0 +1,523 @@
+[
+  {
+    "name": "Bannerlord's Armor",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Sacrificial Altar",
+      "Crush Sequence"
+    ],
+    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+  },
+  {
+    "name": "Bannerlord's Footgear",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Shock Therapy",
+      "Sharpened Spike"
+    ],
+    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+  },
+  {
+    "name": "Bannerlord's Gauntlets",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Post Mortem",
+      "Bloody Boost"
+    ],
+    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+  },
+  {
+    "name": "Bannerlord's Greathelm",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Shredder",
+      "Stolen Life"
+    ],
+    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+  },
+  {
+    "name": "Bannerlord's Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Stronghold",
+      "Impaler"
+    ],
+    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+  },
+  {
+    "name": "Concussioner's Boots",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Chip Off The Old Block",
+      "Brawl"
+    ],
+    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+  },
+  {
+    "name": "Concussioner's Chestplate",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Force Feedback",
+      "Perseverance"
+    ],
+    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+  },
+  {
+    "name": "Concussioner's Gauntlets",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Concussive Force",
+      "Martial Arts"
+    ],
+    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+  },
+  {
+    "name": "Concussioner's Helmet",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Rockfall",
+      "Auto Reflect"
+    ],
+    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+  },
+  {
+    "name": "Concussioner's Legplates",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Equator",
+      "Perseverance Fists"
+    ],
+    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+  },
+  {
+    "name": "Deathproof Chest Armor",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Increase Duration",
+      "Primal Armor"
+    ],
+    "setBonus": "Deathproof: Reduce the Cooldown of Boulderdash by 90% and increase Firepower by 30% of Armor."
+  },
+  {
+    "name": "Deathproof Footgear",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Primal Constitution"
+    ],
+    "setBonus": "Deathproof Set: Reduce the Cooldown of Boulderdash by 90% and increase Firepower by 30% of Armor."
+  },
+  {
+    "name": "Deathproof Gauntlets",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death's Door"
+    ],
+    "setBonus": "Deathproof: Reduce the Cooldown of Boulderdash by 90% and increase Firepower by 30% of Armor."
+  },
+  {
+    "name": "Deathproof Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus FirePower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Primal Chaingun",
+      "Auto Reflect"
+    ],
+    "setBonus": "Deathproof: Reduce the Cooldown of Boulderdash by 90% and increase Firepower by 30% of Armor."
+  },
+  {
+    "name": "Deathproof Mask",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Primal Weakness",
+      "Primal Rage"
+    ],
+    "setBonus": "Deathproof Set: Reduce the Cooldown of Boulderdash by 90% and increase Firepower by 30% of Armor."
+  },
+  {
+    "name": "Defiled Visage",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Dead Clock",
+      "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Fighters' Mask",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Lucky Ushanka",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death's Door",
+      "Emergency Stance"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Marshal's Armor",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "High Intensity",
+      "Human Comet"
+    ],
+    "setBonus": "Marshal: Endless Mass pulls enemies and causes up to 4 of them to share 50% Anomaly Damage and 50% Weapon Damage for 5 seconds."
+  },
+  {
+    "name": "Marshal's Footgear",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Despair",
+      "Bleed Them All"
+    ],
+    "setBonus": "Marshal: Endless Mass pulls enemies and causes up to 4 of them to share 50% Anomaly Damage and 50% Weapon Damage for 5 seconds."
+  },
+  {
+    "name": "Marshal's Gauntlets",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Skill Life Leech"
+    ],
+    "factoryMods": [
+      "Double Jump",
+      "Mosh Pit"
+    ],
+    "setBonus": "Marshal: Endless Mass pulls enemies and causes up to 4 of them to share 50% of Anomaly Damage and 50% Weapon Damage for 5 seconds."
+  },
+  {
+    "name": "Marshal's Helmet",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Wide Horizons",
+      "Life Absorption"
+    ],
+    "setBonus": "Marshal: Endless Mass pulls enemies and causes up to 4 of them to share 50% Anomaly Damage and 50% Weapon Damage for 5 seconds."
+  },
+  {
+    "name": "Marshal's Waistcloth",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Power Assimilation",
+      "Bone Crusher"
+    ],
+    "setBonus": "Marshal: Endless Mass pulls enemies and causes up to 4 of them to share 50% Anomaly Damage and 50% Weapon Damage for 5 seconds."
+  },
+  {
+    "name": "Seismic Commander's Armor",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Palisade",
+      "Earth's Legacy"
+    ],
+    "setBonus": "Seismic Commander: Increase damage towards enemies with Bleed by 50%."
+  },
+  {
+    "name": "Seismic Commander's Footgear",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Second Quake",
+      "Sharpened Spike"
+    ],
+    "setBonus": "Seismic Commander: Increase damage towards enemies with bleed by 50%."
+  },
+  {
+    "name": "Seismic Commander's Gloves",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Asunder",
+      "Ground Crush"
+    ],
+    "setBonus": "Seismic Commander: Increase damage towards enemies with Bleed by 50%."
+  },
+  {
+    "name": "Seismic Commander's Helmet",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [],
+    "factoryMods": [
+      "Ultimate Impaler",
+      "Blood Shock"
+    ],
+    "setBonus": "Seismic Commander: Increase damage towards enemies with Bleed by 50%."
+  },
+  {
+    "name": "Seismic Commander's Leg Armor",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Anomaly Power",
+      "Status Power",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Tainted Blood",
+      "Rivers of Blood"
+    ],
+    "setBonus": "Seismic Commander: Increase damage towards enemies with Bleed by 50%."
+  },
+  {
+    "name": "Statue's Feet",
+    "slot": "Footgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Made of Marble",
+      "Bleeding Impulse"
+    ],
+    "setBonus": "Statue: While either Tremor or Golem is active, increase Weapon Damage by 50% and Weapon Leech by 15% for you and your teammates."
+  },
+  {
+    "name": "Statue's Hands",
+    "slot": "Gloves",
+    "class": "Devastator",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Claws",
+      "Human Fortress"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Statue's Head",
+    "slot": "Headgear",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Grand Blast",
+      "Perseverance"
+    ],
+    "setBonus": "Statue: While either Tremor or Golem is active, increase Weapon Damage by 50% and Weapon Leech by 15% for you and your teammates."
+  },
+  {
+    "name": "Statue's Legs",
+    "slot": "Lower Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Golem Squad",
+      "Stolen Life"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Statue's Torso",
+    "slot": "Upper Armor",
+    "class": "Devastator",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Power of the Stones",
+      "Crush Sequence"
+    ],
+    "setBonus": "Statue: While either Tremor or Golem is active, increase Weapon Damage by 50% and Weapon Leech by 15% for you and your teammates."
+  },
+  {
+    "name": "Tanner's Hat",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [],
+    "factoryMods": [
+      "Stare Into the Barrel",
+      "Buckshot Shells"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "The Shackled",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Danger Close",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Torrential Downpour's Gloves",
+    "slot": "Gloves",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Echo"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  }
+]

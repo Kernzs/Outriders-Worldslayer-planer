@@ -1,0 +1,2178 @@
+[
+  {
+    "name": "Advanced Rockets",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Every rocket deals X more damage.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Anomaly Surge",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots spawn an Anomaly energy blast that deals 431,856 damage in a 2 meter radius. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Armor Reduction",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret reduces the Armor of each enemy it hits by 20%. Effect lasts for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Ashen Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Ash on enemies. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Bang for your Buck",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Activating the skill grants a 100% base ammo increase for the selected tool.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Better Parts",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: Increases the turret's duration by 50%.",
+    "source": null
+  },
+  {
+    "name": "Bleeding Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Bleed on an enemy. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Bonus Duration",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Extend the turret's duration by 30%.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Burning Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Burn on enemies. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Cleansing Wind",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Activating the skill removes negative statuses from you and your allies and grants 3 seconds of immunity.",
+    "source": null
+  },
+  {
+    "name": "Clip Combustion",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading weapon creates a shockwave, dealing 96 925 damage to enemies within a 5 meter radius.(Cooldown: 2s)",
+    "source": null
+  },
+  {
+    "name": "Clip of Amalthea",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "There is a 50% chance that critical shots do not consume ammo.",
+    "source": null
+  },
+  {
+    "name": "Cold Purification",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: Skill activation removes negative statuses from you and all your allies in range and receives negative status immunity for 3 seconds.",
+    "source": "This mod can be found on armor."
+  },
+  {
+    "name": "Critical Analysis",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: Increases Critical Damage by 15%.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Critical Point",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Increases the chance of scoring a critical shot by 20%.",
+    "source": null
+  },
+  {
+    "name": "Damage Absorber",
+    "tier": 1,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Armor by 52 659 and Resistance by 10%.",
+    "source": null
+  },
+  {
+    "name": "Demolition Man",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Each rocket deals X more damage.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Essence Thief",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots regenerate your Health. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Feedback",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: 3% of the damage dealt using the Minigun heals you after the ability ends.",
+    "source": null
+  },
+  {
+    "name": "Fine-Tuned",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Scrapnel: Increases the detection and explosion radius by 33%.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Fireworks",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots create an explosion that deals 60 416 damage to enemies within a 6 meter radius. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "First Things First",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "The first shot after every reload hits with Armor Piercing increased by 30%.",
+    "source": null
+  },
+  {
+    "name": "Fixer Upper",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Activating the skill increses Health Regeneration by 5% of Max Health for you and your allies for 8 seconds.",
+    "source": null
+  },
+  {
+    "name": "Fortify",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Activate Minigun grants X Armor bonus.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Freeze Barrage",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Inflict Freeze on enemies affected by each rocket explosion.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Freezing Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Freeze on an enemy. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Frostbite",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: While Frozen by the skill, enemies have reduced Resistance by 20% for the duration of this status.",
+    "source": "* Robe of the Borealis Monarch"
+  },
+  {
+    "name": "Fusion Blast",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots created a fusion blast, dealing 31 662 damage within a 5 meter radius.(Cooldown: 1.5s)",
+    "source": null
+  },
+  {
+    "name": "Hail Shot",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Increase the turret's damage based on your Status Power.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Hot Blood",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots pass through enemies whose Health is below 50%, ricocheting to 3 enemies within a 8 meter radius and inflicting Burn.(Cooldown: 0.3s)",
+    "source": null
+  },
+  {
+    "name": "Ice Component",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret now inflicts Freeze instead of Toxic.",
+    "source": null
+  },
+  {
+    "name": "Ice Ice Baby",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: Enemies already afflicted with Freeze will receive extra X damage from this skill.",
+    "source": "This mod can be found on armor."
+  },
+  {
+    "name": "Ice Pack",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: The turret heals allies by 15% Max Health within a 20 meter radius when deployed.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Increase Damage",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Every turret's shot deals extra X damage.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Increased Range",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Increases the skills range by 67%.",
+    "source": null
+  },
+  {
+    "name": "Initial Blast",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Causes a small explosion, dealing X damage in a 5 meter radius when the skill is activated.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Killer Medic",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots replenish 6 451 points of Health to allies within a 5 meter radius of the target. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Knockwave",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret creates an explosion when deployed, dealing X damage to enemies within a 6 meter radius.",
+    "source": null
+  },
+  {
+    "name": "Life Stock",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading restores 10 650 points of Health for each enemy killed since your last reload without changing your weapon. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Long Winter",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: Increases the radius of the skill by 66%.",
+    "source": "This mod can be found on armor."
+  },
+  {
+    "name": "Massacre",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Each enemy killed with the Minigun gives X Anomaly Power bonus for 10 seconds. Stacks up to 6 times.",
+    "source": null
+  },
+  {
+    "name": "More Damage",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Scrapnel: Increases the skill's damage by X.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "More Traps",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Scrapnel: 1 additional mine can be thrown before triggering the cooldown.",
+    "source": "This mod can be found on headgear."
+  },
+  {
+    "name": "Mr. Fixit",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Activating the skill grants you and your allies 50% armor and 20% resistance bonuses for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "No Pain, No Gain",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: When the skill ends, 40% of damage dealt by the skill is turned into healing and spread equally among allies.",
+    "source": "This mod can be found on upper armor."
+  },
+  {
+    "name": "Painful Chill",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: Applies extra X damage to all enemies affected by the skill.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Portable Armory",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: You can fire 1 additional rockets.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Proliferation",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots on enemies afflicted by a status condition inflict that status to the nearest enemy.(Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Rain of Pain",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Decreases the skill's cooldown by 35%.",
+    "source": null
+  },
+  {
+    "name": "Rapid Reaction",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: Reduce the skill's Cooldown by 50%.",
+    "source": null
+  },
+  {
+    "name": "Ricochet",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots ricochet to another enemy within a 5 meter radius of the initial target. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Ruler of Leeches",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots increase Weapon Leech by 20% for 20 seconds.",
+    "source": "-"
+  },
+  {
+    "name": "Shield Maiden",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots generate Shield. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Soul Devourer",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots regenerate 25,487 points of your Health. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Spare Mag",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: The skill is effective for one additional magazine before triggering the cooldown.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "Stiffening",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Slow on an enemy. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Supplies",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Scrapnel: 1 additional mine can be thrown before triggering the cooldown.",
+    "source": "This mod can be found on footgear."
+  },
+  {
+    "name": "Surprise",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: The turret explodes before being destroyed or deployed, dealing X damage in 6 meter radius.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Toxic Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Toxic on enemies. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Trick Up The Sleeve",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: While the skill is active, killing shots grant you 30% extra bullets in your mag.",
+    "source": "This mod can be found on gloves."
+  },
+  {
+    "name": "Untouchable",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Activating the Minigun grants 20% Resistance bonus.",
+    "source": null
+  },
+  {
+    "name": "Upgraded Gun",
+    "tier": 1,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Active Minigun grants 30% Resistance Piercing bonus.",
+    "source": null
+  },
+  {
+    "name": "Vampire",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots grant 15% Skill Leech boost for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Vulnerability Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Vulnerable on enemies. (Cooldown: 8s)",
+    "source": "This mod can be found on Voodoo Matchmaker.<br> This mod can be found on Camo SIREN-ARR."
+  },
+  {
+    "name": "Weakening Bullets",
+    "tier": 1,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Weakness on enemies. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Achilles' Heel",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Critical Damage by 50% of your Resistance Piercing.",
+    "source": null
+  },
+  {
+    "name": "Adrenaline",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Whenever your Health drops below 30% all your skill cooldowns are reduced by 50%.",
+    "source": "-"
+  },
+  {
+    "name": "Anomaly Enhancement",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Receive a passive Firepower boost equal to 40% of your Anomaly Power.",
+    "source": null
+  },
+  {
+    "name": "Arms Juggler",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Swapping weapons increases your Firepower by X for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Ash Cleaner",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical Shots apply an extra 29 077 damage to enemies afflicted with Ash.",
+    "source": null
+  },
+  {
+    "name": "Ashen Boost",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your damage against enemies afflicted with Ash by 12%.",
+    "source": null
+  },
+  {
+    "name": "Aura of Force",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies with critical shots grants 30 825 Anomaly Power to you and your allies for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Blazing Aegis",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies afflicted with Burn increases your Armor by X for 8 seconds. Stacks up to 3 times",
+    "source": null
+  },
+  {
+    "name": "Blood Potion",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots towards enemies in Close Range afflicted with Bleed increases your Health Regeneration by X for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Bloodlust",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing Shots increase your Firepower by 17 505. Stacks up to 3 times and deteriorates every 5 seconds.",
+    "source": "This mod can be found on Epic Armor."
+  },
+  {
+    "name": "Bloody Boost",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your damage against enemies afflicted with Bleed by 8%.",
+    "source": null
+  },
+  {
+    "name": "Bone Shrapnel",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots detonate the enemy's bones and turn them into shrapnel that deals 232 542 damage and inflicts Bleed on enemies within a 5 meter radius. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Brain-Eater",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots do not consume ammo.",
+    "source": "This mod can be found on: * Amber Vault * Molten Eidola *The Migraine"
+  },
+  {
+    "name": "Brawl",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your Melee skill damage by 100%.",
+    "source": "This mod can be found on lower tier armor. (Rare and above)"
+  },
+  {
+    "name": "Buckshot Shells",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases Shotgun Weapon Damage by 12%.",
+    "source": "This mod can be found on Lower Armor."
+  },
+  {
+    "name": "Bullet Kindling",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 12% more damage against enemies afflicted by Burn.",
+    "source": "-"
+  },
+  {
+    "name": "Bullet Recycling",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reloading a weapon when your Shield is active disables ammo consumption for 5 seconds. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Claymore",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots damage an enemy with an Anomaly blade, dealing 133 756 damage. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Clip Roller",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "When your magazine has 35% or less ammo left, you can roll to quickly reload all your equipped weapons.",
+    "source": null
+  },
+  {
+    "name": "Crematorium",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots create an explosion that inflicts Ash on enemies within a 3.5 meter radius.(Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Critstack",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots build up a 5 second stacking effect that grants you 39,011 Anomaly Power and 41,867 Firepower bonuses. Stacks up to 3 times.",
+    "source": null
+  },
+  {
+    "name": "Damage Link",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots link up to 4 enemies, sharing 30% of their Weapon Damage dealt and 15% of their Anomaly Damage dealt. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Death Chains",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots entangle an enemy with chains dealing 3,834,180 damage over 3 seconds. (Cooldown: 3s)",
+    "source": "* The Reaper"
+  },
+  {
+    "name": "Diffuse",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Sprinting increases your Armor by 650,077 and Resistance by 50%.",
+    "source": null
+  },
+  {
+    "name": "Dum-Dum Bullets",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases Assault Weapon Damage by 12%.",
+    "source": "This mod can be found on headgear.<sup>[Likely others too?]</sup>"
+  },
+  {
+    "name": "Emergency Stance",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Attain Golem protective effect for 4 seconds whenever your Health drops below 30%. (Cooldown: 10s)",
+    "source": null
+  },
+  {
+    "name": "Exposing Strike",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing an enemy with Melee inflicts Vulnerable on enemies within a 10 meter radius around you.",
+    "source": "-"
+  },
+  {
+    "name": "Extra Bullet",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increase your magazine size by 30%.",
+    "source": null
+  },
+  {
+    "name": "Freezing Boost",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your damage against enemies afflicted with Freeze by 8%.",
+    "source": null
+  },
+  {
+    "name": "Fresh Mag",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reloading increases your Firepower by X for 8 seconds.",
+    "source": null
+  },
+  {
+    "name": "Gravedigger's Frenzy",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical Shots increase your Critical Damage by 30% for 3 seconds. (Cooldown: 6s)",
+    "source": null
+  },
+  {
+    "name": "Head of the Ward",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reviving an ally also fully restores their Health.",
+    "source": null
+  },
+  {
+    "name": "Hidden And Dangerous",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Firepower by 232,774 when shooting from cover.",
+    "source": null
+  },
+  {
+    "name": "High Velocity Bullets",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Sniper Weapon Damage is increase by 10%.",
+    "source": null
+  },
+  {
+    "name": "Ice Trap",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Whenever your Health drops below 30% Freeze is inflicted on enemies within a 10 meter radius. (Cooldown: 5s)",
+    "source": null
+  },
+  {
+    "name": "Icebreaker",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots against frozen enemies make them explode, dealing 3,273,940 damage. (Cooldown: 3s)",
+    "source": "This mod can be found on: * Ghost II \"Blue Blood\" * The Iceberg"
+  },
+  {
+    "name": "Improved Ashen Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Ash on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Bleeding Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Bleed on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Burning Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Burn on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Freezing Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Freeze on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Stiffening",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Slow on enemies. (Cooldown: 4s)",
+    "source": "This mod can be found on the following weapons: * Grim Marrow * The Migraine * Setting Sun"
+  },
+  {
+    "name": "Improved Toxic Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Toxic on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Vulnerability Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Vulnerable on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Improved Weakening Bullets",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Weakness on enemies. (Cooldown: 4s)",
+    "source": null
+  },
+  {
+    "name": "Mark of the Stake",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading weapon inflicts Burn on enemies previously wounded by this weapon without changing it. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Martial Arts",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reduces the cooldown of your melee skill by 50%.",
+    "source": null
+  },
+  {
+    "name": "Minefield (Mod)",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots spawn explosives around your target, each deals 58 155 damage in a 5 meter radius. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Mitigation From Death",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies while aiming down sights grants 45 368 points of Armor for 10 seconds. Stacks up to 3 times.",
+    "source": null
+  },
+  {
+    "name": "Move Groove",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Moving increases your Anomaly Power by 9 066 and Firepower by 12 871.",
+    "source": "This mod can be found on lower armor."
+  },
+  {
+    "name": "No Resistance Against The Fortified",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Resistance Piercing by 65% of your Armor Piercing value.",
+    "source": null
+  },
+  {
+    "name": "Paragon",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Each ally in close range receives X points of Armor.",
+    "source": null
+  },
+  {
+    "name": "Perpetuum Mobile",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "You instantly replenish your magazine if you kill an enemy with 35% or less ammo remaining in your magazine.",
+    "source": null
+  },
+  {
+    "name": "Perseverance Fists",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Whenever your Health drops below 30% increase your Melee damage by 150%. (Cooldown: 10s)",
+    "source": null
+  },
+  {
+    "name": "Perseverance Munitions",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Whenever your Health drops below 30% increase your Firepower by X for 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Perseverance Shield",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Receive 8 875 points of Shield whenever your Health drops below 30%. (Cooldown: 5s)",
+    "source": "-"
+  },
+  {
+    "name": "Personal Space",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Grants you a 12% bonus to Close Range Weapon Damage.",
+    "source": "*This mod can be found on ???. *This mod can be found on Ivory and Bone and Gauntlets of the Cannonball."
+  },
+  {
+    "name": "Phantom Dash",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "During combat your default roll is replaced with Phantom Dash which enables you to quickly pass through enemies.",
+    "source": null
+  },
+  {
+    "name": "Plate Dodge",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Rolling increases your Armor by X for 5 seconds.",
+    "source": "-"
+  },
+  {
+    "name": "Plate Piercer",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Crit Damage by X%, the bonus is equal to 50% of your Armor Pierce.",
+    "source": null
+  },
+  {
+    "name": "Power From The Ashes",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Successful shots on enemies afflicted with Ash increase your Anomaly Power by X for 6 seconds. Stacks up to 4 times.",
+    "source": null
+  },
+  {
+    "name": "Protection of the Flames",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies marked by Pyromancer with a weapon increases your Armor by X and Resistance by 10% for 15 seconds. Stacks up to 3 times.",
+    "source": "-"
+  },
+  {
+    "name": "Radical Therapy",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 8% more damage against enemies afflicted by Toxic.",
+    "source": null
+  },
+  {
+    "name": "Reforging Bullets",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots on enemies afflicted with Burn don't consume your ammo.",
+    "source": null
+  },
+  {
+    "name": "Rejuvenation",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Receive 14 158 Firepower, 7 005 Anomaly Power and 40 957 Armor bonus for 5 seconds whenever your Health is replenished. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Reload Shield",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "When a Shield is active, reloading grants you X points of Shield. (Cooldown: 5s)",
+    "source": null
+  },
+  {
+    "name": "Resistance Breaker",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots decrease your target's Resistance by 35% for 6 seconds. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Resistance Piercer",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Critical Damage. The bonus is equal to 75% of your Resistance Piercing.",
+    "source": "- -->"
+  },
+  {
+    "name": "Savor The Feeble",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases the duration of Weakness by 50% when it is inflicted on enemies.",
+    "source": null
+  },
+  {
+    "name": "Seismic Impulse",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "A seismic impulse is generated every 6 seconds, dealing X damage to enemies within a 5 meter radius around you.",
+    "source": null
+  },
+  {
+    "name": "Shield Blast",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "A complete Shield depletion triggers a powerful energy blast, dealing X damage to enemies within a 5 meter radius. (Cooldown: 5s)",
+    "source": null
+  },
+  {
+    "name": "Shield Zap",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "When your Shield is active, it spawns an electric shock around you dealing X damage to up to 2 enemies within a 5 meter radius. (Cooldown: 8s)",
+    "source": null
+  },
+  {
+    "name": "Sidearms Specialist",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases damage dealt with Sidearm weapons by 12%.",
+    "source": null
+  },
+  {
+    "name": "Snowsquall",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading weapon inflicts Freeze on enemies previously wounded by this weapon without changing it. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Stand Tall",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Receive 10 577 Anomaly Power and 15 445 Firepower when out of cover for more than 5 seconds.",
+    "source": null
+  },
+  {
+    "name": "Storm Whip",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots bring down lightning on an enemy dealing 3,262,270 damage. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Striga",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "10% of Critical Damage is returned to you as Health. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "The Cycle",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increase your weapon Damage by X%. The bonus is proportional to your Health Regeneration.",
+    "source": null
+  },
+  {
+    "name": "Thirst for Blood",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies with a weapon while they're afflicted with Bleed increases your Weapon Leech by 40% for 10 seconds.",
+    "source": "-"
+  },
+  {
+    "name": "Toxic Lead",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing enemies afflicted with Toxic will instantly replenish 40% of ammo in your magazine.",
+    "source": null
+  },
+  {
+    "name": "Toxic Piercer",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "The effectiveness of Toxic is increased by X%, the bonus is equal to 100% of your Resistance Piercing.",
+    "source": "-"
+  },
+  {
+    "name": "Trample The Weak",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 10% more damage against enemies afflicted by Weakness.",
+    "source": null
+  },
+  {
+    "name": "Twice as Hot",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Whenever a skill is used, inflict 30% of your Anomaly Power as damage to all enemies afflicted with Burn.",
+    "source": null
+  },
+  {
+    "name": "Ultimate Paragon",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your Armor by X for each ally in Close Range.",
+    "source": null
+  },
+  {
+    "name": "Untamed Power",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Using skills deals [...] damage to enemies within a 5 meter radius around you, the damage is equal to 30% of your Anomaly Power.",
+    "source": null
+  },
+  {
+    "name": "Vampiric Mag",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Killing shots on enemies afflicted with Bleed replenishes 50% of ammo in your magazine.",
+    "source": "This mod can be found on ???."
+  },
+  {
+    "name": "Vein Ripper",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots inflict Bleed on enemies.",
+    "source": null
+  },
+  {
+    "name": "Vortex Chamber",
+    "tier": 2,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading weapon inflicts Slow on enemies previously wounded by this weapon without changing it. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "What Goes Around",
+    "tier": 2,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Incoming bullets have 20% chance of being deflected towards an enemy dealing 1,002,020 damage.",
+    "source": null
+  },
+  {
+    "name": "Alchemical Therapy",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: When the skill is active receive a Weapon Damage or Anomaly Power bonus equal to 15% of your status power, based on whichever is higher.",
+    "source": "* Veil of the Flame Leper"
+  },
+  {
+    "name": "Anomaly Echo",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Grants 418,884 Firepower and 390,107 Anomaly Power bonus on skill activation for 6 seconds.",
+    "source": "* Anomaly's Visage * Torturer's Footgear * Waistcloth of the Acari * Torrential Downpour's Gloves"
+  },
+  {
+    "name": "Anomaly Mutation",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots on enemies afflicted by any status condition multiplicates and mutates it into a different one. (Cooldown: 1s)",
+    "source": "This mod can be found on: *Mindmugger"
+  },
+  {
+    "name": "Arms and Anomaly",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots increase your Anomaly Power by 19 946 for 6 seconds. (Cooldown: 6s)",
+    "source": "*Ronin's Amigasa"
+  },
+  {
+    "name": "Bad Medicine",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Overhealed players inflict Toxic and deal X damage for every percent of Overheal in a 10 meter radius.",
+    "source": "Boots of the Flame Leper"
+  },
+  {
+    "name": "Bigger Sector",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Launched rockets cover 45% more area.",
+    "source": "-"
+  },
+  {
+    "name": "Body Snatcher (Mod)",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots teleport another enemy to the place where the previous one died. Works within a 25 meter radius of the target.",
+    "source": "* Body Snatcher (legendary weapon)"
+  },
+  {
+    "name": "Bomb's Ahead",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots turn enemies into an Anomaly bomb, dealing 2,667,010 damage. (Cooldown: 2s)",
+    "source": "This mod can be found on The Migraine."
+  },
+  {
+    "name": "Breathe In",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Reduces the skill’s Cooldown by 20% and applies Weakness to enemies in a 10 meter radius.",
+    "source": null
+  },
+  {
+    "name": "Burst of Decay",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots cause explosions that inflict Toxic on enemies within a 5 meter radius. (Cooldown: 3s)",
+    "source": "* Blightbearer"
+  },
+  {
+    "name": "Cannonade",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Pain Launcher: Increases the number of rockets launched by 10.",
+    "source": null
+  },
+  {
+    "name": "Captain Hunter",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases your damage against Elites by 16%.",
+    "source": "This mod can be found on Gauntlets of the Cannonball."
+  },
+  {
+    "name": "Charged Up",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Aiming down sights charges your weapon with kinetic energy over time up to 2 seconds. Firing releases the stored energy, increasing the damage of that shot by up to 3,769,990 damage. Bonus is lost when you stop aiming down sights.",
+    "source": "* Deadeye's Skull"
+  },
+  {
+    "name": "Circle of Power",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your Resistance by 10% every time you use a skill. Stacks up to 3 times and deteriorates every 7 seconds.",
+    "source": "* Torrential Downpour's Leg Armor *Leg Armor of the Cannonball"
+  },
+  {
+    "name": "Claws",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Inflicts Vulnerable on all enemies hit with your Melee skill.",
+    "source": "This mod can be found on Statue's Hands."
+  },
+  {
+    "name": "Claymore Torrent",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots damage 4 enemies within a 6 meter radius with Anomaly blades, dealing 3,187,570 damage. (Cooldown: 2s)",
+    "source": "* Damascus Offering"
+  },
+  {
+    "name": "Collateral Damage",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots from Sniper Weapons deal 15% of their damage within a 3 meter radius.",
+    "source": "* Deadeye's Waistcloth"
+  },
+  {
+    "name": "Concentration Blast",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots cause enemies to explode dealing 156 049 damage multiplied by the maximum number of 4 enemies within a 6 meter radius around the the original target. (Cooldown: 3s)",
+    "source": "- Anomaly Effigy"
+  },
+  {
+    "name": "Concussive Force",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Your Melee skill deals 25% more damage in a 50% bigger range.",
+    "source": "Concussioner's Gauntlets"
+  },
+  {
+    "name": "Crazed Gunman",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots with sidearms stack a 10% Critical Damage bonus up to 5 stacks. The bonus is lost upon swapping weapons or missing a shot.",
+    "source": "* Trigger Twitch's Coat"
+  },
+  {
+    "name": "Cryodown",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Decrease the skill's Cooldown by 50%.",
+    "source": "* Waistcloth of the Borealis Monarch"
+  },
+  {
+    "name": "Danger Close",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Grants a 6% Anomaly Power bonus for each enemy in Close Range. Stacks up to 4 times.",
+    "source": "* The Shackled"
+  },
+  {
+    "name": "Dark Sacrifice",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "During combat, your weapon drains up to 25% of your Max Health, in exchange for 35% Weapon Damage bonus.",
+    "source": "*Fatal Symbiont"
+  },
+  {
+    "name": "Dead Clock",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Receive a 8% Weapon Damage bonus for every skill that is on cooldown",
+    "source": "* Defiled Visage"
+  },
+  {
+    "name": "Deadly Disturbance",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots activate an unstable Anomaly effect in your enemy causing him to explode, dealing 3,834,190 damage to other enemies within a 5 meter radius. (Cooldown: 3s)",
+    "source": "* Imploder"
+  },
+  {
+    "name": "Death Ray",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Aiming down sights forms an Anomaly beam that deals X damage every .03 seconds when in contact with an enemy.",
+    "source": "* Charred Lance"
+  },
+  {
+    "name": "Death's Door",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Doubles your Armor whenever your health drops below 35%.",
+    "source": "* Lucky Ushanka"
+  },
+  {
+    "name": "Deathronome",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "When 2 of your equipped skills are on Cooldown, receive a 507,105 Firepower bonus. Otherwise receive 458,407 bonus Anomaly Power.",
+    "source": "* Eveningstar"
+  },
+  {
+    "name": "Dimensional Rockets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots fire 4 rockets in the direction of the 4 closest enemies. Each rocket deals X damage (Cooldown: 2s)",
+    "source": "* The Messenger"
+  },
+  {
+    "name": "Dome of Protection",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots summon a bullet-stopping dome for 4 seconds. (Cooldown: 8s)",
+    "source": "*Master Tool"
+  },
+  {
+    "name": "Double Trouble",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Deploy an enhanced turret with two barrels instead of one, doubling the fire output.",
+    "source": "Techmonger's Mask"
+  },
+  {
+    "name": "Embalmer's Rage",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "For 5 seconds after a killing shot all following shots will be critical shots. (Cooldown: 4s)",
+    "source": "This mod can be found on The High Roller."
+  },
+  {
+    "name": "Enriched Anthrax",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: Increases the turret's damage by X.",
+    "source": null
+  },
+  {
+    "name": "Essence Extractor",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots on enemies afflicted by any status restore 5% of your Max Health. Each active status applied to the target multiplies amount of healing received. (Cooldown: 3s)",
+    "source": "* Lumberjack"
+  },
+  {
+    "name": "Euthaniser",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 16% more damage against enemies afflicted by Toxic.",
+    "source": "* Plague Sower's Hands"
+  },
+  {
+    "name": "Firestorm",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots summon a homing firestorm that deals 8,968,640 damage and inflicts Burn to enemies within its radius over 8 seconds. Radius of the firestorm increases with each successful shot on the afflicted target. (Cooldown: 10s)",
+    "source": "*Sunfall"
+  },
+  {
+    "name": "Fleshrender",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots create spikes under the enemy that deal 50% of total Firepower as damage over 2 seconds. (Cooldown: 2s)",
+    "source": "*Torturer"
+  },
+  {
+    "name": "Focused Discharge",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret discharges Anomaly beams that deal X damage every 0.3 seconds at up to 5 enemies within a 5 meter radius.",
+    "source": "Techmonger's Boots"
+  },
+  {
+    "name": "Fortress",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots increase your current Armor and Resistance by 5%, stacking up to 3 times. At maximum stacks, the buff is doubled and additionally grants 25% damage increase for 10 seconds. (Cooldown: 0.2s)",
+    "source": "*This mod can be found on Deathshield."
+  },
+  {
+    "name": "Golem Rising",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots grant you a protective Golem effect for 3 seconds. (Cooldown: 6s)",
+    "source": "* Golem's Limb Legendary weapon"
+  },
+  {
+    "name": "Grand Opening",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Landing a hit with the first bullet in a magazine creates a powerful explosion, dealing 258 466 damage in a 5 meter radius. (Cooldown: 1s)",
+    "source": "*Darkness Charmer"
+  },
+  {
+    "name": "Hazardous Modifications",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret now fires Toxic infused projectiles that deal X more damage and has a 50% increased attack range.",
+    "source": "Techmonger's Vest"
+  },
+  {
+    "name": "Headbanger",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots from Sniper Weapons deal 10% more damage. Each critical shot stacks a 60% damage bonus up to 180%. The bonus is applied to the next non-critical shot, but lost when missing a shot.",
+    "source": "* Deadeye's Cloak"
+  },
+  {
+    "name": "High Stakes",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Rolling after 4 successful shots with your sidearm grants a 100% Critical Chance bonus for 3 seconds.",
+    "source": "* Trigger Twitch's Mask"
+  },
+  {
+    "name": "Icicle Storm",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cold Snap: Killing enemies Frozen by the skill makes them explode, dealing 252 004 damage in a 5 meter radius.",
+    "source": "*Robe of the Borealis Monarch"
+  },
+  {
+    "name": "Improved Coolant",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Doubles the fire rate of the deployed turret.",
+    "source": "Techmonger's Leg Armor"
+  },
+  {
+    "name": "Introvert",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases the range at which enemies are considered to be in Close Range by 2 meters.",
+    "source": "This mod can be found on the Legendary Headgear Ol' Reliable that is universal (not class-specific). This mod can be found on the Legendary Gloves Torturer's Gloves for the Pyromancer."
+  },
+  {
+    "name": "Judgement Enforcer",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots mark enemies. When reloading, deal 10 times your Weapon Damage to every marked enemy. Marks are removed when you change weapons. (Cooldown: 1s)",
+    "source": "This mod can be found on Torment & Agony."
+  },
+  {
+    "name": "Killing Spree",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots increase damage by 13% for this weapon for 15 seconds. Bonus deteriorates with time and stacks up to 3 kills.",
+    "source": "* Amber Vault"
+  },
+  {
+    "name": "Kinetic Stomp",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots create a seismic shock around you, dealing 5,116,330 damage in 5 meter radius. (Cooldown: 4s)",
+    "source": "-Roaring Umbra"
+  },
+  {
+    "name": "King Slayer",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical hits on an Elite increases your Firepower by 698,213 for 10 seconds.",
+    "source": "*Ivory and Bone *Deathproof Gauntlets"
+  },
+  {
+    "name": "Last One Standing",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Heal yourself for X whenever an ally enters DBNO (down but not out).",
+    "source": "* Explosive Temper"
+  },
+  {
+    "name": "Legendary Minefield",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical Shots spawn explosives around target, each deals 72 047 damage in a 5 meter radius. (Cooldown: 3s)",
+    "source": "- The Landlubber"
+  },
+  {
+    "name": "License To Heal",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Activating the skill grants a 10% Weapon Damage bonus and 4 seconds of infinite ammo.",
+    "source": "Gauntlets of the Flame Leper"
+  },
+  {
+    "name": "Life of the Party",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Incoming damage is reduced by 6% for each enemy in Close Range. Stacks up to 4 times.",
+    "source": "*Fighters' Mask *Gloves of the Edge of Time"
+  },
+  {
+    "name": "Mage's Rage",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots grant a 10% Anomaly Power bonus for 15 seconds. Stacks up to 4 times.",
+    "source": "* Final Penance"
+  },
+  {
+    "name": "Magma Shelter",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Your Melee skill creates and explosion dealing X damage based on bonus Firepower within a 2 meter radius. If enough space is available, it creates a cover made of magma.",
+    "source": "* Helmet of Maxwell's Demon"
+  },
+  {
+    "name": "Med Burst",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Turret: The turret replenishes 35% of Max health to each ally within a 20 meter radius around itself when destroyed.",
+    "source": null
+  },
+  {
+    "name": "Moaning Winds",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading creates a strong blast around you, dealing 617 087 damage to enemies in range of 8 meters. (Cooldown: 8s)",
+    "source": "*The Anemoi"
+  },
+  {
+    "name": "Nikola's Revenge",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots link up to 5 enemies within a 8 meter radius around the initial target, dealing 3,501,540 damage over 2 seconds to each of them as long as the initial target is alive.",
+    "source": "* Thunderclap"
+  },
+  {
+    "name": "Not Impressed",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reduces the damage taken from Elites by 25%.",
+    "source": "*This mod can be found on Upper Robe of the Lava Lich and Vest of the Cannonball."
+  },
+  {
+    "name": "Noxious Spawns",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots spawn 3 Anomaly projectiles that move towards the enemy with the highest health, dealing 1,262,890 damage and applying Toxic to the target and enemies within a 1 meter range. (Cooldown: 3s)",
+    "source": "* Emerald Chaos"
+  },
+  {
+    "name": "Omen",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots launch a cover-piercing Anomaly projectile that inflicts Bleed, deals 2,857,260 damage, and applies a status that increases damage received by 10% for 3 seconds. (Cooldown: 4s)",
+    "source": "* Mythos"
+  },
+  {
+    "name": "Painshare",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "30% of Critical Damage dealt is spread to enemies within a 6 meter radius as an Anomaly blast.(Cooldown: 4s)",
+    "source": "*Inheritance"
+  },
+  {
+    "name": "Party Starter",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: The strength of the skill is increased by 8% for each enemy within the arena, up to 100%.",
+    "source": "Robes of the Flame Leper"
+  },
+  {
+    "name": "Pinball",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Every critical Shot ricochets to 4 enemies with a 8 meter radius, dealing weapon's triple base damage. (Cooldown: 1s)",
+    "source": "*Lucky"
+  },
+  {
+    "name": "Power Assimilation",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your Anomaly Power by 254,508 for each Elite present on the battlefield.",
+    "source": "* Boots of the Reforged * Cranium of a Lost Creature * Marshal's Waistcloth"
+  },
+  {
+    "name": "Purity",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Reduces the duration of negative statuses by 75%.",
+    "source": "*Mask of the Cannonball"
+  },
+  {
+    "name": "Quartermaster",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Fixing Wave: Activating the skill replenishes the current weapon magazine for you and your allies. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Quick Iron",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "After every 3 critical shots with sidearms you can instantly reload your clip. Bonus is lost upon switching weapons or if the sidearm was reloaded before achieving the bonus.",
+    "source": "* Trigger Twitch's Trousers"
+  },
+  {
+    "name": "Radiation Splash",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Reloading causes a small explosion that inflicts Vulnerable and deals 368 314 damage to enemies within a 5 meter radius. (Cooldown: 6s)",
+    "source": "* The Guillotine"
+  },
+  {
+    "name": "Ravenous Locust",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots create a swarm of locusts, dealing 6,065,250 damage over 6 seconds and inflicting Weakness. The swarm affects all enemies within a 6 meter radius of the target while it lasts. (Cooldown: 6s)",
+    "source": "This mod can be found on: * Molten Eidola"
+  },
+  {
+    "name": "Ready For Anything",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "5% of Critical Damage dealt to Elites is returned to you as Health.",
+    "source": null
+  },
+  {
+    "name": "Rocket Man",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: You can shoot 3 additional rockets.",
+    "source": null
+  },
+  {
+    "name": "Sanctuary",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots generate a short protective sphere effect around the player that reduces incoming Weapon Damage by up to 30% and Anomaly Damage by up to 30%",
+    "source": "* Phalanx"
+  },
+  {
+    "name": "Sandstorm",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots conjure a sandstorm, dealing 331 159 damage over 5 seconds. (Cooldown: 5s)",
+    "source": "*Heir to the Desert"
+  },
+  {
+    "name": "Scrap Grenade",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "First shot after reload becomes an Anomaly projectile, dealing 264 281 damage in a 5 meter radius. (Cooldown: 3s)",
+    "source": "*The Juggler"
+  },
+  {
+    "name": "Self-Medication",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increase your Max Health by 20% when any skill starts its Cooldown. Stacks up to 3 times, each stack lasting 5 seconds.",
+    "source": "* Chestplate of the Martyr"
+  },
+  {
+    "name": "Shadow Comet",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots call down a comet, dealing 231 004 damage to enemies within a 3.5 meter radius. (Cooldown: 3s)",
+    "source": "* Funeral Pyre"
+  },
+  {
+    "name": "Sharp Eye",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Critical shots while aiming down sights grants you 232,665 Firepower for 5 seconds. Stacks up to 3 times.",
+    "source": "*Sergio's Beret *Boots of the Borealis Monarch"
+  },
+  {
+    "name": "Shatter",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 16% more damage against enemies afflicted by Freeze.",
+    "source": "Gloves of the Borealis Monarch"
+  },
+  {
+    "name": "Shock and Awe",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "When an enemy hits you with a Melee attack, every target within a 10 meter radius is struck by Anomaly lightning that deals X damage. (Cooldown: 8s)",
+    "source": "* Tundra Stalker"
+  },
+  {
+    "name": "Singularity",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing shots create an Anomaly singularity. When destroyed, the singularity explodes dealing 7,575,580 damage to enemies within a 6.5 meter radius. (Cooldown: 6s)",
+    "source": "This mod can be found on Grim Marrow."
+  },
+  {
+    "name": "Special Delivery",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Tool of Destruction: Increase the rockets' explosion radius by 33%.",
+    "source": "* Grim Inventor's Leg Armor"
+  },
+  {
+    "name": "Splash Boost",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: Increases the splash effect radius of successful shots by 50%.",
+    "source": "* Plague Sower's Skull"
+  },
+  {
+    "name": "Stare Into the Barrel",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Boosts your Firepower by 174,444 for each enemy in Close Range. Stacks up to 4 times.",
+    "source": "*Tanner's Hat"
+  },
+  {
+    "name": "Stigmatized",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots inflict Toxic and mark the target for 5 seconds. Killing a marked target causes them to explode dealing X damage in a 6 meter radius and marks the enemies caught in the explosion. (Cooldown: 5s)",
+    "source": "* Deathscape"
+  },
+  {
+    "name": "Strings of Gauss",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots link up to 5 enemies in a 10 meter radius of the target and deal 3,028,250 electric damage to each of them. (Cooldown: 2s)",
+    "source": "*Bolt & Thunder *Disintegrator"
+  },
+  {
+    "name": "Supercollider",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Entering cover creates a forcefield that increases the damage of your and your allies' bullets that pass through it by 25%.",
+    "source": "* Legplates of Maxwell's Demon"
+  },
+  {
+    "name": "Tactical Retreat",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Rolling creates an Anomaly orb that detonates in proximity to an enemy or when shot by the player dealing 3,648,020 damage within a 5 meter radius. (Cooldown: 8s)",
+    "source": "* Armor of Maxwell's Demon"
+  },
+  {
+    "name": "Tainted Blood",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Increases the damage dealt to enemies afflicted with Bleed by 16%.",
+    "source": "This mod can be found on Seismic Commander's Leg Armor."
+  },
+  {
+    "name": "Target Rich Enviroment",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots ricochet to 5 enemies within a 12 meter radius. Ricochets deal 30% of the initial shots damage. (Cooldown: 3s)",
+    "source": "* Corruptor"
+  },
+  {
+    "name": "Telefrag",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Killing an enemy with a critical shot teleports you to the target's location, dealing 1,578,610 damage and applying Slow to enemies within a 5 meter radius for 2 seconds. (Cooldown: 1s)",
+    "source": "Spiritbreaker"
+  },
+  {
+    "name": "Thunder's Legacy",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "You become charged with Anomaly lightning, dealing 4,728,830 damage every 8 seconds to 3 enemies within a 10 meter radius. (Cooldown: 8s)",
+    "source": "* Descendant"
+  },
+  {
+    "name": "Til Death Do Us Part",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Successful shots connect you to an enemy healing you for 18,205 and dealing 608,684 damage to the enemy every 0.5 seconds. The effect lasts 4 seconds. (Cooldown: 4s)",
+    "source": "Boulderlings"
+  },
+  {
+    "name": "To the Bone",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Blighted Rounds: When the skill is activated, increase Anomaly Power by 30% for 15 seconds.",
+    "source": "* Plague Sower's Coat"
+  },
+  {
+    "name": "Trap Cluster",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Scrapnel: Doubles the number of mines that can be thrown before triggering the cooldown.",
+    "source": null
+  },
+  {
+    "name": "Turrets With Benefits",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Deployed turret is surrounded with a 10 meter Anomaly sphere that grants you and your allies a 15% Resistance bonus. Every 6 seconds a random status will be removed from you and your allies within the sphere.",
+    "source": "Techmonger's Gloves"
+  },
+  {
+    "name": "Twins",
+    "tier": 3,
+    "type": "Technomancer",
+    "scope": "technomancer",
+    "description": "Cryo Turret: Two turrets can be placed before triggering the Cooldown",
+    "source": "Crown of the Borealis Monarch"
+  },
+  {
+    "name": "Ultimate Anomaly Surge",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots spawn an Anomaly energy blast that deals 110 656 damage in a 2 meter radius. (Cooldown: 1s)",
+    "source": "* Icarus"
+  },
+  {
+    "name": "Ultimate Ashen Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Ash on enemies. (Cooldown: 1s)",
+    "source": "*The Wicker"
+  },
+  {
+    "name": "Ultimate Bleeding Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Bleed on enemies. (Cooldown: 1s)",
+    "source": "This mod can be found on: * The Bulwark"
+  },
+  {
+    "name": "Ultimate Bone Shrapnel",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Criticial Shots detonate the enemy's bones and turning them into shrapnel that deals 3,546.480 damage and inflicts Bleed on enemies within a 5 meter radius. (Cooldown: 3s)",
+    "source": "This mod can be found on Spirit Hunter."
+  },
+  {
+    "name": "Ultimate Burning Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Burn on enemies. (Cooldown: 1s)",
+    "source": "*Shelrog's Excrescence"
+  },
+  {
+    "name": "Ultimate Damage Link",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots link up to 4 enemies, sharing 40% of their Weapon Damage dealt and 20% of their Anomaly Damage dealt. (Cooldown: 1s)",
+    "source": "This mod can be found on Voodoo Matchmaker."
+  },
+  {
+    "name": "Ultimate Freezing Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Freeze on enemies. (Cooldown: 1s)",
+    "source": "This mod can be found on: * Absolute Zero"
+  },
+  {
+    "name": "Ultimate Stiffening",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Slow on enemies. (Cooldown: 1s)",
+    "source": "This mod can be found on: * Time Ripper"
+  },
+  {
+    "name": "Ultimate Storm Whip",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots bring down lightning on an enemy dealing 5,403,300 damage. (Cooldown: 3s)",
+    "source": "*The Daimyo *Thunderbird"
+  },
+  {
+    "name": "Ultimate Toxic Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Toxic on enemies. (Cooldown: 1s)",
+    "source": "*Lucky Jinx"
+  },
+  {
+    "name": "Ultimate Vulnerability Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Vulnerable on enemies. (Cooldown: 1s)",
+    "source": "*Twisted Mercy"
+  },
+  {
+    "name": "Ultimate Weakening Bullets",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Weakness on enemies. (Cooldown: 1s)",
+    "source": "*The Reaper"
+  },
+  {
+    "name": "Under Pressure",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Being afflicted by any status grants 216,696 Armor and 4% of Resistance every 1 second. Stacks 5 times.",
+    "source": "* Helm of the Martyr"
+  },
+  {
+    "name": "Vaccinated",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Receive 20% less damage when afflicted by a Burn, Toxic, or Bleed.",
+    "source": "* Legplates of the Martyr"
+  },
+  {
+    "name": "Violent Rupture",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots create a volcanic explosion, dealing up to 5,320,000 damage within a 6 meter radius. (Cooldown: 5s)",
+    "source": "*Hellborne"
+  },
+  {
+    "name": "Virulent Compound",
+    "tier": 3,
+    "type": "Armor",
+    "scope": "armor",
+    "description": "Deal 10% more damage to Elites afflicted by Toxic or Blightfire. Afflicted Elites explode when killed, dealing X damage and spreading the status to other enemies within a 5 meter radius.",
+    "source": "* Waistcloth of the Flame Leper"
+  },
+  {
+    "name": "Weakness Trap",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots cause explosions, dealing 3,167,140 damage and inflicting Weakness on enemies within a 5 meter radius of the target. (Cooldown: 3s)",
+    "source": "This mod can be found on: * Rarog's Gaze"
+  },
+  {
+    "name": "Weightlessness",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Shots inflict Time Rift on enemies. Time Rift raises the enemy into the air for 5 seconds. (Cooldown: 1s)",
+    "source": null
+  },
+  {
+    "name": "Winter Blast",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical shots create an icy blast that inflicts Freeze on enemies within a 4 meter radius. (Cooldown: 3s)",
+    "source": null
+  },
+  {
+    "name": "Wrath of Moloch",
+    "tier": 3,
+    "type": "Weapon",
+    "scope": "weapon",
+    "description": "Critical hits cause an explosion, dealing X damage and inflicting Burn on enemies within a 5 meter radius. (Cooldown: 3s)",
+    "source": "* Inferno Seed"
+  }
+]

@@ -1,0 +1,536 @@
+[
+  {
+    "name": "Arm Wraps of Terminal Velocity",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Hit and Run",
+      "Short-Term Loan"
+    ],
+    "setBonus": "<u>Terminal Velocity</u>: Activating Movement skills, rolling, sprinting and having Borrowed Time active during combat generates Anomaly Velocity that boosts your Weapon Damage up to 80% and decays over time. Additionally, your roll is replaced with Phantom Dash, allowing you to pass through enemies."
+  },
+  {
+    "name": "Armor of the Edge of Time",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life leech"
+    ],
+    "factoryMods": [
+      "Rebound",
+      "Wind Slash"
+    ],
+    "setBonus": "Edge of Time: Increase damage for Temporal Blade by 100% and Cyclone Slice by 100%."
+  },
+  {
+    "name": "Chronosuit Footgear",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Shield of the Fallen",
+      "Diffuse"
+    ],
+    "setBonus": "Chronosuit: Reverting time replenishes ammo in your clip."
+  },
+  {
+    "name": "Chronosuit Gloves",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Life Drain",
+      "Short-Term Loan"
+    ],
+    "setBonus": "Chronosuit: Reverting time replenish ammo in your clip."
+  },
+  {
+    "name": "Chronosuit Mask",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Aggressive Teleportation",
+      "Strong Twist"
+    ],
+    "setBonus": "Chronosuit: Reverting time replenishes ammo in your clip."
+  },
+  {
+    "name": "Cowl of Terminal Velocity",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Extermination Protocol",
+      "Personal Space"
+    ],
+    "setBonus": "<u>Terminal Velocity</u>: Activating Movement skills, rolling, sprinting and having Borrowed Time active during combat generates Anomaly Velocity that boosts your Weapon Damage up to 80% and decays over time. Additionally, your roll is replaced with Phantom Dash, allowing you to pass through enemies."
+  },
+  {
+    "name": "Cuirass of Terminal Velocity",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Decontamination",
+      "Gunshield"
+    ],
+    "setBonus": "<u>Terminal Velocity</u>: Activating Movement skills, rolling, sprinting and having Borrowed Time active during combat generates Anomaly Velocity that boosts your Weapon Damage up to 80% and decays over time. Additionally, your roll is replaced with Phantom Dash, allowing you to pass through enemies."
+  },
+  {
+    "name": "Defiled Visage",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Dead Clock",
+      "Personal Space"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Fighters' Mask",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Footwear of Terminal Velocity",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Hyperloop",
+      "Buckshot Shells"
+    ],
+    "setBonus": "<u>Terminal Velocity</u>: Activating Movement skills, rolling, sprinting and having Borrowed Time active during combat generates Anomaly Velocity that boosts your Weapon Damage up to 80% and decays over time. Additionally, your roll is replaced with Phantom Dash, allowing you to pass through enemies."
+  },
+  {
+    "name": "Footwear of the Edge of Time",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Temporal Armor",
+      "Double Stop"
+    ],
+    "setBonus": "Edge of Time: Increase damage for Temporal Blade by 100% and Cyclone Slice by 100%."
+  },
+  {
+    "name": "Gloves of the Edge of Time",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Life of the Party",
+      "Cut Loose"
+    ],
+    "setBonus": "Edge of Time: Increase damage for Temporal Blade by 100% and Cyclone Slice by 100%."
+  },
+  {
+    "name": "Goggles of the Edge of Time",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Double Slice",
+      "Speed Up"
+    ],
+    "setBonus": "Edge of Time: Increase damage for Temporal Blade by 100% and Cyclone Slice by 100%."
+  },
+  {
+    "name": "Lower Chronosuit",
+    "slot": "Lower Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Ammo Bargain",
+      "Armor of Eons"
+    ],
+    "setBonus": "Chronosuit: Reverting time replenishes ammo in your clip."
+  },
+  {
+    "name": "Lucky Ushanka",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death's Door",
+      "Emergency Stance"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Pants of the Edge of Time",
+    "slot": "Lower Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Ultimate Duration",
+      "Strong Slice"
+    ],
+    "setBonus": "Edge of Time: Increase damage for Temporal Blade by 100% and Cyclone Slice by 100%."
+  },
+  {
+    "name": "Shieldbeast's Footgear",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Skill Life Leech"
+    ],
+    "factoryMods": [
+      "Hive Cut",
+      "Sharpening"
+    ],
+    "setBonus": "<u>Shieldbeast</u>: Every percent of Shield increases Anomaly Power by 1%."
+  },
+  {
+    "name": "Shieldbeast's Gloves",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Cut Them Deep",
+      "Anomaly Cut"
+    ],
+    "setBonus": "<u>Shieldbeast</u>: Every percent of Shield increases Anomaly Power by 1%."
+  },
+  {
+    "name": "Shieldbeast's Helmet",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Bodycount",
+      "Strong Twist"
+    ],
+    "setBonus": "<u>Shieldbeast</u>: Every percent of Shield increases Anomaly Power by 1%."
+  },
+  {
+    "name": "Shieldbeast's Trousers",
+    "slot": "Lower Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Trophy",
+      "Eager Edges"
+    ],
+    "setBonus": "<u>Shieldbeast</u>: Every percent of Shield increases Anomaly Power by 1%."
+  },
+  {
+    "name": "Shieldbeast's Vest",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Anomaly Power",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Skullpiercer",
+      "Additional Mag"
+    ],
+    "setBonus": "<u>Shieldbeast</u>: Every percent of Shield increases Anomaly Power by 1%."
+  },
+  {
+    "name": "Tanner's Hat",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [],
+    "factoryMods": [
+      "Stare Into the Barrel",
+      "Buckshot Shells"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "The Shackled",
+    "slot": "Headgear",
+    "class": null,
+    "specialStats": [
+      "Anomaly Power",
+      "Cooldown Reduction",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Danger Close",
+      "Untamed Power"
+    ],
+    "setBonus": null
+  },
+  {
+    "name": "Torrential Downpour's Gloves",
+    "slot": "Gloves",
+    "class": null,
+    "specialStats": [
+      "Max Health",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Echo"
+    ],
+    "setBonus": "Torrential Downpour: Scrapnel creates additional cluster bombs after explosion, each dealing X Anomaly Power scaled damage."
+  },
+  {
+    "name": "Trespasser's Armor",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Damage Mitigation",
+      "Atomization"
+    ],
+    "setBonus": "Trespasser: Increase damage by 5% per enemy affected by a Deception skill. Additionally, Players can't die inside Slow Trap."
+  },
+  {
+    "name": "Trespasser's Boots",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Stare Into the Barrel",
+      "Weakening Zone"
+    ],
+    "setBonus": "Trespasser: Increase damage by 5% per enemy affected by a Deception skill. Additionally, Player can't die while inside the Slow Trap."
+  },
+  {
+    "name": "Trespasser's Britches",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "And Another One",
+      "A Little Bit of Pain"
+    ],
+    "setBonus": "Trespasser: Increase damage by 5% per enemy affected by a Deception skill. Additionally, Player can't die while inside the Slow Trap."
+  },
+  {
+    "name": "Trespasser's Cowl",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Delivery on Time",
+      "Long Range"
+    ],
+    "setBonus": "Trespasser: Increase damage by 5% per enemy affected by a Deception skill. Additionally, Players can't die inside Slow Trap."
+  },
+  {
+    "name": "Trespasser's Talons",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Cooldown Reduction"
+    ],
+    "factoryMods": [
+      "Pain Transfer",
+      "Double Time"
+    ],
+    "setBonus": "Trespasser: Increase damage by 5% per enemy affected by a Deception skill. Additionally, Player can't die while inside the Slow Trap."
+  },
+  {
+    "name": "Trousers of Terminal Velocity",
+    "slot": "Lower Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Cooldown Reduction",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "No Time To Cool Down",
+      "Radiation Jump"
+    ],
+    "setBonus": "<u>Terminal Velocity</u>: Activating Movement skills, rolling, sprinting and having Borrowed Time active during combat generates Anomaly Velocity that boosts your Weapon Damage up to 80% and decays over time. Additionally, your roll is replaced with Phantom Dash, allowing you to pass through enemies."
+  },
+  {
+    "name": "Ugake Otarah's Arm Wraps",
+    "slot": "Gloves",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Ready For Anything",
+      "Backstabber"
+    ],
+    "setBonus": "Ugake Otarah: Hunt the Prey does not consume cooldown when teleporting behind an enemy marked with Venator's Knife."
+  },
+  {
+    "name": "Ugake Otarah's Boots",
+    "slot": "Footgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Max Health",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Not Impressed",
+      "Sharpening"
+    ],
+    "setBonus": "Ugake Otarah: Hunt the Prey does not consume cooldown when teleporting behind an enemy marked with Venator's Knife."
+  },
+  {
+    "name": "Ugake Otarah's Cowl",
+    "slot": "Headgear",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Instant Reload",
+      "Eager Edges"
+    ],
+    "setBonus": "Ugake Otarah: Hunt the Prey does not consume cooldown when teleporting behind an enemy marked with Venator's Knife."
+  },
+  {
+    "name": "Ugake Otarah's Talisman",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Sniper Blades",
+      "Dance of Death"
+    ],
+    "setBonus": "Ugake Otarah: Hunt the Prey does not consume cooldown when teleporting behind an enemy marked with Venator's Knife."
+  },
+  {
+    "name": "Ugake Otarah's Waistcloth",
+    "slot": "Lower Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Boomerang Blades",
+      "Timeblast"
+    ],
+    "setBonus": "Ugake Otarah: Hunt the Prey does not consume cooldown when teleporting behind an enemy marked with Venator's Knife."
+  },
+  {
+    "name": "Upper Chronosuit",
+    "slot": "Upper Armor",
+    "class": "Trickster",
+    "specialStats": [
+      "Bonus Firepower",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Death Shell",
+      "Additional Mag"
+    ],
+    "setBonus": "Chronosuit: Reverting time replenish ammo in your clip."
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "class": "trickster",
+    "description": "Active class skills. [X]/[Y]/[Z] and ~% are level-scaled placeholders from the source.",
+    "source": "Breadbuilder main.js"
+  },
+  "skills": [
+    {
+      "name": "Temporal Blade",
+      "desc": "Paralyze and slice enemies in front of you, dealing ~86% damage and inflicting Slow and Interrupt to all targets."
+    },
+    {
+      "name": "Twisted Rounds",
+      "desc": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Firepower by ~50%. The skill lasts until you reload or switch weapons."
+    },
+    {
+      "name": "Cyclone Slice",
+      "desc": "Create a whirlwind of Anomaly blades that deal [Z] damage and Interrupt onto enemies within a small radius of you with every hit. The skill lasts for [X] seconds."
+    },
+    {
+      "name": "Slow Trap",
+      "desc": "Create a spacetime Anomaly sphere that inflicts Slow onto enemies and projectiles for 10 seconds."
+    },
+    {
+      "name": "Venator's Knife",
+      "desc": "Throw a temporal knife at an enemy. The blade will ricochet between a maximum of [Y] enemies within a small radius, dealing [Z] damage and marking them. All marked targets will be inflicted by Slow, and for [X] seconds the first damage dealt by you will be doubled."
+    },
+    {
+      "name": "Time Rift",
+      "desc": "Create a shockwave that suspends enemies in the air, leaving them unable to fight for 3.5 seconds and inflicts Weakness."
+    },
+    {
+      "name": "Hunt The Prey",
+      "desc": "Select an enemy and teleport behind them, receiving a ~19% Shield bonus."
+    },
+    {
+      "name": "Borrowed Time",
+      "desc": "Receive [X] Shield and mark your location for [Y] seconds. Triggering the skill again will bend spacetime and teleport you back to the marked spot."
+    }
+  ]
+}

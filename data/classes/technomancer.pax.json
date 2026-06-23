@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "class": "Technomancer",
+    "description": "PAX trees for the Technomancer (Worldslayer). Two interlinked branches. All three paths within a branch share a 'universal' trunk before splitting into top/middle/bottom. Unlocks at level 30; PAX points earned through Worldslayer progress.",
+    "sources": [
+      "https://www.gamerguides.com/outriders-worldslayer/guide/classes/technomancer/technomancer-desolators-pax-skill-list",
+      "https://www.gamerguides.com/outriders-worldslayer/guide/classes/technomancer/technomancer-overseers-pax-skill-list",
+      "https://outriders.fandom.com/wiki/Overseer"
+    ],
+    "notes": "Node effect text consolidated from GamerGuides skill lists and the Fandom wiki. Exact pixel positions/links of the visual tree are not encoded; paths (universal/top/middle/bottom) capture the branch topology."
+  },
+  "branches": [
+    {
+      "name": "Desolator",
+      "theme": "Damage — sniper & status output",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "Initial Striker",
+          "desc": "Activating skills increases your Anomaly Power or Firepower by 10% for 5 seconds, depending on which is higher."
+        },
+        {
+          "path": "universal",
+          "name": "Brain Dead",
+          "desc": "Activating Decay or Gadget skills increases your Weapon Damage by 15% for 5 seconds."
+        },
+        {
+          "path": "universal",
+          "name": "Lethal Devices",
+          "desc": "Your Ordnance and Gadget skills inflict Toxic to enemies hit and deal additional 5% of Anomaly Power as damage if Toxic was refreshed."
+        },
+        {
+          "path": "universal",
+          "name": "Pain Killer",
+          "desc": "Damaging an enemy grants you 2% Health Regeneration for 3 seconds. Stacks up to 2 times."
+        },
+        {
+          "path": "top",
+          "name": "Permanence",
+          "desc": "Inflicting Toxic on an enemy has 100% chance to inflict a random additional status."
+        },
+        {
+          "path": "top",
+          "name": "Dissection",
+          "desc": "You deal 5% more damage to enemies for every status inflicted on them."
+        },
+        {
+          "path": "middle",
+          "name": "Necrotic Tissue",
+          "desc": "Damage against Elite enemies is increased by 20% when using a Sniper Weapon."
+        },
+        {
+          "path": "middle",
+          "name": "Twin Reaper",
+          "desc": "Sniper Weapon shots have a 75% chance to trigger an echo, dealing 25% of the damage dealt by the shot."
+        },
+        {
+          "path": "bottom",
+          "name": "Break Their Ranks",
+          "desc": "Your Interrupt skills remove Effect Resistance from hit Elites. 7 second cooldown."
+        },
+        {
+          "path": "bottom",
+          "name": "Depleted Core",
+          "desc": "Your Ordnance skill's damage is increased by 100% of your Status Power."
+        }
+      ]
+    },
+    {
+      "name": "Overseer",
+      "theme": "Support — healing & team buffs",
+      "nodes": [
+        {
+          "path": "universal",
+          "name": "The Undying",
+          "desc": "Every 5% of your missing Health increases your Weapon Leech and Skill Leech by 5%."
+        },
+        {
+          "path": "universal",
+          "name": "Accelerator",
+          "desc": "Your Weapon Damage is increased by 100% of your Weapon Leech."
+        },
+        {
+          "path": "universal",
+          "name": "Override",
+          "desc": "Your Anomaly Power is increased by 100% of your Skill Leech."
+        },
+        {
+          "path": "universal",
+          "name": "Apothecary",
+          "desc": "You pulse every 5 seconds, healing all players within a 25 meter radius for 2% of all damage done by you between each pulse."
+        },
+        {
+          "path": "top",
+          "name": "Purification Protocol",
+          "desc": "Your Turrets pulse in a 25 meter radius, removing up to 1 negative status effect from you and your allies."
+        },
+        {
+          "path": "top",
+          "name": "Leadseeker",
+          "desc": "Your Turrets pulse in a 25 meter radius, replenishing 30% of ammo and granting 20% increased damage for 5 seconds for you and your allies."
+        },
+        {
+          "path": "middle",
+          "name": "Biosync",
+          "desc": "Your Overheal is converted to a 3 second Health Regeneration effect for you and your allies."
+        },
+        {
+          "path": "middle",
+          "name": "Kinetic Converter",
+          "desc": "Critical Shots heal the nearest ally for 20% of their Max Health. If Overheal occurs, the player also receives 30% increased damage for 5 seconds. 5 second cooldown."
+        },
+        {
+          "path": "bottom",
+          "name": "Hastened Influence",
+          "desc": "Reduce remaining cooldown of one of your skills by 0.5 seconds for every status removed by you or applied to an enemy by any player."
+        },
+        {
+          "path": "bottom",
+          "name": "Burrowing Charge",
+          "desc": "Your Critical Shots place an explosive charge on enemies, detonating with the next Critical Shot for 250% of your Anomaly Power."
+        }
+      ]
+    }
+  ]
+}

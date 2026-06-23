@@ -1,0 +1,1450 @@
+[
+  {
+    "name": "Absolute Zero",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": 114,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Freezing Bullets",
+      "Gravedigger's Frenzy"
+    ]
+  },
+  {
+    "name": "Aerie Master",
+    "type": "Pump Action Shotgun",
+    "variant": "Breach",
+    "fireMode": "Single",
+    "clip": 3,
+    "rpm": 86,
+    "dmg": 159,
+    "reload": "1.6s",
+    "critMulti": "104%",
+    "accuracy": "65%",
+    "stability": "24%",
+    "range": 20,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Weightlessness",
+      "Damage Link"
+    ]
+  },
+  {
+    "name": "Amber Vault",
+    "type": "Double Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 60,
+    "rpm": 750,
+    "dmg": 12,
+    "reload": "2.7s",
+    "critMulti": "125%",
+    "accuracy": "76%",
+    "stability": "79%",
+    "range": 50,
+    "specialStats": [
+      "Armor Pierce",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Killing Spree",
+      "Brain-Eater"
+    ]
+  },
+  {
+    "name": "Anomaly Effigy",
+    "type": "Pump Action Shotgun",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 68,
+    "dmg": null,
+    "reload": "2.1s",
+    "critMulti": "125%",
+    "accuracy": "78%",
+    "stability": "21%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Concentration Blast",
+      "Storm Whip"
+    ]
+  },
+  {
+    "name": "Blightbearer",
+    "type": "Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 8,
+    "rpm": 149,
+    "dmg": null,
+    "reload": "2s",
+    "critMulti": "250%",
+    "accuracy": "76%",
+    "stability": "59%",
+    "range": 180,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Burst of Decay",
+      "Resistance Breaker"
+    ]
+  },
+  {
+    "name": "Body Snatcher",
+    "type": "Pump Action Shotgun",
+    "variant": "Breach",
+    "fireMode": "Single",
+    "clip": 3,
+    "rpm": 86,
+    "dmg": 3136,
+    "reload": "1.6s",
+    "critMulti": "104%",
+    "accuracy": "65%",
+    "stability": "24%",
+    "range": 9,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Body Snatcher (Mod)",
+      "Minefield (Mod)"
+    ]
+  },
+  {
+    "name": "Bolt & Thunder",
+    "type": "Pistol",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 34,
+    "rpm": 361,
+    "dmg": null,
+    "reload": "1.8s",
+    "critMulti": "120%",
+    "accuracy": "74%",
+    "stability": "82%",
+    "range": 30,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Strings of Gauss",
+      "Damage Link"
+    ]
+  },
+  {
+    "name": "Boulderlings",
+    "type": "Pistol",
+    "variant": "Full Auto",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 750,
+    "dmg": null,
+    "reload": "1.3",
+    "critMulti": "129%",
+    "accuracy": "69%",
+    "stability": "91%",
+    "range": 25,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Til Death Do Us Part",
+      "Shield Maiden"
+    ]
+  },
+  {
+    "name": "Charred Lance",
+    "type": "Double Gun",
+    "variant": "Demolisher",
+    "fireMode": "Auto",
+    "clip": 80,
+    "rpm": 796,
+    "dmg": 2618,
+    "reload": "2.7s",
+    "critMulti": "139%",
+    "accuracy": "65%",
+    "stability": "64%",
+    "range": 50,
+    "specialStats": [
+      "Armor Pierce",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Death Ray",
+      "Resistance Breaker"
+    ]
+  },
+  {
+    "name": "Corruptor",
+    "type": "Revolver",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 361,
+    "dmg": 2088,
+    "reload": "1.6s",
+    "critMulti": "200%",
+    "accuracy": "91%",
+    "stability": "25%",
+    "range": 20,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Target Rich Enviroment",
+      "Gravedigger's Frenzy"
+    ]
+  },
+  {
+    "name": "Damascus Offering",
+    "type": "Light Machinegun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 100,
+    "rpm": 500,
+    "dmg": null,
+    "reload": "2.5s",
+    "critMulti": "114%",
+    "accuracy": "76%",
+    "stability": "93%",
+    "range": 80,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Claymore Torrent",
+      "Anomaly Enhancement"
+    ]
+  },
+  {
+    "name": "Darkness Charmer",
+    "type": "Pump Action Shotgun",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 68,
+    "dmg": null,
+    "reload": "2.1s",
+    "critMulti": "125%",
+    "accuracy": "78%",
+    "stability": "21%",
+    "range": 10,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Grand Opening",
+      "Perpetuum Mobile"
+    ]
+  },
+  {
+    "name": "Deathscape",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": 10,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Stigmatized",
+      "Damage Link"
+    ]
+  },
+  {
+    "name": "Deathshield",
+    "type": "Automatic Shotgun",
+    "variant": "Narrow",
+    "fireMode": "Auto",
+    "clip": 10,
+    "rpm": 240,
+    "dmg": 2150,
+    "reload": "2s",
+    "critMulti": "139%",
+    "accuracy": "94%",
+    "stability": "54%",
+    "range": 17,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Fortress",
+      "Striga"
+    ]
+  },
+  {
+    "name": "Disintegrator",
+    "type": "Revolver",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 361,
+    "dmg": 3166,
+    "reload": "1.6s",
+    "critMulti": "200%",
+    "accuracy": "94%",
+    "stability": "25%",
+    "range": 20,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Strings of Gauss",
+      "Soul Devourer"
+    ]
+  },
+  {
+    "name": "Emerald Chaos",
+    "type": "Light Machinegun",
+    "variant": "Stabilizing",
+    "fireMode": "Auto",
+    "clip": 80,
+    "rpm": 545,
+    "dmg": null,
+    "reload": "3s",
+    "critMulti": "129%",
+    "accuracy": "96%",
+    "stability": "91%",
+    "range": 80,
+    "specialStats": [
+      "Crit Damage",
+      "Long Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Noxious Spawns",
+      "Perpetuum Mobile"
+    ]
+  },
+  {
+    "name": "Enoch's Blessing",
+    "type": "Pump Action Shotgun",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 68,
+    "dmg": 34133,
+    "reload": "2.1s",
+    "critMulti": "125%",
+    "accuracy": "78%",
+    "stability": "21%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Life and Death",
+      "Gravedigger's Frenzy"
+    ]
+  },
+  {
+    "name": "Eveningstar",
+    "type": "Automatic Shotgun",
+    "variant": "Slug",
+    "fireMode": "Auto",
+    "clip": 20,
+    "rpm": 400,
+    "dmg": 92381,
+    "reload": "3s",
+    "critMulti": "120%",
+    "accuracy": "79%",
+    "stability": "84%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Deathronome",
+      "Death Chains"
+    ]
+  },
+  {
+    "name": "Fatal Symbiont",
+    "type": "Submachine Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 50,
+    "rpm": 857,
+    "dmg": 745,
+    "reload": "1.3s",
+    "critMulti": "150%",
+    "accuracy": "55%",
+    "stability": "89%",
+    "range": 15,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Dark Sacrifice",
+      "Striga"
+    ]
+  },
+  {
+    "name": "Final Penance",
+    "type": "Double Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 60,
+    "rpm": 750,
+    "dmg": 2618,
+    "reload": "2.7s",
+    "critMulti": "125%",
+    "accuracy": "76%",
+    "stability": "79%",
+    "range": 50,
+    "specialStats": [
+      "Crit Damage",
+      "Long Range Damage",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Mage's Rage",
+      "Anomaly Enhancement"
+    ]
+  },
+  {
+    "name": "Funeral Pyre",
+    "type": "Automatic Shotgun",
+    "variant": "Slug",
+    "fireMode": "Auto",
+    "clip": 20,
+    "rpm": 400,
+    "dmg": 11481,
+    "reload": "3s",
+    "critMulti": "120%",
+    "accuracy": "79%",
+    "stability": "84%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Shadow Comet",
+      "Resistance Breaker"
+    ]
+  },
+  {
+    "name": "Golem's Limb",
+    "type": "Pump Action Shotgun",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 68,
+    "dmg": 1977,
+    "reload": "2.1s",
+    "critMulti": "125%",
+    "accuracy": "78%",
+    "stability": "21%",
+    "range": 15,
+    "specialStats": [
+      "Armor Pierce",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Golem Rising",
+      "Bone Shrapnel"
+    ]
+  },
+  {
+    "name": "Grim Marrow",
+    "type": "Light Machinegun",
+    "variant": "Stabilizing",
+    "fireMode": "Auto",
+    "clip": 80,
+    "rpm": 545,
+    "dmg": 26,
+    "reload": "3s",
+    "critMulti": "129%",
+    "accuracy": "96%",
+    "stability": "91%",
+    "range": 80,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Singularity",
+      "Crematorium"
+    ]
+  },
+  {
+    "name": "Heir to the Desert",
+    "type": "Assault Rifle",
+    "variant": "Tactical",
+    "fireMode": "Burst",
+    "clip": 30,
+    "rpm": 367,
+    "dmg": null,
+    "reload": "1.5s",
+    "critMulti": "164%",
+    "accuracy": "82%",
+    "stability": "95%",
+    "range": 42,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Sandstorm",
+      "Vortex Chamber"
+    ]
+  },
+  {
+    "name": "Hellborne",
+    "type": "Bolt Action Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 5,
+    "rpm": 115,
+    "dmg": null,
+    "reload": "2.2s",
+    "critMulti": "300%",
+    "accuracy": "108%",
+    "stability": "44%",
+    "range": 200,
+    "specialStats": [
+      "Armor Pierce",
+      "Long Range Damage",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Violent Rupture",
+      "Improved Ashen Bullets"
+    ]
+  },
+  {
+    "name": "Icarus",
+    "type": "Automatic Sniper Rifle",
+    "variant": "Full Auto",
+    "fireMode": "Auto",
+    "clip": 36,
+    "rpm": 400,
+    "dmg": null,
+    "reload": "1.2s",
+    "critMulti": "200%",
+    "accuracy": "78%",
+    "stability": "78%",
+    "range": 55,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Anomaly Surge",
+      "Brain-Eater"
+    ]
+  },
+  {
+    "name": "Imploder",
+    "type": "Double Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 60,
+    "rpm": 750,
+    "dmg": 2618,
+    "reload": "2.7s",
+    "critMulti": "125%",
+    "accuracy": "76%",
+    "stability": "79%",
+    "range": 50,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Deadly Disturbance",
+      "Anomaly Surge"
+    ]
+  },
+  {
+    "name": "Inferno Seed",
+    "type": "Assault Rifle",
+    "variant": "Tactical",
+    "fireMode": "Burst",
+    "clip": 30,
+    "rpm": 367,
+    "dmg": 146,
+    "reload": "1.5s",
+    "critMulti": "164%",
+    "accuracy": "82%",
+    "stability": "95%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Wrath of Moloch"
+    ]
+  },
+  {
+    "name": "Inheritance",
+    "type": "Rifle",
+    "variant": "One-Shot",
+    "fireMode": "Single",
+    "clip": 1,
+    "rpm": 133,
+    "dmg": null,
+    "reload": "1.4s",
+    "critMulti": "114%",
+    "accuracy": "98%",
+    "stability": "62%",
+    "range": 125,
+    "specialStats": [
+      "Crit Damage",
+      "Long Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Painshare",
+      "Brain-Eater"
+    ]
+  },
+  {
+    "name": "Lucky",
+    "type": "Revolver",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 361,
+    "dmg": 2088,
+    "reload": "1.6s",
+    "critMulti": "200%",
+    "accuracy": "94%",
+    "stability": "25%",
+    "range": 20,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Pinball",
+      "Critical Point"
+    ]
+  },
+  {
+    "name": "Lucky Jinx",
+    "type": "Double Gun",
+    "variant": "Demolisher",
+    "fireMode": "Auto",
+    "clip": 80,
+    "rpm": 796,
+    "dmg": null,
+    "reload": "2.7s",
+    "critMulti": "139%",
+    "accuracy": "65%",
+    "stability": "64%",
+    "range": 80,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Toxic Bullets",
+      "Perpetuum Mobile"
+    ]
+  },
+  {
+    "name": "Lumberjack",
+    "type": "Revolver",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 361,
+    "dmg": 2088,
+    "reload": "1.6s",
+    "critMulti": "200%",
+    "accuracy": "91%",
+    "stability": "25%",
+    "range": 20,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Essence Extractor",
+      "Improved Toxic Bullets"
+    ]
+  },
+  {
+    "name": "Master Tool",
+    "type": "Assault Rifle",
+    "variant": "Sharpshooter",
+    "fireMode": "Single",
+    "clip": 15,
+    "rpm": 500,
+    "dmg": 812,
+    "reload": "1.5",
+    "critMulti": "250",
+    "accuracy": "91%",
+    "stability": "85%",
+    "range": 55,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Dome of Protection",
+      "Perpetuum Mobile"
+    ]
+  },
+  {
+    "name": "Mindmugger",
+    "type": "Automatic Sniper Rifle",
+    "variant": "Standard",
+    "fireMode": "Burst",
+    "clip": 18,
+    "rpm": 340,
+    "dmg": 1128,
+    "reload": "1.8s",
+    "critMulti": "300%",
+    "accuracy": "80%",
+    "stability": "85%",
+    "range": 100,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Anomaly Mutation",
+      "Damage Link"
+    ]
+  },
+  {
+    "name": "Molten Eidola",
+    "type": "Rifle",
+    "variant": "One-Shot Var",
+    "fireMode": "Single",
+    "clip": 1,
+    "rpm": 133,
+    "dmg": 15124,
+    "reload": "1.4s",
+    "critMulti": "114%",
+    "accuracy": "98%",
+    "stability": "62%",
+    "range": 125,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Ravenous Locust",
+      "Vortex Chamber"
+    ]
+  },
+  {
+    "name": "Mythos",
+    "type": "Light Machinegun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 100,
+    "rpm": 500,
+    "dmg": null,
+    "reload": "2.5s",
+    "critMulti": "114%",
+    "accuracy": "76%",
+    "stability": "93%",
+    "range": 80,
+    "specialStats": [
+      "Armor Pierce",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Omen",
+      "Striga"
+    ]
+  },
+  {
+    "name": "Phalanx",
+    "type": "Automatic Shotgun",
+    "variant": "Slug",
+    "fireMode": "Auto",
+    "clip": 20,
+    "rpm": 400,
+    "dmg": 92381,
+    "reload": "3s",
+    "critMulti": "120%",
+    "accuracy": "79%",
+    "stability": "84%",
+    "range": 10,
+    "specialStats": [
+      "Armor Pierce",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Sanctuary",
+      "Bone Shrapnel"
+    ]
+  },
+  {
+    "name": "Rarog's Gaze",
+    "type": "Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 8,
+    "rpm": 149,
+    "dmg": 57,
+    "reload": "2s",
+    "critMulti": "250%",
+    "accuracy": "76%",
+    "stability": "59%",
+    "range": 180,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Weakness Trap",
+      "Anomaly Enhancement"
+    ]
+  },
+  {
+    "name": "Roaring Umbra",
+    "type": "Light Machinegun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 100,
+    "rpm": 500,
+    "dmg": null,
+    "reload": "2.5s",
+    "critMulti": "110%",
+    "accuracy": "76%",
+    "stability": "93%",
+    "range": 80,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Kinetic Stomp",
+      "Clip Roller"
+    ]
+  },
+  {
+    "name": "Shelrog's Excrescence",
+    "type": "Double Gun",
+    "variant": "Burst Fire",
+    "fireMode": "Burst",
+    "clip": 52,
+    "rpm": 471,
+    "dmg": 1250,
+    "reload": "1.8s",
+    "critMulti": "185%",
+    "accuracy": "76%",
+    "stability": "85%",
+    "range": 50,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Ultimate Burning Bullets",
+      "Hot Blood"
+    ]
+  },
+  {
+    "name": "Spirit Hunter",
+    "type": "Bolt Action Rifle",
+    "variant": "Lightweight",
+    "fireMode": "Auto",
+    "clip": 10,
+    "rpm": 115,
+    "dmg": 13410,
+    "reload": "2s",
+    "critMulti": "300%",
+    "accuracy": "88%",
+    "stability": "73%",
+    "range": 150,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Bone Shrapnel",
+      "Critical Point"
+    ]
+  },
+  {
+    "name": "Spiritbreaker",
+    "type": "Pistol",
+    "variant": "High Caliber",
+    "fireMode": "Single",
+    "clip": 14,
+    "rpm": 333,
+    "dmg": null,
+    "reload": "2.4",
+    "critMulti": "120%",
+    "accuracy": "74%",
+    "stability": "51%",
+    "range": 40,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Telefrag",
+      "Improved Vulnerability Bullets"
+    ]
+  },
+  {
+    "name": "Sunfall",
+    "type": "Submachine Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 50,
+    "rpm": 857,
+    "dmg": null,
+    "reload": "1.3s",
+    "critMulti": "150%",
+    "accuracy": "55%",
+    "stability": "89%",
+    "range": 15,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Firestorm",
+      "Resistance Breaker"
+    ]
+  },
+  {
+    "name": "The Anemoi",
+    "type": "Automatic Shotgun",
+    "variant": "Narrow",
+    "fireMode": null,
+    "clip": 10,
+    "rpm": 240,
+    "dmg": 327,
+    "reload": "2s",
+    "critMulti": "139%",
+    "accuracy": "94%",
+    "stability": "54%",
+    "range": 17,
+    "specialStats": [
+      "Armor Pierce",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Moaning Winds",
+      "Anomaly Surge"
+    ]
+  },
+  {
+    "name": "The Bulwark",
+    "type": "Automatic Shotgun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 20,
+    "rpm": 400,
+    "dmg": 298,
+    "reload": "3s",
+    "critMulti": "120%",
+    "accuracy": "79%",
+    "stability": "84%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Bleeding Bullets",
+      "Clip of Amalthea"
+    ]
+  },
+  {
+    "name": "The Daimyo",
+    "type": "Submachine Gun",
+    "variant": "Tactical",
+    "fireMode": "Burst",
+    "clip": 60,
+    "rpm": 409,
+    "dmg": 85,
+    "reload": "1.1s",
+    "critMulti": "150%",
+    "accuracy": "91%",
+    "stability": "67%",
+    "range": 35,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Storm Whip",
+      "Improved Stiffening"
+    ]
+  },
+  {
+    "name": "The Guillotine",
+    "type": "Pump Action Shotgun",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 6,
+    "rpm": 68,
+    "dmg": 33920,
+    "reload": "2.1s",
+    "critMulti": "125%",
+    "accuracy": "78%",
+    "stability": "21%",
+    "range": 10,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Radiation Splash",
+      "Minefield (Mod)|Minefield"
+    ]
+  },
+  {
+    "name": "The Headhunter",
+    "type": "Bolt Action Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 5,
+    "rpm": 75,
+    "dmg": null,
+    "reload": "2.2s",
+    "critMulti": "200%",
+    "accuracy": "100%",
+    "stability": "44%",
+    "range": 200,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Status Power"
+    ],
+    "factoryMods": [
+      "Burst of Decay",
+      "Vampire"
+    ]
+  },
+  {
+    "name": "The High Roller",
+    "type": "Pump Action Shotgun",
+    "variant": "Breach",
+    "fireMode": "Single",
+    "clip": 3,
+    "rpm": 86,
+    "dmg": null,
+    "reload": "1.6s",
+    "critMulti": "104%",
+    "accuracy": "65%",
+    "stability": "24%",
+    "range": 9,
+    "specialStats": [
+      "Armor Pierce",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Embalmer's Rage",
+      "Clip Roller"
+    ]
+  },
+  {
+    "name": "The Iceberg",
+    "type": "Bolt Action Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 5,
+    "rpm": 75,
+    "dmg": 54,
+    "reload": "2.2s",
+    "critMulti": "200%",
+    "accuracy": "100%",
+    "stability": "44%",
+    "range": 200,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Winter Blast",
+      "Icebreaker"
+    ]
+  },
+  {
+    "name": "The Juggler",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": 10898,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Armor Pierce",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Scrap Grenade",
+      "Minefield (Mod)"
+    ]
+  },
+  {
+    "name": "The Landlubber",
+    "type": "Bolt Action Rifle",
+    "variant": "Lightweight",
+    "fireMode": "Auto",
+    "clip": 10,
+    "rpm": 115,
+    "dmg": 3847,
+    "reload": "2s",
+    "critMulti": "250%",
+    "accuracy": "88%",
+    "stability": "73%",
+    "range": 150,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Long Range Damage"
+    ],
+    "factoryMods": [
+      "Legendary Minefield",
+      "Fireworks"
+    ]
+  },
+  {
+    "name": "The Messenger",
+    "type": "Assault Rifle",
+    "variant": "Tactical",
+    "fireMode": "Burst",
+    "clip": 30,
+    "rpm": 367,
+    "dmg": 10,
+    "reload": "1.5s",
+    "critMulti": "164%",
+    "accuracy": "82%",
+    "stability": "95%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Long Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Dimensional Rockets",
+      "Gravedigger's Frenzy"
+    ]
+  },
+  {
+    "name": "The Migraine",
+    "type": "Submachine Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 50,
+    "rpm": 857,
+    "dmg": 907,
+    "reload": "1.3s",
+    "critMulti": "150%",
+    "accuracy": "55%",
+    "stability": "89%",
+    "range": 15,
+    "specialStats": [
+      "Crit Damage",
+      "Skills Life Leech",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Bomb's Ahead",
+      "Brain-Eater"
+    ]
+  },
+  {
+    "name": "The Reaper",
+    "type": "Light Machinegun",
+    "variant": "Suppressing",
+    "fireMode": "Auto",
+    "clip": 150,
+    "rpm": 660,
+    "dmg": null,
+    "reload": "3.8s",
+    "critMulti": "110%",
+    "accuracy": "63%",
+    "stability": "93%",
+    "range": 75,
+    "specialStats": [
+      "Armor Pierce",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Weakening Bullets",
+      "Death Chains"
+    ]
+  },
+  {
+    "name": "The Wicker",
+    "type": "Submachine Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 50,
+    "rpm": 857,
+    "dmg": null,
+    "reload": "1.3s",
+    "critMulti": "150%",
+    "accuracy": null,
+    "stability": null,
+    "range": null,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Ultimate Ashen Bullets",
+      "Ricochet"
+    ]
+  },
+  {
+    "name": "Thunderbird",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": 10,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Storm Whip",
+      "Striga"
+    ]
+  },
+  {
+    "name": "Thunderclap",
+    "type": "Automatic Shotgun",
+    "variant": "Narrow",
+    "fireMode": "Auto",
+    "clip": 10,
+    "rpm": 240,
+    "dmg": null,
+    "reload": "2s",
+    "critMulti": "139%",
+    "accuracy": "94%",
+    "stability": "54%",
+    "range": 17,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Healing Received"
+    ],
+    "factoryMods": [
+      "Nikola's Revenge",
+      "Storm Whip"
+    ]
+  },
+  {
+    "name": "Time Ripper",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": null,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Crit Damage",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Stiffening",
+      "Gravedigger's Frenzy"
+    ]
+  },
+  {
+    "name": "Torment & Agony",
+    "type": "Pistol",
+    "variant": "Full Auto",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 750,
+    "dmg": 12,
+    "reload": "1.3s",
+    "critMulti": "129%",
+    "accuracy": "69%",
+    "stability": "91%",
+    "range": 25,
+    "specialStats": [
+      "Armor Pierce",
+      "Status Power",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Judgement Enforcer",
+      "Clip Combustion"
+    ]
+  },
+  {
+    "name": "Torturer",
+    "type": "Submachine Gun",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 50,
+    "rpm": 857,
+    "dmg": null,
+    "reload": "1.3s",
+    "critMulti": "150%",
+    "accuracy": "55%",
+    "stability": "89%",
+    "range": 15,
+    "specialStats": [
+      "Crit Damage",
+      "Close Range Damage",
+      "Skills Life Leech"
+    ],
+    "factoryMods": [
+      "Fleshrender",
+      "Improved Vulnerability Bullets"
+    ]
+  },
+  {
+    "name": "Twisted Mercy",
+    "type": "Rifle",
+    "variant": "Standard",
+    "fireMode": "Single",
+    "clip": 8,
+    "rpm": 149,
+    "dmg": null,
+    "reload": "2s",
+    "critMulti": "250%",
+    "accuracy": "76%",
+    "stability": "59%",
+    "range": 180,
+    "specialStats": [
+      "Crit Damage",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Vulnerability Bullets",
+      "Brain-Eater"
+    ]
+  },
+  {
+    "name": "Voodoo Matchmaker",
+    "type": "Assault Rifle",
+    "variant": "Standard",
+    "fireMode": "Auto",
+    "clip": 40,
+    "rpm": 600,
+    "dmg": 25,
+    "reload": "1.5s",
+    "critMulti": "125%",
+    "accuracy": "86%",
+    "stability": "91%",
+    "range": 42,
+    "specialStats": [
+      "Weapon Life Leech",
+      "Healing Received",
+      "Close Range Damage"
+    ],
+    "factoryMods": [
+      "Ultimate Damage Link",
+      "Improved Vulnerability Bullets"
+    ]
+  }
+]

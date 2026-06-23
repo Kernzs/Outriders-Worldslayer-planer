@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "class": "pyromancer",
+    "description": "Active class skills. [X]/[Y]/[Z] and ~% are level-scaled placeholders from the source.",
+    "source": "Breadbuilder main.js"
+  },
+  "skills": [
+    {
+      "name": "Thermal Bomb",
+      "desc": "Select an enemy to Burn, Interrupt and deal ~13% damage to. If killed while still afflicted by the skill, the enemy will explode, dealing ~112% damage within a large radius."
+    },
+    {
+      "name": "Overheat",
+      "desc": "Deal ~3.7% damage to all enemies within a large radius and Interrupt their skills. Enemies afflicted with Burn receive ~45% damage instead (the Burn will be consumed)."
+    },
+    {
+      "name": "Eruption",
+      "desc": "Create a volcanic eruption beneath the selected enemy, dealing [Z] damage to all enemies within a small radius of the target. The eruption spews lava, dealing damage over time within a small area."
+    },
+    {
+      "name": "Heatwave",
+      "desc": "Summon a fiery wave that deals ~17.5% damage and inflicts Burn onto all enemies in its path."
+    },
+    {
+      "name": "Volcanic Rounds",
+      "desc": "Fill your current weapon's magazine with bullets that will ignite the air around enemies and inflict Burn onto them, even if the bullet misses. If the bullet hits, it causes skill damage, ignoring armor and piercing the target, damaging others behind them. The skill lasts until you reload or switch weapons."
+    },
+    {
+      "name": "F.A.S.E.R Beam",
+      "desc": "Fire an energy beam that deals [Z] damage that benefits from [X]% of Status Power, inflicting Burn and causing Interrupt to enemies hit by the beam, as well as enemies within a small radius around you."
+    },
+    {
+      "name": "Feed the Flames",
+      "desc": "Select and pull an enemy towards you dealing ~25% damage, draining ~25% Health, and inflicting Ash."
+    },
+    {
+      "name": "Ash Blast",
+      "desc": "Create an Anomaly blast to inflict Ash onto all enemies within a large radius around you."
+    }
+  ]
+}

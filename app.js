@@ -7,8 +7,16 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.2.0";
+  const APP_VERSION = "1.3.0";
   const CHANGELOG = [
+    {
+      version: "1.3.0", date: "2026-06-23", title: "Epic weapons, faster Ascension, stats view",
+      items: [
+        "Epic weapons: choose the weapon type and variant too.",
+        "Ascension: Shift+click the + / − to add or remove all 10 points at once.",
+        "Class Tree: “Show stats” button lists every bonus from your build.",
+      ],
+    },
     {
       version: "1.2.0", date: "2026-06-23", title: "PAX icons",
       items: ["PAX tree nodes now show their in-game icons."],
@@ -40,6 +48,10 @@
     { key: "primary2", label: "Primary Weapon II", sidearm: false },
     { key: "secondary", label: "Secondary (Sidearm)", sidearm: true },
   ];
+  const ALL_TYPES = [...new Set(D.weapons.map((w) => w.type).filter(Boolean))].sort();
+  const WEAPON_VARIANTS = [...new Set(D.weapons.map((w) => w.variant).filter(Boolean))]
+    .filter((v) => v !== "One-Shot Var").sort();
+  const typesFor = (sidearm) => ALL_TYPES.filter((t) => sidearm ? SIDEARM_TYPES.includes(t) : !SIDEARM_TYPES.includes(t));
   const EPIC = "__epic__";
   const EPIC_ATTRS = 3, EPIC_MODS = 3;
   // Breadbuilder node-box sizes by kind; coords are the box TOP-LEFT, so the
@@ -48,7 +60,7 @@
   const nodeCenter = (n) => { const s = (NODE_PX[n.kind] ?? 42) / 2; return { cx: n.x + s, cy: n.y + s }; };
 
   // ---- State ----
-  const blankGear = () => ({ item: "", mods: [], attrs: [] });
+  const blankGear = () => ({ item: "", mods: [], attrs: [], type: "", variant: "" });
   const freshGear = () => {
     const g = {};
     for (const w of WEAPON_SLOTS) g[w.key] = blankGear();
@@ -63,6 +75,9 @@
     skills: new Set(),
     gear: freshGear(),       // weapons universal; armor reset on class change
   };
+
+  // ---- UI flags ----
+  let showTreeStats = false; // Breadbuilder-style stats overlay on the tree tab
 
   // ---- Class-specific data ----
   let TREE = [], treeById = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
@@ -206,7 +221,12 @@
     const used = state.tree.size - 1;
     const head = el("div", "section-head");
     head.appendChild(el("div", null, `<h2>Class Tree</h2><div class="hint">Click connected nodes. Hover for details. Removing a node frees its dependents.</div>`));
-    head.appendChild(el("div", "points-pill", `${used} / ${CLASS_POINTS} pts`));
+    const right = el("div", "head-right");
+    const statsBtn = el("button", "btn btn-ghost btn-sm" + (showTreeStats ? " on" : ""), showTreeStats ? "Hide stats" : "Show stats");
+    statsBtn.onclick = () => { showTreeStats = !showTreeStats; renderTree(); };
+    right.appendChild(statsBtn);
+    right.appendChild(el("div", "points-pill", `${used} / ${CLASS_POINTS} pts`));
+    head.appendChild(right);
     panel.appendChild(head);
 
     const legend = el("div", "tree-legend");
@@ -256,6 +276,17 @@
       node.onmousemove = moveTip;
       node.onmouseleave = hideTip;
       stage.appendChild(node);
+    }
+
+    if (showTreeStats) {
+      const box = el("div", "tree-stats");
+      box.appendChild(el("div", "tree-stats-h", "Build stats"));
+      const stats = aggregateStats();
+      if (stats.length) for (const [stat, v] of stats) {
+        const line = el("div", "stat-line"); line.innerHTML = `<span>${esc(stat)}</span><span class="v">+${pct(v)}</span>`; box.appendChild(line);
+      } else box.appendChild(el("div", "empty-note", "no numeric bonuses yet"));
+      box.appendChild(el("div", "tree-stats-note", "From class tree + ascension"));
+      stage.appendChild(box);
     }
     panel.appendChild(stage);
   }
@@ -331,12 +362,17 @@
         box.innerHTML = `<div class="asc-node-top"><span class="asc-node-name">${esc(node.name)}</span>
           <span class="asc-node-val">+${+(pts * node.perPoint).toFixed(2)}${node.unit} / +${node.max}${node.unit}</span></div>`;
         const step = el("div", "stepper");
-        const minus = el("button", null, "−"); minus.disabled = pts <= 0;
+        const minus = el("button", null, "−"); minus.disabled = pts <= 0; minus.title = "Shift+click: remove all";
         const bar = el("div", "stepper-bar"); const fill = el("div", "stepper-fill"); fill.style.width = (pts / 10 * 100) + "%"; bar.appendChild(fill);
-        const plus = el("button", null, "+"); plus.disabled = pts >= 10 || total >= ASC_TOTAL;
+        const plus = el("button", null, "+"); plus.disabled = pts >= 10 || total >= ASC_TOTAL; plus.title = "Shift+click: add all (10)";
         const count = el("span", "stepper-count", `${pts}/10`);
-        minus.onclick = () => { if (pts > 0) { state.asc[key] = pts - 1; if (!state.asc[key]) delete state.asc[key]; render(); } };
-        plus.onclick = () => { if (pts < 10 && total < ASC_TOTAL) { state.asc[key] = pts + 1; render(); } };
+        minus.onclick = (e) => { if (pts <= 0) return; state.asc[key] = e.shiftKey ? 0 : pts - 1; if (!state.asc[key]) delete state.asc[key]; render(); };
+        plus.onclick = (e) => {
+          if (pts >= 10 || total >= ASC_TOTAL) return;
+          const room = Math.min(10 - pts, ASC_TOTAL - total); // never exceed the 200 cap
+          state.asc[key] = pts + (e.shiftKey ? room : 1);
+          render();
+        };
         step.append(minus, bar, plus, count);
         box.appendChild(step);
         c.appendChild(box);
@@ -369,7 +405,7 @@
     const wGrid = el("div", "loadout-grid");
     for (const w of WEAPON_SLOTS) {
       const opts = D.weapons.filter((x) => w.sidearm ? SIDEARM_TYPES.includes(x.type) : !SIDEARM_TYPES.includes(x.type));
-      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", opts));
+      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", opts, w));
     }
     panel.appendChild(wGrid);
 
@@ -382,7 +418,7 @@
     panel.appendChild(aGrid);
   }
 
-  function gearSlot(label, slotKey, scope, options) {
+  function gearSlot(label, slotKey, scope, options, weaponSlot) {
     const g = state.gear[slotKey];
     const slot = el("div", "gear-slot");
     slot.appendChild(el("div", "gear-slot-head", `<span class="gear-slot-label">${esc(label)}</span>`));
@@ -391,11 +427,11 @@
     sel.appendChild(new Option("— empty —", ""));
     const epicOpt = new Option("✦ Epic (custom)", EPIC); if (g.item === EPIC) epicOpt.selected = true; sel.appendChild(epicOpt);
     for (const o of options) { const opt = new Option(o.name, o.name); if (o.name === g.item) opt.selected = true; sel.appendChild(opt); }
-    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; render(); };
+    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; g.type = ""; g.variant = ""; render(); };
     slot.appendChild(sel);
 
     if (g.item === EPIC) {
-      slot.appendChild(epicEditor(g, scope));
+      slot.appendChild(epicEditor(g, scope, weaponSlot));
     } else if (g.item) {
       const item = findGearItem(slotKey, g.item);
       if (item) {
@@ -406,8 +442,21 @@
     return slot;
   }
 
-  function epicEditor(g, scope) {
+  function epicEditor(g, scope, weaponSlot) {
     const box = el("div", "epic-editor");
+    if (scope === "weapon") {
+      box.appendChild(el("div", "epic-label", "Weapon"));
+      const typeSel = el("select", "gear-select sm");
+      typeSel.appendChild(new Option("— type —", ""));
+      for (const t of typesFor(weaponSlot ? weaponSlot.sidearm : false)) { const o = new Option(t, t); if (g.type === t) o.selected = true; typeSel.appendChild(o); }
+      typeSel.onchange = () => { g.type = typeSel.value; render(); };
+      box.appendChild(typeSel);
+      const varSel = el("select", "gear-select sm");
+      varSel.appendChild(new Option("— variant —", ""));
+      for (const v of WEAPON_VARIANTS) { const o = new Option(v, v); if (g.variant === v) o.selected = true; varSel.appendChild(o); }
+      varSel.onchange = () => { g.variant = varSel.value; render(); };
+      box.appendChild(varSel);
+    }
     const pool = scope === "weapon" ? weaponAttrPool() : armorAttrPool();
     box.appendChild(el("div", "epic-label", "Attributes"));
     for (let i = 0; i < EPIC_ATTRS; i++) {
@@ -524,7 +573,7 @@
       state.asc = o.a || {};
       state.skills = new Set(o.s || []);
       const g = freshGear();
-      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [] };
+      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [], type: o.g[k].type || "", variant: o.g[k].variant || "" };
       state.gear = g;
     } catch (e) { console.warn("Bad build hash", e); }
   }

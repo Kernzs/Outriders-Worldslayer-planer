@@ -7,11 +7,20 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.4.0";
+  const APP_VERSION = "1.5.0";
   const CHANGELOG = [
     {
+      version: "1.5.0", date: "2026-06-23", title: "Clickable PAX trees",
+      items: [
+        "PAX trees are now fully clickable on the in-game image for all 4 classes — select nodes right on the tree.",
+        "Nodes follow their connections: a node unlocks only once a connected one is taken (removing one frees its dependents).",
+        "Hover a node for its name and effect; the lists below stay in sync.",
+        "Build Summary: hover an Active Effect to read its exact effect.",
+      ],
+    },
+    {
       version: "1.4.0", date: "2026-06-23", title: "PAX layout reference",
-      items: ["PAX tab now shows the in-game tree layout image for your class (toggle with “Show/Hide layout”)."],
+      items: ["PAX tab shows the in-game tree layout image for your class (toggle with “Show/Hide”)."],
     },
     {
       version: "1.3.0", date: "2026-06-23", title: "Epic weapons, faster Ascension, stats view",
@@ -53,9 +62,14 @@
     { key: "secondary", label: "Secondary (Sidearm)", sidearm: true },
   ];
   const ALL_TYPES = [...new Set(D.weapons.map((w) => w.type).filter(Boolean))].sort();
-  const WEAPON_VARIANTS = [...new Set(D.weapons.map((w) => w.variant).filter(Boolean))]
-    .filter((v) => v !== "One-Shot Var").sort();
   const typesFor = (sidearm) => ALL_TYPES.filter((t) => sidearm ? SIDEARM_TYPES.includes(t) : !SIDEARM_TYPES.includes(t));
+  // Variants are tied to the weapon type, so filter the variant list by the chosen type.
+  const VARIANTS_BY_TYPE = {};
+  D.weapons.forEach((w) => {
+    if (!w.type || !w.variant || w.variant === "One-Shot Var") return;
+    (VARIANTS_BY_TYPE[w.type] = VARIANTS_BY_TYPE[w.type] || []).push(w.variant);
+  });
+  for (const t in VARIANTS_BY_TYPE) VARIANTS_BY_TYPE[t] = [...new Set(VARIANTS_BY_TYPE[t])].sort();
   const EPIC = "__epic__";
   const EPIC_ATTRS = 3, EPIC_MODS = 3;
   // Breadbuilder node-box sizes by kind; coords are the box TOP-LEFT, so the
@@ -160,18 +174,28 @@
     if (WEAPON_SLOTS.some((w) => w.key === slot)) return D.weapons.find((w) => w.name === name);
     return ARMOR.find((a) => a.name === name);
   }
+  const modDesc = (name) => (D.mods.find((m) => m.name === name) || {}).description || null;
+  function paxNodeByKey(key) {
+    const [bn, nm] = key.split("::");
+    for (const b of PAXDATA.branches) if (b.name === bn) { const n = b.nodes.find((x) => x.name === nm); if (n) return n; }
+    return null;
+  }
+  // Returns {name, detail} per active conditional effect (for hover tooltips).
   function activeEffects() {
     const out = [];
-    for (const id of state.tree) for (const b of treeById[id].bonuses) if (b.value == null) out.push(treeById[id].name);
-    for (const key of state.pax) out.push(key.split("::")[1]);
+    for (const id of state.tree) for (const b of treeById[id].bonuses)
+      if (b.value == null) out.push({ name: treeById[id].name === "(class node)" ? "Class core" : treeById[id].name, detail: b.stat });
+    for (const key of state.pax) { const n = paxNodeByKey(key); out.push({ name: key.split("::")[1], detail: n ? n.desc : null }); }
     for (const slot of Object.keys(state.gear)) {
       const g = state.gear[slot];
       if (!g.item) continue;
-      if (g.item === EPIC) { g.attrs.filter(Boolean).forEach((a) => out.push(a)); g.mods.filter(Boolean).forEach((m) => out.push(m)); }
-      else {
+      if (g.item === EPIC) {
+        g.attrs.filter(Boolean).forEach((a) => out.push({ name: a, detail: "Epic gear attribute (stat roll)" }));
+        g.mods.filter(Boolean).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
+      } else {
         const it = findGearItem(slot, g.item);
-        if (it) (it.factoryMods || []).forEach((m) => out.push(m));
-        g.mods.filter(Boolean).forEach((m) => out.push(m));
+        if (it) (it.factoryMods || []).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
+        g.mods.filter(Boolean).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
       }
     }
     return out;
@@ -277,7 +301,7 @@
       node.style.width = sizePct + "%";
       if (sel) node.style.setProperty("--c", BRANCH_COLORS[branchIdx] || "#e8a33d");
       node.onclick = () => toggleTreeNode(n.id);
-      node.onmouseenter = (e) => showTip(e, n);
+      node.onmouseenter = (e) => showTip(e, treeTipHtml(n));
       node.onmousemove = moveTip;
       node.onmouseleave = hideTip;
       stage.appendChild(node);
@@ -299,11 +323,17 @@
   // tree tooltip
   let tip;
   function ensureTip() { if (!tip) { tip = el("div", "tree-tip"); document.body.appendChild(tip); } return tip; }
-  function showTip(e, n) {
+  function showTip(e, html) {
     const t = ensureTip();
-    const bonus = n.bonuses.map((b) => typeof b.value === "number" ? `${esc(b.stat)} <b>+${pct(b.value * 100)}</b>` : esc(b.stat)).join("<br>");
-    t.innerHTML = `<div class="tip-name">${esc(n.name)}</div><div class="tip-branch">${esc(n.branch)}</div>${bonus ? `<div class="tip-bonus">${bonus}</div>` : ""}`;
+    t.innerHTML = html;
     t.classList.add("show"); moveTip(e);
+  }
+  function treeTipHtml(n) {
+    const bonus = n.bonuses.map((b) => typeof b.value === "number" ? `${esc(b.stat)} <b>+${pct(b.value * 100)}</b>` : esc(b.stat)).join("<br>");
+    return `<div class="tip-name">${esc(n.name)}</div><div class="tip-branch">${esc(n.branch)}</div>${bonus ? `<div class="tip-bonus">${bonus}</div>` : ""}`;
+  }
+  function paxTipHtml(n, branchName) {
+    return `<div class="tip-name">${esc(n.name)}</div><div class="tip-branch">${esc(branchName)} · ${esc(n.path)} path</div><div class="tip-bonus">${esc(n.desc)}</div>`;
   }
   function moveTip(e) {
     if (!tip) return;
@@ -315,19 +345,107 @@
   }
   function hideTip() { if (tip) tip.classList.remove("show"); }
 
+  // ---- PAX selection + interactive image ----
+  const PAX_NAT_W = 2000, PAX_NAT_H = 1000;
+  const PAX_SMALL_PX = 60, PAX_BIG_PX = 88; // two node sizes, like the class tree
+  // Bigger nodes = the two universal parallels + each path's capstone (derived by position).
+  function paxBigSet(branch) {
+    const g = { universal: [], top: [], middle: [], bottom: [] };
+    for (const n of branch.nodes) (g[n.path] || (g[n.path] = [])).push(n.name);
+    const big = new Set();
+    [g.universal[1], g.universal[2], g.top[1], g.middle[1], g.bottom[1]].forEach((x) => x && big.add(x));
+    return big;
+  }
+
+  // All PAX branches share one lattice: a universal diamond (entry -> two
+  // parallels -> converge) then top/middle/bottom paths; the middle path is
+  // reached from the top/bottom branch point. Prereqs are derived by position.
+  function paxPrereqMap(branch) {
+    const g = { universal: [], top: [], middle: [], bottom: [] };
+    for (const n of branch.nodes) (g[n.path] || (g[n.path] = [])).push(n.name);
+    const { universal: U, top: T = [], middle: M = [], bottom: B = [] } = g;
+    const m = {};
+    const set = (name, prereqs) => { if (name) m[name] = prereqs.filter(Boolean); };
+    set(U[0], []);                 // branch entry (root)
+    set(U[1], [U[0]]);
+    set(U[2], [U[0]]);
+    set(U[3], [U[1], U[2]]);       // converge
+    set(T[0], [U[3]]); set(T[1], [T[0]]);
+    set(B[0], [U[3]]); set(B[1], [B[0]]);
+    set(M[0], [U[3], T[0], B[0]]); set(M[1], [M[0]]); // middle opens from the converge node or either path start
+
+    return m;
+  }
+  const paxKey = (branch, name) => branch.name + "::" + name;
+  function paxAvailable(branch, name, prMap) {
+    const pr = prMap[name] || [];
+    if (!pr.length) return true; // root
+    return pr.some((p) => state.pax.has(paxKey(branch, p)));
+  }
+  function prunePax(branch, prMap) {
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const n of branch.nodes) {
+        const key = paxKey(branch, n.name);
+        if (!state.pax.has(key)) continue;
+        const pr = prMap[n.name] || [];
+        if (pr.length && !pr.some((p) => state.pax.has(paxKey(branch, p)))) { state.pax.delete(key); changed = true; }
+      }
+    }
+  }
+  function togglePax(branch, name) {
+    const prMap = paxPrereqMap(branch);
+    const key = paxKey(branch, name);
+    if (state.pax.has(key)) { state.pax.delete(key); prunePax(branch, prMap); }
+    else {
+      if (state.pax.size >= PAX_POINTS) return toast(`PAX is capped at ${PAX_POINTS} points`);
+      if (!paxAvailable(branch, name, prMap)) return toast("Unlock the connected node first");
+      state.pax.add(key);
+    }
+    render();
+  }
+  function paxStage() {
+    const stage = el("div", "tree-stage pax-stage");
+    const bg = el("img", "tree-bg"); bg.src = `assets/paxtrees/${state.cls}.jpg`; bg.alt = "";
+    stage.appendChild(bg);
+    PAXDATA.branches.forEach((branch, bi) => {
+      const prMap = paxPrereqMap(branch);
+      const bigSet = paxBigSet(branch);
+      for (const n of branch.nodes) {
+        if (n.x == null) continue;
+        const sel = state.pax.has(paxKey(branch, n.name));
+        const avail = sel || paxAvailable(branch, n.name, prMap);
+        const node = el("button", "tree-node pax-hotspot" + (sel ? " sel" : "") + (avail ? "" : " locked"));
+        node.style.left = (n.x / PAX_NAT_W * 100) + "%";
+        node.style.top = (n.y / PAX_NAT_H * 100) + "%";
+        node.style.width = ((bigSet.has(n.name) ? PAX_BIG_PX : PAX_SMALL_PX) / PAX_NAT_W * 100) + "%";
+        node.style.setProperty("--c", BRANCH_COLORS[bi] || "#e8a33d");
+        node.onclick = () => togglePax(branch, n.name);
+        node.onmouseenter = (e) => showTip(e, paxTipHtml(n, branch.name));
+        node.onmousemove = moveTip; node.onmouseleave = hideTip;
+        stage.appendChild(node);
+      }
+    });
+    return stage;
+  }
+
   function renderPax() {
     const panel = $("#panel-pax"); panel.innerHTML = "";
+    const interactive = PAXDATA.branches.some((b) => b.nodes.some((n) => n.x != null));
     const head = el("div", "section-head");
-    head.appendChild(el("div", null, `<h2>PAX Trees</h2><div class="hint">Two sub-class branches. Spend PAX points along a path.</div>`));
+    head.appendChild(el("div", null, `<h2>PAX Trees</h2><div class="hint">${interactive ? "Click nodes on the tree or in the lists below." : "Two sub-class branches. Spend PAX points along a path."}</div>`));
     const right = el("div", "head-right");
-    const layoutBtn = el("button", "btn btn-ghost btn-sm" + (showPaxLayout ? " on" : ""), showPaxLayout ? "Hide layout" : "Show layout");
+    const layoutBtn = el("button", "btn btn-ghost btn-sm" + (showPaxLayout ? " on" : ""),
+      (showPaxLayout ? "Hide" : "Show") + (interactive ? " tree" : " layout"));
     layoutBtn.onclick = () => { showPaxLayout = !showPaxLayout; renderPax(); };
     right.appendChild(layoutBtn);
     right.appendChild(el("div", "points-pill", `${state.pax.size} / ${PAX_POINTS} pts`));
     head.appendChild(right);
     panel.appendChild(head);
 
-    if (showPaxLayout) {
+    if (showPaxLayout && interactive) panel.appendChild(paxStage());
+    else if (showPaxLayout) {
       const ref = el("figure", "pax-ref");
       ref.innerHTML = `<img src="assets/paxtrees/${state.cls}.jpg" alt="${esc(state.cls)} PAX trees layout">
         <figcaption>In-game PAX layout (reference) — select nodes in the lists below</figcaption>`;
@@ -336,6 +454,7 @@
 
     const wrap = el("div", "branches cols-2");
     for (const branch of PAXDATA.branches) {
+      const prMap = paxPrereqMap(branch);
       const col = el("div", "branch");
       col.appendChild(el("div", "branch-head", branch.name));
       col.appendChild(el("div", "branch-theme", branch.theme));
@@ -344,16 +463,13 @@
         if (!nodes.length) continue;
         col.appendChild(el("div", "path-label", p === "universal" ? "Shared trunk" : p + " path"));
         for (const n of nodes) {
-          const key = branch.name + "::" + n.name;
-          const sel = state.pax.has(key);
+          const sel = state.pax.has(paxKey(branch, n.name));
+          const avail = sel || paxAvailable(branch, n.name, prMap);
           const btn = el("button", "node pax-node" + (sel ? " sel" : ""));
+          if (!avail) btn.disabled = true;
           const icon = n.icon ? `<img class="pax-icon" src="assets/pax/${encodeURIComponent(n.icon)}" alt="">` : `<span class="pax-icon ph"></span>`;
           btn.innerHTML = `<div class="pax-row">${icon}<div class="pax-text"><div class="node-name">${esc(n.name)}</div><div class="node-bonus">${esc(n.desc)}</div></div></div>`;
-          btn.onclick = () => {
-            if (sel) state.pax.delete(key);
-            else { if (state.pax.size >= PAX_POINTS) return toast(`PAX is capped at ${PAX_POINTS} points`); state.pax.add(key); }
-            render();
-          };
+          btn.onclick = () => togglePax(branch, n.name);
           col.appendChild(btn);
         }
       }
@@ -467,11 +583,17 @@
       const typeSel = el("select", "gear-select sm");
       typeSel.appendChild(new Option("— type —", ""));
       for (const t of typesFor(weaponSlot ? weaponSlot.sidearm : false)) { const o = new Option(t, t); if (g.type === t) o.selected = true; typeSel.appendChild(o); }
-      typeSel.onchange = () => { g.type = typeSel.value; render(); };
+      typeSel.onchange = () => {
+        g.type = typeSel.value;
+        if (!(VARIANTS_BY_TYPE[g.type] || []).includes(g.variant)) g.variant = ""; // variant must match the type
+        render();
+      };
       box.appendChild(typeSel);
+      const varList = g.type ? (VARIANTS_BY_TYPE[g.type] || []) : [];
       const varSel = el("select", "gear-select sm");
-      varSel.appendChild(new Option("— variant —", ""));
-      for (const v of WEAPON_VARIANTS) { const o = new Option(v, v); if (g.variant === v) o.selected = true; varSel.appendChild(o); }
+      varSel.appendChild(new Option(g.type ? "— variant —" : "— pick a type first —", ""));
+      varSel.disabled = !g.type;
+      for (const v of varList) { const o = new Option(v, v); if (g.variant === v) o.selected = true; varSel.appendChild(o); }
       varSel.onchange = () => { g.variant = varSel.value; render(); };
       box.appendChild(varSel);
     }
@@ -560,8 +682,14 @@
     if (fx.length) {
       const ef = el("div", "sum-section"); ef.innerHTML = `<h3>Active Effects (${fx.length})</h3>`;
       const cl = el("div", "chip-list");
-      for (const f of fx.slice(0, 14)) cl.appendChild(el("span", "chip", esc(f)));
-      if (fx.length > 14) cl.appendChild(el("span", "chip", `+${fx.length - 14} more`));
+      for (const f of fx) {
+        const chip = el("span", "chip" + (f.detail ? " has-tip" : ""), esc(f.name));
+        if (f.detail) {
+          chip.onmouseenter = (e) => showTip(e, `<div class="tip-name">${esc(f.name)}</div><div class="tip-bonus">${esc(f.detail)}</div>`);
+          chip.onmousemove = moveTip; chip.onmouseleave = hideTip;
+        }
+        cl.appendChild(chip);
+      }
       ef.appendChild(cl); body.appendChild(ef);
     }
   }

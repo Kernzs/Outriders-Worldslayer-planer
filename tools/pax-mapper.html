@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PAX coordinate mapper</title>
+<style>
+  :root { --bg:#0a0b0d; --panel:#15171d; --line:#2b2f3a; --txt:#d7dae0; --dim:#8d93a0; --accent:#e8a33d; --tech:#5bd6c9; --good:#6fcf6f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:14px "Segoe UI",system-ui,sans-serif; }
+  header { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:12px 16px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:10; }
+  h1 { font-size:15px; margin:0; letter-spacing:.08em; color:var(--tech); }
+  .classes { display:flex; gap:4px; }
+  button { font:inherit; font-size:12.5px; padding:7px 12px; border-radius:4px; border:1px solid var(--line); background:var(--panel); color:var(--txt); cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  button.active { border-color:var(--tech); color:var(--tech); }
+  .accent { background:linear-gradient(180deg,var(--accent),#c9842a); color:#1a1206; border-color:#b9791f; font-weight:700; }
+  .prompt { display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--panel); border-bottom:1px solid var(--line); }
+  .prompt img { width:48px; height:48px; border-radius:6px; background:#000; object-fit:contain; }
+  .prompt .big { font-size:18px; font-weight:700; color:var(--accent); }
+  .prompt .sub { font-size:12px; color:var(--dim); }
+  .prompt .prog { margin-left:auto; font-variant-numeric:tabular-nums; color:var(--tech); font-weight:700; }
+  .wrap { display:grid; grid-template-columns:1fr 360px; gap:0; }
+  .stage-wrap { position:relative; padding:16px; overflow:auto; }
+  .stage { position:relative; display:inline-block; cursor:crosshair; }
+  .stage img { display:block; width:100%; max-width:1500px; user-select:none; -webkit-user-drag:none; }
+  .reticle { position:fixed; width:46px; height:46px; border:2px solid var(--accent); border-radius:50%; pointer-events:none; transform:translate(-50%,-50%); z-index:50; box-shadow:0 0 0 1px #000; }
+  .reticle::before,.reticle::after { content:""; position:absolute; background:var(--accent); }
+  .reticle::before { left:50%; top:-8px; width:1px; height:62px; transform:translateX(-50%); }
+  .reticle::after { top:50%; left:-8px; height:1px; width:62px; transform:translateY(-50%); }
+  .loupe { position:fixed; width:160px; height:160px; border:2px solid var(--tech); border-radius:50%; pointer-events:none; z-index:50; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,.6); background:#000; }
+  .loupe canvas { display:block; }
+  .placed { position:absolute; width:14px; height:14px; transform:translate(-50%,-50%); border-radius:50%; background:rgba(111,207,111,.35); border:2px solid var(--good); pointer-events:none; }
+  .placed.cur { background:rgba(232,163,61,.4); border-color:var(--accent); }
+  aside { border-left:1px solid var(--line); padding:14px; display:flex; flex-direction:column; gap:10px; height:calc(100vh - 110px); position:sticky; top:110px; }
+  .controls { display:flex; gap:6px; flex-wrap:wrap; }
+  textarea { flex:1; width:100%; background:#0c0e13; color:var(--txt); border:1px solid var(--line); border-radius:4px; padding:10px; font:12px ui-monospace,Consolas,monospace; resize:none; }
+  .hint { font-size:11.5px; color:var(--dim); line-height:1.5; }
+  .done { color:var(--good); font-weight:700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PAX COORDINATE MAPPER</h1>
+  <div class="classes" id="classes"></div>
+  <span class="hint">Click each prompted node on the image. Coords are in the image's natural pixel space.</span>
+</header>
+<div class="prompt" id="prompt"></div>
+<div class="wrap">
+  <div class="stage-wrap">
+    <div class="stage" id="stage"><img id="tree" alt=""></div>
+  </div>
+  <aside>
+    <div class="controls">
+      <button id="undo">↶ Undo</button>
+      <button id="skip">Skip ▷</button>
+      <button id="restart">Restart class</button>
+      <button id="copy" class="accent">Copy JSON</button>
+    </div>
+    <div class="hint">Tip: the loupe shows a 6× zoom — aim the crosshair at the centre of the node icon, then click. Re-click while on the same node to correct it.</div>
+    <textarea id="out" spellcheck="false"></textarea>
+  </aside>
+</div>
+
+<div class="reticle" id="reticle" style="display:none"></div>
+<div class="loupe" id="loupe" style="display:none"><canvas id="loupeC" width="160" height="160"></canvas></div>
+
+<script src="../data.js"></script>
+<script>
+(() => {
+  const D = window.OUTRIDERS_DATA;
+  const CLASSES = ["technomancer","pyromancer","trickster","devastator"];
+  const NAT_W = 2000, NAT_H = 1000; // thegamer PAX tree images
+  const ZOOM = 6, LOUPE = 160;
+
+  const stage = document.getElementById("stage");
+  const img = document.getElementById("tree");
+  const reticle = document.getElementById("reticle");
+  const loupe = document.getElementById("loupe");
+  const lctx = document.getElementById("loupeC").getContext("2d");
+  const promptEl = document.getElementById("prompt");
+  const out = document.getElementById("out");
+
+  let cls = CLASSES[0];
+  let queue = [];      // {branch, path, name, icon}
+  let idx = 0;
+  const coords = {};   // coords[class][branch][name] = [x,y]
+
+  function buildQueue() {
+    queue = [];
+    for (const b of D.classes[cls].pax.branches)
+      for (const n of b.nodes)
+        queue.push({ branch: b.name, path: n.path, name: n.name, icon: n.icon });
+    idx = 0;
+  }
+  function natFromEvent(e) {
+    const r = img.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width * NAT_W;
+    const y = (e.clientY - r.top) / r.height * NAT_H;
+    return [Math.round(x), Math.round(y)];
+  }
+  function curNode() { return queue[idx]; }
+
+  function renderPrompt() {
+    const n = curNode();
+    if (!n) { promptEl.innerHTML = `<span class="done">✓ All ${queue.length} nodes placed for ${cls}. Copy the JSON →</span>`; renderMarkers(); return; }
+    const placed = coords[cls]?.[n.branch]?.[n.name];
+    promptEl.innerHTML =
+      `${n.icon ? `<img src="../assets/pax/${encodeURIComponent(n.icon)}" alt="">` : `<div style="width:48px"></div>`}
+       <div><div class="big">${n.name}</div><div class="sub">${n.branch} · ${n.path} path${placed ? ` · already at [${placed}] (click to redo)` : ""}</div></div>
+       <div class="prog">${idx + 1} / ${queue.length}</div>`;
+    renderMarkers();
+  }
+  function renderMarkers() {
+    stage.querySelectorAll(".placed").forEach((m) => m.remove());
+    const c = coords[cls] || {};
+    for (const b of Object.keys(c)) for (const name of Object.keys(c[b])) {
+      const [x, y] = c[b][name];
+      const m = document.createElement("div");
+      m.className = "placed" + (curNode() && curNode().name === name && curNode().branch === b ? " cur" : "");
+      m.style.left = (x / NAT_W * 100) + "%";
+      m.style.top = (y / NAT_H * 100) + "%";
+      m.title = name;
+      stage.appendChild(m);
+    }
+  }
+  function writeOut() { out.value = JSON.stringify(coords, null, 2); }
+
+  function record(e) {
+    const n = curNode(); if (!n) return;
+    const [x, y] = natFromEvent(e);
+    coords[cls] = coords[cls] || {};
+    coords[cls][n.branch] = coords[cls][n.branch] || {};
+    coords[cls][n.branch][n.name] = [x, y];
+    writeOut();
+    if (idx < queue.length) idx++;
+    renderPrompt();
+  }
+
+  // image + loupe
+  stage.addEventListener("click", record);
+  stage.addEventListener("mousemove", (e) => {
+    reticle.style.display = loupe.style.display = "block";
+    reticle.style.left = e.clientX + "px"; reticle.style.top = e.clientY + "px";
+    // place loupe offset from cursor, flip near edges
+    let lx = e.clientX + 30, ly = e.clientY + 30;
+    if (lx + LOUPE > innerWidth) lx = e.clientX - LOUPE - 30;
+    if (ly + LOUPE > innerHeight) ly = e.clientY - LOUPE - 30;
+    loupe.style.left = lx + "px"; loupe.style.top = ly + "px";
+    const [nx, ny] = natFromEvent(e);
+    const srcW = LOUPE / ZOOM, srcH = LOUPE / ZOOM;
+    lctx.clearRect(0, 0, LOUPE, LOUPE);
+    try { lctx.drawImage(img, nx - srcW / 2, ny - srcH / 2, srcW, srcH, 0, 0, LOUPE, LOUPE); } catch {}
+    lctx.strokeStyle = "#e8a33d"; lctx.lineWidth = 1;
+    lctx.beginPath(); lctx.moveTo(LOUPE/2, 0); lctx.lineTo(LOUPE/2, LOUPE); lctx.moveTo(0, LOUPE/2); lctx.lineTo(LOUPE, LOUPE/2); lctx.stroke();
+  });
+  stage.addEventListener("mouseleave", () => { reticle.style.display = loupe.style.display = "none"; });
+
+  // controls
+  document.getElementById("undo").onclick = () => {
+    if (idx > 0) idx--;
+    const n = curNode();
+    if (n && coords[cls]?.[n.branch]) { delete coords[cls][n.branch][n.name]; }
+    writeOut(); renderPrompt();
+  };
+  document.getElementById("skip").onclick = () => { if (idx < queue.length) idx++; renderPrompt(); };
+  document.getElementById("restart").onclick = () => { delete coords[cls]; buildQueue(); writeOut(); renderPrompt(); };
+  document.getElementById("copy").onclick = async () => {
+    out.select();
+    try { await navigator.clipboard.writeText(out.value); document.getElementById("copy").textContent = "Copied!"; setTimeout(()=>document.getElementById("copy").textContent="Copy JSON",1200);} catch {}
+  };
+
+  // class switcher
+  const cw = document.getElementById("classes");
+  for (const c of CLASSES) {
+    const b = document.createElement("button");
+    b.textContent = c; b.className = c === cls ? "active" : "";
+    b.onclick = () => { cls = c; img.src = `../assets/paxtrees/${cls}.jpg`; [...cw.children].forEach(x=>x.classList.toggle("active", x===b)); buildQueue(); renderPrompt(); };
+    cw.appendChild(b);
+  }
+
+  img.src = `../assets/paxtrees/${cls}.jpg`;
+  buildQueue();
+  writeOut();
+  renderPrompt();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "description": "Manually mapped PAX node positions over the per-class PAX tree images (assets/paxtrees/<class>.jpg). Coordinates are in the image natural pixel space (2000x1000). Captured via tools/pax-mapper.html.",
+    "imageWidth": 2000,
+    "imageHeight": 1000
+  },
+  "technomancer": {
+    "Desolator": {
+      "Initial Striker": [1003, 321],
+      "Brain Dead": [1107, 424],
+      "Lethal Devices": [1107, 217],
+      "Pain Killer": [1209, 321],
+      "Permanence": [1313, 217],
+      "Dissection": [1469, 217],
+      "Necrotic Tissue": [1416, 321],
+      "Twin Reaper": [1572, 321],
+      "Break Their Ranks": [1313, 424],
+      "Depleted Core": [1469, 424]
+    },
+    "Overseer": {
+      "The Undying": [1003, 735],
+      "Accelerator": [1107, 631],
+      "Override": [1107, 837],
+      "Apothecary": [1209, 735],
+      "Purification Protocol": [1313, 631],
+      "Leadseeker": [1468, 631],
+      "Biosync": [1416, 735],
+      "Kinetic Converter": [1572, 735],
+      "Hastened Influence": [1313, 837],
+      "Burrowing Charge": [1468, 837]
+    }
+  },
+  "pyromancer": {
+    "Gunblazer": {
+      "Coming in Hot": [1003, 321],
+      "Ashen Regalia": [1107, 217],
+      "Ashen Wake": [1107, 424],
+      "Hot Streak": [1209, 323],
+      "Carbonization": [1313, 217],
+      "Carbon Footprint": [1468, 217],
+      "Carbon Ammo": [1416, 321],
+      "Bullet Frenzy": [1572, 321],
+      "Solar Flare": [1313, 425],
+      "Critical Mass": [1469, 424]
+    },
+    "Pyromaniac": {
+      "Melting point": [1003, 735],
+      "Scorched Flesh": [1107, 631],
+      "Master Exploder": [1107, 837],
+      "Convection": [1209, 736],
+      "Furnace": [1313, 631],
+      "Burnt Offerings": [1468, 631],
+      "Conduction": [1416, 735],
+      "Arsonist": [1571, 735],
+      "Backdraft": [1313, 837],
+      "Trigger Sequence": [1469, 839]
+    }
+  },
+  "trickster": {
+    "Spectre": {
+      "Damaged": [1003, 321],
+      "Adaptation": [1107, 217],
+      "Reactive Shielding": [1107, 424],
+      "Phasing": [1211, 321],
+      "Great Expanse": [1315, 217],
+      "Quantum Entanglement": [1469, 219],
+      "Harrowing": [1416, 321],
+      "Spectral Spike": [1572, 321],
+      "Superposition": [1313, 425],
+      "Special Tactics": [1468, 424]
+    },
+    "Exploiter": {
+      "Triggerman": [1003, 735],
+      "Cheap Shot": [1107, 632],
+      "Lies, Deception": [1107, 839],
+      "Fail-Safe Protocols": [1209, 735],
+      "Rigged Game": [1313, 631],
+      "Infinity Slinger": [1469, 632],
+      "Power Overwhelming": [1417, 735],
+      "Perpetuum Trickery": [1572, 736],
+      "Goals Beyond Understanding": [1313, 837],
+      "Meticulous Schemer": [1468, 839]
+    }
+  },
+  "devastator": {
+    "Wrecker": {
+      "Hunting Season": [1003, 321],
+      "Harvester": [1107, 217],
+      "Hardened": [1107, 425],
+      "Finishing Touch": [1209, 321],
+      "Armored Division": [1313, 217],
+      "Against Devastating Odds": [1469, 219],
+      "Come One, Come All": [1416, 323],
+      "Elitism": [1572, 321],
+      "Strange Surgeon": [1313, 424],
+      "Overwhelming Force": [1468, 424]
+    },
+    "Tectonic Shifter": {
+      "Impact Point": [1003, 736],
+      "Puncture": [1107, 632],
+      "Obliteration": [1107, 839],
+      "Earthen Shell": [1209, 736],
+      "Upheaval": [1313, 632],
+      "Multistrike": [1469, 631],
+      "Richter Rising": [1416, 736],
+      "Energy Transmission": [1572, 736],
+      "Terms of Engagement": [1313, 839],
+      "Momentum": [1468, 839]
+    }
+  }
+}

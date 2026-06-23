@@ -117,6 +117,8 @@ body {
   background: var(--bg-elev); border: 1px solid var(--line); color: var(--txt-dim);
 }
 .chip.on { color: var(--tech); border-color: rgba(91,214,201,.4); }
+.chip.has-tip { cursor: help; }
+.chip.has-tip:hover { border-color: var(--accent); color: var(--accent-2); }
 .empty-note { color: var(--txt-faint); font-size: 12px; font-style: italic; }
 
 /* ---- Section heading inside panels ---- */
@@ -259,6 +261,9 @@ body {
 .tip-branch { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-faint); margin-bottom: 5px; }
 .tip-bonus { color: var(--txt-dim); line-height: 1.5; }
 .tip-bonus b { color: var(--tech); }
+
+/* ---- PAX interactive tree ---- */
+.pax-stage { margin-bottom: 16px; }
 
 /* ---- PAX reference image ---- */
 .pax-ref { margin: 0 0 16px; }

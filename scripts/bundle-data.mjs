@@ -13,13 +13,21 @@ const iconByNorm = Object.fromEntries(iconFiles.map((f) => [norm(f.replace(/\.(p
 // PAX node icons (GamerGuides), mapped by normalized node name.
 let paxIcons = {};
 try { paxIcons = JSON.parse(readFileSync("data/pax-icons.json", "utf8")); } catch {}
+// PAX node positions (manually mapped over the tree images), per class/branch/name.
+let paxCoords = {};
+try { paxCoords = JSON.parse(readFileSync("data/pax-coords.json", "utf8")); } catch {}
 
 const classes = {};
 for (const cls of CLASSES) {
   const skills = read(`classes/${cls}.skills.json`);
   for (const s of skills.skills) s.icon = iconByNorm[norm(s.name)] || null;
   const pax = read(`classes/${cls}.pax.json`);
-  for (const b of pax.branches) for (const n of b.nodes) n.icon = paxIcons[norm(n.name)] || null;
+  const coords = paxCoords[cls] || {};
+  for (const b of pax.branches) for (const n of b.nodes) {
+    n.icon = paxIcons[norm(n.name)] || null;
+    const xy = coords[b.name]?.[n.name];
+    if (xy) { n.x = xy[0]; n.y = xy[1]; }
+  }
   classes[cls] = {
     skilltree: read(`classes/${cls}.skilltree.json`),
     skills,

@@ -52,7 +52,7 @@
 
   // ---- Config ----
   const CLASS_LIST = ["technomancer", "pyromancer", "trickster", "devastator"];
-  const CLASS_POINTS = 20, PAX_POINTS = 8, ASC_TOTAL = D.ascension._meta.totalPoints, MAX_SKILLS = 3;
+  const CLASS_POINTS = 20, PAX_POINTS = 5, ASC_TOTAL = D.ascension._meta.totalPoints, MAX_SKILLS = 3;
   const TREE_W = 1850, TREE_H = 880;
   const ARMOR_SLOTS = ["Headgear", "Upper Armor", "Lower Armor", "Gloves", "Footgear"];
   const SIDEARM_TYPES = ["Pistol", "Revolver", "Submachine Gun"];
@@ -159,6 +159,10 @@
   }
   const modsForScope = (scope) => D.mods.filter((m) => m.scope === scope);
 
+  // Ascension nodes fill to their max over 10 points (the per-point figures in
+  // the source are unreliable), so value scales linearly to max at 10/10.
+  const ascValue = (node, pts) => +((pts / 10) * node.max).toFixed(2);
+
   // ===== Aggregation =====
   function aggregateStats() {
     const map = {};
@@ -166,7 +170,7 @@
     for (const id of state.tree) for (const b of treeById[id].bonuses) if (typeof b.value === "number") add(b.stat, b.value * 100);
     for (const cat of D.ascension.categories) for (const node of cat.nodes) {
       const pts = state.asc[cat.name + "::" + node.name] || 0;
-      if (pts) add(node.stat, +(pts * node.perPoint).toFixed(2));
+      if (pts) add(node.stat, ascValue(node, pts));
     }
     return Object.entries(map).filter(([, v]) => v).sort((a, b) => b[1] - a[1]);
   }
@@ -494,7 +498,7 @@
         const pts = state.asc[key] || 0;
         const box = el("div", "asc-node");
         box.innerHTML = `<div class="asc-node-top"><span class="asc-node-name">${esc(node.name)}</span>
-          <span class="asc-node-val">+${+(pts * node.perPoint).toFixed(2)}${node.unit} / +${node.max}${node.unit}</span></div>`;
+          <span class="asc-node-val">+${ascValue(node, pts)}${node.unit} / +${node.max}${node.unit}</span></div>`;
         const step = el("div", "stepper");
         const minus = el("button", null, "−"); minus.disabled = pts <= 0; minus.title = "Shift+click: remove all";
         const bar = el("div", "stepper-bar"); const fill = el("div", "stepper-fill"); fill.style.width = (pts / 10 * 100) + "%"; bar.appendChild(fill);

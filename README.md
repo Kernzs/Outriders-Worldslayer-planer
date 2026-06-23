@@ -6,6 +6,8 @@ All data is bundled into a single JS file so it runs from a plain file or any st
 
 **Live:** https://kernzs.github.io/Outriders-Worldslayer-planer/
 
+> Built for a friend who actually plays the game — feedback very welcome.
+
 ## Use it
 
 - **Easiest:** double-click `index.html` — it works straight from `file://`
@@ -16,15 +18,26 @@ All data is bundled into a single JS file so it runs from a plain file or any st
   ```
 
 ### Features
-- **Class switch** — pick any of the 4 classes; trees, PAX, skills and class armor swap live.
-- **Class Tree** — ~79 nodes across 3 branches per class (e.g. Pestilence / Tech Shaman /
-  Demolisher), with prerequisite enforcement and a 20-point budget.
-- **PAX Trees** — both sub-class branches per class (shared trunk + top/middle/bottom paths).
-- **Ascension** — 4 categories × 5 nodes, 0–10 points each, 200 total.
-- **Gear & Skills** — equip legendary weapon + 5 armor slots, one free mod slot each,
-  pick up to 3 active skills. Set-bonus piece counting.
-- **Build Summary** — live aggregated stats (tree + ascension), active effects, set bonuses.
-- **Share** — the full build is encoded in the URL hash; "Copy build link" puts it on the clipboard.
+- **Class switch** — pick any of the 4 classes; trees, PAX, skills and class gear swap live.
+  Ascension and weapons are universal and kept across classes.
+- **Class Tree** — the real visual layout (background image + nodes positioned on the drawn
+  circles, two node sizes), clickable with prerequisite enforcement and a 20-point budget.
+  A "Show stats" toggle lists every numeric bonus from the build.
+- **PAX Trees** — fully clickable on the in-game tree image for every class (both branches),
+  with node icons, prerequisite gating + cascade removal, and a 5-point budget.
+- **Ascension** — 4 categories × 5 nodes, 0–10 points each (Shift+click to fill/clear a node),
+  200 total. Values reach each node's stated max at 10/10 (intermediate values are a linear
+  estimate — the game's per-level curve isn't documented).
+- **Gear** — 2 primary weapons + 1 secondary, 5 armor slots. Each slot takes a **legendary**
+  (keep its 2 factory mods, swap one, plus a free Apocalypse 3rd-mod slot) **or a custom Epic**
+  (choose weapon type + variant, attributes, and mods). Armor mod pools include the class
+  skill mods. Set-bonus piece counting.
+- **Active skills** — pick up to 3.
+- **Build Summary** — live aggregated stats (tree + ascension) and every active effect
+  (hover an effect to read exactly what it does).
+- **Share** — the whole build is encoded in the URL hash; "Copy build link" copies it.
+- **What's new** popup — shows the latest changes once per version (driven by the in-app
+  `CHANGELOG` in `app.js`).
 
 ## Data pipeline
 
@@ -33,12 +46,20 @@ Produced by the scripts in `scripts/`:
 
 | Script | Output | Source |
 |---|---|---|
-| `extract-mods.mjs` | `mods.json` (272, universal) | Fandom MediaWiki API |
+| `extract-mods.mjs` | `mods.json` (477: weapon, armor + each class's skill mods) | Fandom MediaWiki API |
 | `extract-gear.mjs` | `legendary-weapons.json` (63), `classes/<cls>.armor.json` | Fandom API |
-| `extract-skilltree.mjs` | `classes/<cls>.skilltree.json` (4 classes) | Breadbuilder `main.js` + Fandom (branch names) |
-| `extract-skills.mjs` | `classes/<cls>.skills.json` (4 classes) | Breadbuilder `main.js` |
+| `extract-skilltree.mjs` | `classes/<cls>.skilltree.json` (nodes + x/y coords) | Breadbuilder `main.js` + Fandom (branch names) |
+| `extract-skills.mjs` | `classes/<cls>.skills.json` | Breadbuilder `main.js` |
 | `extract-pax.mjs` | `classes/<cls>.pax.json` (Pyro/Trick/Dev) | GamerGuides PAX skill lists |
-| `ascension.json`, `pax-technomancer.json` | hand-authored | GamerGuides, sirusgaming, Fandom |
+| `extract-pax-icons.mjs` | `assets/pax/*`, `data/pax-icons.json` | GamerGuides |
+| _hand-authored_ | `ascension.json`, `pax-technomancer.json`, `pax-coords.json` | GamerGuides, sirusgaming, Fandom, TheGamer |
+
+`tools/pax-mapper.html` is a small utility used to capture PAX node positions
+(`data/pax-coords.json`) by clicking each node on the tree image (reticle + magnifier).
+
+Image assets in `assets/`: `skilltrees/` (class-tree backgrounds) and `skills/` (skill icons)
+from Breadbuilder; `pax/` (PAX node icons) from GamerGuides; `paxtrees/` (PAX tree layouts)
+from TheGamer.
 
 After editing any data, rebundle:
 ```bash
@@ -55,12 +76,12 @@ The app is fully static — no build step beyond `bundle-data.mjs`. If you chang
 rerun it and commit the updated `data.js`.
 
 ## Notes / limitations
+- Ascension intermediate values are a linear estimate to each node's documented max
+  (the real per-level scaling is non-linear and undocumented); 0 and 10/10 are exact.
 - A few base-game weapons have blank `dmg` on the wiki (level-scaled stat, not needed for planning).
 - One armor (`Torrential Downpour's Armor`) has no slot on the wiki, so it's not selectable.
-- Class trees use the real visual layout (Breadbuilder background + node coordinates). PAX
-  trees are still text lists (no official coordinate source).
-- Class skill-mods (per-class skill modifiers) are not yet surfaced in the UI; the universal
-  weapon/armor mod pool (210) powers the gear mod slots.
-- Tree/skill icons and backgrounds in `assets/` are sourced from Breadbuilder.
+- Two Technomancer PAX nodes (Necrotic Tissue, Twin Reaper) have no icon on the source and
+  fall back to a placeholder.
+- Image/icon assets are sourced from the community sites listed above.
 
 Not affiliated with Square Enix / People Can Fly. Data © their respective sources.

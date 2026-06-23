@@ -285,6 +285,8 @@ body {
 .epic-editor { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line-soft); }
 .epic-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); margin: 8px 0 2px; }
 .epic-label:first-child { margin-top: 0; }
+.gear-select.swapped { border-color: var(--accent); color: var(--accent-2); }
+.gear-select:disabled { opacity: .55; cursor: not-allowed; }
 
 /* ---- What's-new modal ---- */
 .modal-back {

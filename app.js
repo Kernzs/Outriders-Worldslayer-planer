@@ -7,8 +7,14 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.6.0";
+  const APP_VERSION = "1.7.0";
   const CHANGELOG = [
+    {
+      version: "1.7.0", date: "2026-06-23", title: "Legendary mod swapping",
+      items: [
+        "Legendaries: keep their 2 factory mods, swap only one of them (the other locks), plus a free Apocalypse 3rd-mod slot — like in-game.",
+      ],
+    },
     {
       version: "1.6.0", date: "2026-06-23", title: "Class mods + all weapon types",
       items: [
@@ -83,7 +89,7 @@
   const nodeCenter = (n) => { const s = (NODE_PX[n.kind] ?? 42) / 2; return { cx: n.x + s, cy: n.y + s }; };
 
   // ---- State ----
-  const blankGear = () => ({ item: "", mods: [], attrs: [], type: "", variant: "" });
+  const blankGear = () => ({ item: "", mods: [], attrs: [], type: "", variant: "", factory: [] });
   const freshGear = () => {
     const g = {};
     for (const w of WEAPON_SLOTS) g[w.key] = blankGear();
@@ -203,7 +209,8 @@
         g.mods.filter(Boolean).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
       } else {
         const it = findGearItem(slot, g.item);
-        if (it) (it.factoryMods || []).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
+        const defaults = ((it && it.factoryMods) || []).slice(0, 2);
+        defaults.forEach((d, i) => { const m = g.factory[i] != null ? g.factory[i] : d; if (m) out.push({ name: m, detail: modDesc(m) }); });
         g.mods.filter(Boolean).forEach((m) => out.push({ name: m, detail: modDesc(m) }));
       }
     }
@@ -569,7 +576,7 @@
     sel.appendChild(new Option("— empty —", ""));
     const epicOpt = new Option("✦ Epic (custom)", EPIC); if (g.item === EPIC) epicOpt.selected = true; sel.appendChild(epicOpt);
     for (const o of options) { const opt = new Option(o.name, o.name); if (o.name === g.item) opt.selected = true; sel.appendChild(opt); }
-    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; g.type = ""; g.variant = ""; render(); };
+    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; g.type = ""; g.variant = ""; g.factory = []; render(); };
     slot.appendChild(sel);
 
     if (g.item === EPIC) {
@@ -578,10 +585,29 @@
       const item = findGearItem(slotKey, g.item);
       if (item) {
         slot.appendChild(scope === "weapon" ? weaponDetail(item) : armorDetail(item));
-        slot.appendChild(modSelect(g, 0, scope, "+ free mod slot"));
+        slot.appendChild(legendaryModEditor(g, scope, item));
       }
     }
     return slot;
+  }
+
+  // Legendary mods: 2 factory mods, only ONE swappable at a time (the other
+  // locks to its default), plus a free Apocalypse (3rd) slot.
+  function legendaryModEditor(g, scope, item) {
+    const box = el("div", "epic-editor");
+    const defaults = (item.factoryMods || []).slice(0, 2);
+    const cur = defaults.map((d, i) => g.factory[i] != null ? g.factory[i] : d);
+    const swapped = defaults.map((d, i) => cur[i] !== d);
+    box.appendChild(el("div", "epic-label", "Factory mods — you can swap one"));
+    defaults.forEach((def, i) => {
+      const editable = !swapped[1 - i]; // locked while the other slot is swapped
+      const s = modOptionsSelect(scope, cur[i], !editable, "— mod —", (v) => { g.factory[i] = v; render(); });
+      if (swapped[i]) s.classList.add("swapped");
+      box.appendChild(s);
+    });
+    box.appendChild(el("div", "epic-label", "Apocalypse mod (3rd slot)"));
+    box.appendChild(modSelect(g, 0, scope, "— free mod —"));
+    return box;
   }
 
   function epicEditor(g, scope, weaponSlot) {
@@ -619,37 +645,37 @@
     return box;
   }
 
-  function modSelect(g, i, scope, placeholder) {
+  // A mod <select> for the given scope (armor groups class + armor mods).
+  // current = selected mod name; if it isn't in the pool (a legendary's signature
+  // factory mod), it's prepended so it stays selectable.
+  function modOptionsSelect(scope, current, disabled, placeholder, onChange) {
     const s = el("select", "gear-select sm");
+    s.disabled = !!disabled;
     s.appendChild(new Option(placeholder, ""));
-    const addInto = (mods, container) => {
-      for (const m of mods) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (g.mods[i] === m.name) o.selected = true; container.appendChild(o); }
-    };
+    const addInto = (mods, c) => { for (const m of mods) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (current === m.name) o.selected = true; c.appendChild(o); } };
     if (scope === "armor") {
-      // armor carries universal armor mods + the class's skill mods
-      const og1 = document.createElement("optgroup"); og1.label = "Class skill mods";
-      addInto(D.mods.filter((m) => m.scope === state.cls), og1); s.appendChild(og1);
-      const og2 = document.createElement("optgroup"); og2.label = "Armor mods";
-      addInto(D.mods.filter((m) => m.scope === "armor"), og2); s.appendChild(og2);
-    } else {
-      addInto(modsForScope(scope), s);
+      const og1 = document.createElement("optgroup"); og1.label = "Class skill mods"; addInto(D.mods.filter((m) => m.scope === state.cls), og1); s.appendChild(og1);
+      const og2 = document.createElement("optgroup"); og2.label = "Armor mods"; addInto(D.mods.filter((m) => m.scope === "armor"), og2); s.appendChild(og2);
+    } else addInto(modsForScope(scope), s);
+    if (current && ![...s.querySelectorAll("option")].some((o) => o.value === current)) {
+      const o = new Option(current, current); o.selected = true; s.insertBefore(o, s.children[1] || null);
     }
-    s.onchange = () => { g.mods[i] = s.value; render(); };
+    s.onchange = () => onChange(s.value);
     return s;
   }
+  const modSelect = (g, i, scope, placeholder) =>
+    modOptionsSelect(scope, g.mods[i], false, placeholder, (v) => { g.mods[i] = v; render(); });
 
   function weaponDetail(w) {
     const d = el("div", "gear-detail");
     const rows = [["Type", w.type], ["Variant", w.variant], ["RPM", w.rpm], ["Mag", w.clip], ["Crit", w.critMulti]];
     d.innerHTML = rows.filter((r) => r[1] != null).map((r) => `<div class="row"><span class="k">${r[0]}</span><span>${esc(r[1])}</span></div>`).join("");
     if (w.specialStats?.length) d.innerHTML += `<div>${w.specialStats.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
-    if (w.factoryMods?.length) d.innerHTML += `<div>${w.factoryMods.map((m) => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
     return d;
   }
   function armorDetail(a) {
     const d = el("div", "gear-detail");
     if (a.specialStats?.length) d.innerHTML += `<div>${a.specialStats.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
-    if (a.factoryMods?.length) d.innerHTML += `<div>${a.factoryMods.map((m) => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
     if (a.setBonus) d.innerHTML += `<div class="set-bonus-text">${esc(a.setBonus)}</div>`;
     return d;
   }
@@ -738,7 +764,7 @@
       state.asc = o.a || {};
       state.skills = new Set(o.s || []);
       const g = freshGear();
-      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [], type: o.g[k].type || "", variant: o.g[k].variant || "" };
+      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [], type: o.g[k].type || "", variant: o.g[k].variant || "", factory: o.g[k].factory || [] };
       state.gear = g;
     } catch (e) { console.warn("Bad build hash", e); }
   }

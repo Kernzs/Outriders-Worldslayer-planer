@@ -243,13 +243,18 @@ body {
 .btn-sm { padding: 7px 12px; font-size: 11.5px; }
 .btn.on { border-color: var(--tech); color: var(--tech); }
 .tree-stats {
-  position: absolute; top: 10px; right: 10px; width: 232px; max-height: calc(100% - 20px); overflow-y: auto;
-  background: rgba(16,18,23,.94); border: 1px solid var(--accent); border-radius: var(--radius);
-  padding: 12px; box-shadow: var(--shadow); z-index: 6;
+  position: absolute; top: 10px; right: 10px; width: 264px; max-height: calc(100% - 20px); overflow-y: auto;
+  background: #0c0e13; border: 1px solid var(--accent); border-radius: var(--radius);
+  padding: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.7); z-index: 6;
 }
-.tree-stats-h { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
-.tree-stats .stat-line { font-size: 12px; }
-.tree-stats-note { font-size: 10px; color: var(--txt-faint); margin-top: 8px; font-style: italic; }
+.tree-stats-h { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; border-bottom: 1px solid var(--line); padding-bottom: 7px; }
+.tree-stats .stat-line {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  font-size: 12.5px; line-height: 1.35; padding: 5px 0; border-bottom: 1px solid var(--line-soft);
+}
+.tree-stats .stat-line span:first-child { flex: 1; min-width: 0; color: var(--txt); }
+.tree-stats .stat-line .v { flex: 0 0 auto; white-space: nowrap; color: var(--accent-2); font-weight: 700; }
+.tree-stats-note { font-size: 10px; color: var(--txt-faint); margin-top: 10px; font-style: italic; }
 .tip-name { font-weight: 700; color: var(--accent-2); font-size: 13px; }
 .tip-branch { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-faint); margin-bottom: 5px; }
 .tip-bonus { color: var(--txt-dim); line-height: 1.5; }

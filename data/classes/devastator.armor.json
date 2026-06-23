@@ -12,7 +12,7 @@
       "Sacrificial Altar",
       "Crush Sequence"
     ],
-    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+    "setBonus": "Bannerlord: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
   },
   {
     "name": "Bannerlord's Footgear",
@@ -27,7 +27,7 @@
       "Shock Therapy",
       "Sharpened Spike"
     ],
-    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+    "setBonus": "Bannerlord: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
   },
   {
     "name": "Bannerlord's Gauntlets",
@@ -42,7 +42,7 @@
       "Post Mortem",
       "Bloody Boost"
     ],
-    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+    "setBonus": "Bannerlord: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
   },
   {
     "name": "Bannerlord's Greathelm",
@@ -57,7 +57,7 @@
       "Shredder",
       "Stolen Life"
     ],
-    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+    "setBonus": "Bannerlord: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
   },
   {
     "name": "Bannerlord's Leg Armor",
@@ -72,7 +72,7 @@
       "Stronghold",
       "Impaler"
     ],
-    "setBonus": "<u>Bannerlord</u>: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
+    "setBonus": "Bannerlord: Increase your Anomaly Power by 35%. Also, Tremor explosions that damage an enemy reduce the Cooldown of next Impale by 15%. Bonus stacks up to 60%."
   },
   {
     "name": "Concussioner's Boots",
@@ -87,7 +87,7 @@
       "Chip Off The Old Block",
       "Brawl"
     ],
-    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+    "setBonus": "Concussioner: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
   },
   {
     "name": "Concussioner's Chestplate",
@@ -102,7 +102,7 @@
       "Force Feedback",
       "Perseverance"
     ],
-    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+    "setBonus": "Concussioner: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
   },
   {
     "name": "Concussioner's Gauntlets",
@@ -117,7 +117,7 @@
       "Concussive Force",
       "Martial Arts"
     ],
-    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+    "setBonus": "Concussioner: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
   },
   {
     "name": "Concussioner's Helmet",
@@ -132,7 +132,7 @@
       "Rockfall",
       "Auto Reflect"
     ],
-    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+    "setBonus": "Concussioner: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
   },
   {
     "name": "Concussioner's Legplates",
@@ -147,7 +147,7 @@
       "Equator",
       "Perseverance Fists"
     ],
-    "setBonus": "<u>Concussioner</u>: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
+    "setBonus": "Concussioner: Taking damage generates Melee energy. Using your Melee skill releases the energy, dealing 80% of taken damage within a 10 meter radius. The released damage scales with your Armor. Generated energy depletes gradually every 2 seconds."
   },
   {
     "name": "Deathproof Chest Armor",
@@ -304,7 +304,7 @@
     "specialStats": [
       "Max Health",
       "Cooldown Reduction",
-      "Skill Life Leech"
+      "Skills Life Leech"
     ],
     "factoryMods": [
       "Double Jump",
@@ -434,7 +434,7 @@
       "Claws",
       "Human Fortress"
     ],
-    "setBonus": null
+    "setBonus": "Statue: While either Tremor or Golem is active, increase Weapon Damage by 50% and Weapon Leech by 15% for you and your teammates."
   },
   {
     "name": "Statue's Head",
@@ -464,7 +464,7 @@
       "Golem Squad",
       "Stolen Life"
     ],
-    "setBonus": null
+    "setBonus": "Statue: While either Tremor or Golem is active, increase Weapon Damage by 50% and Weapon Leech by 15% for you and your teammates."
   },
   {
     "name": "Statue's Torso",

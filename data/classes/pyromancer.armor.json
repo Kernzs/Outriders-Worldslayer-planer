@@ -31,7 +31,7 @@
     "class": "Pyromancer",
     "specialStats": [
       "Max Health",
-      "Skill Life Leech"
+      "Skills Life Leech"
     ],
     "factoryMods": [
       "Master Consumer",
@@ -166,7 +166,7 @@
       "Burning Passion",
       "Bullet Kindling"
     ],
-    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+    "setBonus": "Heat Seeker: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
   },
   {
     "name": "Heat Seeker's Chestplate",
@@ -181,7 +181,7 @@
       "Firetrap",
       "Sunburnt"
     ],
-    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+    "setBonus": "Heat Seeker: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
   },
   {
     "name": "Heat Seeker's Gloves",
@@ -196,7 +196,7 @@
       "Turn Up The Heat",
       "True Blast"
     ],
-    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+    "setBonus": "Heat Seeker: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
   },
   {
     "name": "Heat Seeker's Helmet",
@@ -211,7 +211,7 @@
       "Thermal Reaction",
       "Phoenix Force"
     ],
-    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+    "setBonus": "Heat Seeker: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
   },
   {
     "name": "Heat Seeker's Legplates",
@@ -226,7 +226,7 @@
       "Heat Grenade",
       "Fire Frenzy"
     ],
-    "setBonus": "<u>Heat Seeker</u>: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
+    "setBonus": "Heat Seeker: After successful detonation, Thermal Bomb travels to the target with the lowest health in a 25 meter radius. Thermal Bomb applied this way deals 50% less damage and can chain up to 3 times."
   },
   {
     "name": "Helmet of the Acari",
@@ -234,14 +234,14 @@
     "class": "Pyromancer",
     "specialStats": [
       "Anomaly Power",
-      "Skill Life Leech",
+      "Skills Life Leech",
       "Status Power"
     ],
     "factoryMods": [
       "Fire Tsunami",
       "Ember Shield"
     ],
-    "setBonus": "<u>Acari</u>: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
+    "setBonus": "Acari: Every enemy damaged by Heatwave grants 25% Anomaly Power bonus for 10 seconds."
   },
   {
     "name": "Helmet of the Lava Lich",
@@ -250,7 +250,7 @@
     "specialStats": [
       "Anomaly Power",
       "Status Power",
-      "Skill Life Leech"
+      "Skills Life Leech"
     ],
     "factoryMods": [
       "Ashen Champion",
@@ -458,7 +458,7 @@
       "Susceptibility",
       "Radiation Flames"
     ],
-    "setBonus": null
+    "setBonus": "Torturer: Triples the range of Volcanic Rounds' damaging aura that surrounds each bullet. Enemies affected by the aura share 50% Anomaly Damage dealt to the target successfully hit with Volcanic Rounds."
   },
   {
     "name": "Torturer's Waistcloth",
@@ -496,7 +496,7 @@
     "class": "Pyromancer",
     "specialStats": [
       "Anomaly Power",
-      "Skill Life Leech",
+      "Skills Life Leech",
       "Cooldown Reduction"
     ],
     "factoryMods": [

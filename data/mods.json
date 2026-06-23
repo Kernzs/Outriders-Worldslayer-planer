@@ -456,14 +456,6 @@
     "source": "This mod can be found on upper armor."
   },
   {
-    "name": "Earth’s Legacy",
-    "tier": 1,
-    "type": "Devastator",
-    "scope": "devastator",
-    "description": "Earthquake: Increases the skills range by 60%.",
-    "source": "This mod can be found on upper armor."
-  },
-  {
     "name": "Ember Shield",
     "tier": 1,
     "type": "Pyromancer",

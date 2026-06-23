@@ -117,7 +117,7 @@
       "Cannonade",
       "Fortify"
     ],
-    "setBonus": "<u>Grim Inventor</u>: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
+    "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
   },
   {
     "name": "Grim Inventor's Gloves",
@@ -132,7 +132,7 @@
       "Not Impressed",
       "Advanced Rockets"
     ],
-    "setBonus": null
+    "setBonus": "Grim Inventor: While Tool of Destruction is active, a confirmed hit with Pain Launcher refills 40% ammunition for both Minigun and the RPG."
   },
   {
     "name": "Grim Inventor's Leg Armor",
@@ -207,7 +207,7 @@
       "To the Bone",
       "Rapid Reaction"
     ],
-    "setBonus": "<u>Plague Sower</u>: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
+    "setBonus": "Plague Sower: Upon applying Toxic status, gain 5% damage reduction and 10% Firepower bonus for 10 seconds. Stacks up to 5 times."
   },
   {
     "name": "Plague Sower's Hands",

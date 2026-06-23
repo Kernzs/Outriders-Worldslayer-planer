@@ -7,8 +7,16 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.8.0";
+  const APP_VERSION = "1.9.0";
   const CHANGELOG = [
+    {
+      version: "1.9.0", date: "2026-06-23", title: "Data fixes (sets, slots, mods)",
+      items: [
+        "Set bonuses count correctly now — recovered set pieces whose bonus was missing and merged sets that were split by inconsistent naming.",
+        "Trespasser's Britches is Lower Armor (was mislabeled Upper Armor).",
+        "Removed a duplicate mod (Earth's Legacy) and normalized stat labels (Skills Life Leech).",
+      ],
+    },
     {
       version: "1.8.0", date: "2026-06-23", title: "Much shorter share links",
       items: ["Build links are now ~20× shorter (a full build went from ~2240 to ~100 characters). Old links from before this update no longer load."],
@@ -227,7 +235,7 @@
       if (!g.item || g.item === EPIC) continue;
       const a = ARMOR.find((x) => x.name === g.item);
       if (a && a.setBonus) {
-        const setName = a.setBonus.split(":")[0].trim();
+        const setName = a.setBonus.split(":")[0].replace(/\s+set$/i, "").trim(); // merge "X" / "X Set"
         counts[setName] = counts[setName] || { count: 0 };
         counts[setName].count++;
       }

@@ -102,9 +102,12 @@ function extractSource(wikitext) {
   return sec ? cleanText(sec[1]) : null;
 }
 
+const apos = (s) => s.replace(/[‘’]/g, "'"); // normalise curly apostrophes
+
 async function main() {
   const mods = [];
   const seen = new Set();
+  const seenNames = new Set(); // dedupe wiki duplicates (e.g. Earth's Legacy with two apostrophes)
   for (const { cat, scope } of CATEGORIES) {
     const titles = await categoryMembers(cat);
     console.error(`${cat}: ${titles.length} pages`);
@@ -114,8 +117,12 @@ async function main() {
       seen.add(title);
       const wt = contents[title] || "";
       if (!/\{\{Infobox mod/i.test(wt)) continue; // skip non-mod pages
+      const name = apos(title);
+      const key = scope + "::" + name;
+      if (seenNames.has(key)) continue; // duplicate (apostrophe variant)
+      seenNames.add(key);
       mods.push({
-        name: title,
+        name,
         tier: parseTier(getTemplateField(wt, "tier")),
         type: getTemplateField(wt, "type"),
         scope, // which category we first found it in

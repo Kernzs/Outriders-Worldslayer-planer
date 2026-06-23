@@ -55,6 +55,7 @@ function clean(s) {
     .replace(/\{\{\s*texttip\s*\|\s*([^|}]*)[^}]*\}\}/gi, "$1")
     .replace(/\{\{\s*CD\s*\|\s*([^}]*)\}\}/gi, "(Cooldown: $1s)")
     .replace(/\{\{[^}]*\}\}/g, "")
+    .replace(/<[^>]+>/g, "") // strip stray HTML (e.g. <u> in set names)
     .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, "$1")
     .replace(/\[\[([^\]]*)\]\]/g, "$1")
     .replace(/'''?/g, "")
@@ -63,6 +64,20 @@ function clean(s) {
     .trim();
   return out === "" ? null : out;
 }
+
+// The `set` field is the last infobox field and can span multiple lines and
+// end with `}}` on the same line — capture until the next field or the close.
+function setField(wt) {
+  const m = wt.match(/\|[ \t]*set[ \t]*=([\s\S]*?)(?=\n[ \t]*\||\}\}|$)/i);
+  return m ? clean(m[1]) : null;
+}
+
+// Wiki slot typos to correct (e.g. "Britches" tagged as Upper Armor).
+const SLOT_OVERRIDES = { "Trespasser's Britches": "Lower Armor" };
+
+// Canonicalise stat-label variants from the wiki.
+const STAT_CANON = { "skills life leech": "Skills Life Leech", "skill life leech": "Skills Life Leech" };
+const normStat = (s) => (s ? (STAT_CANON[s.toLowerCase()] || s) : s);
 
 function num(s) { if (s == null) return null; const m = s.replace(/,/g, "").match(/-?\d+(\.\d+)?/); return m ? Number(m[0]) : null; }
 
@@ -81,7 +96,7 @@ function parseWeapon(name, wt) {
     accuracy: field(wt, "accuracy"),
     stability: field(wt, "stability"),
     range: num(field(wt, "range")),
-    specialStats: [field(wt, "stat1"), field(wt, "stat2"), field(wt, "stat3")].filter(Boolean),
+    specialStats: [field(wt, "stat1"), field(wt, "stat2"), field(wt, "stat3")].filter(Boolean).map(normStat),
     factoryMods: [field(wt, "mod1"), field(wt, "mod2")].filter(Boolean),
   };
 }
@@ -90,11 +105,11 @@ function parseArmor(name, wt) {
   wt = wt.replace(/<!--[\s\S]*?-->/g, "");
   return {
     name,
-    slot: field(wt, "type"),
+    slot: SLOT_OVERRIDES[name] || field(wt, "type"),
     class: field(wt, "class"), // null = universal
-    specialStats: [field(wt, "stat1"), field(wt, "stat2"), field(wt, "stat3")].filter(Boolean),
+    specialStats: [field(wt, "stat1"), field(wt, "stat2"), field(wt, "stat3")].filter(Boolean).map(normStat),
     factoryMods: [field(wt, "mod1"), field(wt, "mod2")].filter(Boolean),
-    setBonus: field(wt, "set"),
+    setBonus: setField(wt),
   };
 }
 

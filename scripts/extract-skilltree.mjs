@@ -72,6 +72,27 @@ function extractArray(cls) {
   throw new Error(`skill-tree data array not found for ${cls}`);
 }
 
+// The coordinate array for a class: rows of pure numbers [x, y, kind], no strings.
+function extractCoords(cls) {
+  const marker = `${cls}: [`;
+  let from = 0, idx;
+  while ((idx = src.indexOf(marker, from)) !== -1) {
+    const open = src.indexOf("[", idx);
+    let depth = 0, i = open;
+    for (; i < src.length; i++) {
+      const ch = src[i];
+      if (ch === "[") depth++;
+      else if (ch === "]") { depth--; if (depth === 0) { i++; break; } }
+      else if (ch === '"') { i++; while (i < src.length && src[i] !== '"') { if (src[i] === "\\") i++; i++; } }
+    }
+    const body = src.slice(open, i);
+    // numeric-only rows like [107, 374, 2]; reject the data array (has strings) and empty stubs
+    if (!/"/.test(body) && /\[\s*\d+\s*,\s*\d+/.test(body)) return Function(`return (${body});`)();
+    from = idx + marker.length;
+  }
+  return null;
+}
+
 function buildClass(cls) {
   const raw = Function(`"use strict"; return (${extractArray(cls)});`)();
   const nodes = raw.map((row, id) => {
@@ -87,6 +108,12 @@ function buildClass(cls) {
     };
   }).filter(Boolean);
   const roots = [...((raw[0] && raw[0][2]) || [])].sort((a, b) => a - b);
+  // merge node positions [x, y, kind] aligned by index
+  const coords = extractCoords(cls) || [];
+  for (const n of nodes) {
+    const c = coords[n.id];
+    if (Array.isArray(c)) { n.x = c[0]; n.y = c[1]; n.kind = c[2]; }
+  }
   return { roots, nodes };
 }
 

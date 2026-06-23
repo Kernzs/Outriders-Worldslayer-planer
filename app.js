@@ -1,38 +1,71 @@
 /* ============================================================
-   Technomancer Build Planner — vanilla JS, no dependencies.
-   Data is provided by data.js as window.OUTRIDERS_DATA.
+   Outriders Worldslayer — Build Planner (all 4 classes)
+   Vanilla JS, no dependencies. Data from data.js (window.OUTRIDERS_DATA).
    ============================================================ */
 (() => {
   "use strict";
   const D = window.OUTRIDERS_DATA;
 
-  // ---- Budgets (tweak freely) ----
-  const CLASS_POINTS = 20;   // class tree points at max level
-  const PAX_POINTS = 8;      // PAX points earnable in Worldslayer
-  const ASC_TOTAL = D.ascension._meta.totalPoints; // 200
-  const MAX_SKILLS = 3;
-  const ARMOR_SLOTS = ["Headgear", "Upper Armor", "Lower Armor", "Gloves", "Footgear"];
+  // ---- App version + changelog (drives the "What's new" popup) ----
+  const APP_VERSION = "1.1.0";
+  const CHANGELOG = [
+    {
+      version: "1.1.0", date: "2026-06-23", title: "Visuals, weapons & epics",
+      items: [
+        "Skill trees now use the real visual layout (background + positioned nodes & connectors).",
+        "Weapons: 2 primary slots + 1 secondary (sidearm).",
+        "Gear: build custom Epic pieces (free choice of mods & attributes), not only legendaries.",
+        "Skill icons are back.",
+        "This “What’s new” popup on each update.",
+      ],
+    },
+    {
+      version: "1.0.0", date: "2026-06-23", title: "Initial release",
+      items: ["All 4 classes: class trees, PAX, Ascension, gear & skills, stat summary, build sharing."],
+    },
+  ];
 
+  // ---- Config ----
   const CLASS_LIST = ["technomancer", "pyromancer", "trickster", "devastator"];
+  const CLASS_POINTS = 20, PAX_POINTS = 8, ASC_TOTAL = D.ascension._meta.totalPoints, MAX_SKILLS = 3;
+  const TREE_W = 1850, TREE_H = 880;
+  const ARMOR_SLOTS = ["Headgear", "Upper Armor", "Lower Armor", "Gloves", "Footgear"];
+  const SIDEARM_TYPES = ["Pistol", "Revolver", "Submachine Gun"];
+  const WEAPON_SLOTS = [
+    { key: "primary1", label: "Primary Weapon I", sidearm: false },
+    { key: "primary2", label: "Primary Weapon II", sidearm: false },
+    { key: "secondary", label: "Secondary (Sidearm)", sidearm: true },
+  ];
+  const EPIC = "__epic__";
+  const EPIC_ATTRS = 3, EPIC_MODS = 3;
+  // Breadbuilder node-box sizes by kind; coords are the box TOP-LEFT, so the
+  // drawn circle center is (x + S/2, y + S/2). Used to align our overlay.
+  const NODE_PX = { 0: 42, 1: 62, 2: 136 };
+  const nodeCenter = (n) => { const s = (NODE_PX[n.kind] ?? 42) / 2; return { cx: n.x + s, cy: n.y + s }; };
 
   // ---- State ----
+  const blankGear = () => ({ item: "", mods: [], attrs: [] });
+  const freshGear = () => {
+    const g = {};
+    for (const w of WEAPON_SLOTS) g[w.key] = blankGear();
+    for (const s of ARMOR_SLOTS) g[s] = blankGear();
+    return g;
+  };
   const state = {
-    cls: "technomancer",      // active class
-    tree: new Set([0]),       // node 0 (core) always on
-    pax: new Set(),           // "Branch::NodeName"
-    asc: {},                  // "Category::Node" -> points (universal, kept across classes)
-    skills: new Set(),        // skill names
-    weapon: "",               // weapon name (universal, kept across classes)
-    armor: {},                // slot -> armor name
-    mods: {},                 // gearKey -> chosen free mod name
+    cls: "technomancer",
+    tree: new Set([0]),
+    pax: new Set(),
+    asc: {},                 // universal — kept across classes
+    skills: new Set(),
+    gear: freshGear(),       // weapons universal; armor reset on class change
   };
 
-  // Class-specific data, refreshed by loadClass() whenever the class changes.
+  // ---- Class-specific data ----
   let TREE = [], treeById = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
   function loadClass() {
     const c = D.classes[state.cls];
     TREE = c.skilltree.nodes;
-    treeById = Object.fromEntries(TREE.map(n => [n.id, n]));
+    treeById = Object.fromEntries(TREE.map((n) => [n.id, n]));
     BRANCHES = c.skilltree._meta.branches;
     SKILLS = c.skills.skills;
     PAXDATA = c.pax;
@@ -43,15 +76,17 @@
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const pct = (v) => (Math.round(v * 10) / 10) + "%";
-  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const skillIcon = (s) => s.icon ? `assets/skills/${encodeURIComponent(s.icon)}` : null;
+
+  const BRANCH_COLORS = ["#e8a33d", "#5bd6c9", "#c06fd6"]; // per-branch accent
 
   // ===== Skill tree logic =====
   function nodeAvailable(n) {
     if (n.id === 0) return true;
     if (n.prereqs.includes(0)) return true;
-    return n.prereqs.some(p => state.tree.has(p));
+    return n.prereqs.some((p) => state.tree.has(p));
   }
-  // Remove selected nodes that lost support back to the core.
   function pruneTree() {
     let changed = true;
     while (changed) {
@@ -59,17 +94,15 @@
       for (const id of [...state.tree]) {
         if (id === 0) continue;
         const n = treeById[id];
-        const supported = n.prereqs.includes(0) || n.prereqs.some(p => state.tree.has(p) && p !== id);
+        const supported = n.prereqs.includes(0) || n.prereqs.some((p) => state.tree.has(p) && p !== id);
         if (!supported) { state.tree.delete(id); changed = true; }
       }
     }
   }
   function toggleTreeNode(id) {
     if (id === 0) return;
-    if (state.tree.has(id)) {
-      state.tree.delete(id);
-      pruneTree();
-    } else {
+    if (state.tree.has(id)) { state.tree.delete(id); pruneTree(); }
+    else {
       if (state.tree.size - 1 >= CLASS_POINTS) return toast(`Class tree is capped at ${CLASS_POINTS} points`);
       if (!nodeAvailable(treeById[id])) return;
       state.tree.add(id);
@@ -77,72 +110,64 @@
     render();
   }
 
-  // ===== Stat aggregation =====
+  // ===== Attribute pools for Epic gear =====
+  function weaponAttrPool() {
+    const s = new Set(); D.weapons.forEach((w) => (w.specialStats || []).forEach((x) => s.add(x)));
+    return [...s].sort();
+  }
+  function armorAttrPool() {
+    const s = new Set(); ARMOR.forEach((a) => (a.specialStats || []).forEach((x) => s.add(x)));
+    return [...s].sort();
+  }
+  const modsForScope = (scope) => D.mods.filter((m) => m.scope === scope);
+
+  // ===== Aggregation =====
   function aggregateStats() {
-    const map = {}; // stat -> percent
-    const add = (stat, v) => { map[stat] = (map[stat] || 0) + v; };
-    // tree numeric bonuses are fractions (0.08 => 8%)
-    for (const id of state.tree) {
-      for (const b of treeById[id].bonuses) if (typeof b.value === "number") add(b.stat, b.value * 100);
-    }
-    // ascension perPoint already in %
-    for (const cat of D.ascension.categories) {
-      for (const node of cat.nodes) {
-        const pts = state.asc[cat.name + "::" + node.name] || 0;
-        if (pts) add(node.stat, +(pts * node.perPoint).toFixed(2));
-      }
+    const map = {};
+    const add = (stat, v) => (map[stat] = (map[stat] || 0) + v);
+    for (const id of state.tree) for (const b of treeById[id].bonuses) if (typeof b.value === "number") add(b.stat, b.value * 100);
+    for (const cat of D.ascension.categories) for (const node of cat.nodes) {
+      const pts = state.asc[cat.name + "::" + node.name] || 0;
+      if (pts) add(node.stat, +(pts * node.perPoint).toFixed(2));
     }
     return Object.entries(map).filter(([, v]) => v).sort((a, b) => b[1] - a[1]);
   }
-
-  // Active text effects (non-numeric) for the summary.
+  function findGearItem(slot, name) {
+    if (WEAPON_SLOTS.some((w) => w.key === slot)) return D.weapons.find((w) => w.name === name);
+    return ARMOR.find((a) => a.name === name);
+  }
   function activeEffects() {
     const out = [];
-    for (const id of state.tree) for (const b of treeById[id].bonuses) if (b.value == null) out.push({ src: "Tree", name: treeById[id].name, text: b.stat });
-    for (const key of state.pax) { const [, name] = key.split("::"); out.push({ src: "PAX", name }); }
+    for (const id of state.tree) for (const b of treeById[id].bonuses) if (b.value == null) out.push(treeById[id].name);
+    for (const key of state.pax) out.push(key.split("::")[1]);
+    for (const slot of Object.keys(state.gear)) {
+      const g = state.gear[slot];
+      if (!g.item) continue;
+      if (g.item === EPIC) { g.attrs.filter(Boolean).forEach((a) => out.push(a)); g.mods.filter(Boolean).forEach((m) => out.push(m)); }
+      else {
+        const it = findGearItem(slot, g.item);
+        if (it) (it.factoryMods || []).forEach((m) => out.push(m));
+        g.mods.filter(Boolean).forEach((m) => out.push(m));
+      }
+    }
     return out;
   }
-
   function equippedSets() {
-    const counts = {}; // setName -> {count, text}
+    const counts = {};
     for (const slot of ARMOR_SLOTS) {
-      const name = state.armor[slot]; if (!name) continue;
-      const a = ARMOR.find(x => x.name === name);
+      const g = state.gear[slot];
+      if (!g.item || g.item === EPIC) continue;
+      const a = ARMOR.find((x) => x.name === g.item);
       if (a && a.setBonus) {
         const setName = a.setBonus.split(":")[0].trim();
-        counts[setName] = counts[setName] || { count: 0, text: a.setBonus };
+        counts[setName] = counts[setName] || { count: 0 };
         counts[setName].count++;
       }
     }
     return counts;
   }
 
-  // ===== Class switching =====
-  function switchClass(cls) {
-    if (cls === state.cls || !CLASS_LIST.includes(cls)) return;
-    state.cls = cls;
-    // class-specific selections reset; ascension & weapon are universal and kept
-    state.tree = new Set([0]);
-    state.pax = new Set();
-    state.skills = new Set();
-    state.armor = {};
-    delete state.mods["armor:Headgear"]; delete state.mods["armor:Upper Armor"];
-    delete state.mods["armor:Lower Armor"]; delete state.mods["armor:Gloves"]; delete state.mods["armor:Footgear"];
-    loadClass();
-    render();
-  }
-  function renderClassSwitch() {
-    const host = $("#class-switch");
-    host.innerHTML = "";
-    for (const cls of CLASS_LIST) {
-      const b = el("button", "class-btn" + (cls === state.cls ? " active" : ""), cls);
-      b.onclick = () => switchClass(cls);
-      host.appendChild(b);
-    }
-    $("#brand-class").textContent = state.cls.toUpperCase();
-  }
-
-  // ===== Rendering =====
+  // ===== Render =====
   function render() {
     renderClassSwitch();
     renderTree();
@@ -153,53 +178,116 @@
     writeHash();
   }
 
+  function switchClass(cls) {
+    if (cls === state.cls || !CLASS_LIST.includes(cls)) return;
+    state.cls = cls;
+    state.tree = new Set([0]); state.pax = new Set(); state.skills = new Set();
+    for (const s of ARMOR_SLOTS) state.gear[s] = blankGear(); // armor is class-specific; weapons kept
+    loadClass();
+    render();
+  }
+  function renderClassSwitch() {
+    const host = $("#class-switch"); host.innerHTML = "";
+    for (const cls of CLASS_LIST) {
+      const b = el("button", "class-btn" + (cls === state.cls ? " active" : ""), cls);
+      b.onclick = () => switchClass(cls);
+      host.appendChild(b);
+    }
+    $("#brand-class").textContent = state.cls.toUpperCase();
+  }
+
+  // ---- Visual skill tree ----
   function renderTree() {
-    const panel = $("#panel-tree");
-    panel.innerHTML = "";
+    const panel = $("#panel-tree"); panel.innerHTML = "";
     const used = state.tree.size - 1;
     const head = el("div", "section-head");
-    head.appendChild(el("div", null, `<h2>Class Tree</h2><div class="hint">Click connected nodes to spend points. Removing a node frees its dependents.</div>`));
+    head.appendChild(el("div", null, `<h2>Class Tree</h2><div class="hint">Click connected nodes. Hover for details. Removing a node frees its dependents.</div>`));
     head.appendChild(el("div", "points-pill", `${used} / ${CLASS_POINTS} pts`));
     panel.appendChild(head);
 
-    const wrap = el("div", "branches cols-3");
-    // core node card on top of first column context — show it once above
-    const core = el("div", null, "");
-    for (const bName of BRANCHES) {
-      const col = el("div", "branch");
-      col.appendChild(el("div", "branch-head", bName));
-      const nodes = TREE.filter(n => n.branch === bName).sort((a, b) => a.id - b.id);
-      for (const n of nodes) {
-        const sel = state.tree.has(n.id);
-        const avail = sel || nodeAvailable(n);
-        const btn = el("button", "node" + (sel ? " sel" : ""));
-        if (!avail) btn.disabled = true;
-        const bonus = n.bonuses.map(b => typeof b.value === "number" ? `${b.stat} +${pct(b.value * 100)}` : b.stat).join(" · ");
-        btn.innerHTML = `<div class="node-name">${esc(n.name)}</div><div class="node-bonus">${esc(bonus)}</div>`;
-        btn.onclick = () => toggleTreeNode(n.id);
-        col.appendChild(btn);
+    const legend = el("div", "tree-legend");
+    BRANCHES.forEach((b, i) => legend.appendChild(el("span", "legend-item", `<i style="background:${BRANCH_COLORS[i]}"></i>${esc(b)}`)));
+    panel.appendChild(legend);
+
+    const stage = el("div", "tree-stage");
+    const bg = el("img", "tree-bg"); bg.src = `assets/skilltrees/${state.cls}.webp`; bg.alt = "";
+    stage.appendChild(bg);
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "tree-edges");
+    svg.setAttribute("viewBox", `0 0 ${TREE_W} ${TREE_H}`);
+    svg.setAttribute("preserveAspectRatio", "none");
+    const drawn = new Set();
+    for (const n of TREE) {
+      if (n.x == null) continue;
+      for (const p of n.prereqs) {
+        const pr = treeById[p]; if (!pr || pr.x == null) continue;
+        const key = Math.min(n.id, p) + "-" + Math.max(n.id, p);
+        if (drawn.has(key)) continue; drawn.add(key);
+        const both = state.tree.has(n.id) && state.tree.has(p);
+        const a = nodeCenter(n), b = nodeCenter(pr);
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", a.cx); line.setAttribute("y1", a.cy);
+        line.setAttribute("x2", b.cx); line.setAttribute("y2", b.cy);
+        line.setAttribute("class", "edge" + (both ? " on" : ""));
+        svg.appendChild(line);
       }
-      wrap.appendChild(col);
     }
-    panel.appendChild(wrap);
+    stage.appendChild(svg);
+
+    for (const n of TREE) {
+      if (n.x == null) continue;
+      const sel = state.tree.has(n.id);
+      const avail = sel || nodeAvailable(n);
+      const branchIdx = Math.max(0, BRANCHES.indexOf(n.branch));
+      const node = el("button", "tree-node" + (sel ? " sel" : "") + (avail ? "" : " locked") + (n.kind === 2 ? " core" : n.kind === 1 ? " major" : ""));
+      const { cx, cy } = nodeCenter(n);
+      const sizePct = (NODE_PX[n.kind] ?? 42) / TREE_W * 100; // hotspot matches the drawn circle, responsively
+      node.style.left = (cx / TREE_W * 100) + "%";
+      node.style.top = (cy / TREE_H * 100) + "%";
+      node.style.width = sizePct + "%";
+      if (sel) node.style.setProperty("--c", BRANCH_COLORS[branchIdx] || "#e8a33d");
+      node.onclick = () => toggleTreeNode(n.id);
+      node.onmouseenter = (e) => showTip(e, n);
+      node.onmousemove = moveTip;
+      node.onmouseleave = hideTip;
+      stage.appendChild(node);
+    }
+    panel.appendChild(stage);
   }
 
+  // tree tooltip
+  let tip;
+  function ensureTip() { if (!tip) { tip = el("div", "tree-tip"); document.body.appendChild(tip); } return tip; }
+  function showTip(e, n) {
+    const t = ensureTip();
+    const bonus = n.bonuses.map((b) => typeof b.value === "number" ? `${esc(b.stat)} <b>+${pct(b.value * 100)}</b>` : esc(b.stat)).join("<br>");
+    t.innerHTML = `<div class="tip-name">${esc(n.name)}</div><div class="tip-branch">${esc(n.branch)}</div>${bonus ? `<div class="tip-bonus">${bonus}</div>` : ""}`;
+    t.classList.add("show"); moveTip(e);
+  }
+  function moveTip(e) {
+    if (!tip) return;
+    const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    if (x + w > innerWidth) x = e.clientX - w - pad;
+    if (y + h > innerHeight) y = e.clientY - h - pad;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { if (tip) tip.classList.remove("show"); }
+
   function renderPax() {
-    const panel = $("#panel-pax");
-    panel.innerHTML = "";
+    const panel = $("#panel-pax"); panel.innerHTML = "";
     const head = el("div", "section-head");
     head.appendChild(el("div", null, `<h2>PAX Trees</h2><div class="hint">Two sub-class branches. Spend PAX points along a path.</div>`));
     head.appendChild(el("div", "points-pill", `${state.pax.size} / ${PAX_POINTS} pts`));
     panel.appendChild(head);
-
     const wrap = el("div", "branches cols-2");
     for (const branch of PAXDATA.branches) {
       const col = el("div", "branch");
       col.appendChild(el("div", "branch-head", branch.name));
       col.appendChild(el("div", "branch-theme", branch.theme));
-      const paths = ["universal", "top", "middle", "bottom"];
-      for (const p of paths) {
-        const nodes = branch.nodes.filter(n => n.path === p);
+      for (const p of ["universal", "top", "middle", "bottom"]) {
+        const nodes = branch.nodes.filter((n) => n.path === p);
         if (!nodes.length) continue;
         col.appendChild(el("div", "path-label", p === "universal" ? "Shared trunk" : p + " path"));
         for (const n of nodes) {
@@ -221,14 +309,12 @@
   }
 
   function renderAscension() {
-    const panel = $("#panel-ascension");
-    panel.innerHTML = "";
+    const panel = $("#panel-ascension"); panel.innerHTML = "";
     const total = Object.values(state.asc).reduce((a, b) => a + b, 0);
     const head = el("div", "section-head");
-    head.appendChild(el("div", null, `<h2>Ascension</h2><div class="hint">Up to 10 points per node · 200 total at Ascension 200.</div>`));
+    head.appendChild(el("div", null, `<h2>Ascension</h2><div class="hint">Up to 10 points per node · 200 total. Universal — kept when you switch class.</div>`));
     head.appendChild(el("div", "points-pill", `${total} / ${ASC_TOTAL} pts`));
     panel.appendChild(head);
-
     const cats = el("div", "asc-cats");
     for (const cat of D.ascension.categories) {
       const c = el("div", "asc-cat");
@@ -236,10 +322,9 @@
       for (const node of cat.nodes) {
         const key = cat.name + "::" + node.name;
         const pts = state.asc[key] || 0;
-        const cur = +(pts * node.perPoint).toFixed(2);
         const box = el("div", "asc-node");
         box.innerHTML = `<div class="asc-node-top"><span class="asc-node-name">${esc(node.name)}</span>
-          <span class="asc-node-val">+${cur}${node.unit} / +${node.max}${node.unit}</span></div>`;
+          <span class="asc-node-val">+${+(pts * node.perPoint).toFixed(2)}${node.unit} / +${node.max}${node.unit}</span></div>`;
         const step = el("div", "stepper");
         const minus = el("button", null, "−"); minus.disabled = pts <= 0;
         const bar = el("div", "stepper-bar"); const fill = el("div", "stepper-fill"); fill.style.width = (pts / 10 * 100) + "%"; bar.appendChild(fill);
@@ -257,16 +342,15 @@
   }
 
   function renderLoadout() {
-    const panel = $("#panel-loadout");
-    panel.innerHTML = "";
+    const panel = $("#panel-loadout"); panel.innerHTML = "";
 
-    // --- Active skills ---
     panel.appendChild(el("div", "section-head", `<div><h2>Active Skills</h2><div class="hint">Pick up to ${MAX_SKILLS}.</div></div>`));
     const skWrap = el("div", "skills-pick");
     for (const s of SKILLS) {
       const sel = state.skills.has(s.name);
       const card = el("button", "skill-card" + (sel ? " sel" : ""));
-      card.innerHTML = `<div class="sk-name">${esc(s.name)}</div><div class="sk-desc">${esc(s.desc)}</div>`;
+      const icon = skillIcon(s);
+      card.innerHTML = `<div class="sk-head">${icon ? `<img class="sk-icon" src="${icon}" alt="">` : ""}<span class="sk-name">${esc(s.name)}</span></div><div class="sk-desc">${esc(s.desc)}</div>`;
       card.onclick = () => {
         if (sel) state.skills.delete(s.name);
         else { if (state.skills.size >= MAX_SKILLS) return toast(`Max ${MAX_SKILLS} active skills`); state.skills.add(s.name); }
@@ -276,76 +360,89 @@
     }
     panel.appendChild(skWrap);
 
-    // --- Gear ---
-    panel.appendChild(el("div", "section-head", `<div style="margin-top:18px"><h2>Gear</h2><div class="hint">Equip legendaries · each gets one free mod slot.</div></div>`));
-    const grid = el("div", "loadout-grid");
-
-    // Weapon
-    grid.appendChild(gearSlotEl("Weapon", "weapon", D.weapons, state.weapon, (a) => weaponDetail(a)));
-    // Armor
-    for (const slot of ARMOR_SLOTS) {
-      const opts = ARMOR.filter(a => a.slot === slot);
-      grid.appendChild(gearSlotEl(slot, "armor:" + slot, opts, state.armor[slot] || "", (a) => armorDetail(a), slot));
+    panel.appendChild(el("div", "section-head", `<div style="margin-top:18px"><h2>Weapons</h2><div class="hint">2 primary + 1 secondary. Equip a legendary or build a custom Epic.</div></div>`));
+    const wGrid = el("div", "loadout-grid");
+    for (const w of WEAPON_SLOTS) {
+      const opts = D.weapons.filter((x) => w.sidearm ? SIDEARM_TYPES.includes(x.type) : !SIDEARM_TYPES.includes(x.type));
+      wGrid.appendChild(gearSlot(w.label, w.key, "weapon", opts));
     }
-    panel.appendChild(grid);
+    panel.appendChild(wGrid);
+
+    panel.appendChild(el("div", "section-head", `<div style="margin-top:18px"><h2>Armor</h2><div class="hint">5 slots. Legendary or custom Epic.</div></div>`));
+    const aGrid = el("div", "loadout-grid");
+    for (const slot of ARMOR_SLOTS) {
+      const opts = ARMOR.filter((a) => a.slot === slot);
+      aGrid.appendChild(gearSlot(slot, slot, "armor", opts));
+    }
+    panel.appendChild(aGrid);
   }
 
-  function gearSlotEl(label, key, options, current, detailFn, armorSlot) {
+  function gearSlot(label, slotKey, scope, options) {
+    const g = state.gear[slotKey];
     const slot = el("div", "gear-slot");
-    const head = el("div", "gear-slot-head");
-    head.appendChild(el("span", "gear-slot-label", label));
-    slot.appendChild(head);
+    slot.appendChild(el("div", "gear-slot-head", `<span class="gear-slot-label">${esc(label)}</span>`));
 
     const sel = el("select", "gear-select");
     sel.appendChild(new Option("— empty —", ""));
-    for (const o of options) { const opt = new Option(o.name, o.name); if (o.name === current) opt.selected = true; sel.appendChild(opt); }
-    sel.onchange = () => {
-      const v = sel.value;
-      if (key === "weapon") state.weapon = v;
-      else state.armor[armorSlot] = v;
-      render();
-    };
+    const epicOpt = new Option("✦ Epic (custom)", EPIC); if (g.item === EPIC) epicOpt.selected = true; sel.appendChild(epicOpt);
+    for (const o of options) { const opt = new Option(o.name, o.name); if (o.name === g.item) opt.selected = true; sel.appendChild(opt); }
+    sel.onchange = () => { g.item = sel.value; g.mods = []; g.attrs = []; render(); };
     slot.appendChild(sel);
 
-    const item = options.find(o => o.name === current);
-    if (item) {
-      slot.appendChild(detailFn(item));
-      // free mod slot
-      const scope = key === "weapon" ? "weapon" : "armor";
-      const modSel = el("select", "gear-select"); modSel.style.marginTop = "8px";
-      modSel.appendChild(new Option("+ free mod slot —", ""));
-      for (const m of D.mods.filter(m => m.scope === scope)) {
-        const opt = new Option(`[T${m.tier}] ${m.name}`, m.name);
-        if (state.mods[key] === m.name) opt.selected = true;
-        modSel.appendChild(opt);
+    if (g.item === EPIC) {
+      slot.appendChild(epicEditor(g, scope));
+    } else if (g.item) {
+      const item = findGearItem(slotKey, g.item);
+      if (item) {
+        slot.appendChild(scope === "weapon" ? weaponDetail(item) : armorDetail(item));
+        slot.appendChild(modSelect(g, 0, scope, "+ free mod slot"));
       }
-      modSel.onchange = () => { state.mods[key] = modSel.value; render(); };
-      slot.appendChild(modSel);
     }
     return slot;
+  }
+
+  function epicEditor(g, scope) {
+    const box = el("div", "epic-editor");
+    const pool = scope === "weapon" ? weaponAttrPool() : armorAttrPool();
+    box.appendChild(el("div", "epic-label", "Attributes"));
+    for (let i = 0; i < EPIC_ATTRS; i++) {
+      const s = el("select", "gear-select sm");
+      s.appendChild(new Option("— attribute —", ""));
+      for (const a of pool) { const o = new Option(a, a); if (g.attrs[i] === a) o.selected = true; s.appendChild(o); }
+      s.onchange = () => { g.attrs[i] = s.value; render(); };
+      box.appendChild(s);
+    }
+    box.appendChild(el("div", "epic-label", "Mods"));
+    for (let i = 0; i < EPIC_MODS; i++) box.appendChild(modSelect(g, i, scope, "— mod —"));
+    return box;
+  }
+
+  function modSelect(g, i, scope, placeholder) {
+    const s = el("select", "gear-select sm");
+    s.appendChild(new Option(placeholder, ""));
+    for (const m of modsForScope(scope)) { const o = new Option(`[T${m.tier}] ${m.name}`, m.name); if (g.mods[i] === m.name) o.selected = true; s.appendChild(o); }
+    s.onchange = () => { g.mods[i] = s.value; render(); };
+    return s;
   }
 
   function weaponDetail(w) {
     const d = el("div", "gear-detail");
     const rows = [["Type", w.type], ["Variant", w.variant], ["RPM", w.rpm], ["Mag", w.clip], ["Crit", w.critMulti]];
-    d.innerHTML = rows.filter(r => r[1] != null).map(r => `<div class="row"><span class="k">${r[0]}</span><span>${esc(r[1])}</span></div>`).join("");
-    if (w.specialStats?.length) d.innerHTML += `<div>${w.specialStats.map(s => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
-    if (w.factoryMods?.length) d.innerHTML += `<div>${w.factoryMods.map(m => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
+    d.innerHTML = rows.filter((r) => r[1] != null).map((r) => `<div class="row"><span class="k">${r[0]}</span><span>${esc(r[1])}</span></div>`).join("");
+    if (w.specialStats?.length) d.innerHTML += `<div>${w.specialStats.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
+    if (w.factoryMods?.length) d.innerHTML += `<div>${w.factoryMods.map((m) => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
     return d;
   }
   function armorDetail(a) {
     const d = el("div", "gear-detail");
-    if (a.specialStats?.length) d.innerHTML += `<div>${a.specialStats.map(s => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
-    if (a.factoryMods?.length) d.innerHTML += `<div>${a.factoryMods.map(m => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
+    if (a.specialStats?.length) d.innerHTML += `<div>${a.specialStats.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div>`;
+    if (a.factoryMods?.length) d.innerHTML += `<div>${a.factoryMods.map((m) => `<span class="tag mod">${esc(m)}</span>`).join("")}</div>`;
     if (a.setBonus) d.innerHTML += `<div class="set-bonus-text">${esc(a.setBonus)}</div>`;
     return d;
   }
 
   function renderSummary() {
-    const body = $("#summary-body");
-    body.innerHTML = "";
-
-    // points
+    const body = $("#summary-body"); body.innerHTML = "";
     const usedTree = state.tree.size - 1;
     const ascTotal = Object.values(state.asc).reduce((a, b) => a + b, 0);
     const pts = el("div", "sum-section");
@@ -355,58 +452,45 @@
       <div class="budget-row"><span>Ascension</span><b>${ascTotal}/${ASC_TOTAL}</b></div>`;
     body.appendChild(pts);
 
-    // skills
-    const sk = el("div", "sum-section");
-    sk.innerHTML = `<h3>Active Skills</h3>`;
+    const sk = el("div", "sum-section"); sk.innerHTML = `<h3>Active Skills</h3>`;
     const chips = el("div", "chip-list");
     if (state.skills.size) for (const s of state.skills) chips.appendChild(el("span", "chip on", esc(s)));
     else chips.appendChild(el("span", "empty-note", "none selected"));
-    sk.appendChild(chips);
-    body.appendChild(sk);
+    sk.appendChild(chips); body.appendChild(sk);
 
-    // aggregated stats
     const stats = aggregateStats();
-    const st = el("div", "sum-section");
-    st.innerHTML = `<h3>Aggregated Stats</h3>`;
-    if (stats.length) for (const [stat, v] of stats) {
-      const line = el("div", "stat-line"); line.innerHTML = `<span>${esc(stat)}</span><span class="v">+${pct(v)}</span>`; st.appendChild(line);
-    } else st.appendChild(el("div", "empty-note", "no numeric bonuses yet"));
+    const st = el("div", "sum-section"); st.innerHTML = `<h3>Aggregated Stats</h3>`;
+    if (stats.length) for (const [stat, v] of stats) { const line = el("div", "stat-line"); line.innerHTML = `<span>${esc(stat)}</span><span class="v">+${pct(v)}</span>`; st.appendChild(line); }
+    else st.appendChild(el("div", "empty-note", "no numeric bonuses yet"));
     body.appendChild(st);
 
-    // set bonuses
-    const sets = equippedSets();
-    const setNames = Object.keys(sets);
+    const sets = equippedSets(); const setNames = Object.keys(sets);
     if (setNames.length) {
-      const se = el("div", "sum-section");
-      se.innerHTML = `<h3>Set Bonuses</h3>`;
+      const se = el("div", "sum-section"); se.innerHTML = `<h3>Set Bonuses</h3>`;
       for (const name of setNames) {
-        const { count } = sets[name];
-        const active = count >= 3;
+        const active = sets[name].count >= 3;
         const line = el("div", "stat-line");
-        line.innerHTML = `<span>${esc(name)}</span><span class="v" style="color:${active ? "var(--good)" : "var(--txt-faint)"}">${count} pc${active ? " ✓" : ""}</span>`;
+        line.innerHTML = `<span>${esc(name)}</span><span class="v" style="color:${active ? "var(--good)" : "var(--txt-faint)"}">${sets[name].count} pc${active ? " ✓" : ""}</span>`;
         se.appendChild(line);
       }
       body.appendChild(se);
     }
 
-    // equipped count
-    const equippedArmor = ARMOR_SLOTS.filter(s => state.armor[s]).length;
+    const wq = WEAPON_SLOTS.filter((w) => state.gear[w.key].item).length;
+    const aq = ARMOR_SLOTS.filter((s) => state.gear[s].item).length;
     const eq = el("div", "sum-section");
     eq.innerHTML = `<h3>Equipped</h3>
-      <div class="budget-row"><span>Weapon</span><b>${state.weapon ? "1" : "0"}/1</b></div>
-      <div class="budget-row"><span>Armor</span><b>${equippedArmor}/5</b></div>`;
+      <div class="budget-row"><span>Weapons</span><b>${wq}/3</b></div>
+      <div class="budget-row"><span>Armor</span><b>${aq}/5</b></div>`;
     body.appendChild(eq);
 
-    // active effects count
     const fx = activeEffects();
     if (fx.length) {
-      const ef = el("div", "sum-section");
-      ef.innerHTML = `<h3>Active Effects (${fx.length})</h3>`;
+      const ef = el("div", "sum-section"); ef.innerHTML = `<h3>Active Effects (${fx.length})</h3>`;
       const cl = el("div", "chip-list");
-      for (const f of fx.slice(0, 12)) cl.appendChild(el("span", "chip", `${esc(f.name)}`));
-      if (fx.length > 12) cl.appendChild(el("span", "chip", `+${fx.length - 12} more`));
-      ef.appendChild(cl);
-      body.appendChild(ef);
+      for (const f of fx.slice(0, 14)) cl.appendChild(el("span", "chip", esc(f)));
+      if (fx.length > 14) cl.appendChild(el("span", "chip", `+${fx.length - 14} more`));
+      ef.appendChild(cl); body.appendChild(ef);
     }
   }
 
@@ -414,36 +498,57 @@
   function initTabs() {
     $("#tabs").addEventListener("click", (e) => {
       const t = e.target.closest(".tab"); if (!t) return;
-      document.querySelectorAll(".tab").forEach(x => x.classList.toggle("is-active", x === t));
-      const name = t.dataset.tab;
-      for (const p of ["tree", "pax", "ascension", "loadout"]) $("#panel-" + p).classList.toggle("hidden", p !== name);
+      document.querySelectorAll(".tab").forEach((x) => x.classList.toggle("is-active", x === t));
+      for (const p of ["tree", "pax", "ascension", "loadout"]) $("#panel-" + p).classList.toggle("hidden", p !== t.dataset.tab);
+      $(".layout").classList.toggle("full-tree", t.dataset.tab === "tree");
     });
   }
 
   // ===== Share via URL hash =====
   function writeHash() {
-    const payload = {
-      c: state.cls, t: [...state.tree], p: [...state.pax], a: state.asc,
-      s: [...state.skills], w: state.weapon, r: state.armor, m: state.mods,
-    };
-    const enc = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
-    history.replaceState(null, "", "#" + enc);
+    const payload = { c: state.cls, t: [...state.tree], p: [...state.pax], a: state.asc, s: [...state.skills], g: state.gear };
+    history.replaceState(null, "", "#" + btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
   }
   function readHash() {
     if (!location.hash || location.hash.length < 2) return;
     try {
-      const obj = JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))));
-      if (CLASS_LIST.includes(obj.c)) state.cls = obj.c;
-      state.tree = new Set(obj.t || [0]); state.tree.add(0);
-      state.pax = new Set(obj.p || []);
-      state.asc = obj.a || {};
-      state.skills = new Set(obj.s || []);
-      state.weapon = obj.w || "";
-      state.armor = obj.r || {};
-      state.mods = obj.m || {};
+      const o = JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))));
+      if (CLASS_LIST.includes(o.c)) state.cls = o.c;
+      state.tree = new Set(o.t || [0]); state.tree.add(0);
+      state.pax = new Set(o.p || []);
+      state.asc = o.a || {};
+      state.skills = new Set(o.s || []);
+      const g = freshGear();
+      if (o.g) for (const k of Object.keys(g)) if (o.g[k]) g[k] = { item: o.g[k].item || "", mods: o.g[k].mods || [], attrs: o.g[k].attrs || [] };
+      state.gear = g;
     } catch (e) { console.warn("Bad build hash", e); }
   }
 
+  // ===== What's-new popup =====
+  const SEEN_KEY = "or_planner_seen_version";
+  function openChangelog(force) {
+    const seen = (() => { try { return localStorage.getItem(SEEN_KEY); } catch { return null; } })();
+    if (!force && seen === APP_VERSION) return;
+    const back = el("div", "modal-back");
+    const card = el("div", "modal");
+    card.innerHTML = `<div class="modal-head"><h2>What's new</h2><span class="modal-ver">v${APP_VERSION}</span></div>`;
+    for (const entry of CHANGELOG.slice(0, force ? CHANGELOG.length : 1)) {
+      const sec = el("div", "cl-entry");
+      sec.innerHTML = `<div class="cl-ver">v${entry.version} · ${entry.date} — ${esc(entry.title)}</div>`;
+      const ul = el("ul", "cl-list");
+      for (const it of entry.items) ul.appendChild(el("li", null, esc(it)));
+      sec.appendChild(ul); card.appendChild(sec);
+    }
+    const btn = el("button", "btn btn-accent", "Got it");
+    const close = () => { try { localStorage.setItem(SEEN_KEY, APP_VERSION); } catch {} back.remove(); };
+    btn.onclick = close;
+    card.appendChild(btn);
+    back.appendChild(card);
+    back.onclick = (e) => { if (e.target === back) close(); };
+    document.body.appendChild(back);
+  }
+
+  // ===== Misc =====
   let toastTimer;
   function toast(msg) {
     let t = $(".toast"); if (!t) { t = el("div", "toast"); document.body.appendChild(t); }
@@ -451,23 +556,23 @@
     clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 1900);
   }
 
-  // ===== Init =====
   function init() {
     initTabs();
     $("#btn-reset").onclick = () => {
-      state.tree = new Set([0]); state.pax = new Set(); state.asc = {};
-      state.skills = new Set(); state.weapon = ""; state.armor = {}; state.mods = {};
+      state.tree = new Set([0]); state.pax = new Set(); state.asc = {}; state.skills = new Set(); state.gear = freshGear();
       render(); toast("Build reset");
     };
     $("#btn-share").onclick = async () => {
       writeHash();
-      const url = location.href;
-      try { await navigator.clipboard.writeText(url); toast("Build link copied to clipboard"); }
+      try { await navigator.clipboard.writeText(location.href); toast("Build link copied to clipboard"); }
       catch { toast("Copy failed — link is in the address bar"); }
     };
+    const wn = $("#btn-whatsnew"); if (wn) wn.onclick = () => openChangelog(true);
     readHash();
     loadClass();
+    $(".layout").classList.add("full-tree"); // Class Tree is the default tab
     render();
+    openChangelog(false);
   }
   document.addEventListener("DOMContentLoaded", init);
 })();

@@ -57,8 +57,10 @@ rerun it and commit the updated `data.js`.
 ## Notes / limitations
 - A few base-game weapons have blank `dmg` on the wiki (level-scaled stat, not needed for planning).
 - One armor (`Torrential Downpour's Armor`) has no slot on the wiki, so it's not selectable.
-- PAX node *effects and branch paths* are encoded; exact visual tree pixel positions are not.
+- Class trees use the real visual layout (Breadbuilder background + node coordinates). PAX
+  trees are still text lists (no official coordinate source).
 - Class skill-mods (per-class skill modifiers) are not yet surfaced in the UI; the universal
-  weapon/armor mod pool (210) powers the gear free-mod slot.
+  weapon/armor mod pool (210) powers the gear mod slots.
+- Tree/skill icons and backgrounds in `assets/` are sourced from Breadbuilder.
 
 Not affiliated with Square Enix / People Can Fly. Data © their respective sources.

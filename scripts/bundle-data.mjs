@@ -1,15 +1,22 @@
 // Bundles all data into web/data.js (multi-class) so the planner runs from file://.
 // Usage: node scripts/bundle-data.mjs
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 
 const read = (f) => JSON.parse(readFileSync(`data/${f}`, "utf8"));
 const CLASSES = ["technomancer", "pyromancer", "trickster", "devastator"];
 
+// Map each skill to its Breadbuilder icon file by normalized-name match.
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const iconFiles = readdirSync("assets/skills").filter((f) => /\.(png|webp)$/.test(f));
+const iconByNorm = Object.fromEntries(iconFiles.map((f) => [norm(f.replace(/\.(png|webp)$/, "")), f]));
+
 const classes = {};
 for (const cls of CLASSES) {
+  const skills = read(`classes/${cls}.skills.json`);
+  for (const s of skills.skills) s.icon = iconByNorm[norm(s.name)] || null;
   classes[cls] = {
     skilltree: read(`classes/${cls}.skilltree.json`),
-    skills: read(`classes/${cls}.skills.json`),
+    skills,
     pax: read(`classes/${cls}.pax.json`),
     armor: read(`classes/${cls}.armor.json`),
   };

@@ -260,6 +260,11 @@ body {
 .tip-bonus { color: var(--txt-dim); line-height: 1.5; }
 .tip-bonus b { color: var(--tech); }
 
+/* ---- PAX reference image ---- */
+.pax-ref { margin: 0 0 16px; }
+.pax-ref img { width: 100%; max-width: 1100px; display: block; margin: 0 auto; border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.pax-ref figcaption { text-align: center; font-size: 11px; color: var(--txt-faint); margin-top: 6px; font-style: italic; }
+
 /* ---- PAX node icon ---- */
 .pax-row { display: flex; align-items: center; gap: 9px; }
 .pax-icon { width: 34px; height: 34px; flex: 0 0 auto; border-radius: 5px; object-fit: contain; background: var(--bg-panel); }

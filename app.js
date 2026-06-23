@@ -7,8 +7,12 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.3.0";
+  const APP_VERSION = "1.4.0";
   const CHANGELOG = [
+    {
+      version: "1.4.0", date: "2026-06-23", title: "PAX layout reference",
+      items: ["PAX tab now shows the in-game tree layout image for your class (toggle with “Show/Hide layout”)."],
+    },
     {
       version: "1.3.0", date: "2026-06-23", title: "Epic weapons, faster Ascension, stats view",
       items: [
@@ -78,6 +82,7 @@
 
   // ---- UI flags ----
   let showTreeStats = false; // Breadbuilder-style stats overlay on the tree tab
+  let showPaxLayout = true;  // in-game PAX tree reference image on the PAX tab
 
   // ---- Class-specific data ----
   let TREE = [], treeById = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
@@ -314,8 +319,21 @@
     const panel = $("#panel-pax"); panel.innerHTML = "";
     const head = el("div", "section-head");
     head.appendChild(el("div", null, `<h2>PAX Trees</h2><div class="hint">Two sub-class branches. Spend PAX points along a path.</div>`));
-    head.appendChild(el("div", "points-pill", `${state.pax.size} / ${PAX_POINTS} pts`));
+    const right = el("div", "head-right");
+    const layoutBtn = el("button", "btn btn-ghost btn-sm" + (showPaxLayout ? " on" : ""), showPaxLayout ? "Hide layout" : "Show layout");
+    layoutBtn.onclick = () => { showPaxLayout = !showPaxLayout; renderPax(); };
+    right.appendChild(layoutBtn);
+    right.appendChild(el("div", "points-pill", `${state.pax.size} / ${PAX_POINTS} pts`));
+    head.appendChild(right);
     panel.appendChild(head);
+
+    if (showPaxLayout) {
+      const ref = el("figure", "pax-ref");
+      ref.innerHTML = `<img src="assets/paxtrees/${state.cls}.jpg" alt="${esc(state.cls)} PAX trees layout">
+        <figcaption>In-game PAX layout (reference) — select nodes in the lists below</figcaption>`;
+      panel.appendChild(ref);
+    }
+
     const wrap = el("div", "branches cols-2");
     for (const branch of PAXDATA.branches) {
       const col = el("div", "branch");

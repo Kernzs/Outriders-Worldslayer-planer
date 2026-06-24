@@ -1032,8 +1032,10 @@
   }
 
   const UPGRADE = {
-    weapon: { panel: "panel-wupgrade", title: "Weapon Upgrade", noun: "firepower", typeLabel: "Weapon type", thing: "weapon", types: () => FP_TYPES, optTitle: "Optimal firepower", curve: (t) => WF[t] || WF[FP_TYPES[0]] },
-    armor: { panel: "panel-aupgrade", title: "Armor Upgrade", noun: "armor", typeLabel: "Armor type", thing: "piece", types: () => ARMOR_TYPES, optTitle: "Optimal armor", curve: () => AU },
+    // project: weapon firepower projects cleanly to the cap; the site's armor
+    // projection is internally inconsistent, so armor only rates vs the optimal.
+    weapon: { panel: "panel-wupgrade", title: "Weapon Upgrade", noun: "firepower", typeLabel: "Weapon type", thing: "weapon", types: () => FP_TYPES, optTitle: "Optimal firepower", curve: (t) => WF[t] || WF[FP_TYPES[0]], project: true },
+    armor: { panel: "panel-aupgrade", title: "Armor Upgrade", noun: "armor", typeLabel: "Armor type", thing: "piece", types: () => ARMOR_TYPES, optTitle: "Optimal armor", curve: () => AU, project: false },
   };
   const upState = {
     weapon: { type: FP_TYPES.includes("assault-rifle") ? "assault-rifle" : FP_TYPES[0], level: 30, rarity: "epic", value: "" },
@@ -1069,32 +1071,43 @@
     panel.appendChild(optWrap);
 
     const projWrap = el("div", "fp-section");
-    projWrap.appendChild(el("div", "fp-section-h", `Project a ${cfg.thing} to the item-level cap`));
+    projWrap.appendChild(el("div", "fp-section-h", cfg.project ? `Project a ${cfg.thing} to the item-level cap` : `Rate your ${cfg.noun} for its level`));
     const pc = el("div", "fp-controls");
-    const raritySel = el("select", "gear-select");
-    for (const r of FP_RARITIES) { const o = el("option", null, r[0].toUpperCase() + r.slice(1)); o.value = r; if (r === st.rarity) o.selected = true; raritySel.appendChild(o); }
-    raritySel.onchange = () => { st.rarity = raritySel.value; renderUpgrade(kind); };
-    const valInput = el("input", "fp-input"); valInput.type = "number"; valInput.min = "0"; valInput.placeholder = kind === "armor" ? "e.g. 1000" : "e.g. 5000"; valInput.value = st.value;
-    pc.appendChild(fpField("Current rarity", raritySel));
+    let raritySel = null;
+    if (cfg.project) { // rarity only matters for the projection (its starting tier)
+      raritySel = el("select", "gear-select");
+      for (const r of FP_RARITIES) { const o = el("option", null, r[0].toUpperCase() + r.slice(1)); o.value = r; if (r === st.rarity) o.selected = true; raritySel.appendChild(o); }
+      raritySel.onchange = () => { st.rarity = raritySel.value; renderUpgrade(kind); };
+      pc.appendChild(fpField("Current rarity", raritySel));
+    }
+    const valInput = el("input", "fp-input"); valInput.type = "number"; valInput.min = "0"; valInput.placeholder = kind === "armor" ? "e.g. 6000" : "e.g. 5000"; valInput.value = st.value;
     pc.appendChild(fpField("Current " + cfg.noun, valInput));
     projWrap.appendChild(pc);
-    const projGrid = el("div", "fp-grid");
-    projWrap.appendChild(projGrid);
+    const projGrid = cfg.project ? el("div", "fp-grid") : null;
+    if (projGrid) projWrap.appendChild(projGrid);
     const tierBox = el("div", "fp-tierwrap");
     projWrap.appendChild(tierBox);
     panel.appendChild(projWrap);
 
     const updateProj = () => {
-      const proj = projectFor(kind, st.type, st.level, st.rarity, +st.value);
-      projGrid.innerHTML = ""; tierBox.innerHTML = "";
-      if (!proj) { projGrid.appendChild(el("div", "fp-empty", `Enter your ${cfg.thing}'s current ${cfg.noun} to project it to the cap.`)); return; }
-      for (const r of FP_RARITIES) {
-        if (proj[r] == null) continue;
-        const card = el("div", "fp-card " + r);
-        card.innerHTML = `<div class="fp-rarity">${r} max</div><div class="fp-val">${fpFmt(proj[r])}</div><div class="fp-sub">${proj[r].toLocaleString("en-US")}</div>`;
-        projGrid.appendChild(card);
+      if (projGrid) projGrid.innerHTML = "";
+      tierBox.innerHTML = "";
+      const val = +st.value;
+      if (!(val > 0)) {
+        const msg = cfg.project ? `Enter your ${cfg.thing}'s current ${cfg.noun} to project it to the cap.` : `Enter your ${cfg.noun} to rate it against the level-${st.level} optimal.`;
+        (projGrid || tierBox).appendChild(el("div", "fp-empty", msg));
+        return;
       }
-      const tier = tierFor(kind, +st.value, st.type, st.level);
+      if (projGrid) {
+        const proj = projectFor(kind, st.type, st.level, st.rarity, val);
+        for (const r of FP_RARITIES) {
+          if (!proj || proj[r] == null) continue;
+          const card = el("div", "fp-card " + r);
+          card.innerHTML = `<div class="fp-rarity">${r} max</div><div class="fp-val">${fpFmt(proj[r])}</div><div class="fp-sub">${proj[r].toLocaleString("en-US")}</div>`;
+          projGrid.appendChild(card);
+        }
+      }
+      const tier = tierFor(kind, val, st.type, st.level);
       if (tier) tierBox.innerHTML = fpGaugeHtml(tier, st.level);
     };
     valInput.oninput = () => { st.value = valInput.value; updateProj(); };

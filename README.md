@@ -38,6 +38,10 @@ All data is bundled into a single JS file so it runs from a plain file or any st
   (type to filter long lists). Equipping the same mod twice flags a "duplicate" warning
   (mods don't stack).
 - **Active skills** — pick up to 3.
+- **Weapon / Armor Upgrade** — two standalone tools: pick a weapon (or armor) type + level
+  (10–75) for the optimal firepower (or armor) per rarity, and project a current value to the
+  item-level cap with a quality tier gauge (NOT GREAT → GOD TIER). Reproduces the Outriders
+  Outpost upgrade model (approximate, ~0.1%).
 - **Build Summary** — live aggregated stats (tree + ascension) and every active effect
   (hover an effect to read exactly what it does).
 - **Share** — the whole build is encoded in the URL hash and "Copy build link"
@@ -56,6 +60,7 @@ Produced by the scripts in `scripts/`:
 |---|---|---|
 | `extract-mods.mjs` | `mods.json` (479: weapon, armor + each class's skill mods) | Fandom MediaWiki API (every `Infobox mod` page) |
 | `extract-gear.mjs` | `legendary-weapons.json` (63), `classes/<cls>.armor.json` | Fandom API (every `Infobox armor`/`weapon` page, filtered to Legendary) |
+| `extract-weapon-firepower.mjs` | `weapon-firepower.json` (11 types), `armor-upgrade.json` (seed + level 10–75 curves) | Outriders Outpost (outriders.app) bundle, via web.archive.org |
 | `extract-skilltree.mjs` | `classes/<cls>.skilltree.json` (nodes + x/y coords) | Breadbuilder `main.js` + Fandom (branch names) |
 | `extract-skills.mjs` | `classes/<cls>.skills.json` | Breadbuilder `main.js` |
 | `extract-pax.mjs` | `classes/<cls>.pax.json` (Pyro/Trick/Dev) | GamerGuides PAX skill lists |

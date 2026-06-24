@@ -1,0 +1,271 @@
+{
+  "seed": 144,
+  "unusual": 1.2308634415,
+  "epic": 1.2499433748584372,
+  "multipliers": [
+    {
+      "level": 10,
+      "multiplier": 1
+    },
+    {
+      "level": 11,
+      "multiplier": 1.0974358974358975
+    },
+    {
+      "level": 12,
+      "multiplier": 1.102803738317757
+    },
+    {
+      "level": 13,
+      "multiplier": 1.1016949152542372
+    },
+    {
+      "level": 14,
+      "multiplier": 1.0961538461538463
+    },
+    {
+      "level": 15,
+      "multiplier": 1.105263157894737
+    },
+    {
+      "level": 16,
+      "multiplier": 1.0984126984126985
+    },
+    {
+      "level": 17,
+      "multiplier": 1.0982658959537572
+    },
+    {
+      "level": 18,
+      "multiplier": 1.1
+    },
+    {
+      "level": 19,
+      "multiplier": 1.1004784688995215
+    },
+    {
+      "level": 20,
+      "multiplier": 1.1
+    },
+    {
+      "level": 21,
+      "multiplier": 1.1007905138339922
+    },
+    {
+      "level": 22,
+      "multiplier": 1.0987432675044884
+    },
+    {
+      "level": 23,
+      "multiplier": 1.0996732026143792
+    },
+    {
+      "level": 24,
+      "multiplier": 1.1010401188707282
+    },
+    {
+      "level": 25,
+      "multiplier": 1.098515519568151
+    },
+    {
+      "level": 26,
+      "multiplier": 1.1007371007371007
+    },
+    {
+      "level": 27,
+      "multiplier": 1.1004464285714286
+    },
+    {
+      "level": 28,
+      "multiplier": 1.1004056795131847
+    },
+    {
+      "level": 29,
+      "multiplier": 1.1004608294930875
+    },
+    {
+      "level": 30,
+      "multiplier": 1.0988274706867671
+    },
+    {
+      "level": 31,
+      "multiplier": 1.100609756097561
+    },
+    {
+      "level": 32,
+      "multiplier": 1.0997229916897506
+    },
+    {
+      "level": 33,
+      "multiplier": 1.100125944584383
+    },
+    {
+      "level": 34,
+      "multiplier": 1.1001717229536347
+    },
+    {
+      "level": 35,
+      "multiplier": 1.0998959417273673
+    },
+    {
+      "level": 36,
+      "multiplier": 1.0998107852412489
+    },
+    {
+      "level": 37,
+      "multiplier": 1.1002150537634408
+    },
+    {
+      "level": 38,
+      "multiplier": 1.1000781860828772
+    },
+    {
+      "level": 39,
+      "multiplier": 1.099857853589197
+    },
+    {
+      "level": 40,
+      "multiplier": 1.09983844911147
+    },
+    {
+      "level": 41,
+      "multiplier": 1.1001762632197414
+    },
+    {
+      "level": 42,
+      "multiplier": 1.1001335113484647
+    },
+    {
+      "level": 43,
+      "multiplier": 1.099757281553398
+    },
+    {
+      "level": 44,
+      "multiplier": 1.0999779298168175
+    },
+    {
+      "level": 45,
+      "multiplier": 1.1001203852327448
+    },
+    {
+      "level": 46,
+      "multiplier": 1.0999452854276857
+    },
+    {
+      "level": 47,
+      "multiplier": 1.0999834190018238
+    },
+    {
+      "level": 48,
+      "multiplier": 1.1000904431715406
+    },
+    {
+      "level": 49,
+      "multiplier": 1.0998903809262812
+    },
+    {
+      "level": 50,
+      "multiplier": 1.1000373738632117
+    },
+    {
+      "level": 51,
+      "multiplier": 1.1
+    },
+    {
+      "level": 52,
+      "multiplier": 1.1
+    },
+    {
+      "level": 53,
+      "multiplier": 1.1
+    },
+    {
+      "level": 54,
+      "multiplier": 1.1
+    },
+    {
+      "level": 55,
+      "multiplier": 1.1
+    },
+    {
+      "level": 56,
+      "multiplier": 1.1
+    },
+    {
+      "level": 57,
+      "multiplier": 1.1
+    },
+    {
+      "level": 58,
+      "multiplier": 1.1
+    },
+    {
+      "level": 59,
+      "multiplier": 1.1
+    },
+    {
+      "level": 60,
+      "multiplier": 1.1
+    },
+    {
+      "level": 61,
+      "multiplier": 1.1
+    },
+    {
+      "level": 62,
+      "multiplier": 1.1
+    },
+    {
+      "level": 63,
+      "multiplier": 1.1
+    },
+    {
+      "level": 64,
+      "multiplier": 1.1
+    },
+    {
+      "level": 65,
+      "multiplier": 1.1
+    },
+    {
+      "level": 66,
+      "multiplier": 1.1
+    },
+    {
+      "level": 67,
+      "multiplier": 1.1
+    },
+    {
+      "level": 68,
+      "multiplier": 1.1
+    },
+    {
+      "level": 69,
+      "multiplier": 1.1
+    },
+    {
+      "level": 70,
+      "multiplier": 1.1
+    },
+    {
+      "level": 71,
+      "multiplier": 1.1
+    },
+    {
+      "level": 72,
+      "multiplier": 1.1
+    },
+    {
+      "level": 73,
+      "multiplier": 1.1
+    },
+    {
+      "level": 74,
+      "multiplier": 1.1
+    },
+    {
+      "level": 75,
+      "multiplier": 1.1
+    }
+  ]
+}

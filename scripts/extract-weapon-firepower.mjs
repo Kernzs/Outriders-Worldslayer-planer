@@ -25,14 +25,15 @@ async function main() {
   const pairs = [...mapStr.matchAll(/"?([a-z-]+)"?:([a-zA-Z])\b/g)].map((m) => [m[1], m[2]]);
 
   // 2) Resolve each variable: <var>=JSON.parse('{"unusual":...}]}')
-  const table = {};
+  const table = {};   // weapon types
+  let armorObj = null; // armor shares one curve across all armor slots
   for (const [slug, v] of pairs) {
-    if (slug === "armor") continue; // weapon types only
     const re = new RegExp(`\\b${v}=JSON\\.parse\\('(\\{"unusual":[\\s\\S]*?\\}\\]\\})'\\)`);
     const m = s.match(re);
-    if (!m) { console.error(`  ! no firepower data for ${slug} (${v})`); continue; }
+    if (!m) { console.error(`  ! no curve data for ${slug} (${v})`); continue; }
     const o = JSON.parse(m[1]);
-    table[slug] = { unusual: o.unusual, epic: o.epic, multipliers: o.multipliers };
+    const entry = { unusual: o.unusual, epic: o.epic, multipliers: o.multipliers };
+    if (slug === "armor") armorObj = entry; else table[slug] = entry;
   }
 
   // The archived 2021 bundle's curve stops at level 50. The live Worldslayer
@@ -40,15 +41,16 @@ async function main() {
   // (measured: optimal firepower at lvl 65 & 75 both fit 1.1 to ~0.02%). Append
   // levels 51..75 so the model covers the full in-game range.
   const APOCALYPSE_MULT = 1.1, CAP_LEVEL = 75;
-  for (const slug of Object.keys(table)) {
-    const m = table[slug].multipliers;
-    const last = m[m.length - 1].level;
-    for (let lv = last + 1; lv <= CAP_LEVEL; lv++) m.push({ level: lv, multiplier: APOCALYPSE_MULT });
-  }
+  const extend = (m) => { const last = m[m.length - 1].level; for (let lv = last + 1; lv <= CAP_LEVEL; lv++) m.push({ level: lv, multiplier: APOCALYPSE_MULT }); };
+  for (const slug of Object.keys(table)) extend(table[slug].multipliers);
+  if (armorObj) extend(armorObj.multipliers);
 
   mkdirSync("data", { recursive: true });
   writeFileSync("data/weapon-firepower.json", JSON.stringify(table, null, 2));
+  // Armor uses a fixed level-10 seed of 144 (no Ae anchor) and one shared curve.
+  if (armorObj) writeFileSync("data/armor-upgrade.json", JSON.stringify({ seed: 144, ...armorObj }, null, 2));
   console.error(`Weapon types: ${Object.keys(table).length} -> ${Object.keys(table).join(", ")}`);
+  console.error(`Armor: ${armorObj ? "extracted (unusual " + armorObj.unusual + ", epic " + armorObj.epic + ")" : "MISSING"}`);
 
   // 3) Validate against the known screenshot values (AR lvl 10 -> 333/358/376).
   const optimal = (t, lvl) => {
@@ -71,6 +73,11 @@ async function main() {
   console.error("Validate AR @lvl50 (expect epic~90000):", JSON.stringify(optimal(ar, 50)));
   console.error("Validate AR @lvl65 (expect unusual~333574):", JSON.stringify(optimal(ar, 65)));
   console.error("Validate AR @lvl75 (expect unusual~865207):", JSON.stringify(optimal(ar, 75)));
+  if (armorObj) {
+    const optArmor = (lvl) => { let r = 144, out = null; for (const e of armorObj.multipliers) { r = Math.round(r * e.multiplier); if (e.level == lvl) { out = { unusual: Math.ceil(r), rare: Math.ceil(r * armorObj.unusual), epic: Math.ceil(r * armorObj.unusual * armorObj.epic) }; break; } } return out; };
+    console.error("Validate ARMOR @lvl10 (expect 144/178/222):", JSON.stringify(optArmor(10)));
+    console.error("Validate ARMOR @lvl50:", JSON.stringify(optArmor(50)));
+  }
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

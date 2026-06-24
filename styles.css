@@ -191,6 +191,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .fp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .fp-card { --rc: var(--line); position: relative; background: linear-gradient(180deg, color-mix(in srgb, var(--rc) 13%, var(--bg-panel-2)), var(--bg-panel-2) 75%); border: 1px solid var(--line-soft); border-top: 3px solid var(--rc); border-radius: var(--radius); padding: 14px 10px 13px; text-align: center; transition: transform .15s, box-shadow .15s, border-color .15s; }
 .fp-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--rc) 45%, var(--line)); box-shadow: 0 5px 16px rgba(0,0,0,.32); }
+.fp-card.sel { border-color: var(--rc); box-shadow: 0 0 0 1px var(--rc), 0 4px 14px color-mix(in srgb, var(--rc) 30%, transparent); }
 .fp-card.unusual { --rc: #8f9d8a; }
 .fp-card.rare { --rc: #5b9bd6; }
 .fp-card.epic { --rc: #b06fd6; }

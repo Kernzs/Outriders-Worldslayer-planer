@@ -1055,10 +1055,14 @@
     const typeSel = el("select", "gear-select");
     for (const s of cfg.types()) { const o = el("option", null, kind === "weapon" ? typeLabel(s) : s); o.value = s; if (s === st.type) o.selected = true; typeSel.appendChild(o); }
     typeSel.onchange = () => { st.type = typeSel.value; renderUpgrade(kind); };
+    const raritySel = el("select", "gear-select");
+    for (const r of FP_RARITIES) { const o = el("option", null, r[0].toUpperCase() + r.slice(1)); o.value = r; if (r === st.rarity) o.selected = true; raritySel.appendChild(o); }
+    raritySel.onchange = () => { st.rarity = raritySel.value; renderUpgrade(kind); };
     const lvlSel = el("select", "gear-select");
     for (const m of cfg.curve(st.type).multipliers) { const o = el("option", null, "Level " + m.level); o.value = m.level; if (m.level == st.level) o.selected = true; lvlSel.appendChild(o); }
     lvlSel.onchange = () => { st.level = +lvlSel.value; renderUpgrade(kind); };
     ctrl.appendChild(fpField(cfg.typeLabel, typeSel));
+    ctrl.appendChild(fpField("Rarity", raritySel));
     ctrl.appendChild(fpField("Level", lvlSel));
     panel.appendChild(ctrl);
 
@@ -1066,20 +1070,13 @@
     const optWrap = el("div", "fp-section");
     optWrap.appendChild(el("div", "fp-section-h", `${cfg.optTitle} &mdash; level ${st.level}`));
     const grid = el("div", "fp-grid");
-    for (const r of FP_RARITIES) { const card = el("div", "fp-card " + r); card.innerHTML = `<div class="fp-rarity">${r}</div><div class="fp-val">~ ${opt ? opt[r].toLocaleString("en-US") : "—"}</div>`; grid.appendChild(card); }
+    for (const r of FP_RARITIES) { const card = el("div", "fp-card " + r + (r === st.rarity ? " sel" : "")); card.innerHTML = `<div class="fp-rarity">${r}</div><div class="fp-val">~ ${opt ? opt[r].toLocaleString("en-US") : "—"}</div>`; grid.appendChild(card); }
     optWrap.appendChild(grid);
     panel.appendChild(optWrap);
 
     const projWrap = el("div", "fp-section");
     projWrap.appendChild(el("div", "fp-section-h", cfg.project ? `Project a ${cfg.thing} to the item-level cap` : `Rate your ${cfg.noun} for its level`));
     const pc = el("div", "fp-controls");
-    let raritySel = null;
-    if (cfg.project) { // rarity only matters for the projection (its starting tier)
-      raritySel = el("select", "gear-select");
-      for (const r of FP_RARITIES) { const o = el("option", null, r[0].toUpperCase() + r.slice(1)); o.value = r; if (r === st.rarity) o.selected = true; raritySel.appendChild(o); }
-      raritySel.onchange = () => { st.rarity = raritySel.value; renderUpgrade(kind); };
-      pc.appendChild(fpField("Current rarity", raritySel));
-    }
     const valInput = el("input", "fp-input"); valInput.type = "number"; valInput.min = "0"; valInput.placeholder = kind === "armor" ? "e.g. 6000" : "e.g. 5000"; valInput.value = st.value;
     pc.appendChild(fpField("Current " + cfg.noun, valInput));
     projWrap.appendChild(pc);

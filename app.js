@@ -12,10 +12,9 @@
     {
       version: "1.14.0", date: "2026-06-24", title: "Weapon & Armor upgrade calculators",
       items: [
-        "New 'Weapon Upgrade' tab: pick a weapon type and level (10–75) to see the optimal firepower per rarity.",
-        "New 'Armor Upgrade' tab: same idea for armor (optimal armor per rarity, all slots).",
-        "Both let you enter a current value to project it to the item-level cap, with a quality tier gauge (NOT GREAT → USABLE → SOLID → EXCELLENT → GOD TIER → IMPOSSIBLE).",
-        "Model reproduced from the Outriders Outpost upgrade tool; values are approximate (matched to within ~0.1%).",
+        "New 'Weapon Upgrade' tab: pick a weapon type, rarity and level (10–75) for the optimal firepower per rarity; enter a weapon's current firepower to project it to the item-level cap and rate it on a quality gauge (NOT GREAT → GOD TIER).",
+        "New 'Armor Upgrade' tab: pick an armor slot, rarity and level for the optimal armor per rarity, and rate your current armor against it on the same gauge.",
+        "Both reproduce the Outriders Outpost upgrade tool; values are approximate (matched to within ~0.1%).",
       ],
     },
     {

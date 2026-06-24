@@ -948,18 +948,19 @@
   // ===== Firepower calculator (standalone tool; model from outriders.app) =====
   // Reproduces the site's weapon-upgrade math: the "optimal" firepower to aim
   // for at a given level + rarity, and the projection of a current firepower to
-  // the item-level cap. The archived curve stops at level 50 (pre-Worldslayer);
-  // FP_MAX_FACTOR is the measured Worldslayer extension (levels 51..cap),
-  // constant to within ~0.2%. Values are approximate (the site shows "~" too).
+  // the level-75 item cap. The curve (data) covers levels 10..75; the 51..75
+  // tail is a flat 1.1/level Worldslayer extension (see extract-weapon-firepower).
+  // Values are approximate (the site shows "~" too) — accurate to ~0.08%.
   const WF = D.weaponFirepower || {};
   const FP_TYPES = Object.keys(WF);
-  const FP_MAX_FACTOR = 10.837; // Worldslayer item-level extension (levels 51..cap), measured
   const FP_RARITIES = ["unusual", "rare", "epic", "legendary"]; // legendary == epic
   const fp = { type: FP_TYPES.includes("assault-rifle") ? "assault-rifle" : FP_TYPES[0], level: 30, rarity: "epic", value: "" };
   const typeLabel = (s) => s.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
   const fpFmt = (n) => (n >= 1e6 ? +(n / 1e6).toFixed(2) + "M" : n >= 1e3 ? +(n / 1e3).toFixed(1) + "K" : String(n));
 
-  function fpAe(t) { let base = 9e4 / t.epic / t.unusual; [...t.multipliers].reverse().forEach((e) => (base /= e.multiplier)); return Math.ceil(base); }
+  // Seed (level-1 firepower) anchored on firepower(50)=90000 — divide back only
+  // through the base-game curve (<=50), not the level 51..75 Worldslayer tail.
+  function fpAe(t) { let base = 9e4 / t.epic / t.unusual; t.multipliers.filter((e) => e.level <= 50).reverse().forEach((e) => (base /= e.multiplier)); return Math.ceil(base); }
   function fpOptimal(typeSlug, level) {
     const ar = WF["assault-rifle"], t = WF[typeSlug]; if (!ar || !t) return null;
     let r = fpAe(t);
@@ -971,9 +972,8 @@
   }
   function fpProject(typeSlug, level, rarity, value) {
     const t = WF[typeSlug]; if (!t || !(value > 0)) return null;
-    let r = value;
+    let r = value; // project up the curve (now reaching the level-75 cap) to max
     for (const e of t.multipliers) if (e.level > level) r = Math.round(r * e.multiplier);
-    r = Math.round(r * FP_MAX_FACTOR); // Worldslayer item-level extension (levels 51..cap)
     const out = {};
     if (rarity === "unusual") { out.unusual = r; out.rare = Math.round(r * t.unusual); out.epic = Math.round(r * t.unusual * t.epic); out.legendary = out.epic; }
     else if (rarity === "rare") { out.rare = r; out.epic = Math.round(r * t.epic); out.legendary = out.epic; }

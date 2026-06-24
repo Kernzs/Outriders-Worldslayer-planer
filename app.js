@@ -945,12 +945,110 @@
     }
   }
 
+  // ===== Firepower calculator (standalone tool; model from outriders.app) =====
+  // Reproduces the site's weapon-upgrade math: the "optimal" firepower to aim
+  // for at a given level + rarity, and the projection of a current firepower to
+  // the item-level cap. The archived curve stops at level 50 (pre-Worldslayer);
+  // FP_MAX_FACTOR is the measured Worldslayer extension (levels 51..cap),
+  // constant to within ~0.2%. Values are approximate (the site shows "~" too).
+  const WF = D.weaponFirepower || {};
+  const FP_TYPES = Object.keys(WF);
+  const FP_MAX_FACTOR = 10.08;
+  const FP_RARITIES = ["unusual", "rare", "epic", "legendary"]; // legendary == epic
+  const fp = { type: FP_TYPES.includes("assault-rifle") ? "assault-rifle" : FP_TYPES[0], level: 30, rarity: "epic", value: "" };
+  const typeLabel = (s) => s.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
+  const fpFmt = (n) => (n >= 1e6 ? +(n / 1e6).toFixed(2) + "M" : n >= 1e3 ? +(n / 1e3).toFixed(1) + "K" : String(n));
+
+  function fpAe(t) { let base = 9e4 / t.epic / t.unusual; [...t.multipliers].reverse().forEach((e) => (base /= e.multiplier)); return Math.ceil(base); }
+  function fpOptimal(typeSlug, level) {
+    const ar = WF["assault-rifle"], t = WF[typeSlug]; if (!ar || !t) return null;
+    let r = fpAe(t);
+    for (const e of ar.multipliers) {
+      r = Math.round(r * e.multiplier);
+      if (e.level == level) { const epic = Math.ceil(r * ar.unusual * ar.epic); return { unusual: Math.ceil(r), rare: Math.ceil(r * ar.unusual), epic, legendary: epic }; }
+    }
+    return null;
+  }
+  function fpProject(typeSlug, level, rarity, value) {
+    const t = WF[typeSlug]; if (!t || !(value > 0)) return null;
+    let r = value;
+    for (const e of t.multipliers) if (e.level > level) r = Math.round(r * e.multiplier);
+    r = Math.round(r * FP_MAX_FACTOR); // Worldslayer item-level extension (levels 51..cap)
+    const out = {};
+    if (rarity === "unusual") { out.unusual = r; out.rare = Math.round(r * t.unusual); out.epic = Math.round(r * t.unusual * t.epic); out.legendary = out.epic; }
+    else if (rarity === "rare") { out.rare = r; out.epic = Math.round(r * t.epic); out.legendary = out.epic; }
+    else if (rarity === "epic") { out.epic = r; out.legendary = r; }
+    else { out.legendary = r; }
+    return out;
+  }
+  function fpField(label, control) {
+    const f = el("div", "fp-field");
+    f.appendChild(el("label", "fp-label", esc(label)));
+    f.appendChild(control);
+    return f;
+  }
+  function renderFirepower() {
+    const panel = $("#panel-firepower"); if (!panel) return;
+    panel.innerHTML = "";
+    if (!FP_TYPES.length) { panel.appendChild(el("div", "empty-note", "Firepower data unavailable.")); return; }
+    const head = el("div", "section-head");
+    head.appendChild(el("div", null, `<h2>Firepower</h2><div class="hint">Optimal firepower to aim for at a level &amp; rarity, and what a weapon projects to at the cap. Values are approximate.</div>`));
+    panel.appendChild(head);
+
+    const ctrl = el("div", "fp-controls");
+    const typeSel = el("select", "gear-select");
+    for (const s of FP_TYPES) { const o = el("option", null, typeLabel(s)); o.value = s; if (s === fp.type) o.selected = true; typeSel.appendChild(o); }
+    typeSel.onchange = () => { fp.type = typeSel.value; renderFirepower(); };
+    const lvlSel = el("select", "gear-select");
+    for (const m of WF[fp.type].multipliers) { const o = el("option", null, "Level " + m.level); o.value = m.level; if (m.level == fp.level) o.selected = true; lvlSel.appendChild(o); }
+    lvlSel.onchange = () => { fp.level = +lvlSel.value; renderFirepower(); };
+    ctrl.appendChild(fpField("Weapon type", typeSel));
+    ctrl.appendChild(fpField("Level", lvlSel));
+    panel.appendChild(ctrl);
+
+    const opt = fpOptimal(fp.type, fp.level);
+    const optWrap = el("div", "fp-section");
+    optWrap.appendChild(el("div", "fp-section-h", `Optimal firepower &mdash; level ${fp.level}`));
+    const grid = el("div", "fp-grid");
+    for (const r of FP_RARITIES) { const card = el("div", "fp-card " + r); card.innerHTML = `<div class="fp-rarity">${r}</div><div class="fp-val">~ ${opt ? opt[r].toLocaleString("en-US") : "—"}</div>`; grid.appendChild(card); }
+    optWrap.appendChild(grid);
+    panel.appendChild(optWrap);
+
+    const projWrap = el("div", "fp-section");
+    projWrap.appendChild(el("div", "fp-section-h", "Project a weapon to the item-level cap"));
+    const pc = el("div", "fp-controls");
+    const raritySel = el("select", "gear-select");
+    for (const r of FP_RARITIES) { const o = el("option", null, r[0].toUpperCase() + r.slice(1)); o.value = r; if (r === fp.rarity) o.selected = true; raritySel.appendChild(o); }
+    raritySel.onchange = () => { fp.rarity = raritySel.value; renderFirepower(); };
+    const fpInput = el("input", "fp-input"); fpInput.type = "number"; fpInput.min = "0"; fpInput.placeholder = "e.g. 5000"; fpInput.value = fp.value;
+    pc.appendChild(fpField("Current rarity", raritySel));
+    pc.appendChild(fpField("Current firepower", fpInput));
+    projWrap.appendChild(pc);
+    const projGrid = el("div", "fp-grid");
+    projWrap.appendChild(projGrid);
+    panel.appendChild(projWrap);
+
+    const updateProj = () => {
+      const proj = fpProject(fp.type, fp.level, fp.rarity, +fp.value);
+      projGrid.innerHTML = "";
+      if (!proj) { projGrid.appendChild(el("div", "fp-empty", "Enter your weapon's current firepower to project it to the cap.")); return; }
+      for (const r of FP_RARITIES) {
+        if (proj[r] == null) continue;
+        const card = el("div", "fp-card " + r);
+        card.innerHTML = `<div class="fp-rarity">${r} max</div><div class="fp-val">${fpFmt(proj[r])}</div><div class="fp-sub">${proj[r].toLocaleString("en-US")}</div>`;
+        projGrid.appendChild(card);
+      }
+    };
+    fpInput.oninput = () => { fp.value = fpInput.value; updateProj(); };
+    updateProj();
+  }
+
   // ===== Tabs =====
   function initTabs() {
     $("#tabs").addEventListener("click", (e) => {
       const t = e.target.closest(".tab"); if (!t) return;
       document.querySelectorAll(".tab").forEach((x) => x.classList.toggle("is-active", x === t));
-      for (const p of ["tree", "pax", "ascension", "loadout"]) $("#panel-" + p).classList.toggle("hidden", p !== t.dataset.tab);
+      for (const p of ["tree", "pax", "ascension", "loadout", "firepower"]) $("#panel-" + p).classList.toggle("hidden", p !== t.dataset.tab);
       $(".layout").classList.toggle("full-tree", t.dataset.tab === "tree");
     });
   }
@@ -1224,6 +1322,7 @@
     loadClass();
     $(".layout").classList.add("full-tree"); // Class Tree is the default tab
     render();
+    renderFirepower(); // standalone tool; independent of the current build
     if (new URLSearchParams(location.search).get("recap")) openRecap(); // shared recap link
     else openChangelog(false);
   }

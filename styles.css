@@ -180,6 +180,25 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .stepper-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); width: 0; transition: .15s; }
 .stepper-count { width: 38px; text-align: right; font-size: 12px; color: var(--txt-dim); font-variant-numeric: tabular-nums; }
 
+/* ---- Firepower calculator ---- */
+.fp-controls { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+.fp-field { flex: 1 1 200px; display: flex; flex-direction: column; gap: 5px; }
+.fp-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--txt-faint); }
+.fp-input { width: 100%; font: inherit; font-size: 12.5px; padding: 8px; background: var(--bg-elev); color: var(--txt); border: 1px solid var(--line); border-radius: 3px; }
+.fp-input:focus { outline: none; border-color: var(--accent); }
+.fp-section { margin-top: 18px; }
+.fp-section-h { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; }
+.fp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.fp-card { background: var(--bg-panel-2); border: 1px solid var(--line-soft); border-top: 3px solid var(--line); border-radius: var(--radius); padding: 12px 10px; text-align: center; }
+.fp-card.unusual { border-top-color: #8f9d8a; }
+.fp-card.rare { border-top-color: #5b9bd6; }
+.fp-card.epic { border-top-color: #b06fd6; }
+.fp-card.legendary { border-top-color: var(--accent); }
+.fp-rarity { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-faint); margin-bottom: 6px; }
+.fp-val { font-size: 22px; font-weight: 800; color: var(--txt); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.fp-sub { font-size: 11px; color: var(--txt-dim); margin-top: 3px; font-variant-numeric: tabular-nums; }
+.fp-empty { grid-column: 1 / -1; color: var(--txt-faint); font-size: 12.5px; font-style: italic; padding: 6px 0; }
+
 /* ---- Loadout / gear ---- */
 .loadout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .gear-slot { background: var(--bg-panel-2); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 12px; }

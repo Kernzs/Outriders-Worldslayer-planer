@@ -36,10 +36,14 @@ for (const cls of CLASSES) {
   };
 }
 
+let weaponFirepower = {};
+try { weaponFirepower = read("weapon-firepower.json"); } catch {}
+
 const DATA = {
   weapons: read("legendary-weapons.json"),  // universal
   mods: read("mods.json"),                   // universal weapon/armor mods (+ class skill mods)
   ascension: read("ascension.json"),         // universal
+  weaponFirepower,                            // per-type firepower model (outriders.app)
   classes,
 };
 

@@ -1000,27 +1000,47 @@
     else { out.legendary = r; }
     return out;
   }
-  // Quality tier by ratio to the level's epic optimal. Thresholds measured against
-  // the live weapon tool; reused for armor (same item-level system).
-  const FP_TIERS = [
-    { max: 0.85, label: "NOT GREAT", cls: "bad" },
-    { max: 0.90, label: "USABLE", cls: "ok" },
-    { max: 0.95, label: "SOLID", cls: "ok" },
-    { max: 1.00, label: "EXCELLENT", cls: "good" },
-    { max: 1.05, label: "GOD TIER", cls: "god" },
-    { max: Infinity, label: "IMPOSSIBLE", cls: "bad" },
+  // Quality tier by ratio to the level's epic optimal. Weapon and armor use
+  // DIFFERENT thresholds/labels — both measured by sweeping the live tools.
+  // Each entry: { max ratio, label, cls (colour bucket), c (gauge segment colour) }.
+  const WEAPON_TIERS = [
+    { max: 0.85, label: "NOT GREAT", cls: "bad", c: "#8a4f4a" },
+    { max: 0.90, label: "USABLE", cls: "ok", c: "#b07f2e" },
+    { max: 0.95, label: "SOLID", cls: "ok", c: "#cf9a38" },
+    { max: 1.00, label: "EXCELLENT", cls: "good", c: "#3f9b91" },
+    { max: 1.05, label: "GOD TIER", cls: "god", c: "#e8a33d" },
+    { max: Infinity, label: "IMPOSSIBLE", cls: "bad", c: "#b14d44" },
   ];
+  const ARMOR_TIERS = [
+    { max: 0.95, label: "NOT GREAT", cls: "bad", c: "#8a4f4a" },
+    { max: 1.00, label: "USABLE", cls: "ok", c: "#b07f2e" },
+    { max: 1.05, label: "GOOD", cls: "ok", c: "#cf9a38" },
+    { max: 1.10, label: "EXCELLENT", cls: "good", c: "#3f9b91" },
+    { max: 1.125, label: "GOD TIER", cls: "god", c: "#e8a33d" },
+    { max: Infinity, label: "IMPOSSIBLE", cls: "bad", c: "#b14d44" },
+  ];
+  // Gauge scale [lo, hi] per kind — frames the tier band sensibly around 1.0.
+  const TIER_GRID = {
+    weapon: { tiers: WEAPON_TIERS, lo: 0.70, hi: 1.10 },
+    armor: { tiers: ARMOR_TIERS, lo: 0.80, hi: 1.20 },
+  };
   function tierFor(kind, value, typeSlug, level) {
     const opt = optimalFor(kind, typeSlug, level); if (!opt || !(value > 0)) return null;
     const ratio = value / opt.epic;
-    const t = FP_TIERS.find((x) => ratio < x.max) || FP_TIERS[FP_TIERS.length - 1];
+    const tiers = TIER_GRID[kind].tiers;
+    const t = tiers.find((x) => ratio < x.max) || tiers[tiers.length - 1];
     return { label: t.label, cls: t.cls, ratio, pct: Math.round(ratio * 100) };
   }
-  // Segmented quality gauge: the six tiers on a 0.70..1.10 ratio scale + a cursor.
-  const FP_GAUGE = [["NOT GREAT", 37.5, "#8a4f4a"], ["USABLE", 12.5, "#b07f2e"], ["SOLID", 12.5, "#cf9a38"], ["EXCELLENT", 12.5, "#3f9b91"], ["GOD TIER", 12.5, "#e8a33d"], ["IMPOSSIBLE", 12.5, "#b14d44"]];
-  function fpGaugeHtml(tier, level) {
-    const pos = Math.max(0, Math.min(100, ((tier.ratio - 0.70) / 0.40) * 100));
-    const segs = FP_GAUGE.map(([l, w, c]) => `<div class="fp-seg" style="flex:0 0 ${w}%;background:${c}" title="${l}"></div>`).join("");
+  // Segmented quality gauge: the tiers laid out on the kind's ratio scale + a cursor.
+  function fpGaugeHtml(kind, tier, level) {
+    const g = TIER_GRID[kind], span = g.hi - g.lo;
+    let prev = g.lo;
+    const segs = g.tiers.map((t) => {
+      const top = isFinite(t.max) ? t.max : g.hi;
+      const w = Math.max(0, ((top - prev) / span) * 100); prev = top;
+      return `<div class="fp-seg" style="flex:0 0 ${w.toFixed(2)}%;background:${t.c}" title="${t.label}"></div>`;
+    }).join("");
+    const pos = Math.max(0, Math.min(100, ((tier.ratio - g.lo) / span) * 100));
     return `<div class="fp-gauge">${segs}<div class="fp-cursor" style="left:${pos.toFixed(1)}%"></div></div>`
       + `<div class="fp-tier-line"><span class="fp-tier ${tier.cls}">${tier.label}</span><span class="fp-tier-sub">${tier.pct}% of the level-${level} optimal</span></div>`;
   }
@@ -1105,7 +1125,7 @@
         }
       }
       const tier = tierFor(kind, val, st.type, st.level);
-      if (tier) tierBox.innerHTML = fpGaugeHtml(tier, st.level);
+      if (tier) tierBox.innerHTML = fpGaugeHtml(kind, tier, st.level);
     };
     valInput.oninput = () => { st.value = valInput.value; updateProj(); };
     updateProj();

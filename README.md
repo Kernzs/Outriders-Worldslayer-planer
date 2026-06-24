@@ -21,10 +21,12 @@ All data is bundled into a single JS file so it runs from a plain file or any st
 - **Class switch** — pick any of the 4 classes; trees, PAX, skills and class gear swap live.
   Ascension and weapons are universal and kept across classes.
 - **Class Tree** — the real visual layout (background image + nodes positioned on the drawn
-  circles, two node sizes), clickable with prerequisite enforcement and a 20-point budget.
+  circles, two node sizes), clickable with prerequisite enforcement, cascade removal
+  (deselecting a node drops everything that relied on it to reach the core) and a 20-point budget.
   A "Show stats" toggle lists every numeric bonus from the build.
 - **PAX Trees** — fully clickable on the in-game tree image for every class (both branches),
-  with node icons, prerequisite gating + cascade removal, and a 5-point budget.
+  with node icons, drawn links between nodes (lit when both ends are taken),
+  prerequisite gating + cascade removal, and a 5-point budget.
 - **Ascension** — 4 categories × 5 nodes, 0–10 points each (Shift+click to fill/clear a node),
   200 total. Values reach each node's stated max at 10/10 (intermediate values are a linear
   estimate — the game's per-level curve isn't documented).
@@ -38,8 +40,9 @@ All data is bundled into a single JS file so it runs from a plain file or any st
 - **Active skills** — pick up to 3.
 - **Build Summary** — live aggregated stats (tree + ascension) and every active effect
   (hover an effect to read exactly what it does).
-- **Share** — the whole build is encoded compactly in the URL hash (~100 chars);
-  "Copy build link" copies it.
+- **Share** — the whole build is encoded in the URL hash and "Copy build link"
+  copies a short link. Gear and mods are encoded **by name**, so adding or
+  reordering items in the data never breaks links shared earlier.
 - **What's new** popup — collapsible changelog, latest version expanded; shown once per
   version (driven by the in-app `CHANGELOG` in `app.js`).
 - **Links** — GitHub repo and every data source are linked from the header/footer.
@@ -51,8 +54,8 @@ Produced by the scripts in `scripts/`:
 
 | Script | Output | Source |
 |---|---|---|
-| `extract-mods.mjs` | `mods.json` (477: weapon, armor + each class's skill mods) | Fandom MediaWiki API |
-| `extract-gear.mjs` | `legendary-weapons.json` (63), `classes/<cls>.armor.json` | Fandom API |
+| `extract-mods.mjs` | `mods.json` (479: weapon, armor + each class's skill mods) | Fandom MediaWiki API (every `Infobox mod` page) |
+| `extract-gear.mjs` | `legendary-weapons.json` (63), `classes/<cls>.armor.json` | Fandom API (every `Infobox armor`/`weapon` page, filtered to Legendary) |
 | `extract-skilltree.mjs` | `classes/<cls>.skilltree.json` (nodes + x/y coords) | Breadbuilder `main.js` + Fandom (branch names) |
 | `extract-skills.mjs` | `classes/<cls>.skills.json` | Breadbuilder `main.js` |
 | `extract-pax.mjs` | `classes/<cls>.pax.json` (Pyro/Trick/Dev) | GamerGuides PAX skill lists |

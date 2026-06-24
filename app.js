@@ -7,8 +7,20 @@
   const D = window.OUTRIDERS_DATA;
 
   // ---- App version + changelog (drives the "What's new" popup) ----
-  const APP_VERSION = "1.12.1";
+  const APP_VERSION = "1.13.0";
   const CHANGELOG = [
+    {
+      version: "1.13.0", date: "2026-06-24", title: "Share links that don't break",
+      note: "Sorry — build links shared before this version will open empty. The previous format broke whenever I added or reordered gear, which is exactly what happened last update. Links are now tied to item names instead of list positions, so from this version on a shared build stays valid for good, even as more gear and mods get added. Please re-copy and re-share any build you saved earlier.",
+      items: [
+        "Build links are now encoded by name instead of list position, so adding, removing or reordering legendaries and mods no longer breaks previously shared builds.",
+        "Added 3 missing armor mods: Unstoppable Force, Even Odds and Life and Death (mods are now read from every mod page, not just a few categories).",
+        "Fixed the class tree: deselecting a node now correctly removes every downstream node that relied on it to reach the core (cascade), instead of leaving them stranded.",
+        "PAX trees now draw the links between nodes (and light them up when both ends are taken), like the class tree — the background image didn't show them.",
+        "Corrected the PAX middle path: it branches off the shared trunk's converge node (not off the top/bottom paths), for every archetype.",
+        "Tree links no longer draw across node icons (class tree and PAX) — they stop cleanly at each node's edge.",
+      ],
+    },
     {
       version: "1.12.0", date: "2026-06-23", title: "Auto-shortened share links",
       patches: [
@@ -161,11 +173,16 @@
   let dupMods = new Set();   // mod names equipped more than once (recomputed each render)
 
   // ---- Class-specific data ----
-  let TREE = [], treeById = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
+  let TREE = [], treeById = {}, treeAdj = {}, BRANCHES = [], SKILLS = [], PAXDATA = { branches: [] }, ARMOR = [];
   function loadClass() {
     const c = D.classes[state.cls];
     TREE = c.skilltree.nodes;
     treeById = Object.fromEntries(TREE.map((n) => [n.id, n]));
+    // Undirected adjacency: the data lists neighbours in `prereqs` (links go
+    // both ways), so symmetrise them. Used for availability + reachability.
+    treeAdj = {};
+    const link = (a, b) => (treeAdj[a] || (treeAdj[a] = new Set())).add(b);
+    for (const n of TREE) for (const p of n.prereqs || []) { link(n.id, p); link(p, n.id); }
     BRANCHES = c.skilltree._meta.branches;
     SKILLS = c.skills.skills;
     PAXDATA = c.pax;
@@ -184,20 +201,21 @@
   // ===== Skill tree logic =====
   function nodeAvailable(n) {
     if (n.id === 0) return true;
-    if (n.prereqs.includes(0)) return true;
-    return n.prereqs.some((p) => state.tree.has(p));
+    return [...(treeAdj[n.id] || [])].some((p) => state.tree.has(p));
   }
+  // A node is valid only while it stays connected to the root (0) through other
+  // selected nodes. After a deselection, drop every selected node that can no
+  // longer reach the root (cascade), via a BFS over the selected sub-graph.
   function pruneTree() {
-    let changed = true;
-    while (changed) {
-      changed = false;
-      for (const id of [...state.tree]) {
-        if (id === 0) continue;
-        const n = treeById[id];
-        const supported = n.prereqs.includes(0) || n.prereqs.some((p) => state.tree.has(p) && p !== id);
-        if (!supported) { state.tree.delete(id); changed = true; }
+    const reachable = new Set([0]);
+    const stack = [0];
+    while (stack.length) {
+      const cur = stack.pop();
+      for (const nb of treeAdj[cur] || []) {
+        if (state.tree.has(nb) && !reachable.has(nb)) { reachable.add(nb); stack.push(nb); }
       }
     }
+    for (const id of [...state.tree]) if (id !== 0 && !reachable.has(id)) state.tree.delete(id);
   }
   function toggleTreeNode(id) {
     if (id === 0) return;
@@ -363,27 +381,20 @@
     const bg = el("img", "tree-bg"); bg.src = `assets/skilltrees/${state.cls}.webp`; bg.alt = "";
     stage.appendChild(bg);
 
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "tree-edges");
-    svg.setAttribute("viewBox", `0 0 ${TREE_W} ${TREE_H}`);
-    svg.setAttribute("preserveAspectRatio", "none");
-    const drawn = new Set();
+    const tEdges = [], tHoles = [], drawn = new Set();
     for (const n of TREE) {
       if (n.x == null) continue;
+      const a = nodeCenter(n);
+      tHoles.push({ x: a.cx, y: a.cy, r: (NODE_PX[n.kind] ?? 42) / 2 + 2 });
       for (const p of n.prereqs) {
         const pr = treeById[p]; if (!pr || pr.x == null) continue;
         const key = Math.min(n.id, p) + "-" + Math.max(n.id, p);
         if (drawn.has(key)) continue; drawn.add(key);
-        const both = state.tree.has(n.id) && state.tree.has(p);
-        const a = nodeCenter(n), b = nodeCenter(pr);
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", a.cx); line.setAttribute("y1", a.cy);
-        line.setAttribute("x2", b.cx); line.setAttribute("y2", b.cy);
-        line.setAttribute("class", "edge" + (both ? " on" : ""));
-        svg.appendChild(line);
+        const b = nodeCenter(pr);
+        tEdges.push({ x1: a.cx, y1: a.cy, x2: b.cx, y2: b.cy, on: state.tree.has(n.id) && state.tree.has(p) });
       }
     }
-    stage.appendChild(svg);
+    stage.appendChild(edgesSvg(TREE_W, TREE_H, tEdges, tHoles, "tree-edge-mask"));
 
     for (const n of TREE) {
       if (n.x == null) continue;
@@ -455,8 +466,9 @@
   }
 
   // All PAX branches share one lattice: a universal diamond (entry -> two
-  // parallels -> converge) then top/middle/bottom paths; the middle path is
-  // reached from the top/bottom branch point. Prereqs are derived by position.
+  // parallels -> converge) then THREE paths (top/middle/bottom) that each branch
+  // straight off the converge node. The middle path is a child of the converge
+  // node, not of the top/bottom paths. Prereqs are derived by position.
   function paxPrereqMap(branch) {
     const g = { universal: [], top: [], middle: [], bottom: [] };
     for (const n of branch.nodes) (g[n.path] || (g[n.path] = [])).push(n.name);
@@ -469,24 +481,58 @@
     set(U[3], [U[1], U[2]]);       // converge
     set(T[0], [U[3]]); set(T[1], [T[0]]);
     set(B[0], [U[3]]); set(B[1], [B[0]]);
-    set(M[0], [U[3], T[0], B[0]]); set(M[1], [M[0]]); // middle opens from the converge node or either path start
+    set(M[0], [U[3]]); set(M[1], [M[0]]); // middle branches off the converge node too
 
     return m;
   }
-  // Edges actually DRAWN in the recap mini-tree. Same lattice as the prereq map
-  // EXCEPT the converge->middle shortcut: middle is reached through the
-  // top/bottom diamond, so a converge->middle line would be a phantom edge.
-  // (Gating keeps that shortcut so the middle path stays clickable from converge.)
+  // Edges drawn on the tree / recap mini-tree — same lattice as the prereq map:
+  // top, middle and bottom each branch directly off the converge node.
   function paxVisualEdges(branch) {
     const g = { universal: [], top: [], middle: [], bottom: [] };
     for (const n of branch.nodes) (g[n.path] || (g[n.path] = [])).push(n.name);
     const { universal: U, top: T = [], middle: M = [], bottom: B = [] } = g;
     const pairs = [
       [U[0], U[1]], [U[0], U[2]], [U[1], U[3]], [U[2], U[3]],
-      [U[3], T[0]], [U[3], B[0]], [T[0], T[1]], [B[0], B[1]],
-      [T[0], M[0]], [B[0], M[0]], [M[0], M[1]],
+      [U[3], T[0]], [U[3], M[0]], [U[3], B[0]],
+      [T[0], T[1]], [M[0], M[1]], [B[0], B[1]],
     ];
     return pairs.filter(([a, b]) => a && b);
+  }
+
+  // Build the <svg> of edges for a tree. `holes` punch the node discs out of a
+  // mask so links never draw across a node icon — they stop at its edge, like
+  // in-game. edges: {x1,y1,x2,y2,on}. holes: {x,y,r}.
+  function edgesSvg(vw, vh, edges, holes, maskId) {
+    const NS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("class", "tree-edges");
+    svg.setAttribute("viewBox", `0 0 ${vw} ${vh}`);
+    svg.setAttribute("preserveAspectRatio", "none");
+    const defs = document.createElementNS(NS, "defs");
+    const mask = document.createElementNS(NS, "mask");
+    mask.setAttribute("id", maskId);
+    mask.setAttribute("maskUnits", "userSpaceOnUse");
+    const bg = document.createElementNS(NS, "rect");
+    bg.setAttribute("x", 0); bg.setAttribute("y", 0); bg.setAttribute("width", vw); bg.setAttribute("height", vh);
+    bg.setAttribute("fill", "white");
+    mask.appendChild(bg);
+    for (const h of holes) {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", h.x); c.setAttribute("cy", h.y); c.setAttribute("r", h.r);
+      c.setAttribute("fill", "black");
+      mask.appendChild(c);
+    }
+    defs.appendChild(mask); svg.appendChild(defs);
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("mask", `url(#${maskId})`);
+    for (const e of edges) {
+      const line = document.createElementNS(NS, "line");
+      line.setAttribute("x1", e.x1); line.setAttribute("y1", e.y1); line.setAttribute("x2", e.x2); line.setAttribute("y2", e.y2);
+      line.setAttribute("class", "edge" + (e.on ? " on" : ""));
+      g.appendChild(line);
+    }
+    svg.appendChild(g);
+    return svg;
   }
   const paxKey = (branch, name) => branch.name + "::" + name;
   function paxAvailable(branch, name, prMap) {
@@ -521,6 +567,25 @@
     const stage = el("div", "tree-stage pax-stage");
     const bg = el("img", "tree-bg"); bg.src = `assets/paxtrees/${state.cls}.jpg`; bg.alt = "";
     stage.appendChild(bg);
+
+    // Draw the links between nodes ourselves (like the class tree), so they're
+    // always visible and light up when both ends are selected — the background
+    // image alone doesn't show them clearly.
+    const pEdges = [], pHoles = [];
+    PAXDATA.branches.forEach((branch) => {
+      const byName = {};
+      branch.nodes.forEach((n) => (byName[n.name] = n));
+      const bigSet = paxBigSet(branch);
+      for (const n of branch.nodes) if (n.x != null) pHoles.push({ x: n.x, y: n.y, r: (bigSet.has(n.name) ? PAX_BIG_PX : PAX_SMALL_PX) / 2 + 2 });
+      for (const [a, b] of paxVisualEdges(branch)) {
+        const na = byName[a], nb = byName[b];
+        if (!na || !nb || na.x == null || nb.x == null) continue;
+        const on = state.pax.has(paxKey(branch, a)) && state.pax.has(paxKey(branch, b));
+        pEdges.push({ x1: na.x, y1: na.y, x2: nb.x, y2: nb.y, on });
+      }
+    });
+    stage.appendChild(edgesSvg(PAX_NAT_W, PAX_NAT_H, pEdges, pHoles, "pax-edge-mask"));
+
     PAXDATA.branches.forEach((branch, bi) => {
       const prMap = paxPrereqMap(branch);
       const bigSet = paxBigSet(branch);
@@ -908,10 +973,14 @@
     return short;
   }
 
-  // ===== Share via URL hash (compact, index-based) =====
-  // Everything is stored as indices into the data arrays instead of full names,
-  // then base64url-encoded — keeps shared links short.
-  const HASH_FMT = 2;
+  // ===== Share via URL hash =====
+  // The VOLATILE catalog (gear items + mods) is stored by NAME, so adding,
+  // removing or reordering legendaries/mods never shifts a shared build — old
+  // links keep resolving. Structural class data that we don't re-extract (tree
+  // node ids, pax/ascension keys, skills) stays index-based to keep links short.
+  // base64url-encoded. (FMT 2 and earlier were fully index-based and broke on
+  // any catalog change; those links are intentionally ignored.)
+  const HASH_FMT = 3;
   const GEAR_ORDER = [...WEAPON_SLOTS.map((w) => w.key), ...ARMOR_SLOTS];
   const b64e = (s) => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   const b64d = (s) => decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))));
@@ -920,23 +989,18 @@
   const paxFlatKeys = () => D.classes[state.cls].pax.branches.flatMap((b) => b.nodes.map((n) => b.name + "::" + n.name));
   const ascFlatKeys = () => D.ascension.categories.flatMap((c) => c.nodes.map((n) => c.name + "::" + n.name));
   const skillNames = () => D.classes[state.cls].skills.skills.map((s) => s.name);
-  const modIdx = (n) => D.mods.findIndex((m) => m.name === n);
-  const modNm = (i) => D.mods[i]?.name || "";
+  const modOk = (n) => !!n && D.mods.some((m) => m.name === n);
 
+  // Gear is encoded by NAME (item, mods, type, variant, attrs) — never by index.
   function encGear(k) {
     const g = state.gear[k];
     if (!g.item) return 0;
     const w = isWeaponSlot(k);
     if (g.item === EPIC) {
-      const pool = w ? weaponAttrPool() : armorAttrPool();
-      const ti = w ? ALL_TYPES.indexOf(g.type) : -1;
-      const vi = w && g.type ? (VARIANTS_BY_TYPE[g.type] || []).indexOf(g.variant) : -1;
-      return [1, ti, vi, g.attrs.filter(Boolean).map((a) => pool.indexOf(a)).filter((i) => i >= 0), g.mods.filter(Boolean).map(modIdx).filter((i) => i >= 0)];
+      return [1, w ? (g.type || "") : "", w ? (g.variant || "") : "",
+        g.attrs.filter(Boolean), g.mods.filter(Boolean)];
     }
-    return [2, slotItems(k).findIndex((x) => x.name === g.item),
-      g.factory[0] != null ? modIdx(g.factory[0]) : -1,
-      g.factory[1] != null ? modIdx(g.factory[1]) : -1,
-      g.mods[0] ? modIdx(g.mods[0]) : -1];
+    return [2, g.item, g.factory[0] || "", g.factory[1] || "", g.mods[0] || ""];
   }
   function decGear(k, e) {
     const g = blankGear();
@@ -944,16 +1008,18 @@
     const w = isWeaponSlot(k);
     if (e[0] === 1) {
       g.item = EPIC;
-      g.type = w && e[1] >= 0 ? ALL_TYPES[e[1]] : "";
-      g.variant = w && g.type && e[2] >= 0 ? (VARIANTS_BY_TYPE[g.type] || [])[e[2]] || "" : "";
+      if (w) {
+        g.type = ALL_TYPES.includes(e[1]) ? e[1] : "";
+        g.variant = g.type && (VARIANTS_BY_TYPE[g.type] || []).includes(e[2]) ? e[2] : "";
+      }
       const pool = w ? weaponAttrPool() : armorAttrPool();
-      g.attrs = (e[3] || []).map((i) => pool[i]).filter(Boolean);
-      g.mods = (e[4] || []).map(modNm).filter(Boolean);
+      g.attrs = (e[3] || []).filter((a) => pool.includes(a));
+      g.mods = (e[4] || []).filter(modOk);
     } else if (e[0] === 2) {
-      g.item = slotItems(k)[e[1]]?.name || "";
-      if (e[2] >= 0) g.factory[0] = modNm(e[2]);
-      if (e[3] >= 0) g.factory[1] = modNm(e[3]);
-      if (e[4] >= 0) g.mods[0] = modNm(e[4]);
+      g.item = slotItems(k).some((x) => x.name === e[1]) ? e[1] : "";
+      if (modOk(e[2])) g.factory[0] = e[2];
+      if (modOk(e[3])) g.factory[1] = e[3];
+      if (modOk(e[4])) g.mods[0] = e[4];
     }
     return g;
   }
@@ -1006,6 +1072,7 @@
       const head = el("button", "cl-head", `<span class="cl-ver">v${entry.version} · ${entry.date} — ${esc(entry.title)}</span><span class="cl-caret">▾</span>`);
       head.onclick = () => sec.classList.toggle("open");
       const bodyEl = el("div", "cl-body");
+      if (entry.note) bodyEl.appendChild(el("div", "cl-note", `<strong>Breaking change</strong> ${esc(entry.note)}`));
       for (const p of entry.patches || []) { // patches first (newer than the minor release)
         const pb = el("div", "cl-patch");
         pb.innerHTML = `<div class="cl-patch-ver">v${p.version} · ${p.date}</div>`;

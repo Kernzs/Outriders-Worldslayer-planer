@@ -357,6 +357,8 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .cl-entry.open .cl-body { display: block; }
 .cl-list { margin: 0; padding-left: 18px; }
 .cl-list li { font-size: 12.5px; color: var(--txt-dim); margin-bottom: 5px; line-height: 1.45; }
+.cl-note { border: 1px solid rgba(232,163,61,.45); border-left: 3px solid var(--accent); background: rgba(232,163,61,.08); border-radius: 6px; padding: 10px 12px; margin-bottom: 12px; font-size: 12.5px; line-height: 1.5; color: var(--accent-2); }
+.cl-note strong { display: block; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; color: var(--accent); margin-bottom: 4px; }
 .cl-patch { border-left: 2px solid var(--line); padding-left: 10px; margin-bottom: 8px; }
 .cl-patch-ver { font-size: 10.5px; letter-spacing: .04em; color: var(--accent-2); margin-bottom: 4px; font-weight: 600; }
 .modal .btn { width: 100%; margin-top: 12px; }

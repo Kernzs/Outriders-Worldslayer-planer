@@ -452,7 +452,7 @@
     "tier": 1,
     "type": "Devastator",
     "scope": "devastator",
-    "description": "Earthquake: Increases the skill's range by 60%.",
+    "description": "Earthquake: Increases the skills range by 60%.",
     "source": "This mod can be found on upper armor."
   },
   {
@@ -1776,6 +1776,14 @@
     "source": null
   },
   {
+    "name": "Even Odds",
+    "tier": 2,
+    "type": "Universal",
+    "scope": "armor",
+    "description": "Increases your Max Health by 10% for each enemy within a 10 meter radius around you. Stacks up to 3 times.",
+    "source": ""
+  },
+  {
     "name": "Exposing Strike",
     "tier": 2,
     "type": "Armor",
@@ -3032,6 +3040,14 @@
     "source": "Gauntlets of the Flame Leper"
   },
   {
+    "name": "Life and Death",
+    "tier": 3,
+    "type": "Armor/Weapon/Class",
+    "scope": "armor",
+    "description": "Killing shots create a blast that restores 33% of Max Health to players. (Cooldown: 3s)",
+    "source": "*Enoch's Blessing"
+  },
+  {
     "name": "Life Drain",
     "tier": 3,
     "type": "Trickster",
@@ -3734,6 +3750,14 @@
     "scope": "armor",
     "description": "Being afflicted by any status grants 216,696 Armor and 4% of Resistance every 1 second. Stacks 5 times.",
     "source": "* Helm of the Martyr"
+  },
+  {
+    "name": "Unstoppable Force",
+    "tier": 3,
+    "type": "Universal",
+    "scope": "armor",
+    "description": "Increases your Anomaly Power by 50% of your Resistance Piercing.",
+    "source": "This mod can be found on the Hands of the Reforged Legendary Gloves."
   },
   {
     "name": "Vaccinated",

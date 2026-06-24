@@ -5,14 +5,24 @@ import { writeFileSync, mkdirSync } from "node:fs";
 const API = "https://outriders.fandom.com/api.php";
 const UA = "Mozilla/5.0 BuildPlannerBot (personal build-planner project)";
 
-const CATEGORIES = [
-  { cat: "Technomancer_Mods", scope: "technomancer" },
-  { cat: "Pyromancer_Mods", scope: "pyromancer" },
-  { cat: "Trickster_Mods", scope: "trickster" },
-  { cat: "Devastator_Mods", scope: "devastator" },
-  { cat: "Weapon_Mods", scope: "weapon" },
-  { cat: "Armor_Mods", scope: "armor" },
-];
+// The app groups mods by `scope`: one of the four classes (skill mods), "weapon"
+// or "armor". We derive it from the infobox `type` field rather than from
+// categories, because some mods (e.g. Universal armor mods like Unstoppable
+// Force) aren't filed under any of the per-kind categories.
+const TYPE_TO_SCOPE = {
+  technomancer: "technomancer", pyromancer: "pyromancer",
+  trickster: "trickster", devastator: "devastator",
+  weapon: "weapon", armor: "armor",
+  universal: "armor", // Universal mods are armor mods usable by every class
+};
+function scopeFromType(type) {
+  if (!type) return null;
+  const key = type.trim().toLowerCase();
+  if (TYPE_TO_SCOPE[key]) return TYPE_TO_SCOPE[key];
+  // Multi-slot oddities like "Armor/Weapon/Class" -> armor (broadest pool).
+  if (/armor|weapon|class/.test(key)) return "armor";
+  return null; // placeholder/doc pages (e.g. type "Type") -> skip
+}
 
 async function api(params) {
   const url = `${API}?${new URLSearchParams({ format: "json", formatversion: "2", ...params })}`;
@@ -34,6 +44,22 @@ async function categoryMembers(cat) {
     });
     for (const m of data.query.categorymembers) if (m.ns === 0) titles.push(m.title);
     cont = data.continue?.cmcontinue;
+  } while (cont);
+  return titles;
+}
+
+// Every page using the mod infobox, regardless of category.
+async function embeddedin(template) {
+  const titles = [];
+  let cont;
+  do {
+    const data = await api({
+      action: "query", list: "embeddedin",
+      eititle: template, einamespace: "0", eilimit: "500",
+      ...(cont ? { eicontinue: cont } : {}),
+    });
+    for (const m of data.query.embeddedin) titles.push(m.title);
+    cont = data.continue?.eicontinue;
   } while (cont);
   return titles;
 }
@@ -106,30 +132,27 @@ const apos = (s) => s.replace(/[‘’]/g, "'"); // normalise curly apostrophes
 
 async function main() {
   const mods = [];
-  const seen = new Set();
   const seenNames = new Set(); // dedupe wiki duplicates (e.g. Earth's Legacy with two apostrophes)
-  for (const { cat, scope } of CATEGORIES) {
-    const titles = await categoryMembers(cat);
-    console.error(`${cat}: ${titles.length} pages`);
-    const contents = await fetchContents(titles);
-    for (const title of titles) {
-      if (seen.has(title)) continue; // a mod can appear in multiple categories
-      seen.add(title);
-      const wt = contents[title] || "";
-      if (!/\{\{Infobox mod/i.test(wt)) continue; // skip non-mod pages
-      const name = apos(title);
-      const key = scope + "::" + name;
-      if (seenNames.has(key)) continue; // duplicate (apostrophe variant)
-      seenNames.add(key);
-      mods.push({
-        name,
-        tier: parseTier(getTemplateField(wt, "tier")),
-        type: getTemplateField(wt, "type"),
-        scope, // which category we first found it in
-        description: extractSummary(wt),
-        source: extractSource(wt),
-      });
-    }
+  const titles = await embeddedin("Template:Infobox mod");
+  console.error(`Infobox mod pages: ${titles.length}`);
+  const contents = await fetchContents(titles);
+  for (const title of titles) {
+    const wt = contents[title] || "";
+    if (!/\{\{Infobox mod/i.test(wt)) continue; // skip non-mod pages
+    const type = getTemplateField(wt, "type");
+    const scope = scopeFromType(type);
+    if (!scope) continue; // placeholder/doc pages (e.g. "Example Mod")
+    const name = apos(title);
+    if (seenNames.has(name)) continue; // duplicate (apostrophe variant)
+    seenNames.add(name);
+    mods.push({
+      name,
+      tier: parseTier(getTemplateField(wt, "tier")),
+      type,
+      scope,
+      description: extractSummary(wt),
+      source: extractSource(wt),
+    });
   }
   mods.sort((a, b) => (a.tier - b.tier) || a.name.localeCompare(b.name));
   mkdirSync("data", { recursive: true });

@@ -953,7 +953,7 @@
   // constant to within ~0.2%. Values are approximate (the site shows "~" too).
   const WF = D.weaponFirepower || {};
   const FP_TYPES = Object.keys(WF);
-  const FP_MAX_FACTOR = 10.08;
+  const FP_MAX_FACTOR = 10.837; // Worldslayer item-level extension (levels 51..cap), measured
   const FP_RARITIES = ["unusual", "rare", "epic", "legendary"]; // legendary == epic
   const fp = { type: FP_TYPES.includes("assault-rifle") ? "assault-rifle" : FP_TYPES[0], level: 30, rarity: "epic", value: "" };
   const typeLabel = (s) => s.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");

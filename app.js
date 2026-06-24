@@ -970,6 +970,22 @@
     }
     return null;
   }
+  // Quality tier of an entered firepower, by ratio to the level's epic optimal
+  // (thresholds measured against the live tool: 0.85/0.90/0.95/1.00/1.05).
+  const FP_TIERS = [
+    { max: 0.85, label: "NOT GREAT", cls: "bad" },
+    { max: 0.90, label: "USABLE", cls: "ok" },
+    { max: 0.95, label: "SOLID", cls: "ok" },
+    { max: 1.00, label: "EXCELLENT", cls: "good" },
+    { max: 1.05, label: "GOD TIER", cls: "god" },
+    { max: Infinity, label: "IMPOSSIBLE", cls: "bad" },
+  ];
+  function fpTier(value, typeSlug, level) {
+    const opt = fpOptimal(typeSlug, level); if (!opt || !(value > 0)) return null;
+    const ratio = value / opt.epic;
+    const t = FP_TIERS.find((x) => ratio < x.max) || FP_TIERS[FP_TIERS.length - 1];
+    return { label: t.label, cls: t.cls, pct: Math.round(ratio * 100) };
+  }
   function fpProject(typeSlug, level, rarity, value) {
     const t = WF[typeSlug]; if (!t || !(value > 0)) return null;
     let r = value; // project up the curve (now reaching the level-75 cap) to max
@@ -1026,11 +1042,13 @@
     projWrap.appendChild(pc);
     const projGrid = el("div", "fp-grid");
     projWrap.appendChild(projGrid);
+    const tierBox = el("div", "fp-tierwrap");
+    projWrap.appendChild(tierBox);
     panel.appendChild(projWrap);
 
     const updateProj = () => {
       const proj = fpProject(fp.type, fp.level, fp.rarity, +fp.value);
-      projGrid.innerHTML = "";
+      projGrid.innerHTML = ""; tierBox.innerHTML = "";
       if (!proj) { projGrid.appendChild(el("div", "fp-empty", "Enter your weapon's current firepower to project it to the cap.")); return; }
       for (const r of FP_RARITIES) {
         if (proj[r] == null) continue;
@@ -1038,6 +1056,8 @@
         card.innerHTML = `<div class="fp-rarity">${r} max</div><div class="fp-val">${fpFmt(proj[r])}</div><div class="fp-sub">${proj[r].toLocaleString("en-US")}</div>`;
         projGrid.appendChild(card);
       }
+      const tier = fpTier(+fp.value, fp.type, fp.level);
+      if (tier) tierBox.innerHTML = `<span class="fp-tier ${tier.cls}">${tier.label}</span><span class="fp-tier-sub">${tier.pct}% of the level-${fp.level} optimal</span>`;
     };
     fpInput.oninput = () => { fp.value = fpInput.value; updateProj(); };
     updateProj();

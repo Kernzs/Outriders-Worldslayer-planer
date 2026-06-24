@@ -181,29 +181,35 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .stepper-count { width: 38px; text-align: right; font-size: 12px; color: var(--txt-dim); font-variant-numeric: tabular-nums; }
 
 /* ---- Firepower calculator ---- */
-.fp-controls { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
-.fp-field { flex: 1 1 200px; display: flex; flex-direction: column; gap: 5px; }
+.fp-controls { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+.fp-field { flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; }
 .fp-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--txt-faint); }
-.fp-input { width: 100%; font: inherit; font-size: 12.5px; padding: 8px; background: var(--bg-elev); color: var(--txt); border: 1px solid var(--line); border-radius: 3px; }
-.fp-input:focus { outline: none; border-color: var(--accent); }
-.fp-section { margin-top: 18px; }
-.fp-section-h { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; }
-.fp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.fp-card { background: var(--bg-panel-2); border: 1px solid var(--line-soft); border-top: 3px solid var(--line); border-radius: var(--radius); padding: 12px 10px; text-align: center; }
-.fp-card.unusual { border-top-color: #8f9d8a; }
-.fp-card.rare { border-top-color: #5b9bd6; }
-.fp-card.epic { border-top-color: #b06fd6; }
-.fp-card.legendary { border-top-color: var(--accent); }
-.fp-rarity { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-faint); margin-bottom: 6px; }
-.fp-val { font-size: 22px; font-weight: 800; color: var(--txt); font-variant-numeric: tabular-nums; line-height: 1.1; }
-.fp-sub { font-size: 11px; color: var(--txt-dim); margin-top: 3px; font-variant-numeric: tabular-nums; }
+.fp-input { width: 100%; font: inherit; font-size: 13px; padding: 9px 10px; background: var(--bg-elev); color: var(--txt); border: 1px solid var(--line); border-radius: 5px; }
+.fp-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px rgba(232,163,61,.18); }
+.fp-section { margin-top: 24px; }
+.fp-section-h { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-2); border-bottom: 1px solid var(--line); padding-bottom: 9px; margin-bottom: 14px; }
+.fp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.fp-card { --rc: var(--line); position: relative; background: linear-gradient(180deg, color-mix(in srgb, var(--rc) 13%, var(--bg-panel-2)), var(--bg-panel-2) 75%); border: 1px solid var(--line-soft); border-top: 3px solid var(--rc); border-radius: var(--radius); padding: 14px 10px 13px; text-align: center; transition: transform .15s, box-shadow .15s, border-color .15s; }
+.fp-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--rc) 45%, var(--line)); box-shadow: 0 5px 16px rgba(0,0,0,.32); }
+.fp-card.unusual { --rc: #8f9d8a; }
+.fp-card.rare { --rc: #5b9bd6; }
+.fp-card.epic { --rc: #b06fd6; }
+.fp-card.legendary { --rc: var(--accent); }
+.fp-rarity { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-faint); margin-bottom: 7px; }
+.fp-rarity::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--rc); margin-right: 6px; vertical-align: middle; box-shadow: 0 0 5px var(--rc); }
+.fp-val { font-size: 25px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; line-height: 1.05; text-shadow: 0 1px 2px rgba(0,0,0,.45); }
+.fp-sub { font-size: 11px; color: var(--txt-dim); margin-top: 4px; font-variant-numeric: tabular-nums; }
 .fp-empty { grid-column: 1 / -1; color: var(--txt-faint); font-size: 12.5px; font-style: italic; padding: 6px 0; }
-.fp-tierwrap { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
-.fp-tier { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; border: 1px solid; }
+/* quality gauge */
+.fp-gauge { position: relative; display: flex; height: 12px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); margin-top: 18px; }
+.fp-seg { height: 100%; opacity: .5; }
+.fp-cursor { position: absolute; top: -4px; bottom: -4px; width: 3px; background: #fff; border-radius: 2px; box-shadow: 0 0 7px rgba(255,255,255,.9); transform: translateX(-1.5px); transition: left .18s ease; }
+.fp-tier-line { display: flex; align-items: center; gap: 11px; margin-top: 12px; }
+.fp-tier { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 5px 13px; border-radius: 5px; border: 1px solid; }
 .fp-tier.bad { color: #e0726a; border-color: rgba(224,114,106,.5); background: rgba(224,114,106,.1); }
 .fp-tier.ok { color: var(--accent-2); border-color: rgba(232,163,61,.4); background: rgba(232,163,61,.08); }
 .fp-tier.good { color: #5bd6c9; border-color: rgba(91,214,201,.5); background: rgba(91,214,201,.1); }
-.fp-tier.god { color: #1a1206; border-color: #b9791f; background: linear-gradient(180deg, var(--accent), #c9842a); }
+.fp-tier.god { color: #1a1206; border-color: #b9791f; background: linear-gradient(180deg, var(--accent), #c9842a); box-shadow: 0 0 12px rgba(232,163,61,.4); }
 .fp-tier-sub { font-size: 11.5px; color: var(--txt-dim); }
 
 /* ---- Loadout / gear ---- */

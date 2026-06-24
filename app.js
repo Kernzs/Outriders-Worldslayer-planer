@@ -984,7 +984,16 @@
     const opt = fpOptimal(typeSlug, level); if (!opt || !(value > 0)) return null;
     const ratio = value / opt.epic;
     const t = FP_TIERS.find((x) => ratio < x.max) || FP_TIERS[FP_TIERS.length - 1];
-    return { label: t.label, cls: t.cls, pct: Math.round(ratio * 100) };
+    return { label: t.label, cls: t.cls, ratio, pct: Math.round(ratio * 100) };
+  }
+  // Segmented quality gauge: the six tiers laid out on a 0.70..1.10 ratio scale,
+  // with a cursor at the entered firepower's position.
+  const FP_GAUGE = [["NOT GREAT", 37.5, "#8a4f4a"], ["USABLE", 12.5, "#b07f2e"], ["SOLID", 12.5, "#cf9a38"], ["EXCELLENT", 12.5, "#3f9b91"], ["GOD TIER", 12.5, "#e8a33d"], ["IMPOSSIBLE", 12.5, "#b14d44"]];
+  function fpGaugeHtml(tier, level) {
+    const pos = Math.max(0, Math.min(100, ((tier.ratio - 0.70) / 0.40) * 100));
+    const segs = FP_GAUGE.map(([l, w, c]) => `<div class="fp-seg" style="flex:0 0 ${w}%;background:${c}" title="${l}"></div>`).join("");
+    return `<div class="fp-gauge">${segs}<div class="fp-cursor" style="left:${pos.toFixed(1)}%"></div></div>`
+      + `<div class="fp-tier-line"><span class="fp-tier ${tier.cls}">${tier.label}</span><span class="fp-tier-sub">${tier.pct}% of the level-${level} optimal</span></div>`;
   }
   function fpProject(typeSlug, level, rarity, value) {
     const t = WF[typeSlug]; if (!t || !(value > 0)) return null;
@@ -1057,7 +1066,7 @@
         projGrid.appendChild(card);
       }
       const tier = fpTier(+fp.value, fp.type, fp.level);
-      if (tier) tierBox.innerHTML = `<span class="fp-tier ${tier.cls}">${tier.label}</span><span class="fp-tier-sub">${tier.pct}% of the level-${fp.level} optimal</span>`;
+      if (tier) tierBox.innerHTML = fpGaugeHtml(tier, fp.level);
     };
     fpInput.oninput = () => { fp.value = fpInput.value; updateProj(); };
     updateProj();

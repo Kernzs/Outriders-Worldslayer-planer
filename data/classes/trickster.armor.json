@@ -275,7 +275,7 @@
     "class": "Universal",
     "specialStats": [
       "Anomaly Power",
-      "Cooldown Recudtion"
+      "Cooldown Reduction"
     ],
     "factoryMods": [
       "Ready For Anything",
@@ -628,8 +628,8 @@
     "slot": "Headgear",
     "class": null,
     "specialStats": [
-      "Bonus Firepower|stat2=Close Range Damage|stat3=Cooldown Reduction",
-      "Close Range Damage|stat3=Cooldown Reduction",
+      "Bonus Firepower",
+      "Close Range Damage",
       "Cooldown Reduction"
     ],
     "factoryMods": [

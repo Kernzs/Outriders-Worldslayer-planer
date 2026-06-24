@@ -15,6 +15,7 @@
         "New 'Weapon Upgrade' tab: pick a weapon type, rarity and level (10–75) for the optimal firepower per rarity; enter a weapon's current firepower to project it to the item-level cap and rate it on a quality gauge (NOT GREAT → GOD TIER).",
         "New 'Armor Upgrade' tab: pick an armor slot, rarity and level for the optimal armor per rarity, and rate your current armor against it on the same gauge.",
         "Both reproduce the Outriders Outpost upgrade tool; values are approximate (matched to within ~0.1%).",
+        "Cleaned up the Epic gear attribute list: removed a malformed entry and merged wiki typos/casing duplicates (e.g. Cooldown Reduction).",
       ],
     },
     {

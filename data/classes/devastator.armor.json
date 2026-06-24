@@ -303,7 +303,7 @@
     "slot": "Lower Armor",
     "class": "Devastator",
     "specialStats": [
-      "Bonus FirePower",
+      "Bonus Firepower",
       "Close Range Damage",
       "Healing Received"
     ],
@@ -394,7 +394,7 @@
     "class": "Universal",
     "specialStats": [
       "Anomaly Power",
-      "Cooldown Recudtion"
+      "Cooldown Reduction"
     ],
     "factoryMods": [
       "Ready For Anything",
@@ -526,7 +526,7 @@
     "slot": "Upper Armor",
     "class": "Devastator",
     "specialStats": [
-      "Anomaly power",
+      "Anomaly Power",
       "Cooldown Reduction"
     ],
     "factoryMods": [
@@ -681,8 +681,8 @@
     "slot": "Headgear",
     "class": "Devastator",
     "specialStats": [
-      "Anomaly Power|stat2=Status Power|stat3=Skills Life Leech",
-      "Status Power|stat3=Skills Life Leech",
+      "Anomaly Power",
+      "Status Power",
       "Skills Life Leech"
     ],
     "factoryMods": [
@@ -799,8 +799,8 @@
     "slot": "Headgear",
     "class": null,
     "specialStats": [
-      "Bonus Firepower|stat2=Close Range Damage|stat3=Cooldown Reduction",
-      "Close Range Damage|stat3=Cooldown Reduction",
+      "Bonus Firepower",
+      "Close Range Damage",
       "Cooldown Reduction"
     ],
     "factoryMods": [

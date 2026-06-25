@@ -1413,6 +1413,19 @@
     renderUpgrade("weapon"); renderUpgrade("armor"); // standalone tools; independent of the build
     if (new URLSearchParams(location.search).get("recap")) openRecap(); // shared recap link
     else openChangelog(false);
+    showFeedbackToast();
+  }
+
+  // Feedback nudge, bottom-right. Shown on every load (so the invite keeps
+  // coming back); the close button only hides it for the current view.
+  function showFeedbackToast() {
+    const REDDIT = "https://www.reddit.com/r/outriders/comments/1udcecz/i_built_a_free_outriders_worldslayer_build/";
+    const t = el("div", "fb-toast");
+    t.innerHTML = `<button class="fb-close" aria-label="Dismiss">&times;</button>`
+      + `<div class="fb-toast-h">Found a bug? Got feedback?</div>`
+      + `<div class="fb-toast-body">Spotted a bug, a wrong value, or have a suggestion? Drop a comment on the <a href="${REDDIT}" target="_blank" rel="noopener">Reddit post</a> — it really helps!</div>`;
+    t.querySelector(".fb-close").onclick = () => t.remove();
+    document.body.appendChild(t);
   }
   document.addEventListener("DOMContentLoaded", init);
 })();

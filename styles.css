@@ -76,6 +76,7 @@ body {
 .btn-accent:hover { filter: brightness(1.1); color: #1a1206; }
 .btn-ghost { background: transparent; }
 a.btn { display: inline-flex; align-items: center; text-decoration: none; }
+.btn-ico { width: 14px; height: 14px; margin-right: 7px; flex: 0 0 auto; }
 .footnote a { color: var(--accent-2); text-decoration: none; }
 .footnote a:hover { text-decoration: underline; }
 

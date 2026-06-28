@@ -107,7 +107,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 /* ---- Layout ---- */
 .layout { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
 /* Class Tree tab: give the (wide) tree the full row */
-.layout.full-tree { grid-template-columns: 1fr; }
+.layout.full-tree { grid-template-columns: minmax(0, 1fr); }
 .layout.full-tree .summary { display: none; }
 .panel { background: var(--bg-panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; }
 .panel.hidden { display: none; }
@@ -445,8 +445,51 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 @media (max-width: 620px) { .recap-body { grid-template-columns: 1fr; } }
 
 @media (max-width: 940px) {
-  .layout { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: minmax(0, 1fr); }
   .summary { position: static; }
   .branches.cols-3, .branches.cols-2 { grid-template-columns: 1fr; }
   .asc-cats, .loadout-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Phone ---- */
+@media (max-width: 600px) {
+  body { font-size: 13.5px; }
+  #app { padding: 0 10px 34px; }
+
+  /* topbar stacks: brand, class switch, actions on their own rows */
+  .topbar { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 0 12px; }
+  .brand { align-items: center; text-align: center; }
+  .brand-class { font-size: 20px; letter-spacing: .1em; }
+  .brand-sub { letter-spacing: .18em; }
+  .class-switch { gap: 5px; }
+  .class-btn { flex: 1 1 auto; text-align: center; padding: 9px 6px; font-size: 11px; }
+  .topbar-actions { flex-wrap: wrap; gap: 7px; }
+  .topbar-actions .btn { flex: 1 1 auto; justify-content: center; padding: 9px 10px; }
+
+  /* tabs wrap, full-width-ish */
+  .tabs { gap: 4px; margin: 12px 0 14px; }
+  .tab { flex: 1 1 auto; text-align: center; padding: 10px 6px; font-size: 11px; letter-spacing: .03em; }
+
+  .panel { padding: 13px; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .section-head h2 { font-size: 15px; }
+
+  /* upgrade cards: 2 per row */
+  .fp-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fp-card { padding: 12px 8px 11px; }
+  .fp-val { font-size: 20px; }
+  .fp-controls { gap: 10px; }
+
+  /* trees: scroll horizontally so nodes stay tappable (also pinch-zoomable) */
+  #panel-tree, #panel-pax { overflow-x: auto; }
+  #panel-tree .tree-stage, #panel-pax .tree-stage { min-width: 680px; }
+
+  /* modals + recap */
+  .modal { padding: 16px; max-height: 88vh; }
+  .modal-head h2 { font-size: 16px; }
+  .recap-body { max-height: 70vh; }
+  .recap-actions { flex-wrap: wrap; }
+
+  /* feedback nudge spans the width */
+  .fb-toast { left: 10px; right: 10px; bottom: 10px; max-width: none; }
 }
